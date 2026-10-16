@@ -13,7 +13,7 @@ and figures below; all reported tables can be rebuilt offline. See the
 - **Models:** Qwen2.5-7B, Llama-3.1-8B, Qwen3-30B, Fin-o1, Claude Haiku 4.5, GPT-5.5.
 - **Datasets:** XBRLFiling (600 questions), FinanceBench (67), TADQA (403).
 
-[Results](#results) · [Main prompts](#main-prompts) · [Quick start](#quick-start) · [Code map](docs/CODE_MAP.md) · [Generate new answers](docs/GENERATION.md)
+[Figures](#figures) · [Main prompts](#main-prompts) · [Quick start](#quick-start) · [Code map](docs/CODE_MAP.md) · [Generate new answers](docs/GENERATION.md)
 
 ## Quick start
 
@@ -31,14 +31,7 @@ key required. It executes the three main-result notebooks, checks the rebuilt nu
 against the audited results, and preserves the original prediction files.
 The baseline comparisons have a separate offline workflow described below.
 
-## Results
-
-| What to view | Notebook | Downloads |
-| --- | --- | --- |
-| Main table: six models, three datasets, 95% confidence intervals | [Main results](notebooks/tatdqa_results.ipynb) | [CSV](paper/tables/models_three_datasets.csv) · [Overleaf](paper/tables/models_three_datasets.tex) · [Preamble](paper/tables/models_three_datasets_preamble.tex) |
-| XBRLFiling heatmap and statement-family bars | [Plots](results/new_submissions/six_model_accuracy_heatmap.ipynb) | [PDF, PNG, SVG and CSV](results/new_submissions/figures/) |
-| TADQA scores and statistics | [Detailed analysis](notebooks/tatdqa_result_metrics.ipynb) | [Outcome figure](paper/figures/tatdqa.pdf) · [Counts](paper/tables/tatdqa.csv) |
-| Four LLM judges versus VeriFin on FinanceBench and XBRLFiling | [Baseline comparisons](notebooks/baseline_results.ipynb) | [CSV](results/new_submissions/baselines/comparison.csv) · [PDF](results/new_submissions/baselines/figures/four_model_baseline_comparison.pdf) · [Output audit](results/new_submissions/baselines/protocol_audit.csv) |
+## Figures
 
 <p align="center">
   <img src="results/new_submissions/figures/xbrl_error_profile_by_statement_family.png" width="65%" alt="True rejects by model and statement family">
