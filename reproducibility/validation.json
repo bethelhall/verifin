@@ -214,6 +214,22 @@
       ],
       "model_code_and_scientific_records_changed": false,
       "checks": "Executed figure renderer, inspected PNG, checked README links and refreshed file hashes. Regression tests were not rerun for this presentation-only change."
+    },
+    {
+      "description": "Restored selected prompt details in JSON-style code blocks with a copyable JSON companion.",
+      "validated_at_utc": "2026-10-16T20:33:43.014251+00:00",
+      "status": "PASS",
+      "prompt_blocks": 3,
+      "selected_rules_per_prompt": 5,
+      "source_anchor_checks": 12,
+      "json_blocks_parse": true,
+      "visual_inspection": "Readable code layout with no clipping or overlap.",
+      "figure_dimensions_pixels": [
+        2160,
+        2646
+      ],
+      "model_code_and_scientific_records_changed": false,
+      "checks": "Executed renderer, parsed JSON blocks, inspected PNG, checked README links and refreshed the package inventory. No model inference or regression-suite rerun for presentation-only edits."
     }
   ]
 }

@@ -53,7 +53,8 @@ measures **correct verifier decisions among scored, non-abstained cases**.
 
 [![Main VeriFin prompts for answer generation, verification planning, and fact grounding.](docs/figures/prompt_overview.png)](docs/figures/prompt_overview.svg)
 
-Condensed current instructions. Full prompts:
+Selected instructions and response schemas in a structured view.
+[Copy JSON](docs/figures/prompt_overview.json). Full prompts:
 [Answer](src/verifiqa/generation/answer_generator.py#L10) ·
 [Plan](src/verifiqa/agent/claim_classifier.py#L20) ·
 [Ground](src/verifiqa/agent/fact_extractor.py#L17).

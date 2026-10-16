@@ -20,8 +20,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 10819,
-      "sha256": "46cc01fb619fd4421948ca97a769900a125c691ca44eaa27f2650ff2e38104f8"
+      "bytes": 10900,
+      "sha256": "932c52683ec6c4e61e6b7225ffa6a1e253379a14bbdec0be788e0eda2d46d17a"
     },
     {
       "path": "artifacts/financebench_abstention_audit/latest_codex_source_audit.json",
@@ -385,8 +385,8 @@
     },
     {
       "path": "docs/ANONYMOUS_REVIEW.md",
-      "bytes": 3147,
-      "sha256": "d5bbc92baf5b98d92090349c18a2387e91477b2ceac155ac9f728022b4cb2c8c"
+      "bytes": 3296,
+      "sha256": "b3d0422efe9eeed04b55e8ac9ffe68ab4fd0a898f8e0544ea58259999fd5cc1a"
     },
     {
       "path": "docs/BASELINE_MODEL_RUNS.md",
@@ -414,14 +414,19 @@
       "sha256": "84931df0bb8dd4b0d5802047282c10c40706ddd0b9e105de1937ec09a402ccab"
     },
     {
+      "path": "docs/figures/prompt_overview.json",
+      "bytes": 2727,
+      "sha256": "21b538bcb707ac95dd7ec8f4a33abbe82f970d6121912f1ab1c7b39b9e080cc6"
+    },
+    {
       "path": "docs/figures/prompt_overview.png",
-      "bytes": 107470,
-      "sha256": "00f09a90f279bca462cc744017b43fa8be4cfa79b9de99ba6b77c19c64aa436b"
+      "bytes": 596020,
+      "sha256": "91d6e55b85a4b96e2a0903d29df3c6397416cf2f51ea2f7a7ba1eed6aafc6403"
     },
     {
       "path": "docs/figures/prompt_overview.svg",
-      "bytes": 5617,
-      "sha256": "563b3388d2fe74baebeebab969fdbac6892e7ea4441491495d2c33a06be9cf88"
+      "bytes": 48480,
+      "sha256": "b7aab7f4d8f402711f77c086b7df6c21e43ca73641391202758eff8272cf2800"
     },
     {
       "path": "figures/baseline_comparison_original_scoring.pdf",
@@ -625,13 +630,13 @@
     },
     {
       "path": "reproducibility/anonymization.json",
-      "bytes": 10956,
-      "sha256": "79b0fe586a310cbfc7df138f226f18d2074dd6df58c1dbd42a7ccd847b0482ca"
+      "bytes": 11158,
+      "sha256": "d547121f1c766b1b5960a76c03bf2d88d6ba82516cd07dca95835fe366ad9338"
     },
     {
       "path": "reproducibility/copied_sources.json",
-      "bytes": 249873,
-      "sha256": "8685eeb4f2c40d261ba9eff0f5c21fe99261a6654df51ea150a46183094bd3fc"
+      "bytes": 250070,
+      "sha256": "695707e9ef47c3ed3cdfe0e309f87263d0378ace637682e9c6c4d01fcc495f41"
     },
     {
       "path": "reproducibility/expected/category_model_performance_1col_compact_data.csv",
@@ -650,8 +655,8 @@
     },
     {
       "path": "reproducibility/validation.json",
-      "bytes": 10098,
-      "sha256": "0468046166a0995aa69e8d9cd3ae653516a308d0cd3cfa8b09d487756a51d488"
+      "bytes": 10857,
+      "sha256": "7a865287b8c764882a876c7e0dbacd9830fcaf3b54002c1ea1314b39e462721c"
     },
     {
       "path": "requirements-analysis.txt",
@@ -2275,8 +2280,8 @@
     },
     {
       "path": "scripts/render_prompt_overview.py",
-      "bytes": 4065,
-      "sha256": "2d5b8bdb1cec9c62568cbbf650e5f9372aab19c5fa6a774c19bdbb3d86a21894"
+      "bytes": 9306,
+      "sha256": "d3c4c3ecbd207340f7de63766c1f53cc48dd69c77aba435dae68b42c6b960ac1"
     },
     {
       "path": "scripts/reproduce_submission.py",
@@ -3249,7 +3254,7 @@
       "sha256": "539fdf4f8d7443ed80f921b617b1a560a2e6a0a2f0020f301447edde7c7de404"
     }
   ],
-  "file_count": 649,
-  "total_bytes": 272223895,
-  "updated_at_utc": "2026-10-16T20:19:12.917119+00:00"
+  "file_count": 650,
+  "total_bytes": 272764664,
+  "updated_at_utc": "2026-10-16T20:33:43.014251+00:00"
 }

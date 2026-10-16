@@ -1,0 +1,81 @@
+[
+  {
+    "task": "Answer the financial question using only the retrieved filing evidence.",
+    "inputs": [
+      "question",
+      "evidence",
+      "retrieval plan",
+      "calculation guidance (if provided)"
+    ],
+    "rules": [
+      "Use only supplied evidence; do not invent missing numbers.",
+      "Return one JSON object, with no markdown or surrounding prose.",
+      "Compute the final value; include its explicit unit and display scale.",
+      "Follow calculation guidance; preserve the requested quantity and scale.",
+      "If the evidence or required unit is insufficient, say so in the answer."
+    ],
+    "response": {
+      "answer": "<concise final value, unit, scale, and calculation when possible>"
+    }
+  },
+  {
+    "task": "Resolve the metric, formula, operands, and expected unit for verification.",
+    "inputs": [
+      "question",
+      "evidence",
+      "operation hint",
+      "formula registry"
+    ],
+    "rules": [
+      "Plan independently of the proposed answer; return JSON only.",
+      "Use an authorized formula or an explicit source definition.",
+      "Preserve the requested measure, scope, and periods.",
+      "Bind every observed quantity to an operand role, not a numeric literal.",
+      "If no supported formula applies, use no_formula and empty formula/roles."
+    ],
+    "response": {
+      "verifiable": "<true|false>",
+      "metric": "<requested metric>",
+      "formula": "<arithmetic using role names>",
+      "roles": [
+        {
+          "name": "<operand>",
+          "aliases": [
+            "<source label>"
+          ],
+          "period": "<period>"
+        }
+      ],
+      "claim_unit": "<expected answer unit>",
+      "formula_source": "<policy_registry|generic_operation|document_derived|no_formula>"
+    }
+  },
+  {
+    "task": "Extract one financial operand from the source evidence.",
+    "inputs": [
+      "question",
+      "role and aliases",
+      "period",
+      "formula",
+      "evidence"
+    ],
+    "rules": [
+      "Select the requested measure, row, and period; return JSON only.",
+      "Copy the source value without converting units or changing its scale.",
+      "Report the unit established by the source header or caption; do not guess.",
+      "Copy a verbatim source quotation containing the numeric value.",
+      "If the requested value is unavailable, return found=false and a reason."
+    ],
+    "response": {
+      "value": "<number as printed>",
+      "unit": "<as-reported unit and scale>",
+      "source_quote": "<verbatim evidence containing the value>",
+      "period": "<requested period>",
+      "row_label": "<exact source label>"
+    },
+    "if_missing": {
+      "found": false,
+      "reason": "<brief reason>"
+    }
+  }
+]

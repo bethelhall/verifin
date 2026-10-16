@@ -70,7 +70,7 @@
     {
       "path": "README.md",
       "source_package_sha256": "5cee9606bdd8267f1e0c902bc50b5570531eaf652ced48266694b1662f3ca369",
-      "anonymous_package_sha256": "46cc01fb619fd4421948ca97a769900a125c691ca44eaa27f2650ff2e38104f8",
+      "anonymous_package_sha256": "932c52683ec6c4e61e6b7225ffa6a1e253379a14bbdec0be788e0eda2d46d17a",
       "reason": "Anonymous review documentation and presentation."
     },
     {
@@ -173,19 +173,23 @@
   "authored_files": [
     {
       "path": "docs/ANONYMOUS_REVIEW.md",
-      "sha256": "d5bbc92baf5b98d92090349c18a2387e91477b2ceac155ac9f728022b4cb2c8c"
+      "sha256": "b3d0422efe9eeed04b55e8ac9ffe68ab4fd0a898f8e0544ea58259999fd5cc1a"
     },
     {
       "path": "docs/figures/prompt_overview.png",
-      "sha256": "00f09a90f279bca462cc744017b43fa8be4cfa79b9de99ba6b77c19c64aa436b"
+      "sha256": "91d6e55b85a4b96e2a0903d29df3c6397416cf2f51ea2f7a7ba1eed6aafc6403"
     },
     {
       "path": "docs/figures/prompt_overview.svg",
-      "sha256": "563b3388d2fe74baebeebab969fdbac6892e7ea4441491495d2c33a06be9cf88"
+      "sha256": "b7aab7f4d8f402711f77c086b7df6c21e43ca73641391202758eff8272cf2800"
     },
     {
       "path": "scripts/render_prompt_overview.py",
-      "sha256": "2d5b8bdb1cec9c62568cbbf650e5f9372aab19c5fa6a774c19bdbb3d86a21894"
+      "sha256": "d3c4c3ecbd207340f7de63766c1f53cc48dd69c77aba435dae68b42c6b960ac1"
+    },
+    {
+      "path": "docs/figures/prompt_overview.json",
+      "sha256": "21b538bcb707ac95dd7ec8f4a33abbe82f970d6121912f1ab1c7b39b9e080cc6"
     }
   ],
   "provenance_note": "Historical source_sha256 values are retained in copied_sources.json. Packaged hashes describe this delivered copy. Package metadata files are tracked by package_inventory.json, which excludes itself and Git internals.",
@@ -193,6 +197,6 @@
     "Anonymization checks target known author/lab identifiers, identifying paths, repository pointers, credentials and metadata; they do not claim protection against inference from research content.",
     "Current source templates are not an exact prompt archive for every historical run."
   ],
-  "updated_at_utc": "2026-10-16T20:19:12.917119+00:00",
-  "presentation_update": "Main prompt figure shortened to three compact cards with condensed instructions and selected output fields; source anchors verified and figure visually inspected. Scientific records unchanged."
+  "updated_at_utc": "2026-10-16T20:33:43.014251+00:00",
+  "presentation_update": "Main prompt figure now shows three JSON-style blocks with tasks, inputs, five selected rules per prompt, response schemas and a missing-evidence response. Includes copyable JSON; source anchors and rendering verified. Scientific records unchanged."
 }
