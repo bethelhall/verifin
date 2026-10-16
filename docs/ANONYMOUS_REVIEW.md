@@ -42,6 +42,13 @@ hashes in the packaging provenance.
 
 ## Interpretation
 
+The README prompt figure summarizes the current templates; it is not an exact
+prompt archive for every historical run. Deterministic planning and table
+lookup can bypass the corresponding prompts. Formal constraints and Z3
+determine the verdict in deterministic-SMT mode. The
+[figure script](../scripts/render_prompt_overview.py) checks supporting source
+excerpts before rendering the condensed instructions.
+
 The baseline notebook includes 44 documented, post hoc, AI-assisted
 full-answer correctness reviews. These are not independent human labels.
 Reference interpretation caveats and the before-review comparison remain

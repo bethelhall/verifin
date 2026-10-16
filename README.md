@@ -51,21 +51,12 @@ measures **correct verifier decisions among scored, non-abstained cases**.
 
 ## Main prompts
 
-Three selected prompts show how the main pipeline generates an answer, plans
-verification independently of the proposed answer, and grounds numerical facts
-in source evidence.
-
 [![Main VeriFin prompts for answer generation, verification planning, and fact grounding.](docs/figures/prompt_overview.png)](docs/figures/prompt_overview.svg)
 
-These are abridged current templates, not an exact prompt archive for every
-historical run. Full templates:
-[answer generation](src/verifiqa/generation/answer_generator.py#L10),
-[verification planning](src/verifiqa/agent/claim_classifier.py#L20), and
-[fact grounding](src/verifiqa/agent/fact_extractor.py#L17).
-Deterministic planning and table lookup can bypass the corresponding prompts;
-formal constraints and Z3 determine the verdict in deterministic-SMT mode.
-The [figure script](scripts/render_prompt_overview.py) checks the excerpts
-against their source templates before rendering the PNG and SVG.
+Condensed current instructions. Full prompts:
+[Answer](src/verifiqa/generation/answer_generator.py#L10) ·
+[Plan](src/verifiqa/agent/claim_classifier.py#L20) ·
+[Ground](src/verifiqa/agent/fact_extractor.py#L17).
 
 ## Baseline comparisons
 

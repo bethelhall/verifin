@@ -70,7 +70,7 @@
     {
       "path": "README.md",
       "source_package_sha256": "5cee9606bdd8267f1e0c902bc50b5570531eaf652ced48266694b1662f3ca369",
-      "anonymous_package_sha256": "044f43e5061da531dfd4682a53d68b604c2719eeabc63397a808383aab360187",
+      "anonymous_package_sha256": "46cc01fb619fd4421948ca97a769900a125c691ca44eaa27f2650ff2e38104f8",
       "reason": "Anonymous review documentation and presentation."
     },
     {
@@ -173,24 +173,26 @@
   "authored_files": [
     {
       "path": "docs/ANONYMOUS_REVIEW.md",
-      "sha256": "c368d775cd6001cd5dd580840e1966c29936f62c20496c8a67fd827393865ec9"
+      "sha256": "d5bbc92baf5b98d92090349c18a2387e91477b2ceac155ac9f728022b4cb2c8c"
     },
     {
       "path": "docs/figures/prompt_overview.png",
-      "sha256": "65c6ad070cb66e105a6446cb684e77045356286f5ed06ae1436812277a22a2f2"
+      "sha256": "00f09a90f279bca462cc744017b43fa8be4cfa79b9de99ba6b77c19c64aa436b"
     },
     {
       "path": "docs/figures/prompt_overview.svg",
-      "sha256": "830e90cffd7c985c3e1794c799bc020c3c45e5cbdab4767efe8df4fd694c19e8"
+      "sha256": "563b3388d2fe74baebeebab969fdbac6892e7ea4441491495d2c33a06be9cf88"
     },
     {
       "path": "scripts/render_prompt_overview.py",
-      "sha256": "6d4f901e3ebf598cd9bf9e557391b551e5b7cd80e39d80aaafbba4fa6550330d"
+      "sha256": "2d5b8bdb1cec9c62568cbbf650e5f9372aab19c5fa6a774c19bdbb3d86a21894"
     }
   ],
   "provenance_note": "Historical source_sha256 values are retained in copied_sources.json. Packaged hashes describe this delivered copy. Package metadata files are tracked by package_inventory.json, which excludes itself and Git internals.",
   "limits": [
     "Anonymization checks target known author/lab identifiers, identifying paths, repository pointers, credentials and metadata; they do not claim protection against inference from research content.",
     "Current source templates are not an exact prompt archive for every historical run."
-  ]
+  ],
+  "updated_at_utc": "2026-10-16T20:19:12.917119+00:00",
+  "presentation_update": "Main prompt figure shortened to three compact cards with condensed instructions and selected output fields; source anchors verified and figure visually inspected. Scientific records unchanged."
 }

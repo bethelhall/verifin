@@ -198,6 +198,22 @@
       "model_inference_performed": false,
       "uploaded": false,
       "original_source_package_unchanged": true
+    },
+    {
+      "description": "Simplified main prompt overview and README caption for readability.",
+      "validated_at_utc": "2026-10-16T20:19:12.917119+00:00",
+      "status": "PASS",
+      "prompt_cards": 3,
+      "displayed_text": "Condensed paraphrases of current main prompt instructions, with selected output fields.",
+      "source_anchor_checks": 6,
+      "independent_source_review": "PASS",
+      "visual_inspection": "Readable; no clipping or overlap.",
+      "figure_dimensions_pixels": [
+        2400,
+        560
+      ],
+      "model_code_and_scientific_records_changed": false,
+      "checks": "Executed figure renderer, inspected PNG, checked README links and refreshed file hashes. Regression tests were not rerun for this presentation-only change."
     }
   ]
 }

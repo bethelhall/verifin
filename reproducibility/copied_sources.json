@@ -3004,7 +3004,8 @@
     "Added the four completed one-word judge comparisons (8 runs, 2,668 records), baseline source code, executed notebook, tables, audit and review queue, and figures. Package notebook independently re-executed; all raw results unchanged. Original scoring retained, with 44 ungraded judge decisions and affected metrics withheld. No new inference or significance tests performed.",
     "Resolved the 44 ungraded full-answer judge decisions using explicit, source-bound, AI-assisted correctness reviews. The original numeric scorer remains the default; the four-model notebook opts into the documented extension. Both notebook copies executed; raw answers and verdicts, VeriFin metrics, and main-table results are unchanged. Preserved before-review exports and reference-interpretation caveats.",
     "Prepared an anonymous review copy: removed local workspace and lab identifiers from documentation, synthetic privacy-test fixtures and historical command metadata; excluded filesystem caches and original Git history. Raw scientific inputs and predictions are preserved.",
-    "Validated all four anonymous notebooks and 379 regression tests; preserved scientific JSONL records and tables, embedded five notebook figures, and added a source-checked overview of three main prompts to the README."
+    "Validated all four anonymous notebooks and 379 regression tests; preserved scientific JSONL records and tables, embedded five notebook figures, and added a source-checked overview of three main prompts to the README.",
+    "Shortened the main prompt overview to three compact instruction/output cards and a minimal README caption; detailed interpretation remains in the review notes."
   ],
   "source_commit_withheld_for_anonymous_review": true,
   "anonymous_copy": {
@@ -3039,6 +3040,7 @@
       "scripts/render_prompt_overview.py",
       "reproducibility/anonymization.json"
     ],
-    "anonymization_record": "reproducibility/anonymization.json"
+    "anonymization_record": "reproducibility/anonymization.json",
+    "updated_at_utc": "2026-10-16T20:19:12.917119+00:00"
   }
 }
