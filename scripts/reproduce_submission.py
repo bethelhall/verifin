@@ -178,7 +178,7 @@ def main(argv: list[str] | None = None) -> int:
             execute_notebook(ROOT, relative, args.timeout)
         for relative, keys in CSV_OUTPUTS:
             actual = ROOT / relative
-            expected = ROOT / "reproducibility/expected" / actual.name
+            expected = ROOT / "tests/fixtures/expected_tables" / actual.name
             compare_csv(actual, expected, keys)
     finally:
         after = {relative: sha256(ROOT / relative) for relative in before}

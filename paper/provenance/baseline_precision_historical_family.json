@@ -144,9 +144,9 @@
     }
   ],
   "source_hashes": {
-    "publication_assets_source/results/scoring_policy_v2.json": "619666ac97c051e255f5f730a634d45c1df4e5897e3227be8436b258df7411fb",
-    "publication_assets_source/results/scoring_policy.json": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81",
-    "publication_assets_source/results/manual_adjudications.json": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300",
+    "data/scoring/scoring_policy_v2.json": "619666ac97c051e255f5f730a634d45c1df4e5897e3227be8436b258df7411fb",
+    "data/scoring/scoring_policy.json": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81",
+    "data/scoring/manual_adjudications.json": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300",
     "data/numerical_questions.jsonl": "37639aefbd212518e601685a448463304b6e9f8818487f2d229b7460f55472c2",
     "results/fb_detsmt_v2_haiku/results.jsonl": "61a2acfd6138a21533793926eeefdb4a31bf14f7f332c9650cd94a63530634e8",
     "results/onepool_parsing_fixed/fb_none/results.jsonl": "ddb19bf6332854d048fa803eb0717875d7bbefbb7cd3cbfcc867f9be1278f814",

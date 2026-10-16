@@ -285,7 +285,7 @@ class TatdqaScoringContext:
         if policy_path is None:
             policy_path = repo_root / "results/scoring_policy.json"
             if not policy_path.is_file():
-                policy_path = repo_root / "publication_assets_source/results/scoring_policy.json"
+                policy_path = repo_root / "data/scoring/scoring_policy.json"
         paths = {
             "dataset": Path(data_path).resolve(),
             "gold": handoff_dir / "evaluator_only/tatdqa_arithmetic_pilot_gold.jsonl",

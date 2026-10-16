@@ -19,11 +19,11 @@ from scripts.build_publication_artifacts import (
 )
 from scripts.submission_runs import RUNS as SUBMISSION_RUNS
 
-POLICY_PATH = "publication_assets_source/results/scoring_policy_v2.json"
-ADJUDICATIONS_PATH = "publication_assets_source/results/manual_adjudications_v2.json"
+POLICY_PATH = "data/scoring/scoring_policy_v2.json"
+ADJUDICATIONS_PATH = "data/scoring/manual_adjudications_v2.json"
 EXECUTION_POLICY_PATH = POLICY_PATH
-ORIGINAL_POLICY_PATH = "publication_assets_source/results/scoring_policy.json"
-ORIGINAL_ADJUDICATIONS_PATH = "publication_assets_source/results/manual_adjudications.json"
+ORIGINAL_POLICY_PATH = "data/scoring/scoring_policy.json"
+ORIGINAL_ADJUDICATIONS_PATH = "data/scoring/manual_adjudications.json"
 RUN_ROOT = "results/onepool_parsing_fixed"
 HISTORICAL_PRECISION_PATH = "paper/provenance/baseline_precision_historical_family.json"
 CANDIDATE_MODELS = frozenset({

@@ -17,8 +17,8 @@ from scipy.stats import beta
 from scripts import paper_scoring, reviewer_tatdqa, submission_runs
 
 
-POLICY_PATH = "publication_assets_source/results/scoring_policy.json"
-ADJUDICATIONS_PATH = "publication_assets_source/results/manual_adjudications.json"
+POLICY_PATH = "data/scoring/scoring_policy.json"
+ADJUDICATIONS_PATH = "data/scoring/manual_adjudications.json"
 FINANCEBENCH_GPT55_RUN = submission_runs.RUNS["financebench"]["gpt-5.5"]
 DATASETS = (("xbrlfiling", "XBRLFiling", 600),
             ("financebench", "FinanceBench", 67), ("tatdqa", "TADQA", 403))

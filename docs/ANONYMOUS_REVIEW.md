@@ -14,17 +14,16 @@ figures without API access or model inference. The
 its [guide](BASELINE_MODEL_RUNS.md) describes the scoring and review records.
 The notebooks retain their tables and embedded figures for preview on GitHub.
 
-The [validation record](../reproducibility/validation.json) distinguishes
-earlier experiment validation from checks of this anonymous copy. The
-[file inventory](../reproducibility/package_inventory.json) records the
-delivered files and their SHA-256 hashes.
+All four notebooks executed successfully in this anonymous copy, and 379
+regression tests passed. The main and baseline tables matched the validated
+source package. The [expected CSV fixtures](../tests/fixtures/expected_tables/)
+support the offline main-result checks; the baseline notebook validates its
+own saved inputs and execution manifests.
 
 ## Anonymization
 
 Author and lab identifiers, identifying local paths, and the original source
 commit pointer have been removed from presentation and packaging metadata.
-The [anonymization record](../reproducibility/anonymization.json) documents
-the checks and changed files.
 Historical command arguments use `<PROJECT_ROOT>` for the withheld local
 prefix. Those arguments record the experiment; the placeholder is not a
 literal executable path. Privacy tests use synthetic identifiers.
@@ -36,9 +35,9 @@ attributions, and third-party license notices are retained.
 
 Scientific dataset records, generated answers, saved judge and verifier
 decisions, and grading annotations are unchanged from the validated source
-package. No model was rerun to prepare this copy. Changed documentation and
-presentation files are identified separately from their historical source
-hashes in the packaging provenance.
+package. No model was rerun to prepare this copy. Documentation and
+presentation edits do not change the scientific data or recorded model
+decisions.
 
 ## Interpretation
 

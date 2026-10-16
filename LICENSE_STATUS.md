@@ -8,10 +8,10 @@ still need to select the intended software license.
 
 Dataset notices:
 
-- [FinanceBench notice](publication_assets_source/datasets/financebench-67/NOTICE.md)
-  and [license reference](publication_assets_source/datasets/financebench-67/LICENSE.md).
-- [XBRLFiling/XBRLBench notice](publication_assets_source/datasets/xbrlbench-600/NOTICE.md)
-  and [CC BY-NC 4.0 license](publication_assets_source/datasets/xbrlbench-600/LICENSE.md).
+- [FinanceBench notice](datasets/financebench/NOTICE.md)
+  and [license reference](datasets/financebench/LICENSE.md).
+- [XBRLFiling notice](datasets/xbrlfiling/NOTICE.md)
+  and [CC BY-NC 4.0 license](datasets/xbrlfiling/LICENSE.md).
   The clean Hugging Face release is in [datasets/xbrlfiling](datasets/xbrlfiling/README.md).
 
 Included source documents and TADQA-derived artifacts

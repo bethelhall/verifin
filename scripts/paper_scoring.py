@@ -500,7 +500,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         policy_path = args.policy
     else:
         source_policy = (
-            repo_root / "publication_assets_source/results/scoring_policy.json"
+            repo_root / "data/scoring/scoring_policy.json"
         )
         published_policy = repo_root / "results/scoring_policy.json"
         policy_path = source_policy if source_policy.is_file() else published_policy

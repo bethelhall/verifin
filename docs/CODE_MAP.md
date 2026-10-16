@@ -28,7 +28,7 @@ prompt files would not produce a runnable implementation.
 | Stage | Source | Role |
 | --- | --- | --- |
 | Selected run catalog | `scripts/submission_runs.py` | Maps six model keys and three datasets to the consolidated result directories. |
-| Historical paper policy | `scripts/paper_scoring.py` and `publication_assets_source/results/` policy/adjudication inputs | Computes the canonical historical XBRLFiling and FinanceBench outcome definitions. |
+| Historical paper policy | `scripts/paper_scoring.py` and `data/scoring/` policy/adjudication inputs | Computes the canonical historical XBRLFiling and FinanceBench outcome definitions. |
 | Shared claim comparison | `src/verifiqa/eval/candidate_scoring.py` | Compares the final claimed quantity under the selected unit/tolerance policy. |
 | TADQA evaluator | `src/verifiqa/eval/tatdqa_scoring.py`, `scripts/score_tatdqa.py`, `scripts/reviewer_tatdqa.py` | Validates records, applies the declared evaluation view, and produces per-question outcomes and aggregate statistics. |
 | FinanceBench evaluator | `src/verifiqa/eval/financebench_scoring.py` | Applies the reviewed FinanceBench targets used for the new GPT-5.5 run, retaining unscored decisions explicitly. |
@@ -37,6 +37,7 @@ prompt files would not produce a runnable implementation.
 | Detailed TADQA notebook | `notebooks/tatdqa_result_metrics.ipynb` | Provides per-record evaluation and additional statistical exports. |
 | Heatmap and bars | `results/new_submissions/six_model_accuracy_heatmap.ipynb` | Contains the active plotting code for both supplied XBRLFiling visualizations and their data/provenance exports. |
 | Existing figure implementation | `scripts/plot_six_model_accuracy_heatmap.py` | Retains the standalone heatmap implementation; the active submission notebook binds the selected consolidated inputs explicitly. |
+| Offline result checks | `scripts/reproduce_submission.py` and `tests/fixtures/expected_tables/` | Validates selected raw inputs and compares regenerated main-table and figure CSVs with audited expected values. |
 
 The heatmap measures generated-answer accuracy. The grouped bars measure true
 rejects divided by the number of questions in each statement family. The main

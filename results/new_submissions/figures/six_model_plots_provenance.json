@@ -29,11 +29,11 @@
       "sha256": "532a8f6e129da26d542422e5406b2ac900e430392eaf134ab09dbfeb6387eba8"
     },
     {
-      "path": "publication_assets_source/results/scoring_policy.json",
+      "path": "data/scoring/scoring_policy.json",
       "sha256": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81"
     },
     {
-      "path": "publication_assets_source/results/manual_adjudications.json",
+      "path": "data/scoring/manual_adjudications.json",
       "sha256": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300"
     },
     {
@@ -133,7 +133,7 @@
   "exports": [
     {
       "path": "results/new_submissions/figures/category_model_performance_1col_compact.pdf",
-      "sha256": "8cefc9145c665ed2760fa6e5f1cf1ea9e767cd0db42294b6f4b94e8964199bfa"
+      "sha256": "5e7002fe3f848adefbb5f8b96525211b69461cdd3f649a7daebfadbb76f70268"
     },
     {
       "path": "results/new_submissions/figures/category_model_performance_1col_compact.png",
@@ -141,7 +141,7 @@
     },
     {
       "path": "results/new_submissions/figures/category_model_performance_1col_compact.svg",
-      "sha256": "8ff86721aa6c5b850adf3fa2b120e8a5bf25c1bed5918a8a50a64a9d3ec6717d"
+      "sha256": "ee9dd68529e98934cc612b0cd874c857d5595f4320a36a7392a75852a499771d"
     },
     {
       "path": "results/new_submissions/figures/category_model_performance_1col_compact_data.csv",
@@ -153,7 +153,7 @@
     },
     {
       "path": "results/new_submissions/figures/xbrl_error_profile_by_statement_family.pdf",
-      "sha256": "6ca67a64d51e1f078fe840c967488d2f5fe2d2b37dee392d9dc76de3a6149ec0"
+      "sha256": "641867fb0cd23e0cc9f4bb8d3a3a5f666ac4fdb0171b66c46c170490522d5e36"
     },
     {
       "path": "results/new_submissions/figures/xbrl_error_profile_by_statement_family.png",
@@ -161,7 +161,7 @@
     },
     {
       "path": "results/new_submissions/figures/xbrl_error_profile_by_statement_family.svg",
-      "sha256": "ebe93a1f69d2022490ae3d1c525fcbe41e0ff83e94fa491adacef65ab3e15d95"
+      "sha256": "6bbbc38320e0ede9b0e11818094e12955b37f03acb7cafa87625e4d46c8bb785"
     },
     {
       "path": "results/new_submissions/figures/xbrl_error_profile_by_statement_family_data.csv",

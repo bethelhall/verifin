@@ -2,8 +2,8 @@
   "run_root": "results/onepool_parsing_fixed",
   "scoring_view": "original",
   "scoring_protocol": "legacy_magnitude_any_token_v1",
-  "scoring_policy_path": "publication_assets_source/results/scoring_policy.json",
-  "adjudications_path": "publication_assets_source/results/manual_adjudications.json",
+  "scoring_policy_path": "data/scoring/scoring_policy.json",
+  "adjudications_path": "data/scoring/manual_adjudications.json",
   "candidate_protocol": "claim_input_answer_v2",
   "allow_corrected_candidate_protocol": true,
   "headline_population": "complete_saved_run",
@@ -41,7 +41,7 @@
     "displayed_comparisons": 2,
     "historical_family": {
       "path": "paper/provenance/baseline_precision_historical_family.json",
-      "sha256": "25164ffb035efbabb4256dd39d690444cb26d11cff79aa6bc9b561c515c3729c"
+      "sha256": "7550c380d12d5d808a62b20cac2da490e51cb9e541ad27e96dc53c0dec31f3f1"
     },
     "selection": "LLM Judge only; a new run does not inherit or reduce the historical correction family",
     "no_variation": "Not estimable; p-value remains missing",
@@ -84,15 +84,15 @@
   ],
   "sources": [
     {
-      "path": "publication_assets_source/results/scoring_policy_v2.json",
+      "path": "data/scoring/scoring_policy_v2.json",
       "sha256": "619666ac97c051e255f5f730a634d45c1df4e5897e3227be8436b258df7411fb"
     },
     {
-      "path": "publication_assets_source/results/scoring_policy.json",
+      "path": "data/scoring/scoring_policy.json",
       "sha256": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81"
     },
     {
-      "path": "publication_assets_source/results/manual_adjudications.json",
+      "path": "data/scoring/manual_adjudications.json",
       "sha256": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300"
     },
     {
@@ -129,7 +129,7 @@
     },
     {
       "path": "paper/provenance/baseline_precision_historical_family.json",
-      "sha256": "25164ffb035efbabb4256dd39d690444cb26d11cff79aa6bc9b561c515c3729c"
+      "sha256": "7550c380d12d5d808a62b20cac2da490e51cb9e541ad27e96dc53c0dec31f3f1"
     }
   ],
   "qualification": "Original magnitude/any-gold-number scoring with max(1, 1% of target) tolerance and original adjudications, applied uniformly to every method. Later strict text/unit/rounding annotations are not applied. Generator/planner backbone parity is not established by these logs."

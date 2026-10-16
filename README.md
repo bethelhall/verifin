@@ -119,16 +119,18 @@ verifin-review/
 │       └── baselines/          # Eight judge runs, comparison CSVs, audit, completed reviews
 │           └── figures/        # Four-model comparison: PDF, PNG, SVG
 ├── data/                       # Questions, reference answers, review evidence
-├── datasets/xbrlfiling/         # Anonymous-author Hugging Face dataset release
+│   └── scoring/                # Scoring policies and manual adjudications
+├── datasets/
+│   ├── financebench/           # Upstream dataset notice and license reference
+│   └── xbrlfiling/             # Anonymous-author Hugging Face dataset release
 ├── paper/
 │   ├── tables/                 # Main table, confidence intervals, LaTeX
 │   ├── figures/                # TADQA outcome figure
 │   └── provenance/             # Sources used for each table and figure
 ├── docs/                       # Code map, generation guide, data notes, prompt figure
-├── reproducibility/            # Expected outputs, file hashes, validation
 ├── tests/                      # Scoring and table regression tests
+│   └── fixtures/expected_tables/ # Audited CSVs for offline result checks
 ├── artifacts/                  # Source-review records and derived statistics
-├── publication_assets_source/  # Scoring policies and dataset notices
 ├── pyproject.toml              # Package and generation dependencies
 └── requirements-analysis.txt   # Dependencies for offline reproduction
 ```
@@ -157,7 +159,6 @@ document bundles described in the generation guide.
 All four notebooks executed successfully in this anonymous copy, and **379
 regression tests passed**. The main and baseline tables match the validated
 source package. Five figures are embedded in the saved notebooks for preview.
-[View the validation record](reproducibility/validation.json).
 The additional baseline [output audit](results/new_submissions/baselines/protocol_audit.csv)
 and [provenance](results/new_submissions/baselines/comparison_provenance.json)
 record the eight completed judge runs separately.

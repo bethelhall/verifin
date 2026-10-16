@@ -7,10 +7,11 @@ All 18 current prediction files are copied byte-for-byte into
 model for XBRLFiling, FinanceBench, and TADQA respectively. The selected run
 catalog is `scripts/submission_runs.py`; it has no fallback to older runs.
 
-The package also contains the exact question/gold files, scoring policies,
+The package also contains the question/gold files, scoring policies,
 adjudications, normalization inputs, and reviewed source assets required by the
-three included notebooks. The explicit dependency list is
-`reproducibility/analysis_dependencies.json`. Source checksums remain unchanged.
+four included notebooks. Scoring policies and manual adjudications are in
+[`data/scoring/`](../data/scoring/); analysis dependencies are listed in
+[`requirements-analysis.txt`](../requirements-analysis.txt).
 The source subset is not the complete document collection needed for fresh
 TADQA or XBRLFiling generation; see [GENERATION.md](GENERATION.md).
 
@@ -19,19 +20,21 @@ TADQA or XBRLFiling generation; see [GENERATION.md](GENERATION.md).
 - `results/new_submissions/manifest.json` is the original consolidation
   manifest. Its raw-result hashes are verified during every reproduction.
   Its original copy counts describe the earlier full run-directory copies,
-  not the smaller package inventory.
-- `reproducibility/copied_sources.json` records where each copied file came
-  from and its source checksum. The recorded Git HEAD identifies the parent
-  checkout, while the packaged source hashes include working-tree changes.
-- `reproducibility/package_inventory.json` records the final package files and
-  checksums. It excludes itself and temporary caches.
+  rather than the current file layout.
 - `paper/provenance/` and `results/new_submissions/figures/*provenance.json`
   trace regenerated tables and plots to their local inputs and code.
-- `reproducibility/expected/` contains the audited numeric snapshots used to
+- `tests/fixtures/expected_tables/` contains the audited numeric snapshots used to
   check offline reproduction, including the confidence-interval endpoints.
+- `results/new_submissions/baselines/comparison_provenance.json` records the
+  baseline scoring policy, source hashes, execution protocols, and completed
+  full-answer reviews. The review document remains in
+  `notebooks/baseline_full_answer_reviews.json`.
 
-Raw logs retain historical path strings to avoid changing their evidence or
-checksums. These strings are not used to select current runs. Model weights,
+Saved predictions retain historical relative path strings; these strings are
+not used to select current runs. Historical command metadata uses
+`<PROJECT_ROOT>` in place of identifying local prefixes. Historical audit
+records may also cite the original locations of scoring files; the current
+scoring inputs are in `data/scoring/`. Model weights,
 the original environments, ordinary run logs, per-question SMT dumps, and
 source-plan caches are omitted from the package unless part of retained rerun
 evidence. Saved predictions remain fully available for scoring and inspection.

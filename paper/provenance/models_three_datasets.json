@@ -10,11 +10,11 @@
   ],
   "historical": {
     "scoring_view": "historical_magnitude_any_token",
-    "policy": "publication_assets_source/results/scoring_policy.json",
-    "adjudications": "publication_assets_source/results/manual_adjudications.json",
+    "policy": "data/scoring/scoring_policy.json",
+    "adjudications": "data/scoring/manual_adjudications.json",
     "sources": {
-      "publication_assets_source/results/scoring_policy.json": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81",
-      "publication_assets_source/results/manual_adjudications.json": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300",
+      "data/scoring/scoring_policy.json": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81",
+      "data/scoring/manual_adjudications.json": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300",
       "data/multicompany_provable/data/provable_calcrequired.jsonl": "a63655a04251bce99cc44a77af5c4abf42fb4a4f1b3e098ce03e3668f8a385ce",
       "results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl": "532a8f6e129da26d542422e5406b2ac900e430392eaf134ab09dbfeb6387eba8",
       "results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl": "3c600ecbaade6548738acd7e8e25b4b107fb0931e7367dbe41b270aacc7caeca",
@@ -473,9 +473,9 @@
           "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
           "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
           "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
-          "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+          "tatdqa_scoring_core": "6b1f8da35f02c1b8f726f8bd0d91fef3ed9e0849dc5d4f09b4aeb938ab3a4309",
           "results": "3ba6d520bdfc0dc8b0c70a3fa75ee7d18ef914c6eb867abcb4b6773250e056c3",
-          "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+          "published_scorer": "15817f3af11ef34fff6e82fc2ecc2f217534985680c85705334d29adce8331ff",
           "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
         },
         "comparison": "abs(abs(claimed_value) - abs(gold_value)) <= max(1.0, 0.01 * abs(gold_value))",
@@ -510,9 +510,9 @@
           "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
           "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
           "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
-          "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+          "tatdqa_scoring_core": "6b1f8da35f02c1b8f726f8bd0d91fef3ed9e0849dc5d4f09b4aeb938ab3a4309",
           "results": "a66192171f08aedc29e139246eeb374bc9aafbd95db25b374220610362e3e540",
-          "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+          "published_scorer": "15817f3af11ef34fff6e82fc2ecc2f217534985680c85705334d29adce8331ff",
           "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
         },
         "comparison": "abs(abs(claimed_value) - abs(gold_value)) <= max(1.0, 0.01 * abs(gold_value))",
@@ -547,9 +547,9 @@
           "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
           "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
           "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
-          "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+          "tatdqa_scoring_core": "6b1f8da35f02c1b8f726f8bd0d91fef3ed9e0849dc5d4f09b4aeb938ab3a4309",
           "results": "81ca5d47f1a94b5ccdfae2745a285e9dba6ec8100d500052d6f1e78bc2215edd",
-          "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+          "published_scorer": "15817f3af11ef34fff6e82fc2ecc2f217534985680c85705334d29adce8331ff",
           "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
         },
         "comparison": "abs(abs(claimed_value) - abs(gold_value)) <= max(1.0, 0.01 * abs(gold_value))",
@@ -584,9 +584,9 @@
           "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
           "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
           "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
-          "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+          "tatdqa_scoring_core": "6b1f8da35f02c1b8f726f8bd0d91fef3ed9e0849dc5d4f09b4aeb938ab3a4309",
           "results": "3a33e0144a8b566a8fff5222ec8f0191d301e410610cb0a3e186808212fa9a42",
-          "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+          "published_scorer": "15817f3af11ef34fff6e82fc2ecc2f217534985680c85705334d29adce8331ff",
           "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
         },
         "comparison": "abs(abs(claimed_value) - abs(gold_value)) <= max(1.0, 0.01 * abs(gold_value))",
@@ -621,9 +621,9 @@
           "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
           "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
           "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
-          "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+          "tatdqa_scoring_core": "6b1f8da35f02c1b8f726f8bd0d91fef3ed9e0849dc5d4f09b4aeb938ab3a4309",
           "results": "539eb92d704e94baaae51f445bfa1aaa61f7afc30c3e8578418c6be0a7bea56d",
-          "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+          "published_scorer": "15817f3af11ef34fff6e82fc2ecc2f217534985680c85705334d29adce8331ff",
           "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
         },
         "comparison": "abs(abs(claimed_value) - abs(gold_value)) <= max(1.0, 0.01 * abs(gold_value))",
@@ -658,9 +658,9 @@
           "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
           "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
           "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
-          "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+          "tatdqa_scoring_core": "6b1f8da35f02c1b8f726f8bd0d91fef3ed9e0849dc5d4f09b4aeb938ab3a4309",
           "results": "5754368a89dae3d69c97cbfa873d4683eaa1d32f7f436d40b39d844cf71373d9",
-          "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+          "published_scorer": "15817f3af11ef34fff6e82fc2ecc2f217534985680c85705334d29adce8331ff",
           "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
         },
         "comparison": "abs(abs(claimed_value) - abs(gold_value)) <= max(1.0, 0.01 * abs(gold_value))",
@@ -871,7 +871,7 @@
   },
   "implementation": {
     "path": "scripts/model_dataset_table.py",
-    "sha256": "f3520a43de44b2360132fc6bd7e0b6e0fb2f9ceba48d98da4db5f4962ad0be56"
+    "sha256": "f10dad29c7bddf103d6739c1978c8305be7554834d4ba94717be3b3bc1370e34"
   },
   "submission_paths_implementation": {
     "path": "scripts/submission_runs.py",

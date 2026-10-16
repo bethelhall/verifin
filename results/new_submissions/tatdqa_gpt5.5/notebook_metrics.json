@@ -87,9 +87,9 @@
       "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
       "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
       "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
-      "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+      "tatdqa_scoring_core": "6b1f8da35f02c1b8f726f8bd0d91fef3ed9e0849dc5d4f09b4aeb938ab3a4309",
       "results": "539eb92d704e94baaae51f445bfa1aaa61f7afc30c3e8578418c6be0a7bea56d",
-      "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+      "published_scorer": "15817f3af11ef34fff6e82fc2ecc2f217534985680c85705334d29adce8331ff",
       "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
     },
     "published_scorer": "scripts/paper_scoring.py",

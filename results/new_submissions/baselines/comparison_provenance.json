@@ -177,9 +177,9 @@
       "scoring_view": "original",
       "publication_ready": false,
       "allow_corrected_candidate_protocol": true,
-      "scoring_policy_path": "publication_assets_source/results/scoring_policy.json",
-      "adjudications_path": "publication_assets_source/results/manual_adjudications.json",
-      "execution_policy_path": "publication_assets_source/results/scoring_policy_v2.json",
+      "scoring_policy_path": "data/scoring/scoring_policy.json",
+      "adjudications_path": "data/scoring/manual_adjudications.json",
+      "execution_policy_path": "data/scoring/scoring_policy_v2.json",
       "scoring_policy_status": "publication-template",
       "runs": [
         {
@@ -215,15 +215,15 @@
       ],
       "sources": [
         {
-          "path": "publication_assets_source/results/scoring_policy_v2.json",
+          "path": "data/scoring/scoring_policy_v2.json",
           "sha256": "619666ac97c051e255f5f730a634d45c1df4e5897e3227be8436b258df7411fb"
         },
         {
-          "path": "publication_assets_source/results/scoring_policy.json",
+          "path": "data/scoring/scoring_policy.json",
           "sha256": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81"
         },
         {
-          "path": "publication_assets_source/results/manual_adjudications.json",
+          "path": "data/scoring/manual_adjudications.json",
           "sha256": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300"
         },
         {
@@ -781,9 +781,9 @@
       "scoring_view": "original",
       "publication_ready": false,
       "allow_corrected_candidate_protocol": true,
-      "scoring_policy_path": "publication_assets_source/results/scoring_policy.json",
-      "adjudications_path": "publication_assets_source/results/manual_adjudications.json",
-      "execution_policy_path": "publication_assets_source/results/scoring_policy_v2.json",
+      "scoring_policy_path": "data/scoring/scoring_policy.json",
+      "adjudications_path": "data/scoring/manual_adjudications.json",
+      "execution_policy_path": "data/scoring/scoring_policy_v2.json",
       "scoring_policy_status": "publication-template",
       "runs": [
         {
@@ -819,15 +819,15 @@
       ],
       "sources": [
         {
-          "path": "publication_assets_source/results/scoring_policy_v2.json",
+          "path": "data/scoring/scoring_policy_v2.json",
           "sha256": "619666ac97c051e255f5f730a634d45c1df4e5897e3227be8436b258df7411fb"
         },
         {
-          "path": "publication_assets_source/results/scoring_policy.json",
+          "path": "data/scoring/scoring_policy.json",
           "sha256": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81"
         },
         {
-          "path": "publication_assets_source/results/manual_adjudications.json",
+          "path": "data/scoring/manual_adjudications.json",
           "sha256": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300"
         },
         {
@@ -1310,9 +1310,9 @@
       "scoring_view": "original",
       "publication_ready": false,
       "allow_corrected_candidate_protocol": true,
-      "scoring_policy_path": "publication_assets_source/results/scoring_policy.json",
-      "adjudications_path": "publication_assets_source/results/manual_adjudications.json",
-      "execution_policy_path": "publication_assets_source/results/scoring_policy_v2.json",
+      "scoring_policy_path": "data/scoring/scoring_policy.json",
+      "adjudications_path": "data/scoring/manual_adjudications.json",
+      "execution_policy_path": "data/scoring/scoring_policy_v2.json",
       "scoring_policy_status": "publication-template",
       "runs": [
         {
@@ -1348,15 +1348,15 @@
       ],
       "sources": [
         {
-          "path": "publication_assets_source/results/scoring_policy_v2.json",
+          "path": "data/scoring/scoring_policy_v2.json",
           "sha256": "619666ac97c051e255f5f730a634d45c1df4e5897e3227be8436b258df7411fb"
         },
         {
-          "path": "publication_assets_source/results/scoring_policy.json",
+          "path": "data/scoring/scoring_policy.json",
           "sha256": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81"
         },
         {
-          "path": "publication_assets_source/results/manual_adjudications.json",
+          "path": "data/scoring/manual_adjudications.json",
           "sha256": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300"
         },
         {
@@ -2391,9 +2391,9 @@
       "scoring_view": "original",
       "publication_ready": false,
       "allow_corrected_candidate_protocol": true,
-      "scoring_policy_path": "publication_assets_source/results/scoring_policy.json",
-      "adjudications_path": "publication_assets_source/results/manual_adjudications.json",
-      "execution_policy_path": "publication_assets_source/results/scoring_policy_v2.json",
+      "scoring_policy_path": "data/scoring/scoring_policy.json",
+      "adjudications_path": "data/scoring/manual_adjudications.json",
+      "execution_policy_path": "data/scoring/scoring_policy_v2.json",
       "scoring_policy_status": "publication-template",
       "runs": [
         {
@@ -2429,15 +2429,15 @@
       ],
       "sources": [
         {
-          "path": "publication_assets_source/results/scoring_policy_v2.json",
+          "path": "data/scoring/scoring_policy_v2.json",
           "sha256": "619666ac97c051e255f5f730a634d45c1df4e5897e3227be8436b258df7411fb"
         },
         {
-          "path": "publication_assets_source/results/scoring_policy.json",
+          "path": "data/scoring/scoring_policy.json",
           "sha256": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81"
         },
         {
-          "path": "publication_assets_source/results/manual_adjudications.json",
+          "path": "data/scoring/manual_adjudications.json",
           "sha256": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300"
         },
         {
