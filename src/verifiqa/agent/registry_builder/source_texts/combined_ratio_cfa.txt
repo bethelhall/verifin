@@ -1,0 +1,22 @@
+Source: CFA Institute, Financial Institutions analysis
+Authority: CFA Institute Program Curriculum, Level 1 & 2, Insurance Companies
+Metric: Combined Ratio (Insurance)
+
+PRIMARY FORMULA:
+Combined Ratio = Loss Ratio + Expense Ratio
+
+COMPONENT FORMULAS:
+Loss Ratio = (Losses Incurred + Loss Adjustment Expenses) / Earned Premiums
+Expense Ratio = Underwriting Expenses / Written Premiums
+
+VARIABLE DEFINITIONS:
+- Losses Incurred: Claims paid and outstanding to policyholders
+- Loss Adjustment Expenses (LAE): Costs to investigate and settle claims
+- Earned Premiums: Portion of written premiums applicable to the current period
+- Underwriting Expenses: Agent commissions, administrative costs, marketing
+- Written Premiums: Total premiums on policies written during the period
+
+VERBATIM FORMULA STATEMENTS:
+"Combined Ratio = Loss Ratio + Expense Ratio"
+"A combined ratio below 100% indicates underwriting profitability; above 100% indicates an underwriting loss."
+"Combined Ratio = (Losses Incurred + LAE + Underwriting Expenses) / Earned Premiums"

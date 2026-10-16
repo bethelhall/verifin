@@ -1,0 +1,765 @@
+{
+  "dataset": "tatdqa",
+  "version": 4,
+  "purpose": "Evaluator-only, source-derived numeric targets with explicit units, operations and scopes. Original dataset annotations remain untouched. These are not ID-wide correctness overrides.",
+  "scope": "Current accepted-claim source review covers the 13 pre-fix notebook mismatches among 223 VERIFIED rows. The other 210 previously matching VERIFIED rows have not all been independently source-audited. Four unit mismatches are handled in tatdqa_scoring_normalizations.json; nine accepted annotation/ambiguity cases are adjudicated here. One historical discount-rate case is retained and is currently ABSTAIN. Two additional VIOLATED audit-fee claims have source-proven gold scale errors and are recorded separately from the 13 accepted cases in tatdqa_false_accept_review.json. Latest 258-VERIFIED Haiku mismatch audit adds six source currency/price scale corrections and one ratio unit correction in the normalization file, plus exact source-derived ratio and PBO relative-change targets here. These post hoc corrections apply identically to every model; all accepted claims have not been independently source-audited. The subsequent GPT-6.1 mismatch review adds an options exercise-value population correction: only 3751 options are eligible for the printed weighted-average exercise price, with a source-derived USD tolerance. Original gold remains available in the literal and benchmark views, and the corrected target applies identically to all models. The Qwen3 30B four-case review on 2026-10-16 additionally corrects the VMware basic-versus-diluted gold row and records the unresolved department scope of the Everbridge percentage-change question. These targets apply to all models and verdicts.",
+  "records": [
+    {
+      "id": "tatdqa_1467dbeb015b9e463d7351982f73df5e",
+      "raw_answer": "9.74",
+      "question": "What was the increase in net cash provided by operating activities from 2018 to 2019?",
+      "classification": "benchmark_ambiguity",
+      "reason": "The question asks for an increase without specifying relative percentage or monetary difference. Both operations are source-supported; they must be compared in their respective units.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/1cc3d0517b2508eb255a753e58210447.pdf",
+          "locator": "Excerpt page 1 (printed page 50), cash-flow summary in millions; Net cash provided by operating activities, 2019/2018",
+          "observations": {
+            "2019_USD_millions": 4421.8,
+            "2018_USD_millions": 4029.3
+          },
+          "sha256": "8823da06dbc72d1a73314de2bd267eea149826fe0549ed81d74037640c03e18e"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0000796343-20-000013/adbe10kfy19_htm.xml",
+          "locator": "us-gaap:NetCashProvidedByUsedInOperatingActivities; contexts FD2019Q4YTD and FD2018Q4YTD; unit usd",
+          "observations": {
+            "2019_USD": 4421813000,
+            "2018_USD": 4029304000
+          },
+          "sha256": "d891782e678568275485c0d1f05423344969d9db417b967fccc1addc4dda8957"
+        }
+      ],
+      "targets": [
+        {
+          "value": 392.509,
+          "unit": "USD millions",
+          "operation": "period_change",
+          "scope": "company operating cash flow",
+          "calculation": "(4421813000 - 4029304000) / 1000000",
+          "operands": {
+            "later_USD": 4421813000,
+            "earlier_USD": 4029304000
+          }
+        },
+        {
+          "value": 9.74135979811898,
+          "unit": "percent",
+          "operation": "percentage_change",
+          "scope": "company operating cash flow",
+          "calculation": "(4421813000 - 4029304000) / 4029304000 * 100",
+          "operands": {
+            "later_USD": 4421813000,
+            "earlier_USD": 4029304000
+          }
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_33142b16bcad6493ac8a973e9f75307f",
+      "raw_answer": "11901766",
+      "question": "What is the difference in the number of shares between June 30, 2018 and 2019?",
+      "classification": "benchmark_ambiguity",
+      "reason": "The question does not specify a share class. Total ordinary shares and Class A ordinary shares are separate defensible scopes; the benchmark gold chooses Class A implicitly.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/18fcffb6cdd39b9830c130a53cbcc4f2.pdf",
+          "locator": "Excerpt page 1 (printed page F-51), share capital; number-of-shares columns for June 30, 2019/2018",
+          "observations": {
+            "2019_total_shares": 241996125,
+            "2018_total_shares": 235314306,
+            "2019_Class_A_shares": 117273566,
+            "2018_Class_A_shares": 105371800
+          },
+          "sha256": "f0370337c9a320465fa17d25abf6e67c538a0d4a39e51e5f06d0ee6546e868f5"
+        }
+      ],
+      "targets": [
+        {
+          "value": 6681819.0,
+          "unit": "count",
+          "operation": "period_change",
+          "scope": "total ordinary shares",
+          "calculation": "241996125 - 235314306",
+          "operands": {
+            "later_shares": 241996125,
+            "earlier_shares": 235314306
+          }
+        },
+        {
+          "value": 11901766.0,
+          "unit": "count",
+          "operation": "period_change",
+          "scope": "Class A ordinary shares",
+          "calculation": "117273566 - 105371800",
+          "operands": {
+            "later_shares": 117273566,
+            "earlier_shares": 105371800
+          }
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_37acdf2a7d4b5dabacfe5376349271ef",
+      "raw_answer": "15.7",
+      "question": "What was the change in the total revenue between Q3 and Q4  2020?",
+      "classification": "benchmark_ambiguity",
+      "reason": "The question asks for revenue change without specifying dollar difference or relative percentage. Both follow from the quarterly revenue table.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/24e23b5428ac97c8ae3cca76f5382437.pdf",
+          "locator": "Excerpt page 1 (printed page 112), Selected Quarterly Financial Data; fiscal 2020 total revenue, Q4/Q3; tables in millions",
+          "observations": {
+            "Q4_2020_USD_millions": 3073,
+            "Q3_2020_USD_millions": 2656
+          },
+          "sha256": "f2251c0d21d5238347e0c49b1134b62361e6a4f0cd1544cbb2ab155a334ccd8b"
+        }
+      ],
+      "targets": [
+        {
+          "value": 417.0,
+          "unit": "USD millions",
+          "operation": "period_change",
+          "scope": "company total quarterly revenue",
+          "calculation": "3073 - 2656",
+          "operands": {
+            "later_USD_millions": 3073,
+            "earlier_USD_millions": 2656
+          }
+        },
+        {
+          "value": 15.700301204819278,
+          "unit": "percent",
+          "operation": "percentage_change",
+          "scope": "company total quarterly revenue",
+          "calculation": "(3073 - 2656) / 2656 * 100",
+          "operands": {
+            "later_USD_millions": 3073,
+            "earlier_USD_millions": 2656
+          }
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_3d4d0e280a3e4382149c2c9db1145173",
+      "raw_answer": "-12.39",
+      "question": "How much did the computer hardware, at cost change in 2019 compared to 2018?",
+      "classification": "benchmark_ambiguity",
+      "reason": "The question asks how much computer hardware cost changed without specifying an absolute difference or percentage. Preserve both quantities, including the later-minus-earlier sign.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/6326fa9163c9afa73c380d5bf1f4b5da.pdf",
+          "locator": "Excerpt page 1, property and equipment table; Computer hardware, at cost, January 31 2019/2018; in millions",
+          "observations": {
+            "2019_USD_millions": 190.2,
+            "2018_USD_millions": 217.1
+          },
+          "sha256": "59534ddc83bf6c3f523ba81334df6bf3adbaf9f5444c206dc093ce2c78e9243c"
+        }
+      ],
+      "targets": [
+        {
+          "value": -26.9,
+          "unit": "USD millions",
+          "operation": "period_change",
+          "scope": "computer hardware at cost",
+          "calculation": "190.2 - 217.1",
+          "operands": {
+            "later_USD_millions": 190.2,
+            "earlier_USD_millions": 217.1
+          }
+        },
+        {
+          "value": -12.39060340856748,
+          "unit": "percent",
+          "operation": "percentage_change",
+          "scope": "computer hardware at cost",
+          "calculation": "(190.2 - 217.1) / 217.1 * 100",
+          "operands": {
+            "later_USD_millions": 190.2,
+            "earlier_USD_millions": 217.1
+          }
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_468395ce97b1d47b3f3c4822764ab35c",
+      "raw_answer": "0.5",
+      "question": "What was the percentage change in Gross accounts receivables from 2018 to 2019?",
+      "classification": "gold_scale_error",
+      "reason": "The question explicitly requests percentage change. Gold 0.5% approximates the fractional ratio without multiplying by 100; the source supports approximately 49.93 percent.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/fed3ce526008faeb1ce01e1602cd077f.pdf",
+          "locator": "Excerpt page 1, Accounts Receivable; Gross accounts receivables, 2019/2018, in thousands",
+          "observations": {
+            "2019_USD_thousands": 21193,
+            "2018_USD_thousands": 14135
+          },
+          "sha256": "9e90aa0ff4c5195c644b6344c6c33d76a335ce34832ef6315bea06773b9cf5cd"
+        }
+      ],
+      "targets": [
+        {
+          "value": 49.932790944464095,
+          "unit": "percent",
+          "operation": "percentage_change",
+          "scope": "gross accounts receivables",
+          "calculation": "(21193 - 14135) / 14135 * 100",
+          "operands": {
+            "later_USD_thousands": 21193,
+            "earlier_USD_thousands": 14135
+          }
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_766c916963b3345a8d45410020365935",
+      "raw_answer": "-2.56",
+      "question": "What was the percentage change in the Foreign rate differential from 2018 to 2019?",
+      "classification": "gold_scale_error",
+      "reason": "The question explicitly requests percentage change. Gold -2.56% is the dimensionless relative change mislabeled as a percentage. Using the signed earlier value -0.9 as denominator gives -255.56 percent.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/a15b8c598d0cb2aae4925e9045c4d9b4.pdf",
+          "locator": "Excerpt page 1 (printed page F-48), income-tax statutory-rate reconciliation in millions; Foreign rate differential, 2019/2018",
+          "observations": {
+            "2019_USD_millions": 1.4,
+            "2018_USD_millions": -0.9
+          },
+          "sha256": "7d92e759292a84bc13ae873aa0bb7e843af04659158f5ecc6597df53020fba5d"
+        }
+      ],
+      "targets": [
+        {
+          "value": -255.55555555555554,
+          "unit": "percent",
+          "operation": "percentage_change",
+          "scope": "foreign rate differential",
+          "calculation": "(1.4 - (-0.9)) / (-0.9) * 100",
+          "operands": {
+            "later_USD_millions": 1.4,
+            "earlier_USD_millions": -0.9
+          }
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_82d1ed77d374cca6672422dec71a948c",
+      "raw_answer": "11.3",
+      "question": "What is the percentage change of the total number shares between June 30, 2018 and 2019?",
+      "classification": "gold_scope_error",
+      "reason": "The question explicitly requests the total number of shares. Gold 11.3% uses Class A alone, whereas the displayed total includes both classes. Only the total-share percentage is an allowed target for this explicit scope.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/18fcffb6cdd39b9830c130a53cbcc4f2.pdf",
+          "locator": "Excerpt page 1 (printed page F-51), Share capital; total number-of-shares columns, June 30 2019/2018",
+          "observations": {
+            "2019_total_shares": 241996125,
+            "2018_total_shares": 235314306,
+            "2019_Class_A_shares": 117273566,
+            "2018_Class_A_shares": 105371800
+          },
+          "sha256": "f0370337c9a320465fa17d25abf6e67c538a0d4a39e51e5f06d0ee6546e868f5"
+        }
+      ],
+      "targets": [
+        {
+          "value": 2.8395294419541157,
+          "unit": "percent",
+          "operation": "percentage_change",
+          "scope": "total ordinary shares",
+          "calculation": "(241996125 - 235314306) / 235314306 * 100",
+          "operands": {
+            "later_shares": 241996125,
+            "earlier_shares": 235314306
+          }
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_c337578f8b48abe45e5b94bf7c50bd59",
+      "raw_answer": "4909",
+      "question": "What is the total net revenue for fiscal 2017 and fiscal 2018?",
+      "classification": "benchmark_ambiguity",
+      "reason": "The question does not name a segment. The excerpt contains Enterprise Security and Consumer Cyber Safety revenue rows. The benchmark selects Enterprise Security; company-wide revenue is their sum and is independently confirmed by dimension-free XBRL facts.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/a916ea80f6a9a839b0e52ac9f5efe96f.pdf",
+          "locator": "Excerpt page 1 (printed page 47), Segment operating results; Enterprise Security and Consumer Cyber Safety Net revenues, fiscal 2018/2017; in millions",
+          "observations": {
+            "2018_Enterprise_Security_USD_millions": 2554,
+            "2017_Enterprise_Security_USD_millions": 2355,
+            "2018_Consumer_Cyber_Safety_USD_millions": 2280,
+            "2017_Consumer_Cyber_Safety_USD_millions": 1664
+          },
+          "sha256": "db31770b4c4f62430558d42bd3ca2cd00f891575adf9b5c485f24a5e9b15e044"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0000849399-19-000005/symc-20190329.xml",
+          "locator": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; company contexts FD2018Q4YTD/FD2017Q4YTD and EnterpriseSecurityMember dimension contexts; unit usd",
+          "observations": {
+            "2018_company_USD": 4834000000,
+            "2017_company_USD": 4019000000,
+            "2018_Enterprise_Security_USD": 2554000000,
+            "2017_Enterprise_Security_USD": 2355000000
+          },
+          "sha256": "2455580eab4955d91b69e2779e4097f31a021c75a23450a4f205039ec3652084"
+        }
+      ],
+      "targets": [
+        {
+          "value": 8853.0,
+          "unit": "USD millions",
+          "operation": "sum",
+          "scope": "company-wide net revenues across fiscal 2017 and 2018",
+          "calculation": "(2554 + 2280) + (2355 + 1664)",
+          "operands": {
+            "2018_Enterprise_Security": 2554,
+            "2018_Consumer_Cyber_Safety": 2280,
+            "2017_Enterprise_Security": 2355,
+            "2017_Consumer_Cyber_Safety": 1664
+          }
+        },
+        {
+          "value": 4909.0,
+          "unit": "USD millions",
+          "operation": "sum",
+          "scope": "Enterprise Security net revenues across fiscal 2017 and 2018",
+          "calculation": "2554 + 2355",
+          "operands": {
+            "2018_USD_millions": 2554,
+            "2017_USD_millions": 2355
+          }
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_ed4499c93941e3a171f0eb13065db6df",
+      "raw_answer": "2454.5",
+      "question": "What is the average net revenue for fiscal 2018 and fiscal 2017?",
+      "classification": "benchmark_ambiguity",
+      "reason": "The question does not name a segment. The excerpt contains Enterprise Security and Consumer Cyber Safety revenue rows. The benchmark selects Enterprise Security; company-wide revenue is their sum and is independently confirmed by dimension-free XBRL facts.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/a916ea80f6a9a839b0e52ac9f5efe96f.pdf",
+          "locator": "Excerpt page 1 (printed page 47), Segment operating results; Enterprise Security and Consumer Cyber Safety Net revenues, fiscal 2018/2017; in millions",
+          "observations": {
+            "2018_Enterprise_Security_USD_millions": 2554,
+            "2017_Enterprise_Security_USD_millions": 2355,
+            "2018_Consumer_Cyber_Safety_USD_millions": 2280,
+            "2017_Consumer_Cyber_Safety_USD_millions": 1664
+          },
+          "sha256": "db31770b4c4f62430558d42bd3ca2cd00f891575adf9b5c485f24a5e9b15e044"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0000849399-19-000005/symc-20190329.xml",
+          "locator": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; company contexts FD2018Q4YTD/FD2017Q4YTD and EnterpriseSecurityMember dimension contexts; unit usd",
+          "observations": {
+            "2018_company_USD": 4834000000,
+            "2017_company_USD": 4019000000,
+            "2018_Enterprise_Security_USD": 2554000000,
+            "2017_Enterprise_Security_USD": 2355000000
+          },
+          "sha256": "2455580eab4955d91b69e2779e4097f31a021c75a23450a4f205039ec3652084"
+        }
+      ],
+      "targets": [
+        {
+          "value": 4426.5,
+          "unit": "USD millions",
+          "operation": "average",
+          "scope": "company-wide net revenues across fiscal 2017 and 2018",
+          "calculation": "((2554 + 2280) + (2355 + 1664)) / 2",
+          "operands": {
+            "2018_Enterprise_Security": 2554,
+            "2018_Consumer_Cyber_Safety": 2280,
+            "2017_Enterprise_Security": 2355,
+            "2017_Consumer_Cyber_Safety": 1664
+          }
+        },
+        {
+          "value": 2454.5,
+          "unit": "USD millions",
+          "operation": "average",
+          "scope": "Enterprise Security net revenues across fiscal 2017 and 2018",
+          "calculation": "(2554 + 2355) / 2",
+          "operands": {
+            "2018_USD_millions": 2554,
+            "2017_USD_millions": 2355
+          }
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_31a78c37b86b0c1ac0dc4732131233e1",
+      "raw_answer": "0.1",
+      "question": "What was the percentage change in the net periodic benefit cost discount rate between 2018 and 2019?",
+      "classification": "gold_definition_error",
+      "reason": "The question explicitly asks for percentage change, which is the relative change 4.7619 percent. Gold 0.1% represents the absolute percentage-point difference. This historical case currently abstains and is included for reproducible interpretation, not to add an acceptance.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/1a8874a4f3c3f8044c083509da0746b2.pdf",
+          "locator": "Excerpt page 1 (printed page 92), actuarial assumptions; Net periodic benefit cost discount rate, 2019/2018",
+          "observations": {
+            "2019_rate_percent": 2.2,
+            "2018_rate_percent": 2.1
+          },
+          "sha256": "4acbd24dfcf838df8e15578dabdb6ee161aa0ccf0da47ecc06a31960420c764c"
+        }
+      ],
+      "targets": [
+        {
+          "value": 4.761904761904762,
+          "unit": "percent",
+          "operation": "percentage_change",
+          "scope": "net periodic benefit cost discount rate",
+          "calculation": "(2.2 - 2.1) / 2.1 * 100",
+          "operands": {
+            "later_rate_percent": 2.2,
+            "earlier_rate_percent": 2.1
+          }
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_dd0dcd5c647f6661c3e06c8a0847f2ef",
+      "raw_answer": "9246",
+      "question": "What is the increase / (decrease) in Audit Fees in NT$ from 2018 to 2019?",
+      "classification": "gold_scale_error",
+      "reason": "The source table reports thousands, with separate NT$ columns for 2018 and 2019 and a 2019 US$ translation. The evaluator incorrectly labels the raw numeric answer as million. The source-derived result is 9246 NT$ thousands; this is a correct source claim rejected by the saved verifier run.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/7e62b89cf422f05ff74518a253efd066.pdf",
+          "locator": "Excerpt page 1 (printed page 97), ITEM 16C Principal Accountant Fees and Services; table in thousands; columns 2018 NT$, 2019 NT$, 2019 US$; Audit-fee change in NT$",
+          "observations": {
+            "2018_NT$_thousands": 52794,
+            "2019_NT$_thousands": 62040,
+            "2019_USD_thousands": 2074
+          },
+          "sha256": "2c515b6992a24421c248420eb5afae478efa150feee4e6e225854cb1753379f2"
+        }
+      ],
+      "targets": [
+        {
+          "value": 9246,
+          "unit": "NT$ thousands",
+          "operation": "period_change",
+          "scope": "NT$ amounts across 2018 and 2019",
+          "calculation": "62040 - 52794",
+          "operands": {
+            "2018_NT$_thousands": 52794,
+            "2019_NT$_thousands": 62040,
+            "2019_USD_thousands": 2074
+          }
+        }
+      ],
+      "review_group": "additional_review_of_violated_claims",
+      "runtime_binding_finding": "Both saved audit-fee operands are 2.074 USD millions, incorrectly using the 2019 US$ column for both years. The requested NT$ columns are 52794 and 62040 thousands."
+    },
+    {
+      "id": "tatdqa_de7c6cbe1acaca915dd63b6d612e0f00",
+      "raw_answer": "1189",
+      "question": "What is the average Audit-related Fees?",
+      "classification": "gold_scale_error",
+      "reason": "The source table reports thousands, with separate NT$ columns for 2018 and 2019 and a 2019 US$ translation. The evaluator incorrectly labels the raw numeric answer as million. The source-derived result is 1189 NT$ thousands; this is a correct source claim rejected by the saved verifier run.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/7e62b89cf422f05ff74518a253efd066.pdf",
+          "locator": "Excerpt page 1 (printed page 97), ITEM 16C Principal Accountant Fees and Services; table in thousands; columns 2018 NT$, 2019 NT$, 2019 US$; Average audit-related fees",
+          "observations": {
+            "2018_NT$_thousands": 1283,
+            "2019_NT$_thousands": 1095,
+            "2019_USD_thousands": 37
+          },
+          "sha256": "2c515b6992a24421c248420eb5afae478efa150feee4e6e225854cb1753379f2"
+        }
+      ],
+      "targets": [
+        {
+          "value": 1189,
+          "unit": "NT$ thousands",
+          "operation": "average",
+          "scope": "NT$ amounts across 2018 and 2019",
+          "calculation": "(1283 + 1095) / 2",
+          "operands": {
+            "2018_NT$_thousands": 1283,
+            "2019_NT$_thousands": 1095,
+            "2019_USD_thousands": 37
+          }
+        }
+      ],
+      "review_group": "additional_review_of_violated_claims",
+      "runtime_binding_finding": "Saved operands 1.283 and 1.095 are labeled USD millions although the PDF values 1283 and 1095 belong to NT$ thousands. The 2019 US$ amount is 37 thousands, not either saved operand."
+    },
+    {
+      "id": "tatdqa_b610b2e2b8975ae32ecd9774c45d7979",
+      "raw_answer": "0.02",
+      "question": "What is the proportion of investor relations and consultants over the total operating expense in 2019?",
+      "classification": "gold_ratio_rounding",
+      "reason": "The requested proportion is the sum of the two named 2019 expenses divided by the full 2019 operating-expense total. Gold 0.02 is a coarse rounded ratio; this independently calculated typed target preserves the source proportion for percent or ratio candidates.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/2eb70b081b9d6349d0c5a5c667689fbd.pdf",
+          "locator": "Excerpt page 1; Operating expenses table, 2019 column; Investor Relations, Consultants and Total Operating Expense including stock compensation",
+          "observations": {
+            "investor_relations_USD": 105639,
+            "consultants_USD": 245386,
+            "total_operating_expense_USD": 19133139
+          },
+          "sha256": "93a05e5ec099b82e7df39c215dcdae38e81d8145221b85b245e334befe4f275d"
+        }
+      ],
+      "targets": [
+        {
+          "value": 1.8346440696427282,
+          "unit": "percent",
+          "absolute_tolerance": 1.0,
+          "tolerance_unit": "percent",
+          "operation": "sum_then_ratio",
+          "scope": "2019 Investor Relations plus Consultants divided by total operating expense including stock compensation",
+          "calculation": "(105639 + 245386) / 19133139 * 100",
+          "operands": {
+            "investor_relations_USD": 105639,
+            "consultants_USD": 245386,
+            "total_operating_expense_USD": 19133139
+          }
+        }
+      ],
+      "review_group": "latest_258_verified_source_audit"
+    },
+    {
+      "id": "tatdqa_d8ece346036d06776f8d935127548064",
+      "raw_answer": "-0.5",
+      "question": "What was the percentage change in the projected benefit obligation discount rate between 2018 and 2019?",
+      "classification": "gold_definition_error",
+      "reason": "The question explicitly requests percentage change in the projected-benefit-obligation discount rate: relative change is -22.72727 percent. Gold -0.5% is instead the difference between the two displayed percentage numbers, meaning -0.5 percentage points. The saved answer explicitly distinguishes these quantities; only a numerically matching relative-change candidate in compatible units receives credit.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/1a8874a4f3c3f8044c083509da0746b2.pdf",
+          "locator": "Excerpt page 1; printed page 92; Assumptions table; Projected benefit obligation discount rate, 2019 and 2018 columns (distinct from Net periodic benefit cost)",
+          "observations": {
+            "2019_PBO_rate_percent": 1.7,
+            "2018_PBO_rate_percent": 2.2
+          },
+          "sha256": "4acbd24dfcf838df8e15578dabdb6ee161aa0ccf0da47ecc06a31960420c764c"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0001193125-19-271646/jbl-20190831.xml",
+          "locator": "us-gaap:DefinedBenefitPlanAssumptionsUsedCalculatingBenefitObligationDiscountRate; dimension-free FI2018Q4 (2018-08-31) and FI2019Q4 (2019-08-31); pure unit",
+          "observations": {
+            "2018_ratio": 0.022,
+            "2019_ratio": 0.017
+          },
+          "sha256": "a08aead94c6b56e13994545c9abee6e1d8b2cbc0a72e2c939d37500fe838834d"
+        }
+      ],
+      "targets": [
+        {
+          "value": -22.727272727272734,
+          "unit": "percent",
+          "absolute_tolerance": 1.0,
+          "tolerance_unit": "percent",
+          "operation": "percentage_change",
+          "scope": "projected benefit obligation discount rate, 2018 to 2019",
+          "calculation": "(1.7 - 2.2) / 2.2 * 100",
+          "operands": {
+            "later_rate_percent": 1.7,
+            "earlier_rate_percent": 2.2
+          }
+        }
+      ],
+      "review_group": "latest_258_verified_source_audit"
+    },
+    {
+      "id": "tatdqa_f5ae1658267b7a85015b2b3ae5a4b0ec",
+      "raw_answer": "936517087.53",
+      "question": "What is the total value of outstanding options and warrants under the Amended and Restated 2010 Share Incentive Plan? ",
+      "classification": "gold_population_error",
+      "reason": "The 2010 Share Incentive Plan's 19468188 securities comprise 19464437 restricted share units and 3751 stock options. Footnote 3 explicitly excludes restricted stock units from the weighted-average exercise price because they have no exercise price. Multiplying the entire plan population by 48.105 incorrectly includes RSUs; the source-supported exercise value uses only the 3751 options. The displayed exercise price is USD per share (not USD thousands). A half-unit in its last printed decimal is 0.0005 USD per share, so the propagated source-precision tolerance is 3751 * 0.0005 = 1.8755 USD; the shared scoring policy remains max(this absolute floor, 1% of the target), as for other reviewed targets. This target describes aggregate exercise value, not an option fair-value valuation.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/515407a98017262d3f4fcc3842da58c3.pdf",
+          "locator": "Excerpt page 1 (printed page 42), Item 12 Securities Authorized for Issuance under Equity Compensation Plans; Amended and Restated 2010 Share Incentive Plan; footnotes 2 and 3",
+          "observations": {
+            "2010_plan_total_securities": 19468188,
+            "2010_plan_restricted_share_units": 19464437,
+            "2010_plan_stock_options": 3751,
+            "weighted_average_exercise_price_USD_per_share": 48.105,
+            "exercise_price_display_decimal_places": 3
+          },
+          "sha256": "1ef4338c426af4d812252e9bf33dcaea4eec77f04a2778e9dacbee53ea20e04d",
+          "quote": "Does not reflect restricted stock units because these awards have no exercise price."
+        }
+      ],
+      "targets": [
+        {
+          "value": 180441.855,
+          "unit": "USD",
+          "absolute_tolerance": 1.8755,
+          "tolerance_unit": "USD",
+          "operation": "product",
+          "scope": "2010 Share Incentive Plan stock options only; excludes restricted share units with no exercise price",
+          "calculation": "3751 * 48.105 = 180441.855 USD",
+          "operands": {
+            "eligible_stock_options": 3751,
+            "weighted_average_exercise_price_USD_per_share": 48.105
+          },
+          "source_precision_calculation": "3751 * (0.5 * 10**-3) = 1.8755 USD"
+        }
+      ],
+      "original_gold_calculation": "Original gold 936517087.53 equals 19468186 * 48.105. The PDF total is 19468188 (19464437 RSUs + 3751 options), whose product is 936517183.74 USD. Thus the original reference is near an RSU-inclusive calculation and additionally differs by two securities; neither total is the eligible stock-option population.",
+      "review_group": "gpt6_1_source_mismatches_2026_10_15"
+    },
+    {
+      "id": "tatdqa_e54325bdf2794366d8cb0a710033de38",
+      "raw_answer": "-11.74",
+      "question": "What was the change in Net income per weighted-average share attributable to VMware, Inc. common stockholders, diluted for Classes A and B between Q2 and Q3 2020?",
+      "classification": "gold_row_error",
+      "reason": "The question explicitly requests diluted EPS. Its Q2 and Q3 FY2020 values are 12.47 and 0.96 USD per share, giving -11.51. The benchmark -11.74 instead equals 0.98 - 12.72 from the basic EPS row immediately above. The caption excludes per-share amounts from the table's millions scale. Repair the missing per-share denominator in legacy currency labels without changing the saved numeric amount. Two independently cents-rounded operands give an absolute source-precision floor of 0.01 USD per share; the existing max(absolute floor, 1% of target) policy is unchanged. The incorrect basic-row result is outside that tolerance.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/24e23b5428ac97c8ae3cca76f5382437.pdf",
+          "locator": "Excerpt page 1 (printed page 112), Note S, Selected Quarterly Financial Data, Fiscal 2020, Q2 and Q3; diluted for Classes A and B row and basic row directly above; caption except per share amounts",
+          "observations": {
+            "Q2_diluted_USD_per_share": 12.47,
+            "Q3_diluted_USD_per_share": 0.96,
+            "Q2_basic_USD_per_share": 12.72,
+            "Q3_basic_USD_per_share": 0.98
+          },
+          "sha256": "f2251c0d21d5238347e0c49b1134b62361e6a4f0cd1544cbb2ab155a334ccd8b"
+        }
+      ],
+      "targets": [
+        {
+          "value": -11.51,
+          "unit": "USD per share",
+          "claim_unit_qualifier": "per share",
+          "absolute_tolerance": 0.01,
+          "tolerance_unit": "USD per share",
+          "operation": "period_change",
+          "scope": "FY2020 Q2 to Q3 diluted EPS for Classes A and B",
+          "calculation": "0.96 - 12.47 = -11.51 USD per share",
+          "operands": {
+            "Q3_diluted_USD_per_share": 0.96,
+            "Q2_diluted_USD_per_share": 12.47
+          },
+          "source_precision_calculation": "0.005 + 0.005 = 0.01 USD per share"
+        }
+      ],
+      "original_gold_calculation": "Basic EPS: 0.98 - 12.72 = -11.74 USD per share; this is not the requested diluted row.",
+      "runtime_binding_finding": "The bundled XBRL filing is for 2019-02-01 and has no FY2020 contexts. The saved diagnostics leave both XBRL roles unbound. This review uses the actual FY2020 PDF table and does not treat the older instance as corroboration.",
+      "review_group": "qwen3_30b_false_accept_review_2026_10_16"
+    },
+    {
+      "id": "tatdqa_bdf2411e367d4b93fb0247c42751491f",
+      "raw_answer": "7",
+      "question": "What is the change in the % of revenue?",
+      "classification": "benchmark_ambiguity",
+      "reason": "The page contains three identically named % of revenue rows, and the standalone question does not name a department. Sales and marketing changes from 45% to 47% (+2 percentage points), research and development from 21% to 28% (+7 points), and general and administrative from 22% to 21% (-1 point). The inference input supplies the whole page without question history or a selected-table annotation. Gold 7 implicitly selects R&D, while its thousand scale is invalid for this percentage difference. Each department supplies a separate source-supported target; this is an ambiguity adjudication, not proof that the dataset intended sales and marketing. Explicit percentage-point units and the legacy percent representation of a difference in revenue shares are both recorded. These are absolute changes in shares, not relative percentage growth rates. A one-point absolute floor follows the whole-percent displayed operands; retain the shared relative and sign policies and do not override candidate correctness unconditionally.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/f5850c2764209f26fccf7923dd714ea4.pdf",
+          "locator": "Excerpt page 1 (printed page 59), Operating Expenses; Sales and Marketing, Research and Development, and General and Administrative tables; % of revenue rows, 2018 and 2017",
+          "observations": {
+            "sales_and_marketing_2018_percent": 47,
+            "sales_and_marketing_2017_percent": 45,
+            "research_and_development_2018_percent": 28,
+            "research_and_development_2017_percent": 21,
+            "general_and_administrative_2018_percent": 21,
+            "general_and_administrative_2017_percent": 22
+          },
+          "sha256": "445402ea5438ddd0e0aa2a418852b8660cba0e8f14d9635433d089d46b191350"
+        }
+      ],
+      "targets": [
+        {
+          "value": 2,
+          "unit": "percentage points",
+          "absolute_tolerance": 1.0,
+          "tolerance_unit": "percentage points",
+          "operation": "percentage_point_change",
+          "scope": "sales and marketing, share of revenue, 2017 to 2018",
+          "calculation": "47 - 45 = 2 percentage points",
+          "operands": {
+            "2018_percent": 47,
+            "2017_percent": 45
+          },
+          "representation": "explicit percentage points"
+        },
+        {
+          "value": 2,
+          "unit": "percent",
+          "absolute_tolerance": 1.0,
+          "tolerance_unit": "percent",
+          "operation": "percentage_point_change",
+          "scope": "sales and marketing, share of revenue, 2017 to 2018",
+          "calculation": "47 - 45 = 2 percentage points",
+          "operands": {
+            "2018_percent": 47,
+            "2017_percent": 45
+          },
+          "representation": "legacy percent label for the difference of two revenue shares; divide by 100 for ratio units"
+        },
+        {
+          "value": 7,
+          "unit": "percentage points",
+          "absolute_tolerance": 1.0,
+          "tolerance_unit": "percentage points",
+          "operation": "percentage_point_change",
+          "scope": "research and development, share of revenue, 2017 to 2018",
+          "calculation": "28 - 21 = 7 percentage points",
+          "operands": {
+            "2018_percent": 28,
+            "2017_percent": 21
+          },
+          "representation": "explicit percentage points"
+        },
+        {
+          "value": 7,
+          "unit": "percent",
+          "absolute_tolerance": 1.0,
+          "tolerance_unit": "percent",
+          "operation": "percentage_point_change",
+          "scope": "research and development, share of revenue, 2017 to 2018",
+          "calculation": "28 - 21 = 7 percentage points",
+          "operands": {
+            "2018_percent": 28,
+            "2017_percent": 21
+          },
+          "representation": "legacy percent label for the difference of two revenue shares; divide by 100 for ratio units"
+        },
+        {
+          "value": -1,
+          "unit": "percentage points",
+          "absolute_tolerance": 1.0,
+          "tolerance_unit": "percentage points",
+          "operation": "percentage_point_change",
+          "scope": "general and administrative, share of revenue, 2017 to 2018",
+          "calculation": "21 - 22 = -1 percentage points",
+          "operands": {
+            "2018_percent": 21,
+            "2017_percent": 22
+          },
+          "representation": "explicit percentage points"
+        },
+        {
+          "value": -1,
+          "unit": "percent",
+          "absolute_tolerance": 1.0,
+          "tolerance_unit": "percent",
+          "operation": "percentage_point_change",
+          "scope": "general and administrative, share of revenue, 2017 to 2018",
+          "calculation": "21 - 22 = -1 percentage points",
+          "operands": {
+            "2018_percent": 21,
+            "2017_percent": 22
+          },
+          "representation": "legacy percent label for the difference of two revenue shares; divide by 100 for ratio units"
+        }
+      ],
+      "review_group": "qwen3_30b_false_accept_review_2026_10_16"
+    }
+  ]
+}

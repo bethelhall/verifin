@@ -1,0 +1,17 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/dividend-yield-formula/
+Authority: CFA Institute, Financial Reporting and Analysis
+Metric: Dividend Yield
+
+PRIMARY FORMULA:
+Dividend Yield = Dividend Per Share / Market Value Per Share
+
+VARIABLE DEFINITIONS:
+- Dividend Per Share: "the company's total annual dividend payment, divided by the total number of shares outstanding"
+- Market Value Per Share: "the current share price of the company"
+- Result: Expressed as a percentage
+
+VERBATIM FORMULA STATEMENTS:
+"Dividend Yield = Dividend per share / Market value per share"
+"a financial ratio that measures the annual value of dividends received relative to the market value per share of a security"
+"calculates the percentage of a company's market price of a share that is paid to shareholders in the form of dividends"

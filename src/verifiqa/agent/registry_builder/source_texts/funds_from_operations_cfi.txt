@@ -1,0 +1,19 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/real-estate/funds-from-operations/
+Authority: CFA Institute, Alternative Investments curriculum; NAREIT definition
+Metric: Funds From Operations (FFO) — REIT
+
+PRIMARY FORMULA:
+FFO = Net Income + Depreciation Expense + Amortization Expense + Losses on Sale of Assets - Gains on Sale of Assets - Interest Income
+
+VARIABLE DEFINITIONS:
+- Net Income: The company's profit after all expenses and taxes
+- Depreciation Expense: "A non-cash allocation covering capital expenditures for fixed assets"
+- Amortization Expense: Loan and capital expense payments spread over a specific period
+- Losses on Sale of Assets: Occurs when an asset sells below its net book value (added back)
+- Gains on Sale of Assets: Profit when an asset sells above net book value (subtracted)
+- Interest Income: Earnings from marketable securities or interest-bearing accounts (subtracted)
+
+VERBATIM FORMULA STATEMENTS:
+"FFO = Net Income + (Depreciation Expense + Amortization Expense + Losses on Sale of Assets) – (Gains on Sale of Assets + Interest Income)"
+"the actual amount of cash flow generated from a company's business operations"

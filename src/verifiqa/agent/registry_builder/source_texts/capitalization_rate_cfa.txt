@@ -1,0 +1,19 @@
+Source: CFA Institute, Alternative Investments curriculum
+Authority: CFA Institute Program Curriculum, Level 1 & 2, Real Estate Valuation
+Metric: Capitalization Rate (Cap Rate)
+
+PRIMARY FORMULA:
+Cap Rate = Net Operating Income / Property Value
+
+REARRANGED FOR VALUATION:
+Property Value = Net Operating Income / Cap Rate
+
+VARIABLE DEFINITIONS:
+- Net Operating Income (NOI): Rental income minus operating expenses (excluding debt service, depreciation, taxes)
+- Property Value: Current market value or purchase price of the property
+- Result: Expressed as a percentage; represents the unleveraged yield on a real estate investment
+
+VERBATIM FORMULA STATEMENTS:
+"Cap Rate = Net Operating Income / Property Value"
+"$500,000 (NOI) / 5% (CAP rate) = $10,000,000 (property value)"
+"represents the rate of return on a real estate investment property based on the income that the property is expected to generate."

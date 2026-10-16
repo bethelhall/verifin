@@ -1,0 +1,23 @@
+Source: Wikipedia
+URL: https://en.wikipedia.org/wiki/Earnings_per_share
+Metric: Earnings Per Share (EPS)
+
+PRIMARY FORMULA:
+Earnings per share = (Net Income - Preferred Dividends) / Weighted Average Common Shares
+
+ALTERNATIVE FORMULAS:
+Basic EPS = (Profit - Preferred Dividends) / Weighted Average Common Shares
+EPS from continuing operations = (Income from Continuing Operations - Preferred Dividends) / Weighted Average Common Shares
+
+VARIABLE DEFINITIONS:
+- Net Income / Profit: Company earnings for the period
+- Preferred Dividends: Subtracted because preferred stockholders have priority over common stockholders
+- Weighted Average Common Shares: Average number of common shares outstanding during the time period, weighted by time
+
+DILUTED EPS:
+Diluted EPS adjusts both numerator and denominator to account for potential share issuances from convertible securities, stock options, and warrants, reflecting a "worst case" scenario for dilution.
+
+VERBATIM FORMULA STATEMENTS:
+"Earnings per share = profit - preferred dividends / weighted average common shares"
+"Earnings per share = net income - preferred dividends / average common shares"
+EPS represents "the monetary value of earnings per outstanding share of common stock for a company during a defined period of time, often a year."

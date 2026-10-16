@@ -1,0 +1,21 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/valuation/what-is-enterprise-value/
+Authority: CFA Institute, Equity Investments curriculum
+Metric: Enterprise Value (EV)
+
+PRIMARY FORMULA:
+EV = Market Capitalization + Market Value of Debt - Cash and Equivalents
+
+EXTENDED FORMULA:
+EV = Common Shares + Preferred Shares + Market Value of Debt + Noncontrolling Interest - Cash and Equivalents
+
+VARIABLE DEFINITIONS:
+- Market Capitalization: Fully-diluted shares outstanding multiplied by current stock price
+- Market Value of Debt: Short-term and long-term interest-bearing liabilities
+- Preferred Shares: Hybrid securities with fixed dividends and priority claims
+- Noncontrolling Interest: Portion of a subsidiary not owned by the parent company
+- Cash and Cash Equivalents: Subtracted as it could immediately reduce debt
+
+VERBATIM FORMULA STATEMENTS:
+"EV = Market Capitalization + Market Value of Debt – Cash and Equivalents"
+"Enterprise Value (EV) is the measure of a company's total value. It looks at the entire market value rather than just the equity value, so all ownership interests and asset claims from both debt and equity are included."

@@ -1,0 +1,78 @@
+{
+  "dataset": "FinanceBench",
+  "questions": 67,
+  "models": [
+    "gpt-5.5"
+  ],
+  "included_in_tadqa_aggregates": false,
+  "scoring": {
+    "scorer": "verifiqa.eval.financebench_scoring",
+    "review_path": "data/financebench_scoring_review.json",
+    "review_sha256": "a2b11e37438f384e7ceb6e14f4f6d79dbb9817a238d4ddce2ba4f606c07fa3bb",
+    "dataset_path": "data/numerical_questions.jsonl",
+    "dataset_sha256": "37639aefbd212518e601685a448463304b6e9f8818487f2d229b7460f55472c2",
+    "reviewed_references": 28,
+    "dataset_questions": 67,
+    "source_reviewed_is_post_hoc": true,
+    "candidate_values_and_units_preserved": true,
+    "primary_view": "source_reviewed",
+    "graded_precision_denominator": 34,
+    "graded_accuracy_denominator": 45
+  },
+  "authority_audit": {
+    "status": "not_audited",
+    "matching_snapshot": false,
+    "known_grounding_defects": null,
+    "findings": [],
+    "display_note": "Grounding defects have not been audited for this run.",
+    "reason": "result_hash_mismatch",
+    "results_sha256": "d7c1d1d505ae4b36ecbc7cae48e0264f1ece39a41c7f59558eab843e39fbd358"
+  },
+  "input_files": {
+    "dataset": {
+      "path": "data/numerical_questions.jsonl",
+      "sha256": "37639aefbd212518e601685a448463304b6e9f8818487f2d229b7460f55472c2"
+    },
+    "results": {
+      "path": "results/new_submissions/financebench_gpt5.5/results.jsonl",
+      "sha256": "d7c1d1d505ae4b36ecbc7cae48e0264f1ece39a41c7f59558eab843e39fbd358"
+    },
+    "manifest": {
+      "path": "results/new_submissions/financebench_gpt5.5/run_manifest.json",
+      "sha256": "ae016f58946ad5c38cc87c1e36e7f1aa90c379f0ee39c444f0ab5c8baa2313f6"
+    },
+    "review": {
+      "path": "data/financebench_scoring_review.json",
+      "sha256": "a2b11e37438f384e7ceb6e14f4f6d79dbb9817a238d4ddce2ba4f606c07fa3bb"
+    },
+    "scorer": {
+      "path": "src/verifiqa/eval/financebench_scoring.py",
+      "sha256": "940c15e6a43a781e09005c08887eca79f4c656786a58c8208182d45f27bf4a9f"
+    },
+    "candidate_scorer": {
+      "path": "src/verifiqa/eval/candidate_scoring.py",
+      "sha256": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7"
+    },
+    "unit_conversion": {
+      "path": "src/verifiqa/verification/money_units.py",
+      "sha256": "6df0825c7f2360e5f92de45c519f873efb9d5a9830d6def9ab74db5a5a27b8ca"
+    }
+  },
+  "counts": {
+    "TA": 34,
+    "FA": 0,
+    "TR": 5,
+    "FR": 6,
+    "AB": 20,
+    "UNSCORED_VERIFIED": 1,
+    "UNSCORED_REJECTED": 1
+  },
+  "precision_denominator": "TA + FA",
+  "accuracy_denominator": "TA + FA + TR + FR",
+  "raw_verified": 35,
+  "graded_verified": 34,
+  "precision_bounds": [
+    0.9714285714285714,
+    1.0
+  ]
+}

@@ -1,0 +1,20 @@
+Source: CFA Institute, Financial Institutions analysis
+Authority: CFA Institute Program Curriculum, Level 1 & 2, Financial Institutions
+Metric: Bank Efficiency Ratio
+
+PRIMARY FORMULA:
+Efficiency Ratio = Non-Interest Expense / Revenue
+
+ALTERNATIVE FORMULA:
+Efficiency Ratio = Non-Interest Expense / (Net Interest Income + Non-Interest Income)
+
+VARIABLE DEFINITIONS:
+- Non-Interest Expense: Operating expenses excluding interest expense (salaries, occupancy, technology, etc.)
+- Revenue: Total revenue = Net Interest Income + Non-Interest Income
+- Net Interest Income: Interest earned on loans minus interest paid on deposits
+- Non-Interest Income: Fees, commissions, trading income, service charges
+
+VERBATIM FORMULA STATEMENTS:
+"Efficiency Ratio = Non-Interest Expense / Revenue"
+"measures how much of a bank's revenue is consumed by operating expenses. A lower ratio indicates greater efficiency."
+"A ratio below 50% is considered excellent; above 70% is considered poor."

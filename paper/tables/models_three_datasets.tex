@@ -1,0 +1,64 @@
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\sisetup{detect-weight=true, mode=text}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l
+S[table-format=3.0] >{\columncolor{gainhl}}S[table-format=1.0] S[table-format=2.0] S[table-format=2.0] S[table-format=3.1] S[table-format=2.1] S[table-format=3.1]
+!{\color{gridln}\vrule width 0.6pt}
+S[table-format=2.0] >{\columncolor{gainhl}}S[table-format=1.0] S[table-format=2.0] S[table-format=2.0] S[table-format=3.1] S[table-format=2.1] S[table-format=2.1]
+!{\color{gridln}\vrule width 0.6pt}
+S[table-format=3.0] >{\columncolor{gainhl}}S[table-format=1.0] S[table-format=2.0] S[table-format=3.0] S[table-format=3.1] S[table-format=2.1] S[table-format=2.1]@{}}
+\toprule
+& \multicolumn{7}{c}{\textbf{XBRLFiling} ($n{=}600$)} & \multicolumn{7}{c}{\textbf{FinanceBench} ($n{=}67$)} & \multicolumn{7}{c}{\textbf{TADQA} ($n{=}403$)} \\
+\cmidrule(lr){2-8}\cmidrule(lr){9-15}\cmidrule(l){16-22}
+\textbf{Claim model}
+& {TA} & {FA$\,\downarrow$} & {FR} & {Abs} & {Prec.} & {Acc.} & {Cov.}
+& {TA} & {FA$\,\downarrow$} & {FR} & {Abs} & {Prec.} & {Acc.} & {Cov.}
+& {TA} & {FA$\,\downarrow$} & {FR} & {Abs} & {Prec.} & {Acc.} & {Cov.} \\
+\midrule
+Qwen2.5-7B & 35 & 0 & 73 & 10 & 100.0 & 87.6 & 98.3
+                 & 10 & 0 & 7 & 34 & 100.0 & 78.8 & 49.3
+                 & 62 & 0 & 71 & 152 & 100.0 & 71.7 & 62.3 \\
+ &  &  &  &  & {\scriptsize [90.0, 100.0]} & {\scriptsize [84.7, 90.2]} & {\scriptsize [97.0, 99.2]}
+                 &  &  &  &  & {\scriptsize [69.2, 100.0]} & {\scriptsize [61.1, 91.0]} & {\scriptsize [36.8, 61.8]}
+                 &  &  &  &  & {\scriptsize [94.2, 100.0]} & {\scriptsize [65.7, 77.2]} & {\scriptsize [57.4, 67.0]} \\
+Llama-3.1-8B & 74 & 0 & 50 & 16 & 100.0 & 91.4 & 97.3
+                 & 10 & 0 & 12 & 28 & 100.0 & 69.2 & 58.2
+                 & 48 & 0 & 53 & 129 & 100.0 & 80.7 & 68.0 \\
+ &  &  &  &  & {\scriptsize [95.1, 100.0]} & {\scriptsize [88.9, 93.6]} & {\scriptsize [95.7, 98.5]}
+                 &  &  &  &  & {\scriptsize [69.2, 100.0]} & {\scriptsize [52.4, 83.0]} & {\scriptsize [45.5, 70.2]}
+                 &  &  &  &  & {\scriptsize [92.6, 100.0]} & {\scriptsize [75.5, 85.2]} & {\scriptsize [63.2, 72.5]} \\
+Qwen3-30B & 304 & 0 & 63 & 2 & 100.0 & 89.5 & 99.7
+                 & 24 & 0 & 8 & 15 & 100.0 & 84.6 & 77.6
+                 & 196 & 0 & 73 & 82 & 100.0 & 77.3 & 79.7 \\
+ &  &  &  &  & {\scriptsize [98.8, 100.0]} & {\scriptsize [86.7, 91.8]} & {\scriptsize [98.8, 100.0]}
+                 &  &  &  &  & {\scriptsize [85.8, 100.0]} & {\scriptsize [71.9, 93.1]} & {\scriptsize [65.8, 86.9]}
+                 &  &  &  &  & {\scriptsize [98.1, 100.0]} & {\scriptsize [72.3, 81.7]} & {\scriptsize [75.4, 83.5]} \\
+Fin-o1 & 436 & 0 & 49 & 8 & 100.0 & 91.7 & 98.7
+                 & 32 & 0 & 9 & 12 & 100.0 & 83.6 & 82.1
+                 & 191 & 0 & 61 & 103 & 100.0 & 79.7 & 74.4 \\
+ &  &  &  &  & {\scriptsize [99.2, 100.0]} & {\scriptsize [89.2, 93.8]} & {\scriptsize [97.4, 99.4]}
+                 &  &  &  &  & {\scriptsize [89.1, 100.0]} & {\scriptsize [71.2, 92.2]} & {\scriptsize [70.8, 90.4]}
+                 &  &  &  &  & {\scriptsize [98.1, 100.0]} & {\scriptsize [74.7, 84.1]} & {\scriptsize [69.9, 78.6]} \\
+Claude Haiku~4.5 & 455 & 0 & 46 & 7 & 100.0 & 92.2 & 98.8
+                 & 28 & 0 & 9 & 13 & 100.0 & 83.3 & 80.6
+                 & 244 & 0 & 55 & 80 & 100.0 & 83.0 & 80.1 \\
+ &  &  &  &  & {\scriptsize [99.2, 100.0]} & {\scriptsize [89.8, 94.3]} & {\scriptsize [97.6, 99.5]}
+                 &  &  &  &  & {\scriptsize [87.7, 100.0]} & {\scriptsize [70.7, 92.1]} & {\scriptsize [69.1, 89.2]}
+                 &  &  &  &  & {\scriptsize [98.5, 100.0]} & {\scriptsize [78.4, 86.9]} & {\scriptsize [75.9, 83.9]} \\
+GPT-5.5$^{\dagger}$ & 560 & 0 & 37 & 0 & 100.0 & 93.8 & 100.0
+                 & 34 & 0 & 6 & 20 & 100.0 & 86.7 & 70.1
+                 & 282 & 0 & 28 & 80 & 100.0 & 91.3 & 80.1 \\
+ &  &  &  &  & {\scriptsize [99.3, 100.0]} & {\scriptsize [91.6, 95.6]} & {\scriptsize [99.4, 100.0]}
+                 &  &  &  &  & {\scriptsize [89.7, 100.0]} & {\scriptsize [73.2, 94.9]} & {\scriptsize [57.7, 80.7]}
+                 &  &  &  &  & {\scriptsize [98.7, 100.0]} & {\scriptsize [87.7, 94.2]} & {\scriptsize [75.9, 83.9]} \\
+\bottomrule
+\end{tabular}%
+}
+\caption{\textsc{VeriFin} performance across six answer-generator models and three datasets. TA/FA/FR/Abs are counts; Prec./Acc./Cov.\ are percentages. Brackets below estimates show pointwise two-sided 95\% Clopper--Pearson confidence intervals, using denominators $\mathrm{TA}+\mathrm{FA}$, $n-\mathrm{Abs}-U$, and $n$, respectively. Intervals assume independent binomial observations conditional on the saved run; they do not account for filing clusters, repeated runs, or multiple comparisons. True rejects are omitted and recoverable as $n-(\mathrm{TA}+\mathrm{FA}+\mathrm{FR}+\mathrm{Abs}+U)$, where $U$ counts ungraded decisions and is zero unless noted. XBRLFiling and the other FinanceBench rows use historical scoring; GPT-5.5 on FinanceBench and all TADQA rows use post hoc source-reviewed scoring. TADQA logs include targeted reruns selected after outcome inspection; the intervals do not account for this selection. Dashes denote unavailable, incomplete, or undefined metrics. Fin-o1 uses TheFinAI/Fin-o1-8B for TADQA; its historical XBRLFiling/FinanceBench checkpoint identities remain unconfirmed. $^{\dagger}$ FinanceBench/GPT-5.5: U=2 ungraded decisions (1 accepted, 1 rejected). Precision uses 34 graded accepts; accuracy uses 45 graded decisions; coverage uses all 67 questions. Overall precision is bounded by 97.1\%-100.0\% depending on ungraded accepts; these are identification bounds, not confidence intervals.}
+\label{tab:models-three-datasets}
+\end{table*}

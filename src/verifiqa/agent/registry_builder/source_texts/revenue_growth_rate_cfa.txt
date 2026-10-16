@@ -1,0 +1,19 @@
+Source: CFA Institute, Financial Reporting and Analysis curriculum
+Authority: CFA Institute Program Curriculum, Level 1, Common-Size and Growth Analysis
+Metric: Revenue Growth Rate
+
+PRIMARY FORMULA:
+Revenue Growth Rate = (Current Period Revenue - Prior Period Revenue) / Prior Period Revenue × 100
+
+VARIABLE DEFINITIONS:
+- Current Period Revenue: Net revenue for the current reporting period
+- Prior Period Revenue: Net revenue for the comparison period (prior year or prior quarter)
+- Result: Expressed as a percentage; positive values indicate growth, negative values indicate contraction
+
+VERBATIM FORMULA STATEMENTS:
+"Revenue Growth Rate = (Revenue_t - Revenue_t-1) / Revenue_t-1 × 100"
+"measures the percentage increase or decrease in a company's sales from one period to the next."
+
+KEY NOTES:
+Can be computed year-over-year (YoY) or quarter-over-quarter (QoQ).
+For multi-period analysis, use CAGR = (End Value / Start Value)^(1/n) - 1.

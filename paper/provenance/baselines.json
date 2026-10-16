@@ -1,0 +1,136 @@
+{
+  "run_root": "results/onepool_parsing_fixed",
+  "scoring_view": "original",
+  "scoring_protocol": "legacy_magnitude_any_token_v1",
+  "scoring_policy_path": "publication_assets_source/results/scoring_policy.json",
+  "adjudications_path": "publication_assets_source/results/manual_adjudications.json",
+  "candidate_protocol": "claim_input_answer_v2",
+  "allow_corrected_candidate_protocol": true,
+  "headline_population": "complete_saved_run",
+  "reference_screening": {
+    "enabled": false
+  },
+  "reported_methods": [
+    "LLM Judge",
+    "VeriFin"
+  ],
+  "precision_statistics": {
+    "method": "Wilson",
+    "confidence_level": 0.95,
+    "interval_type": "pointwise binomial",
+    "package": "SciPy",
+    "package_version": "1.17.1",
+    "successes": "TA",
+    "trials": "TA + FA (accepted answers)",
+    "assumption": "Independent accepted questions; filing-level clustering is not modeled",
+    "comparison_limit": "Descriptive per-method intervals; not a paired precision-difference test"
+  },
+  "precision_significance": {
+    "method": "Company-clustered binomial GEE generalized score test",
+    "package": "statsmodels",
+    "package_version": "0.15.0",
+    "null_hypothesis": "Equal conditional precision among accepted answers",
+    "cluster": "company",
+    "working_correlation": "Independence",
+    "covariance": "robust",
+    "alternative": "two-sided",
+    "calibration": "asymptotic chi-square with 1 degree of freedom",
+    "alpha": 0.05,
+    "multiple_testing": "Historical Holm",
+    "family_size": 8,
+    "displayed_comparisons": 2,
+    "historical_family": {
+      "path": "paper/provenance/baseline_precision_historical_family.json",
+      "sha256": "25164ffb035efbabb4256dd39d690444cb26d11cff79aa6bc9b561c515c3729c"
+    },
+    "selection": "LLM Judge only; a new run does not inherit or reduce the historical correction family",
+    "no_variation": "Not estimable; p-value remains missing",
+    "limitation": "Independent companies; few clusters and sparse errors limit the asymptotic approximation"
+  },
+  "publication_ready": false,
+  "runs": [
+    {
+      "dataset": "financebench",
+      "method": "LLM Judge",
+      "results": "results/onepool_parsing_fixed/fb_judge/results.jsonl",
+      "manifest": "results/onepool_parsing_fixed/fb_judge/run_manifest.json",
+      "evaluator_model": "claude-haiku-4-5-20251001",
+      "run_fingerprint": "30f730d870cae7091419281bbef058e6c368229ebaab8877921e482c995b48e7"
+    },
+    {
+      "dataset": "financebench",
+      "method": "VeriFin",
+      "results": "results/fb_detsmt_v2_haiku/results.jsonl",
+      "manifest": NaN,
+      "evaluator_model": "Not recorded in source log",
+      "run_fingerprint": NaN
+    },
+    {
+      "dataset": "xbrlfiling",
+      "method": "LLM Judge",
+      "results": "results/onepool_parsing_fixed/xbrl_judge/results.jsonl",
+      "manifest": "results/onepool_parsing_fixed/xbrl_judge/run_manifest.json",
+      "evaluator_model": "claude-haiku-4-5-20251001",
+      "run_fingerprint": "6e9a9298e32e42168c8a875bbba5cc0f94993e0407615bc68ccb7598c200e5bc"
+    },
+    {
+      "dataset": "xbrlfiling",
+      "method": "VeriFin",
+      "results": "results/mc_calc_detsmt_v2_haiku/results.jsonl",
+      "manifest": NaN,
+      "evaluator_model": "Not recorded in source log",
+      "run_fingerprint": NaN
+    }
+  ],
+  "sources": [
+    {
+      "path": "publication_assets_source/results/scoring_policy_v2.json",
+      "sha256": "619666ac97c051e255f5f730a634d45c1df4e5897e3227be8436b258df7411fb"
+    },
+    {
+      "path": "publication_assets_source/results/scoring_policy.json",
+      "sha256": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81"
+    },
+    {
+      "path": "publication_assets_source/results/manual_adjudications.json",
+      "sha256": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300"
+    },
+    {
+      "path": "data/numerical_questions.jsonl",
+      "sha256": "37639aefbd212518e601685a448463304b6e9f8818487f2d229b7460f55472c2"
+    },
+    {
+      "path": "results/fb_detsmt_v2_haiku/results.jsonl",
+      "sha256": "61a2acfd6138a21533793926eeefdb4a31bf14f7f332c9650cd94a63530634e8"
+    },
+    {
+      "path": "results/onepool_parsing_fixed/fb_judge/results.jsonl",
+      "sha256": "19c567cde20876e873e1d7cd59ee635ad9a298d5155666a6291404634b59affd"
+    },
+    {
+      "path": "results/onepool_parsing_fixed/fb_judge/run_manifest.json",
+      "sha256": "86e054337cb549de0cd721bb6b666ecd751a09c05d613ece39cfdaa7e1c7b447"
+    },
+    {
+      "path": "data/multicompany_provable/data/provable_calcrequired.jsonl",
+      "sha256": "a63655a04251bce99cc44a77af5c4abf42fb4a4f1b3e098ce03e3668f8a385ce"
+    },
+    {
+      "path": "results/mc_calc_detsmt_v2_haiku/results.jsonl",
+      "sha256": "7f6f745f1d7c16a5041119273997b2066e25e55b3c3bdd873d7d907f5879ce98"
+    },
+    {
+      "path": "results/onepool_parsing_fixed/xbrl_judge/results.jsonl",
+      "sha256": "349c7eec18105e2371aa4c3a0fb8ced9ca6ea2986414a48057dd6700320a2660"
+    },
+    {
+      "path": "results/onepool_parsing_fixed/xbrl_judge/run_manifest.json",
+      "sha256": "cbf2e7a443d1bd1c8de452ead01bc60306ede2a5190e85654b058bf39ad5eac9"
+    },
+    {
+      "path": "paper/provenance/baseline_precision_historical_family.json",
+      "sha256": "25164ffb035efbabb4256dd39d690444cb26d11cff79aa6bc9b561c515c3729c"
+    }
+  ],
+  "qualification": "Original magnitude/any-gold-number scoring with max(1, 1% of target) tolerance and original adjudications, applied uniformly to every method. Later strict text/unit/rounding annotations are not applied. Generator/planner backbone parity is not established by these logs."
+}

@@ -1,0 +1,83 @@
+{
+  "total": 1,
+  "gold_evaluable": 1,
+  "all_verifications": 0,
+  "solver_verdicts": 0,
+  "correct_verifications": 0,
+  "correct_solver_verdicts": 0,
+  "incorrect_verifications": 0,
+  "incorrect_solver_verdicts": 0,
+  "expected_sat": 0,
+  "expected_unsat": 1,
+  "actual_sat": 0,
+  "actual_unsat": 0,
+  "verified": 0,
+  "violated": 0,
+  "abstain": 1,
+  "abstain_reasons": {
+    "unverified_formula": 1
+  },
+  "verified_correct": 0,
+  "verified_incorrect": 0,
+  "violated_correct": 0,
+  "violated_incorrect": 0,
+  "correct_decisions": 0,
+  "incorrect_decisions": 0,
+  "accuracy": null,
+  "solver_accuracy": null,
+  "decision_accuracy": null,
+  "coverage": 0.0,
+  "overall_accuracy": 0.0,
+  "sat_precision": null,
+  "verification_precision": null,
+  "unsat_precision": null,
+  "violation_precision": null,
+  "scoring": {
+    "primary_view": "source_reviewed",
+    "scorer": "verifiqa.eval.tatdqa_scoring",
+    "source_reviewed_is_post_hoc": true,
+    "result_sha256": "3c2bac07681701c1c6f925229e4bd7c164d850df1b79b47674000bdeb051b365"
+  },
+  "scoring_views": {
+    "literal_benchmark": {
+      "n": 1,
+      "TA": 0,
+      "FA": 0,
+      "TR": 0,
+      "FR": 0,
+      "AB": 1,
+      "precision": null,
+      "decision_accuracy": null,
+      "coverage": 0.0,
+      "rejection_precision": null,
+      "abstention_rate": 1.0
+    },
+    "benchmark": {
+      "n": 1,
+      "TA": 0,
+      "FA": 0,
+      "TR": 0,
+      "FR": 0,
+      "AB": 1,
+      "precision": null,
+      "decision_accuracy": null,
+      "coverage": 0.0,
+      "rejection_precision": null,
+      "abstention_rate": 1.0
+    },
+    "source_reviewed": {
+      "n": 1,
+      "TA": 0,
+      "FA": 0,
+      "TR": 0,
+      "FR": 0,
+      "AB": 1,
+      "precision": null,
+      "decision_accuracy": null,
+      "coverage": 0.0,
+      "rejection_precision": null,
+      "abstention_rate": 1.0
+    }
+  },
+  "elapsed_s": 12.5
+}

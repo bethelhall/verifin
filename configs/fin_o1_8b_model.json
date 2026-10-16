@@ -1,0 +1,17 @@
+{
+  "checkpoint": "TheFinAI/Fin-o1-8B",
+  "checkpoint_url": "https://huggingface.co/TheFinAI/Fin-o1-8B",
+  "architecture": "qwen3",
+  "parameter_count": 8190735360,
+  "quantization": "Q4_K_M",
+  "quantization_repository": "mradermacher/Fin-o1-8B-GGUF",
+  "quantization_revision": "b251510a1d6f84a367d0b917ae50c4e4dda08dca",
+  "quantization_filename": "Fin-o1-8B.Q4_K_M.gguf",
+  "quantization_sha256": "773761f015db42266ef7fc47f92ab076eed3362c5c5590797ab25f3065471bad",
+  "quantization_bytes": 5027784160,
+  "base_model": "hf.co/mradermacher/Fin-o1-8B-GGUF:Q4_K_M",
+  "model": "fin-o1-8b-tatdqa:latest",
+  "context_tokens": 32768,
+  "template_policy": "Inherit the imported Qwen3 chat template; retain default reasoning behavior.",
+  "identity_note": "This new run uses the Qwen3-based Fin-o1-8B. It does not establish the identity of historical Fin-o1 runs or the older Llama-based Fino1-8B."
+}

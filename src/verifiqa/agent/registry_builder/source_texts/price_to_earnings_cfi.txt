@@ -1,0 +1,24 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/price-earnings-ratio/
+Metric: Price to Earnings Ratio (P/E Ratio)
+
+PRIMARY FORMULA:
+P/E = Stock Price Per Share / Earnings Per Share
+
+ALTERNATIVE FORMULAS:
+P/E = Market Capitalization / Total Net Earnings
+Justified P/E = Dividend Payout Ratio / (R - G)
+
+VARIABLE DEFINITIONS:
+- Stock Price Per Share: Current market price of one share
+- Earnings Per Share (EPS): Earnings from the last twelve months divided by weighted average shares outstanding
+- Market Capitalization: Total market value of all outstanding shares
+- Total Net Earnings: Company's total net income
+- R: Required Rate of Return
+- G: Sustainable Growth Rate
+
+VERBATIM FORMULA STATEMENTS:
+"P/E = Stock Price Per Share / Earnings Per Share"
+"P/E = Market Capitalization / Total Net Earnings"
+"Justified P/E = Dividend Payout Ratio / R - G"
+"The P/E ratio is equal to the current stock price divided by EPS"

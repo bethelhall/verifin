@@ -1,0 +1,19 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/book-value-per-share/
+Metric: Book Value Per Share (BVPS)
+
+PRIMARY FORMULA:
+BVPS = (Total Stockholders' Equity - Preferred Stock) / Average Common Shares Outstanding
+
+VARIABLE DEFINITIONS:
+- Total Stockholders' Equity: Total equity of the company
+- Preferred Stock: Must be excluded because preferred stockholders rank higher during liquidation
+- Average Common Shares Outstanding: Average number of common shares during the period (not period-end, to avoid distortion from stock issuances or buybacks)
+
+EXAMPLE CALCULATION:
+BVPS = ($20,000,000 - $5,000,000) / 3,000,000 = $5.00 per share
+
+VERBATIM FORMULA STATEMENTS:
+"BVPS = (Total Stockholders' Equity - Preferred Stock) / Average Common Shares Outstanding"
+"the ratio of equity available to common stockholders against the number of shares outstanding."
+"the preferred stock should be excluded from the value of equity"

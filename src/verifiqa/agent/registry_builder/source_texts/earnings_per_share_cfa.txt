@@ -1,0 +1,20 @@
+Source: CFA Institute, Financial Reporting and Analysis curriculum
+Authority: CFA Institute Program Curriculum, Level 1; IAS 33; ASC 260
+Metric: Earnings Per Share (EPS)
+
+PRIMARY FORMULA (Basic EPS):
+Basic EPS = (Net Income - Preferred Dividends) / Weighted Average Common Shares Outstanding
+
+DILUTED EPS FORMULA:
+Diluted EPS = (Net Income - Preferred Dividends + Convertible Preferred Dividends + After-tax Interest on Convertible Debt) / (Weighted Average Shares + Dilutive Potential Shares)
+
+VARIABLE DEFINITIONS:
+- Net Income: Company's total earnings for the period
+- Preferred Dividends: Dividends owed to preferred shareholders (subtracted because they have priority over common)
+- Weighted Average Common Shares Outstanding: Average shares outstanding during the period, weighted by the fraction of the period they were outstanding
+- Dilutive Potential Shares: Additional shares from convertible securities, stock options, and warrants (for diluted EPS)
+
+VERBATIM FORMULA STATEMENTS:
+"Basic EPS = (Net Income - Preferred Dividends) / Weighted Average Common Shares Outstanding"
+"Diluted EPS reflects the 'worst case' scenario for earnings per share, assuming all dilutive securities are converted."
+"EPS is the monetary value of earnings per outstanding share of common stock for a company during a defined period of time."

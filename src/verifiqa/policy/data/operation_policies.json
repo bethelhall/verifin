@@ -1,0 +1,793 @@
+[
+  {
+    "policy_id": "operation_period_change",
+    "metric": "period_change",
+    "metric_aliases": [
+      "absolute_change",
+      "absolute_period_change",
+      "period_difference",
+      "change_in_amount"
+    ],
+    "formula_templates": [
+      "end - start"
+    ],
+    "roles": {
+      "start": {
+        "selection": "earlier requested period",
+        "unit_kind": "same_as_end"
+      },
+      "end": {
+        "selection": "later requested period",
+        "unit_kind": "same_as_start"
+      }
+    },
+    "source_type": "standard_financial_analysis_operation_definition",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "period_change",
+      "resolver_operation": "period_change",
+      "technique": "arithmetic period difference",
+      "formula_source_note": "Period change = later-period value - earlier-period value.",
+      "binding_requirements": [
+        "Same measure and dimensions at both periods",
+        "Order actual dates, including quarters and opening/closing balances",
+        "Do not infer direction from the claimed answer"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_percent_change",
+    "metric": "percent_change",
+    "metric_aliases": [
+      "percentage_change",
+      "relative_change_percent",
+      "percentage_growth",
+      "generic_growth_rate"
+    ],
+    "formula_templates": [
+      "(end - start) / start * 100"
+    ],
+    "roles": {
+      "start": {
+        "selection": "earlier requested period",
+        "unit_kind": "same_as_end"
+      },
+      "end": {
+        "selection": "later requested period",
+        "unit_kind": "same_as_start"
+      }
+    },
+    "source_type": "standard_financial_analysis_operation_definition",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "percent_change",
+      "resolver_operation": "percent_change",
+      "technique": "period-over-period growth rate",
+      "formula_source_note": "Percentage change = (later period - earlier period) / earlier period * 100.",
+      "output_unit": "percent",
+      "binding_requirements": [
+        "Nonzero earlier-period base",
+        "Same measure and dimensions",
+        "Explicit sign convention for losses",
+        "Distinguish relative change from a percentage-point difference"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_arithmetic_mean",
+    "metric": "arithmetic_mean",
+    "metric_aliases": [
+      "mean",
+      "average",
+      "arithmetic_average",
+      "average_value",
+      "mean_value"
+    ],
+    "formula_templates": [
+      "sum(values) / count(values)"
+    ],
+    "roles": {
+      "values": {
+        "selection": "complete question-selected observations",
+        "cardinality": "variable",
+        "unit_kind": "homogeneous"
+      }
+    },
+    "source_type": "standard_arithmetic_operation_definition",
+    "source_refs": [
+      {
+        "title": "NIST Dataplot Reference Manual - Sample Mean",
+        "url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/ch2/mean.pdf"
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "arithmetic_mean",
+      "resolver_operation": "arithmetic_mean",
+      "technique": "arithmetic mean of a complete selected set",
+      "formula_source_note": "Arithmetic mean = sum of the selected observations / number of observations.",
+      "template_notation": "Expand sum/count over the complete grounded set before evaluating or generating SMT.",
+      "binding_requirements": [
+        "Select every requested period, row or entity",
+        "Homogeneous units and compatible scope",
+        "Use source-table membership for implicit populations",
+        "Distinguish mean of reported rates from ratio of totals"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_proportion_percent",
+    "metric": "proportion_percent",
+    "metric_aliases": [
+      "proportion",
+      "percent_of_total",
+      "percentage_of_total",
+      "common_size_percentage",
+      "percentage_constitution",
+      "part_as_percent_of_total"
+    ],
+    "formula_templates": [
+      "part / base * 100"
+    ],
+    "roles": {
+      "part": {
+        "selection": "question-specified numerator",
+        "unit_kind": "same_as_base"
+      },
+      "base": {
+        "selection": "question-specified denominator",
+        "unit_kind": "same_as_part"
+      }
+    },
+    "source_type": "standard_financial_analysis_operation_definition",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "proportion_percent",
+      "resolver_operation": "proportion",
+      "technique": "common-size (vertical) analysis",
+      "formula_source_note": "Common-size analysis: a component expressed as a percentage of its base total (part / base * 100).",
+      "output_unit": "percent",
+      "binding_requirements": [
+        "Nonzero base",
+        "Bind numerator and denominator from the question and evidence",
+        "Preserve period, component and base scope",
+        "A total label alone does not resolve two competing totals"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_line_item_difference",
+    "metric": "line_item_difference",
+    "metric_aliases": [
+      "difference_between_line_items",
+      "same_period_difference",
+      "high_low_difference",
+      "carrying_fair_value_difference"
+    ],
+    "formula_templates": [
+      "first_item - second_item"
+    ],
+    "roles": {
+      "first_item": {
+        "selection": "first item in the requested subtraction",
+        "unit_kind": "same_as_second_item"
+      },
+      "second_item": {
+        "selection": "second item in the requested subtraction",
+        "unit_kind": "same_as_first_item"
+      }
+    },
+    "source_type": "standard_arithmetic_operation_definition",
+    "source_refs": [
+      {
+        "title": "Registered arithmetic period difference",
+        "policy_id": "operation_period_change"
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "line_item_difference",
+      "resolver_operation": "line_item_difference",
+      "technique": "question-ordered line-item difference",
+      "formula_source_note": "Subtract the question-specified second item from the first item, preserving units and subtraction direction.",
+      "binding_requirements": [
+        "Distinct source items",
+        "Same requested period and compatible units",
+        "Use high minus low for a price range",
+        "Preserve basic/diluted and carrying/fair distinctions"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_percentage_point_change",
+    "metric": "percentage_point_change",
+    "metric_aliases": [
+      "rate_difference",
+      "percentage_point_difference",
+      "percent_point_change",
+      "change_in_reported_percentage"
+    ],
+    "formula_templates": [
+      "later_rate - earlier_rate",
+      "(later_rate - earlier_rate) * 100"
+    ],
+    "roles": {
+      "earlier_rate": {
+        "selection": "earlier requested rate",
+        "unit_kind": "percent_or_ratio"
+      },
+      "later_rate": {
+        "selection": "later requested rate",
+        "unit_kind": "percent_or_ratio"
+      }
+    },
+    "source_type": "standard_arithmetic_operation_definition",
+    "source_refs": [
+      {
+        "title": "Registered arithmetic period difference",
+        "policy_id": "operation_period_change"
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "percentage_point_change",
+      "resolver_operation": "percentage_point_change",
+      "technique": "difference in reported rates",
+      "formula_source_note": "Subtract reported percentage values directly; multiply by 100 only when both rates are stored as unit ratios.",
+      "output_unit": "percentage_points",
+      "formula_variant_selection": "input units, never closeness to the claimed answer",
+      "binding_requirements": [
+        "Both rates use the same scale",
+        "Use percentage-point difference rather than relative growth when requested",
+        "Resolve the underlying percentage row from its table heading"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_scoped_sum",
+    "metric": "sum",
+    "metric_aliases": [
+      "scoped_sum",
+      "sum_of_values",
+      "total_of_selected_values"
+    ],
+    "formula_templates": [
+      "sum(values)"
+    ],
+    "roles": {
+      "values": {
+        "selection": "complete question-selected observations",
+        "cardinality": "variable",
+        "unit_kind": "homogeneous"
+      }
+    },
+    "source_type": "standard_arithmetic_operation_definition",
+    "source_refs": [
+      {
+        "title": "NIST Dataplot Reference Manual - Sample Mean (definition of the observation sum)",
+        "url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/ch2/mean.pdf"
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "sum",
+      "resolver_operation": "sum",
+      "technique": "sum of a complete selected set",
+      "formula_source_note": "Sum = addition of every observation in the question's explicitly selected set.",
+      "template_notation": "Expand sum over the complete grounded set before evaluating or generating SMT.",
+      "binding_requirements": [
+        "Complete period, category, entity or maturity-bucket membership",
+        "Homogeneous units",
+        "Do not include both a total and its components unless explicitly requested",
+        "Preserve zero and negative observations"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_selected_three_row_sum",
+    "metric": "selected_three_row_sum",
+    "metric_aliases": [
+      "top_three_sum",
+      "top_3_sum",
+      "selected_three_sum"
+    ],
+    "formula_templates": [
+      "first_selected + second_selected + third_selected"
+    ],
+    "roles": {
+      "first_selected": {
+        "selection": "first row under the authorized selection rule",
+        "unit_kind": "homogeneous"
+      },
+      "second_selected": {
+        "selection": "second row under the authorized selection rule",
+        "unit_kind": "homogeneous"
+      },
+      "third_selected": {
+        "selection": "third row under the authorized selection rule",
+        "unit_kind": "homogeneous"
+      }
+    },
+    "source_type": "composition_of_registered_operations",
+    "source_refs": [
+      {
+        "title": "Registered scoped sum",
+        "policy_id": "operation_scoped_sum"
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "selected_three_row_sum",
+      "resolver_operation": "selected_three_row_sum",
+      "technique": "sum after explicit three-row selection",
+      "formula_source_note": "Select exactly three rows using the question's ordering or ranking rule, then add their values.",
+      "binding_requirements": [
+        "Resolve first three displayed rows versus three largest values",
+        "Evidence must establish the candidate population and selection rule",
+        "Exclude aggregate rows from a component ranking"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_ratio",
+    "metric": "ratio",
+    "metric_aliases": [
+      "simple_ratio",
+      "ratio_of_values",
+      "generic_ratio"
+    ],
+    "formula_templates": [
+      "numerator / denominator"
+    ],
+    "roles": {
+      "numerator": {
+        "selection": "question-specified numerator",
+        "unit_kind": "compatible_with_denominator"
+      },
+      "denominator": {
+        "selection": "question-specified denominator",
+        "unit_kind": "compatible_with_numerator"
+      }
+    },
+    "source_type": "standard_financial_analysis_operation_definition",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "ratio",
+      "resolver_operation": "ratio",
+      "technique": "question-ordered ratio",
+      "formula_source_note": "Divide the specified numerator by the specified nonzero denominator; a ratio does not automatically include multiplication by 100.",
+      "output_unit": "ratio",
+      "binding_requirements": [
+        "Nonzero denominator",
+        "Question-defined operand order",
+        "Preserve signed cash flow versus positive outflow magnitude",
+        "Keep ratio and percentage output conventions distinct"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_exclusion_or_remaining_amount",
+    "metric": "exclusion_or_remaining_amount",
+    "metric_aliases": [
+      "amount_excluding_component",
+      "remaining_amount",
+      "whole_minus_component"
+    ],
+    "formula_templates": [
+      "whole - component"
+    ],
+    "roles": {
+      "whole": {
+        "selection": "original or inclusive amount",
+        "unit_kind": "same_as_component"
+      },
+      "component": {
+        "selection": "excluded, outstanding or already consumed component",
+        "unit_kind": "same_as_whole"
+      }
+    },
+    "source_type": "composition_of_registered_operations",
+    "source_refs": [
+      {
+        "title": "Registered line-item difference",
+        "policy_id": "operation_line_item_difference"
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "exclusion_or_remaining_amount",
+      "resolver_operation": "exclusion_or_remaining_amount",
+      "technique": "whole minus specified component",
+      "formula_source_note": "Subtract the specified component from the whole, using the question to distinguish remaining from already received amounts.",
+      "binding_requirements": [
+        "Ground both narrative and table operands",
+        "Normalize thousand/million scales",
+        "Preserve acquisition and loan identity",
+        "Determine whether the requested result is the remainder or the consumed amount"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_difference_of_changes",
+    "metric": "difference_of_changes",
+    "metric_aliases": [
+      "change_difference",
+      "difference_between_changes"
+    ],
+    "formula_templates": [
+      "change_a - change_b",
+      "(a_end - a_start) - (b_end - b_start)"
+    ],
+    "roles": {
+      "change_a": {
+        "selection": "first specified change",
+        "unit_kind": "homogeneous"
+      },
+      "change_b": {
+        "selection": "second specified change",
+        "unit_kind": "homogeneous"
+      },
+      "a_start": {
+        "selection": "first change's opening value",
+        "unit_kind": "homogeneous"
+      },
+      "a_end": {
+        "selection": "first change's closing value",
+        "unit_kind": "homogeneous"
+      },
+      "b_start": {
+        "selection": "second change's opening value",
+        "unit_kind": "homogeneous"
+      },
+      "b_end": {
+        "selection": "second change's closing value",
+        "unit_kind": "homogeneous"
+      }
+    },
+    "source_type": "composition_of_registered_operations",
+    "source_refs": [
+      {
+        "title": "Registered period and line-item differences",
+        "policy_ids": [
+          "operation_period_change",
+          "operation_line_item_difference"
+        ]
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "difference_of_changes",
+      "resolver_operation": "difference_of_changes",
+      "technique": "difference between independently identified changes",
+      "formula_source_note": "Subtract the second requested change from the first; use published change columns or independently grounded period values.",
+      "formula_variant_selection": "source availability and question scope, never the claimed answer",
+      "binding_requirements": [
+        "Bind the correct change columns and periods",
+        "Preserve subtraction direction",
+        "Both changes must share units"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_change_of_ratios",
+    "metric": "change_of_ratios",
+    "metric_aliases": [
+      "ratio_change",
+      "difference_between_ratios"
+    ],
+    "formula_templates": [
+      "(a_end / b_end - a_start / b_start) * 100",
+      "((a_end / b_end) - (a_start / b_start)) / (a_start / b_start) * 100"
+    ],
+    "roles": {
+      "a_start": {
+        "selection": "earlier numerator",
+        "unit_kind": "compatible_with_b_start"
+      },
+      "b_start": {
+        "selection": "earlier denominator",
+        "unit_kind": "compatible_with_a_start"
+      },
+      "a_end": {
+        "selection": "later numerator",
+        "unit_kind": "compatible_with_b_end"
+      },
+      "b_end": {
+        "selection": "later denominator",
+        "unit_kind": "compatible_with_a_end"
+      }
+    },
+    "source_type": "composition_of_registered_operations",
+    "source_refs": [
+      {
+        "title": "Registered ratio and rate-change definitions",
+        "policy_ids": [
+          "operation_ratio",
+          "operation_percentage_point_change",
+          "operation_percent_change"
+        ]
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "change_of_ratios",
+      "resolver_operation": "change_of_ratios",
+      "technique": "change between two independently grounded ratios",
+      "formula_source_note": "Compute each period's ratio, then apply the explicitly requested percentage-point difference or relative percentage change.",
+      "formula_variant_selection": "question meaning and input units, never the claimed answer",
+      "binding_requirements": [
+        "Ground all four operands",
+        "Nonzero ratio denominators",
+        "Nonzero earlier ratio for relative change",
+        "Resolve percentage points versus relative growth"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_change_of_growth_rates",
+    "metric": "change_of_growth_rates",
+    "metric_aliases": [
+      "growth_rate_difference",
+      "change_in_growth_rate"
+    ],
+    "formula_templates": [
+      "((latest - middle) / middle - (middle - earliest) / earliest) * 100",
+      "later_growth_percent - earlier_growth_percent"
+    ],
+    "roles": {
+      "earliest": {
+        "selection": "first period's measure",
+        "unit_kind": "homogeneous"
+      },
+      "middle": {
+        "selection": "second period's measure",
+        "unit_kind": "homogeneous"
+      },
+      "latest": {
+        "selection": "third period's measure",
+        "unit_kind": "homogeneous"
+      },
+      "earlier_growth_percent": {
+        "selection": "earlier published growth rate",
+        "unit_kind": "percent"
+      },
+      "later_growth_percent": {
+        "selection": "later published growth rate",
+        "unit_kind": "percent"
+      }
+    },
+    "source_type": "composition_of_registered_operations",
+    "source_refs": [
+      {
+        "title": "Registered growth and percentage-point definitions",
+        "policy_ids": [
+          "operation_percent_change",
+          "operation_percentage_point_change"
+        ]
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "change_of_growth_rates",
+      "resolver_operation": "change_of_growth_rates",
+      "technique": "percentage-point difference between growth rates",
+      "formula_source_note": "Compute consecutive growth rates from three periods and subtract them, or subtract two explicitly published growth percentages.",
+      "output_unit": "percentage_points",
+      "formula_variant_selection": "published rates versus original source values, never the claimed answer",
+      "binding_requirements": [
+        "Same measure and scope across all periods",
+        "Nonzero original growth bases",
+        "Do not substitute a revenue level change for a change in growth"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_share_of_a_change",
+    "metric": "share_of_a_change",
+    "metric_aliases": [
+      "component_share_of_decrease",
+      "component_share_of_change",
+      "decline_contribution_percent"
+    ],
+    "formula_templates": [
+      "(component_start - component_end) / (total_start - total_end) * 100"
+    ],
+    "roles": {
+      "component_start": {
+        "selection": "earlier component amount",
+        "unit_kind": "homogeneous"
+      },
+      "component_end": {
+        "selection": "later component amount",
+        "unit_kind": "homogeneous"
+      },
+      "total_start": {
+        "selection": "earlier total amount",
+        "unit_kind": "homogeneous"
+      },
+      "total_end": {
+        "selection": "later total amount",
+        "unit_kind": "homogeneous"
+      }
+    },
+    "source_type": "composition_of_registered_operations",
+    "source_refs": [
+      {
+        "title": "Registered period difference and proportion",
+        "policy_ids": [
+          "operation_period_change",
+          "operation_proportion_percent"
+        ]
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "share_of_a_change",
+      "resolver_operation": "share_of_a_change",
+      "technique": "component contribution to a total change",
+      "formula_source_note": "Divide the component's decline by the total decline and multiply by 100, using the same date pair for both.",
+      "output_unit": "percent",
+      "binding_requirements": [
+        "Nonzero total change",
+        "Ground all four operands",
+        "Match component and total periods",
+        "Use total change rather than ending total as the denominator"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_sum_then_ratio",
+    "metric": "sum_then_ratio",
+    "metric_aliases": [
+      "combined_parts_ratio",
+      "sum_of_parts_ratio"
+    ],
+    "formula_templates": [
+      "sum(parts) / base"
+    ],
+    "roles": {
+      "parts": {
+        "selection": "complete explicitly selected components",
+        "cardinality": "variable",
+        "unit_kind": "same_as_base"
+      },
+      "base": {
+        "selection": "question-specified denominator",
+        "unit_kind": "same_as_parts"
+      }
+    },
+    "source_type": "composition_of_registered_operations",
+    "source_refs": [
+      {
+        "title": "Registered scoped sum and ratio",
+        "policy_ids": [
+          "operation_scoped_sum",
+          "operation_ratio"
+        ]
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "sum_then_ratio",
+      "resolver_operation": "sum_then_ratio",
+      "technique": "ratio after a scoped component sum",
+      "formula_source_note": "Sum all requested numerator components, then divide by the specified nonzero base.",
+      "template_notation": "Expand sum(parts) over the complete grounded component set.",
+      "output_unit": "ratio",
+      "binding_requirements": [
+        "Complete component membership",
+        "Nonzero denominator",
+        "Preserve maturity buckets and requested date",
+        "Do not include the base in the component sum"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_quantity_times_price",
+    "metric": "quantity_times_price",
+    "metric_aliases": [
+      "quantity_price_product",
+      "eligible_quantity_value",
+      "options_exercise_value"
+    ],
+    "formula_templates": [
+      "eligible_quantity * applicable_price"
+    ],
+    "roles": {
+      "eligible_quantity": {
+        "selection": "count eligible for the stated price",
+        "unit_kind": "count"
+      },
+      "applicable_price": {
+        "selection": "price per eligible unit",
+        "unit_kind": "money_per_unit"
+      }
+    },
+    "source_type": "standard_arithmetic_operation_definition",
+    "source_refs": [
+      {
+        "title": "Question and filing unit-price definition; eligibility established by source footnotes"
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "quantity_times_price",
+      "resolver_operation": "quantity_times_price",
+      "technique": "value of an eligible quantity at its unit price",
+      "formula_source_note": "Multiply only the eligible quantity by its applicable unit price; eligibility is part of the source definition.",
+      "output_unit": "money",
+      "binding_requirements": [
+        "Count times money-per-unit produces money",
+        "Honor source footnotes",
+        "An options exercise price must not be applied to RSUs excluded from that price",
+        "Do not choose eligibility using the expected answer"
+      ]
+    }
+  },
+  {
+    "policy_id": "operation_net_gains_losses",
+    "metric": "net_gains_losses",
+    "metric_aliases": [
+      "net_unrealized_gains_losses",
+      "net_unrealized_gain_loss",
+      "net_of_gains_and_losses"
+    ],
+    "formula_templates": [
+      "gross_gains - gross_loss_magnitude"
+    ],
+    "roles": {
+      "gross_gains": {
+        "selection": "gross gains for the specified instrument and date",
+        "unit_kind": "money"
+      },
+      "gross_loss_magnitude": {
+        "selection": "positive magnitude of gross losses for the same instrument and date",
+        "unit_kind": "money"
+      }
+    },
+    "source_type": "composition_of_registered_operations",
+    "source_refs": [
+      {
+        "title": "Registered line-item difference; filing calculation linkbase can corroborate the netting identity",
+        "policy_id": "operation_line_item_difference"
+      }
+    ],
+    "metadata": {
+      "requires_question_binding": true,
+      "operation_family": "net_gains_losses",
+      "resolver_operation": "net_gains_losses",
+      "technique": "net gains less gross losses",
+      "formula_source_note": "Subtract a positive gross-loss magnitude from gross gains; convert a parenthesized PDF loss to that magnitude before binding.",
+      "output_unit": "money",
+      "binding_requirements": [
+        "Preserve instrument dimensions and actual disclosed date",
+        "Normalize PDF parentheses versus positive XBRL gross-loss amounts",
+        "Do not apply netting across different instruments"
+      ]
+    }
+  }
+]

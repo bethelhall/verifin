@@ -1,0 +1,26 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/ebitda-margin/
+Metric: EBITDA Margin
+
+PRIMARY FORMULA:
+EBITDA Margin = EBITDA / Net Sales
+
+ALTERNATIVE EXPRESSION:
+EBITDA Margin = EBITDA / Revenue
+
+COMPONENT FORMULA:
+EBITDA = Operating Income (EBIT) + Depreciation + Amortization
+EBIT = Revenue - COGS - Operating Expenses
+
+VARIABLE DEFINITIONS:
+- EBITDA: Earnings before interest, taxes, depreciation, and amortization
+- Net Sales / Revenue: Total sales revenue from the income statement
+- EBIT: Operating income (earnings before interest and tax)
+- Depreciation: Non-cash expense reducing asset value over time
+- Amortization: Non-cash expense for intangible assets
+
+VERBATIM FORMULA STATEMENTS:
+"EBITDA Margin = EBITDA / Net Sales"
+"EBITDA Margin = EBITDA / Revenue"
+"EBITDA = Operating Income (EBIT) + Depreciation + Amortization"
+earnings are "calculated by taking sales revenue and deducting operating expenses, such as cost of goods sold (COGS), selling, general, & administrative expenses (SG&A), but excluding depreciation and amortization."

@@ -1,0 +1,19 @@
+Source: CFA Institute, Financial Reporting and Analysis curriculum
+Authority: CFA Institute Program Curriculum, Level 1, Solvency Ratios
+Metric: Debt Ratio (Total Debt Ratio)
+
+PRIMARY FORMULA:
+Debt Ratio = Total Liabilities / Total Assets
+
+ALTERNATIVE EXPRESSION:
+Debt Ratio = Total Debt / Total Assets
+
+VARIABLE DEFINITIONS:
+- Total Liabilities: All obligations of the company (current and non-current liabilities)
+- Total Assets: All assets of the company (current and non-current)
+- Result: Expressed as a ratio or percentage; indicates the proportion of assets financed by debt
+
+VERBATIM FORMULA STATEMENTS:
+"Debt Ratio = Total Liabilities / Total Assets"
+"measures the proportion of a company's assets that are financed by debt. A higher ratio indicates greater financial leverage and risk."
+"A debt ratio above 0.5 means more than half of the company's assets are financed by liabilities."

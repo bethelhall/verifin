@@ -1,0 +1,2844 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VeriFinQA - Verified SEC Filing Intelligence</title>
+  <style>
+    :root {
+      --green-950: #273027;
+      --green-900: #303a31;
+      --green-800: #465346;
+      --green-700: #5b6354;
+      --brass-700: #8a744a;
+      --brass-600: #9a8352;
+      --accent: #8a744a;
+      --brand-secondary: #8a744a;
+      --accent-soft: #ede6d5;
+      --verified: #5b6354;
+      --violated: #8a744a;
+      --abstained: #8a744a;
+      --ink: #273027;
+      --muted: #6f756a;
+      --soft: #efefe7;
+      --line: #d6d4c7;
+      --line-soft: #e8e5d8;
+      --line-strong: #bebbac;
+      --surface: #f5f5ee;
+      --surface-solid: #f5f5ee;
+      --white: #f5f5ee;
+      --mark: #ddd0a2;
+      --shadow: 0 16px 36px rgba(39, 48, 39, 0.06), 0 1px 2px rgba(39, 48, 39, 0.05);
+      --shadow-soft: 0 1px 2px rgba(39, 48, 39, 0.05);
+      --radius: 8px;
+      --radius-sm: 6px;
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #f5f5ee;
+      color: var(--ink);
+      font-family: var(--font);
+      letter-spacing: 0;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(91, 99, 84, 0.34) 0 1.35px, transparent 1.8px),
+        radial-gradient(circle, rgba(138, 116, 74, 0.2) 0 1.1px, transparent 1.55px);
+      background-position:
+        18px 20px,
+        5px 8px;
+      background-size:
+        34px 34px,
+        76px 76px;
+      mask-image:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.72) 34%, rgba(0, 0, 0, 0.2) 58%, transparent 76%),
+        linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.96) 7%, rgba(0, 0, 0, 0.96) 93%, transparent);
+      mask-composite: intersect;
+      -webkit-mask-image:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.72) 34%, rgba(0, 0, 0, 0.2) 58%, transparent 76%),
+        linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.96) 7%, rgba(0, 0, 0, 0.96) 93%, transparent);
+      -webkit-mask-composite: source-in;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid rgba(91, 99, 84, 0.18);
+      outline-offset: 2px;
+    }
+
+    .page {
+      width: min(1320px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 24px 0 42px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 10px 0 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand > div:last-child {
+      min-width: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius);
+      background: var(--green-900);
+      color: var(--white);
+      box-shadow: 0 1px 2px rgba(39, 48, 39, 0.18);
+    }
+
+    .brand-mark svg,
+    .icon svg {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+
+    .brand-name {
+      font-size: 26px;
+      font-weight: 820;
+      line-height: 1.05;
+    }
+
+    .brand-name span:first-child {
+      color: var(--green-900);
+    }
+
+    .brand-name span:last-child {
+      color: var(--brand-secondary);
+    }
+
+    .brand-tagline {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 4px;
+      white-space: nowrap;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .segmented {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 4px;
+      border: 1px solid var(--line);
+      background: #f8f7ef;
+      border-radius: var(--radius);
+      box-shadow: none;
+      overflow: hidden;
+    }
+
+    .segmented button {
+      border: 0;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 750;
+      min-width: 128px;
+      transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .segmented button.active {
+      background: var(--green-900);
+      color: var(--white);
+      box-shadow: 0 1px 0 rgba(245, 245, 238, 0.18) inset;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: stretch;
+      margin: 10px 0 30px;
+      padding: 0;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+      width: min(920px, 100%);
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 6px 0;
+      min-width: 0;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--brand-secondary);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--brand-secondary);
+      box-shadow: 0 0 0 6px rgba(138, 116, 74, 0.14);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 880px;
+      color: var(--green-950);
+      font-size: clamp(34px, 3.35vw, 50px);
+      line-height: 1.07;
+      letter-spacing: 0;
+      font-weight: 820;
+    }
+
+    .brand-accent {
+      color: var(--brand-secondary);
+    }
+
+    .hero-copy p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(16px, 1.3vw, 19px);
+      line-height: 1.48;
+    }
+
+    .hero-points {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 14px;
+      max-width: 680px;
+      width: 100%;
+    }
+
+    .hero-point {
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      text-align: left;
+      padding: 0;
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: 320px;
+    }
+
+    .hero-point::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      margin-top: 5px;
+      border-radius: 3px;
+      background: var(--brand-secondary);
+    }
+
+    .hero-point strong {
+      display: block;
+      color: var(--green-900);
+      font-size: 14px;
+      line-height: 1.25;
+      margin-bottom: 3px;
+    }
+
+    .hero-point span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .how {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      align-items: start;
+      background: var(--surface);
+      color: var(--ink);
+      width: 100%;
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+      align-self: stretch;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .how::after {
+      content: none;
+    }
+
+    .how h2 {
+      margin: 0;
+      color: var(--green-900);
+      font-size: 18px;
+      line-height: 1.15;
+      letter-spacing: 0;
+      text-align: center;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      min-height: 78px;
+      padding: 12px;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: #faf9f2;
+      box-shadow: none;
+    }
+
+    .step > div:last-child {
+      min-width: 0;
+    }
+
+    .step .icon {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-soft);
+      color: var(--green-900);
+    }
+
+    .step strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 3px;
+      color: var(--green-900);
+      overflow-wrap: anywhere;
+    }
+
+    .step span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 0.94fr) minmax(420px, 1.06fr);
+      gap: 22px;
+      align-items: start;
+      margin-top: 2px;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line-soft);
+      background: #fbfaf3;
+    }
+
+    .panel-header > div:first-child {
+      min-width: 0;
+    }
+
+    .panel-kicker {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 720;
+      text-transform: uppercase;
+      letter-spacing: 0.045em;
+      margin-bottom: 6px;
+    }
+
+    .panel-title {
+      color: var(--green-900);
+      font-size: 21px;
+      font-weight: 760;
+      line-height: 1.15;
+      overflow-wrap: anywhere;
+    }
+
+    .panel-subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      margin-top: 5px;
+      overflow-wrap: anywhere;
+    }
+
+    .scenario-tools {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      min-width: 0;
+    }
+
+    .icon-button,
+    .primary-button,
+    .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 40px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      font-weight: 720;
+      transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease, color 150ms ease;
+    }
+
+    .icon-button {
+      width: 40px;
+      padding: 0;
+      background: var(--surface-solid);
+      color: var(--green-900);
+    }
+
+    .icon-button:hover,
+    .primary-button:hover,
+    .secondary-button:hover {
+      border-color: var(--line-strong);
+      box-shadow: 0 1px 2px rgba(39, 48, 39, 0.08);
+    }
+
+    .primary-button {
+      background: var(--green-900);
+      color: var(--white);
+      padding: 0 16px;
+      border-color: var(--green-900);
+    }
+
+    .secondary-button {
+      background: var(--surface-solid);
+      color: var(--green-900);
+      padding: 0 14px;
+      min-width: 0;
+    }
+
+    .primary-button svg,
+    .secondary-button svg,
+    .icon-button svg {
+      flex: 0 0 auto;
+    }
+
+    .panel-body {
+      padding: 20px;
+    }
+
+    .filing-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .meta-box {
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-sm);
+      background: #f8f7ef;
+      padding: 10px 12px;
+      min-width: 0;
+    }
+
+    .meta-box span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 720;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .meta-box strong {
+      display: block;
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.2;
+      overflow-wrap: anywhere;
+    }
+
+    .question-box {
+      border: 1px solid var(--line-soft);
+      background: #f7f6ee;
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .question-box label {
+      display: block;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 720;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .question-box .question-text {
+      color: var(--green-900);
+      font-size: 17px;
+      font-weight: 730;
+      line-height: 1.35;
+    }
+
+    .filing-excerpt {
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-sm);
+      background: var(--surface-solid);
+      padding: 0;
+      max-height: 530px;
+      overflow: auto;
+      font-size: 13px;
+      color: var(--ink);
+      line-height: 1.5;
+      white-space: normal;
+    }
+
+    .filing-excerpt::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    .filing-excerpt::-webkit-scrollbar-thumb {
+      background: var(--line-strong);
+      border: 3px solid var(--surface-solid);
+      border-radius: 999px;
+    }
+
+    mark {
+      background: var(--mark);
+      color: inherit;
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .filing-raw {
+      min-width: max-content;
+      padding: 18px;
+      font-family: var(--mono);
+      line-height: 1.72;
+      white-space: pre;
+      tab-size: 2;
+    }
+
+    .filing-document {
+      min-width: 520px;
+      padding: 18px;
+      background: #fbfaf3;
+    }
+
+    .filing-document-head {
+      display: grid;
+      gap: 4px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .filing-document-head span {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 780;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .filing-document-head strong {
+      color: var(--green-900);
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .filing-document-head em {
+      color: var(--muted);
+      font-size: 12px;
+      font-style: normal;
+    }
+
+    .filing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .filing-table th,
+    .filing-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: middle;
+    }
+
+    .filing-table th {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .filing-table th:first-child,
+    .filing-table td:first-child {
+      text-align: left;
+    }
+
+    .filing-table td {
+      color: var(--green-900);
+      text-align: right;
+    }
+
+    .filing-table .statement-section td {
+      padding-top: 16px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 780;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+      border-bottom: 0;
+      text-align: left;
+    }
+
+    .filing-table .statement-row.highlighted {
+      background: var(--accent-soft);
+    }
+
+    .filing-table .statement-row.total td {
+      color: var(--ink);
+      font-weight: 760;
+      border-top: 1px solid var(--line);
+    }
+
+    .filing-table .statement-row:last-child td {
+      border-bottom: 0;
+    }
+
+    .filing-footnote {
+      margin-top: 14px;
+      padding: 12px 13px;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .filing-document.textual {
+      min-width: 0;
+    }
+
+    .filing-paragraphs {
+      display: grid;
+      gap: 10px;
+    }
+
+    .filing-paragraph {
+      margin: 0;
+      padding: 12px 13px;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .filing-paragraph.highlighted {
+      background: var(--accent-soft);
+      border-color: rgba(138, 116, 74, 0.3);
+    }
+
+    .interactive-form {
+      display: none;
+      margin-bottom: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface-solid);
+      padding: 16px;
+    }
+
+    .interactive-form.active {
+      display: block;
+      animation: fadeSlide 260ms ease both;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: var(--green-900);
+      font-size: 11px;
+      font-weight: 720;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      color: var(--ink);
+      background: var(--surface-solid);
+      padding: 12px;
+      outline: none;
+      transition: border 160ms ease, box-shadow 160ms ease;
+    }
+
+    .field textarea {
+      min-height: 84px;
+      resize: vertical;
+      line-height: 1.45;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: #aeb4a7;
+      box-shadow: 0 0 0 4px rgba(91, 99, 84, 0.1);
+    }
+
+    .field input[type="file"] {
+      padding: 8px;
+    }
+
+    .field input[type="file"]::file-selector-button {
+      min-height: 32px;
+      margin-right: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #f8f7ef;
+      color: var(--green-900);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 720;
+      padding: 0 10px;
+    }
+
+    .field-note {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.38;
+    }
+
+    .artifact-status {
+      margin-top: 14px;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: #f8f7ef;
+      padding: 14px;
+    }
+
+    .artifact-status-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .artifact-status-head span {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+    }
+
+    .artifact-status-head strong {
+      color: var(--green-900);
+      font-size: 13px;
+      line-height: 1.25;
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .artifact-status-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .artifact-item {
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      padding: 10px;
+      min-width: 0;
+      transition: background 160ms ease, border-color 160ms ease;
+    }
+
+    .artifact-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 720;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .artifact-item strong {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--green-900);
+      font-size: 13px;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    .artifact-item strong::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--line-strong);
+      flex: 0 0 auto;
+    }
+
+    .artifact-item[data-state="active"] {
+      border-color: rgba(138, 116, 74, 0.42);
+      background: var(--accent-soft);
+    }
+
+    .artifact-item[data-state="active"] strong::before {
+      background: var(--brand-secondary);
+      animation: runPulse 1.1s ease-in-out infinite;
+    }
+
+    .artifact-item[data-state="done"] strong::before {
+      background: var(--verified);
+    }
+
+    .artifact-item[data-state="error"] strong::before {
+      background: var(--abstained);
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .result-shell {
+      display: grid;
+      gap: 10px;
+    }
+
+    .run-state {
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: var(--surface-solid);
+      padding: 18px;
+    }
+
+    .run-state-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .run-state-title {
+      color: var(--green-900);
+      font-size: 18px;
+      font-weight: 760;
+      line-height: 1.2;
+    }
+
+    .run-state-note {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      text-align: right;
+    }
+
+    .run-steps {
+      display: flex;
+      gap: 8px;
+    }
+
+    .run-step {
+      flex: 1 1 0;
+      min-width: 0;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-sm);
+      background: #f8f7ef;
+      padding: 12px;
+      transition: border-color 180ms ease, background 180ms ease;
+    }
+
+    .run-step-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+
+    .run-step-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: var(--surface);
+      flex: 0 0 auto;
+    }
+
+    .run-step strong {
+      display: block;
+      color: var(--green-900);
+      font-size: 13px;
+      font-weight: 730;
+      line-height: 1.2;
+    }
+
+    .run-step span:last-child {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .run-step.active {
+      border-color: rgba(138, 116, 74, 0.42);
+      background: var(--accent-soft);
+    }
+
+    .run-step.active .run-step-dot {
+      background: var(--brand-secondary);
+      border-color: var(--brand-secondary);
+      animation: runPulse 1.1s ease-in-out infinite;
+    }
+
+    .run-step.done .run-step-dot {
+      background: var(--brand-secondary);
+      border-color: var(--brand-secondary);
+    }
+
+    .answer-card {
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: var(--surface-solid);
+      padding: 18px;
+    }
+
+    .answer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+      min-width: 0;
+    }
+
+    .answer-head h3,
+    .evidence-panel h3,
+    .proof-panel h3 {
+      margin: 0;
+      color: var(--green-900);
+      font-size: 16px;
+      letter-spacing: 0;
+      min-width: 0;
+    }
+
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 32px;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 720;
+      text-transform: uppercase;
+      letter-spacing: 0.045em;
+      flex: 0 0 auto;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .dot.pulse {
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    .answer-text {
+      min-height: 64px;
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+    }
+
+    .cursor::after {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 1.05em;
+      margin-left: 3px;
+      vertical-align: -0.16em;
+      background: var(--accent);
+      animation: blink 0.85s steps(1) infinite;
+    }
+
+    .verdict-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 74px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line-soft);
+      background: #f8f7ef;
+      color: var(--ink);
+      padding: 14px 16px;
+      display: grid;
+      align-content: center;
+    }
+
+    .verdict-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 0;
+      background: transparent;
+    }
+
+    .verdict-card.verified {
+      background: #f8f7ef;
+      border-color: var(--line-soft);
+    }
+
+    .verdict-card.verified::before {
+      background: var(--verified);
+    }
+
+    .verdict-card.violated {
+      background: #f8f7ef;
+      border-color: var(--line-soft);
+    }
+
+    .verdict-card.violated::before {
+      background: var(--violated);
+    }
+
+    .verdict-card.abstained {
+      background: #f8f7ef;
+      border-color: var(--line-soft);
+    }
+
+    .verdict-card.abstained::before {
+      background: var(--abstained);
+    }
+
+    .verdict-grid {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .verdict-icon {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--green-900);
+      border: 1px solid var(--line-soft);
+      box-shadow: none;
+    }
+
+    .verified .verdict-icon {
+      color: var(--verified);
+    }
+
+    .violated .verdict-icon {
+      color: var(--violated);
+    }
+
+    .abstained .verdict-icon {
+      color: var(--abstained);
+    }
+
+    .verdict-title {
+      font-size: 14px;
+      font-weight: 760;
+      line-height: 1.15;
+      color: var(--green-900);
+      letter-spacing: 0;
+    }
+
+    .verdict-note {
+      margin-top: 4px;
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.42;
+      overflow-wrap: anywhere;
+    }
+
+    .verifying {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--green-900);
+      font-weight: 760;
+      font-size: 17px;
+    }
+
+    .loader {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 3px solid rgba(91, 99, 84, 0.16);
+      border-top-color: var(--accent);
+      animation: spin 0.9s linear infinite;
+    }
+
+    .evidence-panel,
+    .proof-panel {
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: var(--surface-solid);
+      padding: 18px;
+    }
+
+    .evidence-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .evidence-head span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    .evidence-list {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      counter-reset: evidence;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .quote {
+      position: relative;
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      border: 0;
+      border-bottom: 1px solid var(--line-soft);
+      background: transparent;
+      padding: 12px 13px;
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.5;
+      border-radius: 0;
+      counter-increment: evidence;
+    }
+
+    .quote:last-child {
+      border-bottom: 0;
+    }
+
+    .quote::before {
+      content: counter(evidence);
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border-radius: var(--radius-sm);
+      background: #f8f7ef;
+      color: var(--muted);
+      border: 1px solid var(--line-soft);
+      font-size: 11px;
+      font-weight: 720;
+      line-height: 1;
+    }
+
+    .concepts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 0;
+    }
+
+    .concepts::before {
+      content: "Concepts";
+      flex: 0 0 100%;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 720;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 29px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--green-800);
+      border: 1px solid var(--line-soft);
+      font-size: 12px;
+      font-weight: 720;
+    }
+
+    .reasoning-note {
+      margin-top: 14px;
+      color: var(--muted);
+      line-height: 1.52;
+      font-size: 14px;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .proof-panel summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .proof-panel summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .proof-panel summary::after {
+      content: "+";
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #f7f6ee;
+      color: var(--green-900);
+      font-weight: 800;
+    }
+
+    .proof-panel[open] summary::after {
+      content: "-";
+    }
+
+    .proof-summary-text {
+      min-width: 0;
+    }
+
+    .proof-summary-text h3 {
+      margin: 0;
+    }
+
+    .proof-summary-text span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .proof-item {
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-sm);
+      background: #f8f7ef;
+      padding: 12px;
+      min-width: 0;
+    }
+
+    .proof-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 720;
+      text-transform: uppercase;
+      letter-spacing: 0.045em;
+      margin-bottom: 6px;
+    }
+
+    .proof-item code {
+      color: var(--green-900);
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    .system-note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 20;
+      max-width: 420px;
+      border-radius: var(--radius);
+      background: var(--green-900);
+      color: var(--white);
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @keyframes pulse {
+      50% { transform: scale(1.6); opacity: 0.45; }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes runPulse {
+      50% {
+        box-shadow: 0 0 0 6px rgba(138, 116, 74, 0.14);
+      }
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1140px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .how {
+        max-width: none;
+      }
+
+      .workspace {
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: 100%;
+        max-width: none;
+        margin: 0 auto;
+        padding: 14px 14px 28px;
+      }
+
+      .topbar,
+      .top-actions,
+      .segmented,
+      .hero,
+      .hero-copy,
+      .hero-point,
+      .how,
+      .workspace,
+      .panel {
+        max-width: 100%;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .topbar {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .brand-tagline {
+        white-space: normal;
+      }
+
+      .top-actions,
+      .segmented {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .segmented {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+
+      .segmented button {
+        min-width: 0;
+        width: 100%;
+        padding-inline: 6px;
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        margin: 8px 0 26px;
+        overflow: visible;
+      }
+
+      .hero-copy {
+        min-width: 0;
+        padding: 0;
+      }
+
+      h1 {
+        width: 100%;
+        max-width: 100%;
+        font-size: 25px;
+        line-height: 1.1;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .hero-copy p {
+        width: 100%;
+        max-width: 100%;
+        font-size: 14px;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .hero-points {
+        flex-direction: column;
+      }
+
+      .hero-point {
+        padding: 0;
+      }
+
+      .how {
+        margin-top: 0;
+        grid-template-columns: 1fr;
+        gap: 13px;
+        padding: 16px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        min-height: auto;
+      }
+
+      .filing-meta,
+      .field-grid,
+      .artifact-status-grid,
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .artifact-status-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .artifact-status-head strong {
+        text-align: left;
+      }
+
+      .panel-header {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .scenario-tools {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+      }
+
+      .secondary-button,
+      .primary-button {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .form-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .form-actions .secondary-button,
+      .form-actions .primary-button {
+        width: 100%;
+        min-height: 44px;
+      }
+
+      .question-box .question-text,
+      .answer-text {
+        font-size: 16px;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .verdict-grid {
+        grid-template-columns: 34px minmax(0, 1fr);
+      }
+
+      .run-state-head,
+      .run-steps {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .run-state-note {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand" aria-label="VeriFinQA">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7 3.75h7.25L19 8.5v11.75H7V3.75Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M14 3.75V8.5H19" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M9.5 13.2l1.9 1.9 3.5-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name"><span>Veri</span><span>FinQA</span></div>
+          <div class="brand-tagline">Verified financial QA</div>
+        </div>
+      </div>
+      <div class="top-actions" aria-label="Mode selector">
+        <div class="segmented">
+          <button id="modeDemo" type="button" class="active">Sample Filing</button>
+          <button id="modeLive" type="button">Live Filing</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="Product demo overview">
+      <div class="hero-copy">
+        <div class="eyebrow">SEC filing QA with verification</div>
+        <h1>Ask a filing question. <span class="brand-accent">Verify the answer.</span> Trust what the filing supports.</h1>
+        <p>VeriFinQA answers from SEC filing evidence, binds the claim to XBRL-aware facts, and returns a verdict with evidence and formula details.</p>
+        <div class="hero-points" aria-label="Verification principles">
+          <div class="hero-point">
+            <div>
+              <strong>Evidence-bound answers</strong>
+              <span>Every response is tied back to inspected filing facts.</span>
+            </div>
+          </div>
+          <div class="hero-point">
+            <div>
+              <strong>Conservative verdicts</strong>
+              <span>Verified, violated, or abstained. No silent pass.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="how" aria-label="How it works">
+        <h2>How it works</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M6 3.5h8l4 4v13H6v-17Z" stroke="currentColor" stroke-width="2"/><path d="M14 3.5v4h4M8.8 12h6.4M8.8 16h6.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <strong>1. Upload filing</strong>
+              <span>Resolve the 10-K or 10-Q and load the filing evidence.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 6.5h14M5 12h9M5 17.5h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M17 14.5l2.5 2.5L17 19.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <strong>2. Ask a question</strong>
+              <span>The agent answers only from the filing context it can inspect.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4.5 12.5l4.5 4.5L19.5 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <strong>3. Verify the answer</strong>
+              <span>Evidence, formula binding, and solver checks produce a verdict.</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main class="workspace" aria-label="Demo workspace">
+      <section class="panel" aria-label="Filing and question">
+        <div class="panel-header">
+          <div>
+            <div class="panel-kicker">Source filing</div>
+            <div class="panel-title" id="filingTitle">Apple Inc. Form 10-K</div>
+            <div class="panel-subtitle" id="scenarioLabel">Case 1 of 3</div>
+          </div>
+          <div class="scenario-tools">
+            <button class="icon-button" id="prevScenario" type="button" aria-label="Previous case" title="Previous case">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="secondary-button" id="nextScenario" type="button">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M4 12h14M13 7l5 5-5 5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Next Case
+            </button>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="filing-meta">
+            <div class="meta-box">
+              <span>Company</span>
+              <strong id="companyMeta">Apple Inc.</strong>
+            </div>
+            <div class="meta-box">
+              <span>Form</span>
+              <strong id="formMeta">10-K</strong>
+            </div>
+            <div class="meta-box">
+              <span>Period</span>
+              <strong id="periodMeta">FY2024</strong>
+            </div>
+          </div>
+
+          <form class="interactive-form" id="interactiveForm">
+            <div class="field full">
+              <label for="liveQuestion">Question</label>
+              <textarea id="liveQuestion" placeholder="Ask a question about the filing excerpt..."></textarea>
+            </div>
+            <div class="field-grid">
+              <div class="field">
+                <label for="liveCik">CIK</label>
+                <input id="liveCik" type="text" inputmode="numeric" value="0000320193" placeholder="0000320193">
+                <div class="field-note">Used by the backend to resolve EDGAR filings.</div>
+              </div>
+              <div class="field">
+                <label for="liveTicker">Ticker</label>
+                <input id="liveTicker" type="text" value="AAPL" placeholder="AAPL">
+                <div class="field-note">Display label and artifact naming only.</div>
+              </div>
+              <div class="field">
+                <label for="liveYear">Filing year</label>
+                <input id="liveYear" type="text" inputmode="numeric" value="2024" placeholder="2024">
+                <div class="field-note">Fiscal/report year to resolve from EDGAR.</div>
+              </div>
+              <div class="field">
+                <label for="liveFormType">Form type</label>
+                <input id="liveFormType" type="text" value="10-K" placeholder="10-K">
+                <div class="field-note">Use 10-K or 10-Q.</div>
+              </div>
+              <div class="field full">
+                <label for="filingUpload">Upload filing excerpt</label>
+                <input id="filingUpload" type="file" accept=".txt,.html,.htm,.xml,.xhtml,.md">
+                <div class="field-note">Optional. If omitted, the backend downloads the primary EDGAR filing text; the sample excerpt remains visible for review.</div>
+              </div>
+            </div>
+            <div class="artifact-status" aria-label="Filing artifact status">
+              <div class="artifact-status-head">
+                <span>Live prerequisites</span>
+                <strong id="artifactFilingLabel">Apple Inc. 10-K FY2024</strong>
+              </div>
+              <div class="artifact-status-grid">
+                <div class="artifact-item" id="artifactEdgarItem" data-state="ready">
+                  <span>EDGAR filing</span>
+                  <strong id="artifactEdgarStatus">Ready to resolve</strong>
+                </div>
+                <div class="artifact-item" id="artifactFactsItem" data-state="ready">
+                  <span>XBRL facts</span>
+                  <strong id="artifactFactsStatus">Ready</strong>
+                </div>
+                <div class="artifact-item" id="artifactCalcItem" data-state="ready">
+                  <span>Calc linkbase</span>
+                  <strong id="artifactCalcStatus">Ready</strong>
+                </div>
+                <div class="artifact-item" id="artifactModelItem" data-state="ready">
+                  <span>Model access</span>
+                  <strong id="artifactModelStatus">Ready</strong>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="primary-button">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M5 12h12M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Run Live Analysis
+              </button>
+              <button type="button" class="secondary-button" id="useSampleQuestion">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M7 7h10M7 12h7M7 17h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Use Sample Question
+              </button>
+            </div>
+          </form>
+
+          <div class="question-box" id="demoQuestionBox">
+            <label>Question under review</label>
+            <div class="question-text" id="questionText"></div>
+          </div>
+
+          <div class="filing-excerpt" id="filingExcerpt" aria-label="Filing excerpt"></div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Analysis result">
+        <div class="panel-header">
+          <div>
+            <div class="panel-kicker">Verification report</div>
+            <div class="panel-title">Decision and evidence</div>
+            <div class="panel-subtitle" id="analysisSubtitle">Answer, cited facts, and verifier result from the same surface used by live runs.</div>
+          </div>
+          <button class="secondary-button" type="button" id="rerunAnimation">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12a7 7 0 0 0-12.2-4.7M5 12a7 7 0 0 0 12.2 4.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Replay
+          </button>
+        </div>
+        <div class="panel-body">
+          <div class="result-shell">
+            <div class="run-state" id="runState" hidden>
+              <div class="run-state-head">
+                <div class="run-state-title" id="runStateTitle">Ready to verify</div>
+                <div class="run-state-note" id="runStateNote">Enter a question, then run the verifier.</div>
+              </div>
+              <div class="run-steps" aria-label="Verification workflow">
+                <div class="run-step" data-run-step="resolve">
+                  <div class="run-step-top">
+                    <span class="run-step-dot" aria-hidden="true"></span>
+                    <strong>Resolve filing</strong>
+                  </div>
+                  <span>Find the requested SEC filing.</span>
+                </div>
+                <div class="run-step" data-run-step="facts">
+                  <div class="run-step-top">
+                    <span class="run-step-dot" aria-hidden="true"></span>
+                    <strong>Load facts</strong>
+                  </div>
+                  <span>Fetch XBRL facts and calculation context.</span>
+                </div>
+                <div class="run-step" data-run-step="answer">
+                  <div class="run-step-top">
+                    <span class="run-step-dot" aria-hidden="true"></span>
+                    <strong>Draft answer</strong>
+                  </div>
+                  <span>Generate a filing-grounded response.</span>
+                </div>
+                <div class="run-step" data-run-step="verify">
+                  <div class="run-step-top">
+                    <span class="run-step-dot" aria-hidden="true"></span>
+                    <strong>Verify claim</strong>
+                  </div>
+                  <span>Check evidence, formula, and verdict.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="answer-card">
+              <div class="answer-head">
+                <h3>Agent answer</h3>
+                <span class="status-chip" id="answerStatus"><span class="dot pulse"></span>Generating</span>
+              </div>
+              <div class="answer-text cursor" id="answerText"></div>
+            </div>
+
+            <div class="verdict-card" id="verdictCard">
+              <div class="verifying" id="verifyingState">
+                <div class="loader" aria-hidden="true"></div>
+                <span>Checking evidence and formula constraints...</span>
+              </div>
+              <div class="verdict-grid" id="verdictGrid" hidden>
+                <div class="verdict-icon" id="verdictIcon" aria-hidden="true"></div>
+                <div>
+                  <div class="verdict-title" id="verdictTitle"></div>
+                  <div class="verdict-note" id="verdictNote"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="evidence-panel">
+              <div class="evidence-head">
+                <h3>Cited evidence</h3>
+                <span id="evidenceCount">0 excerpts</span>
+              </div>
+              <div class="evidence-list" id="evidenceList"></div>
+            </div>
+
+            <details class="proof-panel">
+              <summary>
+                <div class="proof-summary-text">
+                  <h3>Verification details</h3>
+                  <span>Formula, concepts, rationale, and solver check.</span>
+                </div>
+              </summary>
+              <div class="concepts" id="conceptTags"></div>
+              <div class="reasoning-note" id="reasoningNote"></div>
+              <div class="proof-grid">
+                <div class="proof-item">
+                  <span>Formula</span>
+                  <code id="traceFormula">Pending</code>
+                </div>
+                <div class="proof-item">
+                  <span>Bound facts</span>
+                  <code id="traceBinding">Pending</code>
+                </div>
+                <div class="proof-item">
+                  <span>Solver check</span>
+                  <code id="traceSolver">Pending</code>
+                </div>
+              </div>
+              <div class="system-note" id="traceNote">Sample mode displays a saved agent-style verification trace. Interactive mode resolves filing artifacts and runs the local VeriFinQA backend.</div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const icons = {
+      verified: '<svg viewBox="0 0 24 24" width="32" height="32" fill="none"><path d="M4.5 12.5l4.6 4.6L19.5 6.7" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      violated: '<svg viewBox="0 0 24 24" width="32" height="32" fill="none"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/></svg>',
+      abstained: '<svg viewBox="0 0 24 24" width="32" height="32" fill="none"><path d="M12 4.5l8.5 15H3.5l8.5-15Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 9v4.5M12 16.8v.1" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/></svg>'
+    };
+
+    const scenarios = [
+      {
+        company: "Apple Inc.",
+        cik: "0000320193",
+        ticker: "AAPL",
+        filingYear: "2024",
+        title: "Apple Inc. Form 10-K",
+        form: "10-K",
+        period: "FY2024",
+        label: "Verified arithmetic from a filing table",
+        question: "What were Apple's total operating expenses in FY2024, in millions?",
+        answer: "Apple's FY2024 total operating expenses were $57,467 million. The filing lists research and development expense of $31,370 million and selling, general and administrative expense of $26,097 million; together, those components equal $57,467 million.",
+        verdict: "VERIFIED",
+        verdictNote: "The claimed amount is supported by the cited operating expense components and matches the filing subtotal.",
+        formula: "31,370 + 26,097 = 57,467",
+        binding: "R&D expense; SG&A expense; FY2024 column; USD millions",
+        solver: "No contradiction found",
+        concepts: ["Operating Expenses", "Income Statement", "Formula Check", "FY2024", "USD Millions"],
+        reasoning: "The answer is verified because the formula uses only two explicitly cited FY2024 filing figures and the computed total equals the reported operating expense total.",
+        evidence: [
+          "Consolidated Statements of Operations - Net sales, cost of sales, gross margin, operating expenses, and operating income are presented in millions.",
+          "Research and development expense for 2024 was 31,370. Selling, general and administrative expense for 2024 was 26,097.",
+          "Total operating expenses for 2024 were 57,467."
+        ],
+        highlights: ["Research and development expense for 2024 was 31,370", "Selling, general and administrative expense for 2024 was 26,097", "Total operating expenses for 2024 were 57,467"],
+        excerpt:
+`APPLE INC.
+Excerpt from Form 10-K - Consolidated Statements of Operations
+In millions, except per share amounts
+
+                                        2024        2023        2022
+Net sales                            391,035     383,285     394,328
+Cost of sales                        210,352     214,137     223,546
+Gross margin                         180,683     169,148     170,782
+
+Operating expenses:
+  Research and development            31,370      29,915      26,251
+  Selling, general and administrative 26,097      24,932      25,094
+  Total operating expenses            57,467      54,847      51,345
+
+Operating income                     123,216     114,301     119,437
+
+Management discusses net sales, gross margin, operating expenses, and operating income as key measures used to evaluate operating performance.`
+      },
+      {
+        company: "Apple Inc.",
+        cik: "0000320193",
+        ticker: "AAPL",
+        filingYear: "2024",
+        title: "Apple Inc. Form 10-K",
+        form: "10-K",
+        period: "FY2024",
+        label: "Contradiction caught by source evidence",
+        question: "Claim under review: Apple's net sales decreased from FY2023 to FY2024. Is that supported by the filing?",
+        answer: "The claim is not supported. The cited filing shows net sales of $391,035 million in FY2024 and $383,285 million in FY2023, which means net sales increased by $7,750 million rather than decreased.",
+        verdict: "VIOLATED",
+        verdictNote: "The checked claim contradicts the filing because the 2024 figure is higher than the 2023 figure.",
+        formula: "391,035 - 383,285 = +7,750",
+        binding: "Net sales; FY2024 and FY2023 columns; USD millions",
+        solver: "Contradiction found",
+        concepts: ["Revenue", "Year-over-Year Change", "Contradiction", "Numeric Trend"],
+        reasoning: "The verifier marks the claim violated because the source table supports the opposite direction of change. A decrease claim is incompatible with the bound values.",
+        evidence: [
+          "Net sales for 2024 were 391,035.",
+          "Net sales for 2023 were 383,285.",
+          "The difference is positive: 391,035 minus 383,285 equals 7,750."
+        ],
+        highlights: ["Net sales                            391,035     383,285", "391,035", "383,285"],
+        excerpt:
+`APPLE INC.
+Excerpt from Form 10-K - Management's Discussion and Analysis
+In millions
+
+                                        2024        2023        2022
+Net sales                            391,035     383,285     394,328
+Cost of sales                        210,352     214,137     223,546
+Gross margin                         180,683     169,148     170,782
+
+The Company monitors changes in net sales by product category, geographic region, channel mix, and foreign currency impacts. Year-over-year movements may be affected by product launch timing, supply conditions, and demand trends.`
+      },
+      {
+        company: "Apple Inc.",
+        cik: "0000320193",
+        ticker: "AAPL",
+        filingYear: "2024",
+        title: "Apple Inc. Form 10-K",
+        form: "10-K",
+        period: "FY2024",
+        label: "Abstention when the filing lacks support",
+        question: "Does the excerpt state that Apple expects net sales to double next fiscal year?",
+        answer: "The excerpt does not provide enough information to confirm that Apple expects net sales to double next fiscal year. It discusses risks that could affect future results, but it does not include a quantified sales-doubling outlook.",
+        verdict: "ABSTAINED",
+        verdictNote: "The filing excerpt contains risk language but no explicit net-sales-doubling forecast.",
+        formula: "No authorized formula",
+        binding: "No filing fact found for future net sales doubling",
+        solver: "No solver check emitted",
+        concepts: ["Forward-Looking Statement", "Risk Factor", "Revenue Outlook", "Insufficient Evidence"],
+        reasoning: "The verifier abstains because the question asks about an outlook that is not present in the evidence. It cannot infer a quantified forecast from risk-factor language.",
+        evidence: [
+          "The excerpt discusses risks that could affect future financial performance.",
+          "No sentence states that Apple expects net sales to double next fiscal year."
+        ],
+        highlights: ["future financial performance", "could materially affect", "does not include"],
+        excerpt:
+`APPLE INC.
+Excerpt from Form 10-K - Risk Factors
+
+The Company's future financial performance depends on a variety of factors, including global and regional economic conditions, competitive pressure, product and service demand, supply availability, and foreign currency movements.
+
+Adverse changes in these factors could materially affect the Company's net sales, margins, operating results, cash flows, or financial condition.
+
+This excerpt does not include management guidance, revenue forecasts, or quantified expectations for next fiscal year.`
+      }
+    ];
+
+    const state = {
+      mode: "demo",
+      scenarioIndex: 0,
+      animationToken: 0
+    };
+
+    const $ = (id) => document.getElementById(id);
+
+    const els = {
+      modeDemo: $("modeDemo"),
+      modeLive: $("modeLive"),
+      prevScenario: $("prevScenario"),
+      nextScenario: $("nextScenario"),
+      rerunAnimation: $("rerunAnimation"),
+      interactiveForm: $("interactiveForm"),
+      liveQuestion: $("liveQuestion"),
+      liveCik: $("liveCik"),
+      liveTicker: $("liveTicker"),
+      liveYear: $("liveYear"),
+      liveFormType: $("liveFormType"),
+      filingUpload: $("filingUpload"),
+      artifactFilingLabel: $("artifactFilingLabel"),
+      artifactEdgarItem: $("artifactEdgarItem"),
+      artifactEdgarStatus: $("artifactEdgarStatus"),
+      artifactFactsItem: $("artifactFactsItem"),
+      artifactFactsStatus: $("artifactFactsStatus"),
+      artifactCalcItem: $("artifactCalcItem"),
+      artifactCalcStatus: $("artifactCalcStatus"),
+      artifactModelItem: $("artifactModelItem"),
+      artifactModelStatus: $("artifactModelStatus"),
+      useSampleQuestion: $("useSampleQuestion"),
+      demoQuestionBox: $("demoQuestionBox"),
+      filingTitle: $("filingTitle"),
+      scenarioLabel: $("scenarioLabel"),
+      companyMeta: $("companyMeta"),
+      formMeta: $("formMeta"),
+      periodMeta: $("periodMeta"),
+      questionText: $("questionText"),
+      filingExcerpt: $("filingExcerpt"),
+      runState: $("runState"),
+      runStateTitle: $("runStateTitle"),
+      runStateNote: $("runStateNote"),
+      answerCard: document.querySelector(".answer-card"),
+      answerStatus: $("answerStatus"),
+      answerText: $("answerText"),
+      verdictCard: $("verdictCard"),
+      verifyingState: $("verifyingState"),
+      verdictGrid: $("verdictGrid"),
+      verdictIcon: $("verdictIcon"),
+      verdictTitle: $("verdictTitle"),
+      verdictNote: $("verdictNote"),
+      evidenceCount: $("evidenceCount"),
+      evidencePanel: document.querySelector(".evidence-panel"),
+      evidenceList: $("evidenceList"),
+      conceptTags: $("conceptTags"),
+      reasoningNote: $("reasoningNote"),
+      proofPanel: document.querySelector(".proof-panel"),
+      traceFormula: $("traceFormula"),
+      traceBinding: $("traceBinding"),
+      traceSolver: $("traceSolver"),
+      traceNote: $("traceNote"),
+      analysisSubtitle: $("analysisSubtitle"),
+      toast: $("toast")
+    };
+
+    function escapeHTML(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function highlightText(text, highlights) {
+      let output = escapeHTML(text);
+      for (const phrase of highlights) {
+        const safePhrase = escapeHTML(phrase);
+        output = output.replaceAll(safePhrase, `<mark>${safePhrase}</mark>`);
+      }
+      return output;
+    }
+
+    function renderFilingExcerpt(text, highlights = []) {
+      const parsed = parseStatementExcerpt(text, highlights);
+      if (!parsed) return renderNarrativeExcerpt(text, highlights);
+
+      const headerCells = parsed.years
+        .map((year) => `<th scope="col">${escapeHTML(year)}</th>`)
+        .join("");
+      const bodyRows = parsed.rows.map((row) => {
+        if (row.section) {
+          return `<tr class="statement-section"><td colspan="${parsed.years.length + 1}">${escapeHTML(row.section)}</td></tr>`;
+        }
+        const classes = [
+          "statement-row",
+          row.highlighted ? "highlighted" : "",
+          /^total\b/i.test(row.label) ? "total" : ""
+        ].filter(Boolean).join(" ");
+        const values = row.values.map((value) => `<td>${escapeHTML(value)}</td>`).join("");
+        return `<tr class="${classes}"><td>${escapeHTML(row.label)}</td>${values}</tr>`;
+      }).join("");
+      const footnote = parsed.footnote
+        ? `<div class="filing-footnote">${highlightText(parsed.footnote, highlights)}</div>`
+        : "";
+
+      return `
+        <div class="filing-document">
+          <div class="filing-document-head">
+            <span>${escapeHTML(parsed.company)}</span>
+            <strong>${escapeHTML(parsed.title)}</strong>
+            <em>${escapeHTML(parsed.note)}</em>
+          </div>
+          <table class="filing-table">
+            <thead>
+              <tr><th scope="col">Line item</th>${headerCells}</tr>
+            </thead>
+            <tbody>${bodyRows}</tbody>
+          </table>
+          ${footnote}
+        </div>
+      `;
+    }
+
+    function parseStatementExcerpt(text, highlights = []) {
+      const lines = text.split("\n").map((line) => line.replace(/\s+$/g, ""));
+      const company = lines.find((line) => line.trim()) || "Filing excerpt";
+      const descriptor = lines.find((line) => /^Excerpt from/i.test(line.trim())) || "";
+      const title = descriptor.includes(" - ")
+        ? descriptor.split(" - ").slice(1).join(" - ").trim()
+        : descriptor.replace(/^Excerpt from\s+/i, "").trim();
+      const note = lines.find((line) => /^In millions/i.test(line.trim())) || "";
+      const yearLineIndex = lines.findIndex((line) => /\b20\d{2}\b\s+\b20\d{2}\b/.test(line));
+      if (yearLineIndex < 0 || !title || !note) return null;
+
+      const years = lines[yearLineIndex].match(/\b20\d{2}\b/g) || [];
+      if (years.length < 2) return null;
+
+      const highlightNumbers = new Set(
+        highlights.flatMap((phrase) => String(phrase).match(/\d{1,3}(?:,\d{3})+/g) || [])
+      );
+      const rows = [];
+      const footnoteLines = [];
+      let tableStarted = false;
+
+      for (const raw of lines.slice(yearLineIndex + 1)) {
+        const line = raw.trimEnd();
+        if (!line.trim()) {
+          if (tableStarted) footnoteLines.push("");
+          continue;
+        }
+
+        const values = line.match(/\d{1,3}(?:,\d{3})*/g) || [];
+        if (values.length >= years.length) {
+          tableStarted = true;
+          const firstValueIndex = raw.indexOf(values[0]);
+          const label = raw.slice(0, firstValueIndex).trim();
+          rows.push({
+            label,
+            values: values.slice(0, years.length),
+            highlighted: values.some((value) => highlightNumbers.has(value))
+          });
+          continue;
+        }
+
+        if (!tableStarted && /:$/.test(line.trim())) {
+          rows.push({ section: line.trim().replace(/:$/, "") });
+          continue;
+        }
+
+        if (tableStarted && /:$/.test(line.trim())) {
+          rows.push({ section: line.trim().replace(/:$/, "") });
+          continue;
+        }
+
+        if (tableStarted) footnoteLines.push(line.trim());
+      }
+
+      if (!rows.some((row) => row.values)) return null;
+      return {
+        company: company.trim(),
+        title,
+        note: note.trim(),
+        years,
+        rows,
+        footnote: footnoteLines.join(" ").replace(/\s+/g, " ").trim()
+      };
+    }
+
+    function renderNarrativeExcerpt(text, highlights = []) {
+      const parsed = parseNarrativeExcerpt(text, highlights);
+      if (!parsed) {
+        return `<div class="filing-raw">${highlightText(text, highlights)}</div>`;
+      }
+
+      const paragraphs = parsed.paragraphs.map((paragraph) => {
+        const isHighlighted = highlights.some((phrase) => {
+          const needle = String(phrase).toLowerCase();
+          return needle && paragraph.toLowerCase().includes(needle);
+        });
+        return `<p class="filing-paragraph${isHighlighted ? " highlighted" : ""}">${highlightText(paragraph, highlights)}</p>`;
+      }).join("");
+
+      return `
+        <div class="filing-document textual">
+          <div class="filing-document-head">
+            <span>${escapeHTML(parsed.company)}</span>
+            <strong>${escapeHTML(parsed.title)}</strong>
+          </div>
+          <div class="filing-paragraphs">${paragraphs}</div>
+        </div>
+      `;
+    }
+
+    function parseNarrativeExcerpt(text) {
+      const blocks = text.split(/\n\s*\n/g).map((block) => block.trim()).filter(Boolean);
+      if (blocks.length < 2) return null;
+      const company = blocks[0].split("\n").find((line) => line.trim()) || "Filing excerpt";
+      const descriptor = blocks[0].split("\n").find((line) => /^Excerpt from/i.test(line.trim())) || "";
+      const title = descriptor.includes(" - ")
+        ? descriptor.split(" - ").slice(1).join(" - ").trim()
+        : descriptor.replace(/^Excerpt from\s+/i, "").trim();
+      if (!title) return null;
+      return {
+        company: company.trim(),
+        title,
+        paragraphs: blocks.slice(1)
+      };
+    }
+
+    function setMode(mode) {
+      state.mode = mode;
+      els.modeDemo.classList.toggle("active", mode === "demo");
+      els.modeLive.classList.toggle("active", mode === "live");
+      els.interactiveForm.classList.toggle("active", mode === "live");
+      els.demoQuestionBox.style.display = mode === "demo" ? "block" : "none";
+      els.analysisSubtitle.textContent = mode === "demo"
+        ? "Answer, cited facts, and verifier result from the same surface used by live runs."
+        : "EDGAR/XBRL artifact fetch, answer generation, and verifier result from the local backend.";
+      if (mode === "live") {
+        fillLiveFieldsFromScenario();
+        els.liveQuestion.value = scenarios[state.scenarioIndex].question;
+      } else {
+        runScenarioAnimation();
+      }
+    }
+
+    function fillLiveFieldsFromScenario() {
+      const s = scenario();
+      els.liveCik.value = s.cik || "0000320193";
+      els.liveTicker.value = s.ticker || "AAPL";
+      els.liveYear.value = s.filingYear || "2024";
+      els.liveFormType.value = s.form || "10-K";
+      setArtifactStatus("ready");
+    }
+
+    function artifactFilingLabel(details = {}) {
+      const s = scenario();
+      const ticker = els.liveTicker.value.trim().toUpperCase();
+      const scenarioTicker = String(s.ticker || "").toUpperCase();
+      const issuer = details.company || (ticker && ticker !== scenarioTicker ? ticker : s.company) || ticker || "Issuer";
+      const form = (els.liveFormType.value.trim() || s.form || "10-K").toUpperCase();
+      const year = els.liveYear.value.trim() || s.filingYear || "2024";
+      return `${issuer} ${form} FY${year}`;
+    }
+
+    function setArtifactItem(item, statusEl, stateName, text) {
+      item.dataset.state = stateName;
+      statusEl.textContent = text;
+    }
+
+    function setArtifactStatus(stage, details = {}) {
+      els.artifactFilingLabel.textContent = artifactFilingLabel(details);
+
+      if (stage === "resolve") {
+        setArtifactItem(els.artifactEdgarItem, els.artifactEdgarStatus, "active", "Resolving EDGAR filing");
+        setArtifactItem(els.artifactFactsItem, els.artifactFactsStatus, "ready", "Waiting");
+        setArtifactItem(els.artifactCalcItem, els.artifactCalcStatus, "ready", "Waiting");
+        setArtifactItem(els.artifactModelItem, els.artifactModelStatus, "ready", "Waiting");
+        return;
+      }
+
+      if (stage === "facts") {
+        setArtifactItem(els.artifactEdgarItem, els.artifactEdgarStatus, "done", "Resolved");
+        setArtifactItem(els.artifactFactsItem, els.artifactFactsStatus, "active", "Loading XBRL facts");
+        setArtifactItem(els.artifactCalcItem, els.artifactCalcStatus, "ready", "Waiting");
+        setArtifactItem(els.artifactModelItem, els.artifactModelStatus, "ready", "Waiting");
+        return;
+      }
+
+      if (stage === "answer") {
+        setArtifactItem(els.artifactEdgarItem, els.artifactEdgarStatus, "done", "Resolved");
+        setArtifactItem(els.artifactFactsItem, els.artifactFactsStatus, "done", "Loaded");
+        setArtifactItem(els.artifactCalcItem, els.artifactCalcStatus, "ready", "Waiting for verifier");
+        setArtifactItem(els.artifactModelItem, els.artifactModelStatus, "active", "Calling Haiku");
+        return;
+      }
+
+      if (stage === "verify") {
+        setArtifactItem(els.artifactEdgarItem, els.artifactEdgarStatus, "done", "Resolved");
+        setArtifactItem(els.artifactFactsItem, els.artifactFactsStatus, "done", "Loaded");
+        setArtifactItem(els.artifactCalcItem, els.artifactCalcStatus, "active", "Checking linkbase");
+        setArtifactItem(els.artifactModelItem, els.artifactModelStatus, "done", "Connected");
+        return;
+      }
+
+      if (stage === "done") {
+        setArtifactItem(els.artifactEdgarItem, els.artifactEdgarStatus, "done", "Resolved");
+        setArtifactItem(els.artifactFactsItem, els.artifactFactsStatus, "done", "Loaded");
+        setArtifactItem(els.artifactCalcItem, els.artifactCalcStatus, "done", details.calcStatus || "Found");
+        setArtifactItem(els.artifactModelItem, els.artifactModelStatus, "done", "Connected");
+        return;
+      }
+
+      if (stage === "missing_api_key") {
+        setArtifactItem(els.artifactEdgarItem, els.artifactEdgarStatus, "done", "Backend reached");
+        setArtifactItem(els.artifactFactsItem, els.artifactFactsStatus, "ready", "Blocked");
+        setArtifactItem(els.artifactCalcItem, els.artifactCalcStatus, "ready", "Blocked");
+        setArtifactItem(els.artifactModelItem, els.artifactModelStatus, "error", "Key missing");
+        return;
+      }
+
+      if (stage === "error") {
+        setArtifactItem(els.artifactEdgarItem, els.artifactEdgarStatus, "error", "Backend unavailable");
+        setArtifactItem(els.artifactFactsItem, els.artifactFactsStatus, "error", "Not loaded");
+        setArtifactItem(els.artifactCalcItem, els.artifactCalcStatus, "error", "Not checked");
+        setArtifactItem(els.artifactModelItem, els.artifactModelStatus, "error", "Not reached");
+        return;
+      }
+
+      setArtifactItem(els.artifactEdgarItem, els.artifactEdgarStatus, "ready", "Ready to resolve");
+      setArtifactItem(els.artifactFactsItem, els.artifactFactsStatus, "ready", "Ready");
+      setArtifactItem(els.artifactCalcItem, els.artifactCalcStatus, "ready", "Ready");
+      setArtifactItem(els.artifactModelItem, els.artifactModelStatus, "ready", "Ready");
+    }
+
+    function setReportVisible(visible) {
+      els.answerCard.hidden = !visible;
+      els.verdictCard.hidden = !visible;
+      els.evidencePanel.hidden = !visible;
+      els.proofPanel.hidden = !visible;
+    }
+
+    function setRunState(stage, title, note) {
+      const order = ["resolve", "facts", "answer", "verify"];
+      const activeIndex = order.indexOf(stage);
+      els.runState.hidden = false;
+      els.runStateTitle.textContent = title;
+      els.runStateNote.textContent = note;
+      document.querySelectorAll("[data-run-step]").forEach((step) => {
+        const index = order.indexOf(step.dataset.runStep);
+        step.classList.toggle("active", index === activeIndex);
+        step.classList.toggle("done", stage === "done" || (activeIndex >= 0 && index < activeIndex));
+      });
+    }
+
+    function hideRunState() {
+      els.runState.hidden = true;
+      document.querySelectorAll("[data-run-step]").forEach((step) => {
+        step.classList.remove("active", "done");
+      });
+    }
+
+    function scenario() {
+      return scenarios[state.scenarioIndex];
+    }
+
+    function renderScenarioShell() {
+      const s = scenario();
+      els.filingTitle.textContent = s.title;
+      els.scenarioLabel.textContent = `Case ${state.scenarioIndex + 1} of ${scenarios.length} - ${s.label}`;
+      els.companyMeta.textContent = s.company;
+      els.formMeta.textContent = s.form;
+      els.periodMeta.textContent = s.period;
+      els.questionText.textContent = s.question;
+      els.filingExcerpt.innerHTML = renderFilingExcerpt(s.excerpt, s.highlights);
+      if (state.mode === "live" && !els.liveQuestion.value.trim()) {
+        els.liveQuestion.value = s.question;
+      }
+    }
+
+    function resetResult() {
+      hideRunState();
+      setReportVisible(true);
+      els.answerText.textContent = "";
+      els.answerText.classList.add("cursor");
+      els.answerStatus.innerHTML = '<span class="dot pulse"></span>Generating';
+      els.verdictCard.className = "verdict-card";
+      els.verifyingState.hidden = false;
+      els.verdictGrid.hidden = true;
+      els.verdictIcon.innerHTML = "";
+      els.verdictTitle.textContent = "";
+      els.verdictNote.textContent = "";
+      els.evidenceList.innerHTML = "";
+      els.evidenceCount.textContent = "0 excerpts";
+      els.conceptTags.innerHTML = "";
+      els.reasoningNote.textContent = "";
+      els.traceFormula.textContent = "Pending";
+      els.traceBinding.textContent = "Pending";
+      els.traceSolver.textContent = "Pending";
+      els.proofPanel.open = false;
+    }
+
+    function sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    async function typeAnswer(text, token) {
+      els.answerText.textContent = "";
+      const chunk = Math.max(2, Math.ceil(text.length / 96));
+      for (let i = 0; i < text.length; i += chunk) {
+        if (token !== state.animationToken) return;
+        els.answerText.textContent = text.slice(0, i + chunk);
+        await sleep(18);
+      }
+      els.answerText.textContent = text;
+      els.answerText.classList.remove("cursor");
+      els.answerStatus.innerHTML = '<span class="dot"></span>Draft ready';
+    }
+
+    function renderEvidence(result) {
+      const evidence = result.evidence || [];
+      els.evidenceCount.textContent = `${evidence.length} ${evidence.length === 1 ? "excerpt" : "excerpts"}`;
+      els.evidenceList.innerHTML = evidence
+        .map((line) => `<div class="quote">${highlightText(line, result.highlights || [])}</div>`)
+        .join("");
+      els.conceptTags.innerHTML = result.concepts.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("");
+      els.reasoningNote.textContent = result.reasoning;
+      els.traceFormula.textContent = result.formula;
+      els.traceBinding.textContent = result.binding;
+      els.traceSolver.textContent = formatSolverCheck(result.solver);
+      els.traceNote.textContent = result.traceNote || "Details are available for audit.";
+    }
+
+    function formatSolverCheck(value) {
+      const raw = String(value || "").trim();
+      const normalized = raw.toLowerCase();
+      if (!raw) return "Unresolved";
+      if (normalized.includes("unsat")) return "No contradiction found";
+      if (normalized.includes("sat") || normalized.includes("counterexample")) return "Contradiction found";
+      if (normalized.includes("no query")) return "No solver check emitted";
+      if (normalized === "verified") return "No contradiction found";
+      if (normalized === "violated") return "Contradiction found";
+      if (normalized === "abstained" || normalized === "abstain") return "No solver check emitted";
+      return raw;
+    }
+
+    function renderVerdict(result) {
+      const kind = result.verdict.toLowerCase();
+      els.answerText.classList.remove("cursor");
+      els.verifyingState.hidden = true;
+      els.verdictGrid.hidden = false;
+      els.verdictCard.className = `verdict-card ${kind}`;
+      els.verdictIcon.innerHTML = icons[kind] || icons.abstained;
+      els.verdictTitle.textContent = result.verdict;
+      els.verdictNote.textContent = result.verdictNote;
+    }
+
+    async function runScenarioAnimation() {
+      const token = ++state.animationToken;
+      const s = scenario();
+      renderScenarioShell();
+      resetResult();
+      setReportVisible(false);
+      setRunState("resolve", "Loading sample filing", "Preparing the saved SEC filing excerpt for review.");
+      await sleep(420);
+      if (token !== state.animationToken) return;
+
+      setRunState("facts", "Binding filing facts", "Locating the cited values and financial statement context.");
+      await sleep(500);
+      if (token !== state.animationToken) return;
+
+      setRunState("answer", "Drafting answer", "Producing the filing-grounded response.");
+      await sleep(500);
+      if (token !== state.animationToken) return;
+
+      setRunState("verify", "Verifying claim", "Checking the answer against evidence and formula constraints.");
+      await sleep(520);
+      if (token !== state.animationToken) return;
+
+      setRunState("done", "Verification complete", "Rendering the checked answer and cited evidence.");
+      await sleep(360);
+      if (token !== state.animationToken) return;
+
+      hideRunState();
+      setReportVisible(true);
+      await typeAnswer(s.answer, token);
+      if (token !== state.animationToken) return;
+      els.answerStatus.innerHTML = '<span class="dot pulse"></span>Verifying';
+      await sleep(760);
+      if (token !== state.animationToken) return;
+      renderVerdict(s);
+      renderEvidence(s);
+      els.answerStatus.innerHTML = '<span class="dot"></span>Checked';
+    }
+
+    function setScenario(index) {
+      state.scenarioIndex = (index + scenarios.length) % scenarios.length;
+      renderScenarioShell();
+      if (state.mode === "live") {
+        els.liveQuestion.value = scenario().question;
+        fillLiveFieldsFromScenario();
+        renderLiveIdle();
+      } else {
+        runScenarioAnimation();
+      }
+    }
+
+    function nextScenario(delta) {
+      setScenario(state.scenarioIndex + delta);
+    }
+
+    function renderLiveIdle() {
+      state.animationToken += 1;
+      resetResult();
+      setReportVisible(false);
+      setArtifactStatus("ready");
+      setRunState(
+        "ready",
+        "Ready to verify",
+        "Enter a question. The backend will resolve EDGAR, load XBRL facts, answer, then verify."
+      );
+    }
+
+    function inferVerdict(question, answer, excerpt) {
+      const q = question.toLowerCase();
+      const a = answer.toLowerCase();
+      const e = excerpt.toLowerCase();
+
+      const abstainSignals = [
+        "not enough information", "not provided", "not stated", "does not state",
+        "cannot determine", "cannot be determined", "insufficient", "not contain",
+        "no information", "unable to answer"
+      ];
+      if (abstainSignals.some((signal) => a.includes(signal))) {
+        return "ABSTAINED";
+      }
+
+      if ((q.includes("decrease") || q.includes("decline")) && a.includes("decrease") && e.includes("391,035") && e.includes("383,285")) {
+        return "VIOLATED";
+      }
+      if ((q.includes("double") || q.includes("forecast") || q.includes("expect")) && !/(double|forecast|guidance|expects|expectation)/i.test(excerpt)) {
+        return "ABSTAINED";
+      }
+
+      return "VERIFIED";
+    }
+
+    function extractConcepts(question, answer) {
+      const text = `${question} ${answer}`.toLowerCase();
+      const concepts = [];
+      if (/revenue|sales/.test(text)) concepts.push("Revenue");
+      if (/expense|operating/.test(text)) concepts.push("Operating Expense");
+      if (/risk|could|may|adversely/.test(text)) concepts.push("Risk Factor");
+      if (/debt|liabilit|liquidity|cash/.test(text)) concepts.push("Liquidity");
+      if (/forecast|expect|guidance|forward/.test(text)) concepts.push("Forward-Looking Statement");
+      if (/increase|decrease|change|growth/.test(text)) concepts.push("Trend Check");
+      concepts.push("Filing-Grounded Answer");
+      return [...new Set(concepts)].slice(0, 6);
+    }
+
+    function liveEvidence(question, answer, excerpt) {
+      const lines = excerpt.split("\n").map((line) => line.trim()).filter(Boolean);
+      const terms = question.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length > 4);
+      const picked = lines.filter((line) => {
+        const lower = line.toLowerCase();
+        return terms.some((term) => lower.includes(term)) || /net sales|operating expenses|risk|revenue|guidance|forecast|expense/i.test(line);
+      }).slice(0, 3);
+      return picked.length ? picked : lines.slice(0, 3);
+    }
+
+    async function readUploadedFilingText() {
+      const file = els.filingUpload.files && els.filingUpload.files[0];
+      if (!file) return "";
+      return await file.text();
+    }
+
+    async function callBackendVerify({ question, filingText }) {
+      const payload = {
+        question,
+        cik: els.liveCik.value.trim(),
+        ticker: els.liveTicker.value.trim(),
+        filing_year: els.liveYear.value.trim(),
+        form_type: els.liveFormType.value.trim() || "10-K",
+        filing_text: filingText,
+        llm_mode: "claude"
+      };
+      const response = await fetch("/api/ask-and-verify", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || data.status === "error") {
+        throw new Error(data.error || `Backend request failed (${response.status})`);
+      }
+      return data;
+    }
+
+    function resultFromBackend(data, fallbackScenario) {
+      const result = data.result || {};
+      const trace = data.trace || {};
+      const verdict = data.verdict || "ABSTAINED";
+      return {
+        answer: data.answer || result.answer || "No answer returned.",
+        verdict,
+        verdictNote: verdict === "VERIFIED"
+          ? "The existing VeriFinQA agent accepted the answer after EDGAR/XBRL artifact loading and SMT verification."
+          : verdict === "VIOLATED"
+            ? "The existing VeriFinQA agent found the answer inconsistent with the bound evidence or formula."
+            : `The existing VeriFinQA agent abstained: ${result.failure_reason || result.status || "insufficient verifiable support"}.`,
+        formula: trace.formula_authority ? `${trace.formula_authority}: ${trace.formula || "unresolved"}` : "unresolved",
+        binding: trace.evidence_binding || "none",
+        solver: trace.solver || result.solver_status || result.status || "unresolved",
+        concepts: data.concepts && data.concepts.length ? data.concepts : extractConcepts("", data.answer || ""),
+        reasoning: verdict === "VERIFIED"
+          ? "The answer survived the same verifier path used by the agent: ClaimSpec construction, fact binding, formula authority, SMT encoding, and Z3."
+          : verdict === "VIOLATED"
+            ? "The verifier produced a contradiction against the evidence/formula constraints, so the answer was rejected."
+            : "The verifier refused to accept the answer because a required formula, fact binding, solver result, or source support was missing.",
+        evidence: data.evidence && data.evidence.length ? data.evidence : fallbackScenario.evidence,
+        highlights: fallbackScenario.highlights,
+        traceNote: `Resolved EDGAR doc ${data.doc_name || "unknown"}; artifacts cache: ${data.xbrl_artifacts_dir || "unavailable"}.`
+      };
+    }
+
+    async function runLiveAnalysis(event) {
+      event.preventDefault();
+      const s = scenario();
+      const question = els.liveQuestion.value.trim();
+
+      if (!question) {
+        showToast("Enter a question before running live analysis.");
+        els.liveQuestion.focus();
+        return;
+      }
+      if (!els.liveCik.value.trim() || !els.liveYear.value.trim()) {
+        showToast("Add a CIK and filing year so the backend can fetch EDGAR/XBRL artifacts.");
+        els.liveCik.focus();
+        return;
+      }
+
+      const token = ++state.animationToken;
+      resetResult();
+      setReportVisible(false);
+      setArtifactStatus("resolve");
+      setRunState("resolve", "Resolving filing", "Finding the requested SEC filing and preparing artifacts.");
+
+      let finalResult;
+      try {
+        const filingText = await readUploadedFilingText();
+        const backendTask = callBackendVerify({
+          question,
+          filingText: filingText || s.excerpt
+        }).then((data) => ({ data }), (error) => ({ error }));
+
+        await sleep(460);
+        if (token !== state.animationToken) return;
+        setArtifactStatus("facts");
+        setRunState("facts", "Loading XBRL facts", "Fetching company facts and calculation context.");
+
+        await sleep(520);
+        if (token !== state.animationToken) return;
+        setArtifactStatus("answer");
+        setRunState("answer", "Drafting answer", "Generating a response grounded in the filing evidence.");
+
+        await sleep(520);
+        if (token !== state.animationToken) return;
+        setArtifactStatus("verify");
+        setRunState("verify", "Verifying claim", "Checking evidence binding, formula authority, and verdict.");
+
+        const outcome = await backendTask;
+        if (outcome.error) throw outcome.error;
+        const backendData = outcome.data;
+        finalResult = resultFromBackend(backendData, s);
+        if (token !== state.animationToken) return;
+        setArtifactStatus("done", {
+          company: backendData.company || backendData.company_name || s.company,
+          calcStatus: backendData.xbrl_artifacts_dir ? "Found" : "Checked"
+        });
+        setRunState("done", "Verification complete", "Rendering the checked answer and cited evidence.");
+        await sleep(420);
+      } catch (error) {
+        const message = String(error.message || error || "Backend request failed.");
+        const missingApiKey = /missing anthropic api key|anthropic_api_key|api key/i.test(message);
+        finalResult = {
+          answer: missingApiKey
+            ? "The live backend is running, but the model credential is not visible to that process. VeriFinQA abstains rather than presenting an unchecked answer."
+            : "The live verification backend is not available or could not complete the EDGAR/XBRL verification pass. VeriFinQA abstains rather than presenting an unchecked answer.",
+          verdict: "ABSTAINED",
+          verdictNote: missingApiKey
+            ? "Interactive verification requires ANTHROPIC_API_KEY to be loaded by the local backend."
+            : "Interactive verification requires the local backend to fetch SEC artifacts and run the agent verifier.",
+          formula: "No trusted formula",
+          binding: missingApiKey ? "Model credential missing" : "No EDGAR/XBRL binding",
+          solver: "No query emitted",
+          concepts: missingApiKey
+            ? ["Model Access", "ANTHROPIC_API_KEY", "Abstention"]
+            : ["Backend Required", "EDGAR/XBRL", "Abstention"],
+          reasoning: message,
+          evidence: [
+            missingApiKey
+              ? "Restart the demo backend from the repo so it loads ANTHROPIC_API_KEY from the environment or .env."
+              : "Start the demo backend, then retry the interactive analysis."
+          ],
+          highlights: [],
+          traceNote: "Run: PYTHONPATH=src python3 scripts/serve_demo_backend.py"
+        };
+        if (token !== state.animationToken) return;
+        setArtifactStatus(missingApiKey ? "missing_api_key" : "error");
+        setRunState(
+          "done",
+          missingApiKey ? "Model key missing" : "Verification stopped",
+          missingApiKey
+            ? "The backend responded, but ANTHROPIC_API_KEY is not visible to the model client."
+            : "Showing an abstention report instead of an unchecked answer."
+        );
+        await sleep(420);
+        showToast(
+          missingApiKey
+            ? "Backend is running, but ANTHROPIC_API_KEY is not visible to it. Restart the backend from the repo root."
+            : message.includes("Failed to fetch")
+              ? "Backend not reachable. Start scripts/serve_demo_backend.py and open the localhost URL."
+              : message
+        );
+      }
+
+      if (token !== state.animationToken) return;
+      hideRunState();
+      setReportVisible(true);
+      await typeAnswer(finalResult.answer, token);
+      if (token !== state.animationToken) return;
+
+      els.answerStatus.innerHTML = '<span class="dot pulse"></span>Verifying';
+      await sleep(760);
+      if (token !== state.animationToken) return;
+
+      renderVerdict(finalResult);
+      renderEvidence(finalResult);
+      els.answerStatus.innerHTML = '<span class="dot"></span>Checked';
+    }
+
+    function showToast(message) {
+      els.toast.textContent = message;
+      els.toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => els.toast.classList.remove("show"), 4200);
+    }
+
+    els.modeDemo.addEventListener("click", () => setMode("demo"));
+    els.modeLive.addEventListener("click", () => {
+      setMode("live");
+      renderLiveIdle();
+    });
+    els.prevScenario.addEventListener("click", () => nextScenario(-1));
+    els.nextScenario.addEventListener("click", () => nextScenario(1));
+    els.rerunAnimation.addEventListener("click", () => {
+      if (state.mode === "demo") runScenarioAnimation();
+      else renderLiveIdle();
+    });
+    els.useSampleQuestion.addEventListener("click", () => {
+      els.liveQuestion.value = scenario().question;
+      els.liveQuestion.focus();
+    });
+    [els.liveCik, els.liveTicker, els.liveYear, els.liveFormType].forEach((input) => {
+      input.addEventListener("input", () => {
+        if (state.mode === "live") setArtifactStatus("ready");
+      });
+    });
+    els.interactiveForm.addEventListener("submit", runLiveAnalysis);
+
+    renderScenarioShell();
+    runScenarioAnimation();
+  </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "prepared_at_utc": "2026-10-16T20:16:36.566621+00:00",
+  "scope": "Standalone anonymous review copy; original source package remains unchanged.",
+  "status": "PASS",
+  "text_audit": {
+    "schema_version": 1,
+    "scope": "Final read-only anonymous-package text audit including executed notebook outputs, updated README, prompt diagram source and SVG",
+    "text_files_scanned": 607,
+    "notebooks_scanned": 4,
+    "known_author_identity_match_count": 0,
+    "known_author_identity_findings": [],
+    "source_repository_pointer_count": 0,
+    "source_repository_pointer_findings": [],
+    "secret_pattern_counts": {
+      "hub_access_token": 0,
+      "provider_access_token": 0,
+      "git_access_token": 0,
+      "cloud_access_key": 0,
+      "private_key_header": 0,
+      "url_embedded_credentials": 0
+    },
+    "sensitive_file_names": [],
+    "hidden_files": [
+      ".gitattributes",
+      ".gitignore"
+    ],
+    "symlinks": [],
+    "readme_relative_links_checked": 50,
+    "readme_broken_relative_links": [],
+    "excluded_content": "Binary payloads and credential/environment-file contents are not inspected by this text audit. Git directories are excluded entirely.",
+    "retained_public_attribution": "Public company names, public third-party email addresses, third-party citations, model organizations, and licenses are intentionally retained.",
+    "passed": true
+  },
+  "binary_review": {
+    "pdf_files_reviewed": 35,
+    "png_files_reviewed": 6,
+    "svg_files_reviewed": 4,
+    "parquet_files_reviewed": 1,
+    "known_author_identity_findings": 0,
+    "method": "Metadata and extracted-text inspection of existing binary artifacts; visual inspection and source verification of the newly authored prompt diagram."
+  },
+  "excluded": [
+    "Original Git history",
+    "Credentials and environment files",
+    "Model weights",
+    "Filesystem and Python caches"
+  ],
+  "redacted_categories": [
+    "Author and lab identifiers in packaging documentation and synthetic test fixtures",
+    "Identifying local workspace prefixes in historical command metadata and notebook output",
+    "Original source repository commit pointer"
+  ],
+  "preserved": [
+    "Public company names and filing evidence",
+    "Upstream dataset and model attributions",
+    "Third-party notices and licenses",
+    "Raw dataset records, predictions, decisions, and grading annotations"
+  ],
+  "scientific_record_integrity": {
+    "jsonl_files_byte_identical_to_source": 44,
+    "main_runs": 18,
+    "main_records": 6420,
+    "baseline_runs": 8,
+    "baseline_records": 2668,
+    "model_inference_performed": false,
+    "original_package_files_unchanged": 646
+  },
+  "changed_files": [
+    {
+      "path": "README.md",
+      "source_package_sha256": "5cee9606bdd8267f1e0c902bc50b5570531eaf652ced48266694b1662f3ca369",
+      "anonymous_package_sha256": "044f43e5061da531dfd4682a53d68b604c2719eeabc63397a808383aab360187",
+      "reason": "Anonymous review documentation and presentation."
+    },
+    {
+      "path": "docs/XBRLFILING_HUGGINGFACE.md",
+      "source_package_sha256": "a084dce7dd495687dcf352540c8f7a34ad5c28bc7fdf48add2620e30d6f098e2",
+      "anonymous_package_sha256": "84931df0bb8dd4b0d5802047282c10c40706ddd0b9e105de1937ec09a402ccab",
+      "reason": "Anonymous review documentation and presentation."
+    },
+    {
+      "path": "figures/baseline_comparison_original_scoring.pdf",
+      "source_package_sha256": "d83a45bbda572f21dcc5645a49903c1186adb8ce6cc9843bd7520d8e332df831",
+      "anonymous_package_sha256": "d818f7a5a71ce795acbff1c6e6361fd54273691771d3e98f267d87d34005e28f",
+      "reason": "Regenerated from unchanged data during offline notebook execution; rendering metadata may differ."
+    },
+    {
+      "path": "notebooks/baseline_results.ipynb",
+      "source_package_sha256": "95df17dd6ff9840ff3f52c83c59419745b36a65d6d84ddd00cb9dc1ef9d1bf29",
+      "anonymous_package_sha256": "9a8923345e4178a80e789192e6111079b9a3d42b4ef73cd20b01f4f34a783c15",
+      "reason": "Executed offline; generic kernel metadata and embedded figure previews where applicable; identifying output paths removed."
+    },
+    {
+      "path": "notebooks/tatdqa_result_metrics.ipynb",
+      "source_package_sha256": "560d70352ed65ee9d85f90b5777dca2705b41e278ee07ab15df41b8f667d591a",
+      "anonymous_package_sha256": "41995679bdcf04d8231e3a09a269a391c17faf610cb971c3939d581e28abfc04",
+      "reason": "Executed offline; generic kernel metadata and embedded figure previews where applicable; identifying output paths removed."
+    },
+    {
+      "path": "notebooks/tatdqa_results.ipynb",
+      "source_package_sha256": "74acf012b0e87beb50b9556a3c1eda4b224a7615748530427c99bf05eb616bc8",
+      "anonymous_package_sha256": "1ecf7e52eac4351231b6b5dc524f47dc5ee2276093a8c9625be691a95acd27f2",
+      "reason": "Executed offline; generic kernel metadata and embedded figure previews where applicable; identifying output paths removed."
+    },
+    {
+      "path": "results/new_submissions/baselines/figures/four_model_baseline_comparison.pdf",
+      "source_package_sha256": "1cab9019953ada9637eb46b75216cbd6f296a5c3d4462a046046e80f21d7e789",
+      "anonymous_package_sha256": "281aed017477f6e6b2dd2a3b426a1788d75579b3ad67fe95232b38d3cc2fca94",
+      "reason": "Regenerated from unchanged data during offline notebook execution; rendering metadata may differ."
+    },
+    {
+      "path": "results/new_submissions/baselines/figures/four_model_baseline_comparison.svg",
+      "source_package_sha256": "ae27295dbbc45017e50692e98a21103e02508288fd55201f2e9114b2b8325505",
+      "anonymous_package_sha256": "4aa2e05ceb4aac69f86690c13076329140a14f29ebf209e85461c603b0aefc7d",
+      "reason": "Regenerated from unchanged data during offline notebook execution; rendering metadata may differ."
+    },
+    {
+      "path": "results/new_submissions/figures/category_model_performance_1col_compact.pdf",
+      "source_package_sha256": "edf7866d42fb3f710c5f86e82a0cfc30448e5646d8a376ba04d0119699c91980",
+      "anonymous_package_sha256": "8cefc9145c665ed2760fa6e5f1cf1ea9e767cd0db42294b6f4b94e8964199bfa",
+      "reason": "Regenerated from unchanged data during offline notebook execution; rendering metadata may differ."
+    },
+    {
+      "path": "results/new_submissions/figures/category_model_performance_1col_compact.svg",
+      "source_package_sha256": "8306f0cba0ba5239e65ab9ca33ce4305f68fc96653696f400b3d94554cd3722e",
+      "anonymous_package_sha256": "8ff86721aa6c5b850adf3fa2b120e8a5bf25c1bed5918a8a50a64a9d3ec6717d",
+      "reason": "Regenerated from unchanged data during offline notebook execution; rendering metadata may differ."
+    },
+    {
+      "path": "results/new_submissions/figures/six_model_plots_provenance.json",
+      "source_package_sha256": "51a1074d3e4471ef2abc1f69d764a05d29223158bb11fe056ce5f7108826abc9",
+      "anonymous_package_sha256": "6fa4ce207cc688f1028cb3ac7c811af67f69f330ec2bf758fc3af0dbac4467ac",
+      "reason": "Regenerated from unchanged saved results during offline notebook execution."
+    },
+    {
+      "path": "results/new_submissions/figures/xbrl_error_profile_by_statement_family.pdf",
+      "source_package_sha256": "d69e39eca7148e32774f89309dd4ed3da89c05be7fd2e895b56e9eab5dbef3a4",
+      "anonymous_package_sha256": "6ca67a64d51e1f078fe840c967488d2f5fe2d2b37dee392d9dc76de3a6149ec0",
+      "reason": "Regenerated from unchanged data during offline notebook execution; rendering metadata may differ."
+    },
+    {
+      "path": "results/new_submissions/figures/xbrl_error_profile_by_statement_family.svg",
+      "source_package_sha256": "4291a2f1947ac571a699a004f30ea59a0f8ec7bac7ee8eaaab32d4ee4131548b",
+      "anonymous_package_sha256": "ebe93a1f69d2022490ae3d1c525fcbe41e0ff83e94fa491adacef65ab3e15d95",
+      "reason": "Regenerated from unchanged data during offline notebook execution; rendering metadata may differ."
+    },
+    {
+      "path": "results/new_submissions/six_model_accuracy_heatmap.ipynb",
+      "source_package_sha256": "7df57cbd58d043a96c2136d2feed27cc4c60db074ab40658072f7835ae2ef3c0",
+      "anonymous_package_sha256": "e70e81183e812c7c2317691099d85bb085b4b5fd4b0533a7e94932924fd5ec40",
+      "reason": "Executed offline; generic kernel metadata and embedded figure previews where applicable; identifying output paths removed."
+    },
+    {
+      "path": "results/new_submissions/tatdqa_fin_o1_8b/reruns/tatdqa_db13c923de59ca7f6a80f93f38f3ef17_20261016T170728Z/rerun_manifest.json",
+      "source_package_sha256": "3f66d33ba47c20e56f46707a4469ce672994d6139b3853da3a9517b68831e6be",
+      "anonymous_package_sha256": "d954344c91f7d950b7b755286289d07908534e37bc5b9d8be5fe22361a9df233",
+      "reason": "Historical local project path replaced by a documented placeholder; model settings and scientific records unchanged."
+    },
+    {
+      "path": "scripts/prepare_xbrlfiling_hf.py",
+      "source_package_sha256": "6aa090234111cafd44333fbb5002b498ab7641827e96cd2db5bba07b44ed78c5",
+      "anonymous_package_sha256": "5eb5dae3a52c92469c6c755d18aa1d952a190c319b31f14ceaaa66c6c2ce5c28",
+      "reason": "Author-specific privacy test identifiers replaced with synthetic identifiers."
+    },
+    {
+      "path": "tests/test_xbrlfiling_hf_release.py",
+      "source_package_sha256": "605ad738ccbec4ff025bb5ef874318729a5262f83b645ebc48ee6bcede81112a",
+      "anonymous_package_sha256": "539fdf4f8d7443ed80f921b617b1a560a2e6a0a2f0020f301447edde7c7de404",
+      "reason": "Author-specific privacy test identifiers replaced with synthetic identifiers."
+    }
+  ],
+  "authored_files": [
+    {
+      "path": "docs/ANONYMOUS_REVIEW.md",
+      "sha256": "c368d775cd6001cd5dd580840e1966c29936f62c20496c8a67fd827393865ec9"
+    },
+    {
+      "path": "docs/figures/prompt_overview.png",
+      "sha256": "65c6ad070cb66e105a6446cb684e77045356286f5ed06ae1436812277a22a2f2"
+    },
+    {
+      "path": "docs/figures/prompt_overview.svg",
+      "sha256": "830e90cffd7c985c3e1794c799bc020c3c45e5cbdab4767efe8df4fd694c19e8"
+    },
+    {
+      "path": "scripts/render_prompt_overview.py",
+      "sha256": "6d4f901e3ebf598cd9bf9e557391b551e5b7cd80e39d80aaafbba4fa6550330d"
+    }
+  ],
+  "provenance_note": "Historical source_sha256 values are retained in copied_sources.json. Packaged hashes describe this delivered copy. Package metadata files are tracked by package_inventory.json, which excludes itself and Git internals.",
+  "limits": [
+    "Anonymization checks target known author/lab identifiers, identifying paths, repository pointers, credentials and metadata; they do not claim protection against inference from research content.",
+    "Current source templates are not an exact prompt archive for every historical run."
+  ]
+}

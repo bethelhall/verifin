@@ -1,0 +1,2319 @@
+[
+  {
+    "concept_id": "AccountsPayableLike",
+    "unit_kind": "money",
+    "aliases": [
+      "accounts payable",
+      "trade payables",
+      "accounts payable current",
+      "trade and other payables"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AccountsPayableCurrent",
+      "us-gaap:AccountsPayableAndAccruedLiabilitiesCurrent",
+      "ifrs-full:TradeAndOtherCurrentPayables"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "NetIncomeLike",
+    "unit_kind": "money",
+    "comment": "Parent-attributable net income (us-gaap:NetIncomeLoss). Per-share/return metrics (ROA, ROE, EPS, payout) use this, NOT consolidated ProfitLoss which includes noncontrolling interests; see NetIncomeTotalLike.",
+    "aliases": [
+      "net income",
+      "net earnings",
+      "net income loss",
+      "net income attributable",
+      "net earnings attributable to shareholders",
+      "net earnings attributable to shareowners",
+      "net income attributable to shareholders",
+      "net income attributable to shareowners",
+      "net loss",
+      "net profit loss",
+      "net income attributable to parent company"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:NetIncomeLoss",
+      "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "version": "2025",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy",
+        "version": "2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      }
+    ]
+  },
+  {
+    "concept_id": "NetIncomeTotalLike",
+    "unit_kind": "money",
+    "comment": "Consolidated net income including noncontrolling interests (us-gaap:ProfitLoss). Distinct from NetIncomeLike (parent-attributable). Return/per-share ratios must not bind here.",
+    "aliases": [
+      "net income including noncontrolling interest",
+      "net income loss including portion attributable to noncontrolling interest",
+      "consolidated net income",
+      "profit loss",
+      "total net income including noncontrolling interest"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ProfitLoss",
+      "ifrs-full:ProfitLoss"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "version": "2025",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ]
+  },
+  {
+    "concept_id": "RevenueLike",
+    "unit_kind": "money",
+    "aliases": [
+      "revenue",
+      "revenues",
+      "sales",
+      "net sales",
+      "total revenues",
+      "net revenue",
+      "net operating revenues",
+      "total net revenue",
+      "total net sales"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:Revenues",
+      "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "ifrs-full:Revenue"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "version": "2025",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy",
+        "version": "2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      }
+    ]
+  },
+  {
+    "concept_id": "GrossProfitLike",
+    "unit_kind": "money",
+    "aliases": [
+      "gross profit",
+      "gross margin numerator"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:GrossProfit",
+      "ifrs-full:GrossProfit"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "CostOfRevenueLike",
+    "unit_kind": "money",
+    "aliases": [
+      "cost of sales",
+      "cost of goods sold",
+      "cost of revenue",
+      "cogs",
+      "cost of net revenue"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:CostOfRevenue",
+      "us-gaap:CostOfGoodsAndServicesSold",
+      "ifrs-full:CostOfSales"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "OperatingIncomeLike",
+    "unit_kind": "money",
+    "aliases": [
+      "operating income",
+      "income from operations",
+      "operating profit",
+      "loss from operations",
+      "operating loss"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:OperatingIncomeLoss",
+      "ifrs-full:ProfitLossFromOperatingActivities"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "TotalAssetsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "total assets",
+      "assets",
+      "average total assets",
+      "average assets"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:Assets",
+      "ifrs-full:Assets"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "ShareholdersEquityLike",
+    "unit_kind": "money",
+    "aliases": [
+      "shareholders equity",
+      "stockholders equity",
+      "total equity",
+      "average shareholders equity",
+      "average stockholders equity",
+      "equity",
+      "stockholders' equity"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:StockholdersEquity",
+      "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+      "ifrs-full:Equity"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "CurrentAssetsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "current assets",
+      "total current assets"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AssetsCurrent",
+      "ifrs-full:CurrentAssets"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "CurrentLiabilitiesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "current liabilities",
+      "total current liabilities"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:LiabilitiesCurrent",
+      "ifrs-full:CurrentLiabilities"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "MarketableSecuritiesCurrentLike",
+    "unit_kind": "money",
+    "aliases": [
+      "marketable securities current",
+      "current marketable securities"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:MarketableSecuritiesCurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "MarketableSecuritiesNoncurrentLike",
+    "unit_kind": "money",
+    "aliases": [
+      "marketable securities noncurrent",
+      "noncurrent marketable securities"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:MarketableSecuritiesNoncurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "NoncurrentAssetsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "noncurrent assets",
+      "total noncurrent assets",
+      "non current assets",
+      "total non current assets"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AssetsNoncurrent",
+      "ifrs-full:NoncurrentAssets"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "NoncurrentLiabilitiesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "noncurrent liabilities",
+      "total noncurrent liabilities",
+      "non current liabilities",
+      "total non current liabilities"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:LiabilitiesNoncurrent",
+      "ifrs-full:NoncurrentLiabilities"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "CashLike",
+    "unit_kind": "money",
+    "aliases": [
+      "cash",
+      "cash and cash equivalents",
+      "cash equivalents"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+      "ifrs-full:CashAndCashEquivalents"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "ShortTermInvestmentsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "short term investments",
+      "short-term investments",
+      "marketable securities"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ShortTermInvestments",
+      "us-gaap:MarketableSecuritiesCurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "ReceivablesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "receivables",
+      "accounts receivable",
+      "trade receivables",
+      "net trade receivables",
+      "net accounts receivables",
+      "net receivables"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AccountsReceivableNetCurrent",
+      "ifrs-full:TradeAndOtherCurrentReceivables"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "InventoryLike",
+    "unit_kind": "money",
+    "aliases": [
+      "inventory",
+      "inventories",
+      "merchandise inventories",
+      "total inventories"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:InventoryNet",
+      "ifrs-full:Inventories"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "OperatingCashFlowLike",
+    "unit_kind": "money",
+    "aliases": [
+      "net cash provided by operating activities",
+      "cash from operations",
+      "operating cash flow",
+      "net cash provided by continuing operating activities",
+      "net cash from operation activities",
+      "net cash provided by used in operating activities"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "ifrs-full:CashFlowsFromUsedInOperatingActivities"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "CapitalExpendituresLike",
+    "unit_kind": "money",
+    "aliases": [
+      "capital expenditures",
+      "capital expenditure",
+      "capex",
+      "purchases of property plant and equipment",
+      "purchases of property, plant and equipment",
+      "purchases of pp&e",
+      "capital spending",
+      "purchases of ppe"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "DebtLike",
+    "unit_kind": "money",
+    "aliases": [
+      "total debt",
+      "debt",
+      "borrowings",
+      "long term debt",
+      "short term debt"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:LongTermDebt",
+      "us-gaap:ShortTermBorrowings",
+      "us-gaap:LongTermDebtCurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "PpeLike",
+    "unit_kind": "money",
+    "aliases": [
+      "property plant and equipment",
+      "property, plant and equipment",
+      "property and equipment net",
+      "property, plant and equipment net",
+      "pp&e",
+      "ppne",
+      "ppe",
+      "fixed assets",
+      "net property plant equipment",
+      "net property plant and equipment",
+      "net property and equipment",
+      "net owned property and equipment"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:PropertyPlantAndEquipmentNet",
+      "ifrs-full:PropertyPlantAndEquipment"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "IncomeTaxExpenseLike",
+    "unit_kind": "money",
+    "aliases": [
+      "income tax expense",
+      "provision for income taxes",
+      "income tax provision",
+      "income tax expense benefit",
+      "provision benefit for income taxes",
+      "income taxes",
+      "income tax benefit",
+      "provision for benefit from income taxes",
+      "provision for income tax expense benefit"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:IncomeTaxExpenseBenefit"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "PretaxIncomeLike",
+    "unit_kind": "money",
+    "aliases": [
+      "income before income taxes",
+      "income before taxes",
+      "pretax income",
+      "pre-tax income",
+      "income loss before income taxes",
+      "earnings before income taxes",
+      "income before provision for income taxes"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+      "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "InterestExpenseLike",
+    "unit_kind": "money",
+    "aliases": [
+      "interest expense",
+      "interest expense net",
+      "interest expense net of amounts capitalized",
+      "interest and debt expense"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:InterestExpense",
+      "us-gaap:InterestExpenseDebt",
+      "us-gaap:InterestAndDebtExpense"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "InterestIncomeLike",
+    "unit_kind": "money",
+    "aliases": [
+      "interest income",
+      "investment income interest",
+      "interest and dividend income",
+      "dividend and interest income"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:InvestmentIncomeInterest",
+      "us-gaap:InterestAndDividendIncomeOperating"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "RestructuringLike",
+    "unit_kind": "money",
+    "aliases": [
+      "restructuring",
+      "restructuring costs",
+      "restructuring charges",
+      "restructuring expense",
+      "restructuring and impairment charges",
+      "restructuring and other charges",
+      "cost of sales restructuring",
+      "sga restructuring",
+      "pension retiree restructuring",
+      "impairment charges"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:RestructuringCharges",
+      "us-gaap:RestructuringAndRelatedCostIncurredCost"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "ResearchDevelopmentLike",
+    "unit_kind": "money",
+    "aliases": [
+      "research and development",
+      "research and development expense",
+      "research development expense",
+      "r&d",
+      "r&d expense"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ResearchAndDevelopmentExpense"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "SellingGeneralAdministrativeLike",
+    "unit_kind": "money",
+    "aliases": [
+      "selling general and administrative",
+      "selling general and administrative expense",
+      "selling general and administrative expenses",
+      "sg&a",
+      "sga expense"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:SellingGeneralAndAdministrativeExpense",
+      "us-gaap:GeneralAndAdministrativeExpense"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "OperatingExpensesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "operating expenses",
+      "total operating expenses",
+      "total costs and expenses",
+      "costs and expenses"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:OperatingExpenses",
+      "us-gaap:CostsAndExpenses"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "DepreciationAmortizationLike",
+    "unit_kind": "money",
+    "aliases": [
+      "depreciation and amortization",
+      "depreciation amortization",
+      "depreciation depletion and amortization",
+      "d&a",
+      "da property equipment",
+      "da property equipment intangibles",
+      "depreciation amortization property equipment intangibles",
+      "depreciation and amortization of property and equipment"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DepreciationDepletionAndAmortization",
+      "us-gaap:DepreciationAmortizationAndAccretionNet",
+      "us-gaap:DepreciationAndAmortization"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "TotalLiabilitiesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "total liabilities",
+      "liabilities"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:Liabilities",
+      "ifrs-full:Liabilities"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "TotalLiabilitiesAndEquityLike",
+    "unit_kind": "money",
+    "aliases": [
+      "total liabilities and equity",
+      "total liabilities and stockholders equity",
+      "total liabilities and shareholders equity"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:LiabilitiesAndStockholdersEquity"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "RetainedEarningsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "retained earnings",
+      "accumulated deficit",
+      "retained earnings accumulated deficit"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:RetainedEarningsAccumulatedDeficit"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "GoodwillLike",
+    "unit_kind": "money",
+    "aliases": [
+      "goodwill"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:Goodwill",
+      "ifrs-full:Goodwill"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "IntangibleAssetsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "intangible assets",
+      "intangibles",
+      "other intangible assets",
+      "intangible assets net",
+      "intangible assets excluding goodwill"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:IntangibleAssetsNetExcludingGoodwill",
+      "us-gaap:FiniteLivedIntangibleAssetsNet",
+      "ifrs-full:IntangibleAssetsOtherThanGoodwill"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "InvestingCashFlowLike",
+    "unit_kind": "money",
+    "aliases": [
+      "net cash used in investing activities",
+      "net cash provided by used in investing activities",
+      "cash from investing",
+      "investing cash flow"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+      "ifrs-full:CashFlowsFromUsedInInvestingActivities"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "FinancingCashFlowLike",
+    "unit_kind": "money",
+    "aliases": [
+      "net cash used in financing activities",
+      "net cash provided by used in financing activities",
+      "cash from financing",
+      "financing cash flow"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+      "ifrs-full:CashFlowsFromUsedInFinancingActivities"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "DividendsPaidLike",
+    "unit_kind": "money",
+    "aliases": [
+      "dividends paid",
+      "cash dividends paid",
+      "payments of dividends",
+      "common stock dividends paid",
+      "dividends paid on common stock"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:PaymentsOfDividendsCommonStock",
+      "us-gaap:PaymentsOfDividends"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "DividendsPerShareLike",
+    "unit_kind": "per_share",
+    "aliases": [
+      "dividends per share",
+      "dividends declared per share",
+      "cash dividends declared per share",
+      "common stock dividends per share declared"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:CommonStockDividendsPerShareDeclared",
+      "us-gaap:CommonStockDividendsPerShareCashPaid"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "EpsBasicLike",
+    "unit_kind": "per_share",
+    "aliases": [
+      "basic earnings per share",
+      "earnings per share basic",
+      "basic eps",
+      "basic net income per share",
+      "basic earnings per share attributable to opentext",
+      "earnings loss per share basic",
+      "basic earnings per share attributable to the stockholders"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:EarningsPerShareBasic"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "EpsDilutedLike",
+    "unit_kind": "per_share",
+    "aliases": [
+      "diluted earnings per share",
+      "earnings per share diluted",
+      "diluted eps",
+      "diluted net income per share",
+      "net income per weighted average share diluted",
+      "earnings loss per share diluted"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:EarningsPerShareDiluted"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "SharesOutstandingLike",
+    "unit_kind": "shares",
+    "aliases": [
+      "shares outstanding",
+      "common stock shares outstanding",
+      "common shares outstanding",
+      "shares issued and outstanding"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:CommonStockSharesOutstanding",
+      "us-gaap:CommonStockSharesIssued"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "WeightedAverageSharesLike",
+    "unit_kind": "shares",
+    "aliases": [
+      "weighted average shares outstanding",
+      "weighted average number of shares outstanding",
+      "weighted average shares outstanding basic",
+      "weighted average common shares basic",
+      "weighted average number of shares basic",
+      "weighted average common shares outstanding basic"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "AccruedLiabilitiesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "accrued liabilities",
+      "accrued expenses",
+      "accrued and other current liabilities"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AccruedLiabilitiesCurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "DeferredRevenueLike",
+    "unit_kind": "money",
+    "aliases": [
+      "deferred revenue",
+      "contract liabilities",
+      "deferred revenue current",
+      "unearned revenue"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ContractWithCustomerLiabilityCurrent",
+      "us-gaap:DeferredRevenueCurrent",
+      "us-gaap:ContractWithCustomerLiability"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "ComprehensiveIncomeLike",
+    "unit_kind": "money",
+    "aliases": [
+      "comprehensive income",
+      "total comprehensive income",
+      "comprehensive income loss"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ComprehensiveIncomeNetOfTax"
+    ],
+    "source_type": "xbrl_taxonomy_mapping"
+  },
+  {
+    "concept_id": "EffectiveTaxRateLike",
+    "unit_kind": "percent",
+    "aliases": [
+      "effective tax rate",
+      "effective income tax rate",
+      "effective_tax_rate",
+      "tax rate",
+      "income tax rate"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "SEC structured-data taxonomy resources",
+        "url": "https://www.sec.gov/structureddata/osdstaxonomies"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ]
+  },
+  {
+    "concept_id": "AdjustedEbitLike",
+    "unit_kind": "money",
+    "aliases": [
+      "adjusted ebit",
+      "adjusted earnings before interest and taxes",
+      "earnings before interest and taxes",
+      "earnings before interest and tax",
+      "ebit"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "company_defined_non_gaap_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ]
+  },
+  {
+    "concept_id": "AdjustedEbitdarLike",
+    "unit_kind": "money",
+    "aliases": [
+      "adjusted ebitdar",
+      "adjusted earnings before interest taxes depreciation amortization and rent",
+      "adjusted earnings before interest taxes depreciation amortization rent",
+      "adjusted_ebitdar"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "company_defined_non_gaap_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ]
+  },
+  {
+    "concept_id": "LeaseRentExpenseLike",
+    "unit_kind": "money",
+    "aliases": [
+      "lease rent expense",
+      "rent expense",
+      "ground lease rent expense",
+      "triple net operating lease rent expense",
+      "triple net operating lease and ground lease rent expense",
+      "triple-net operating lease and ground lease rent expense",
+      "lease_rent_expense"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "company_defined_non_gaap_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ]
+  },
+  {
+    "concept_id": "SeparationCostsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "separation costs",
+      "remaining separation costs",
+      "future separation costs",
+      "upjohn separation costs",
+      "costs expected to be incurred",
+      "incurred separation costs",
+      "incurred separation costs through",
+      "total expected separation costs"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "company_defined_non_gaap_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ]
+  },
+  {
+    "concept_id": "SeparationGainLike",
+    "unit_kind": "money",
+    "aliases": [
+      "separation gain",
+      "gain from separation",
+      "gain from consumer health separation",
+      "gain from kenvue separation"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "company_defined_transaction_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ]
+  },
+  {
+    "concept_id": "SeparationProceedsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "cash proceeds",
+      "separation proceeds",
+      "proceeds from separation",
+      "proceeds from kenvue separation"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "company_defined_transaction_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ]
+  },
+  {
+    "concept_id": "AdjustedEbitdaLike",
+    "unit_kind": "money",
+    "aliases": [
+      "adjusted ebitda",
+      "adjusted non gaap ebitda",
+      "adjusted non-gaap ebitda",
+      "non gaap ebitda"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "company_defined_non_gaap_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ]
+  },
+  {
+    "concept_id": "ContentAmortizationLike",
+    "unit_kind": "money",
+    "aliases": [
+      "amortization dvd content assets",
+      "amortization streaming content assets",
+      "amortization of dvd content assets",
+      "amortization of streaming content assets",
+      "content amortization"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "company_defined_operating_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ]
+  },
+  {
+    "concept_id": "TangibleBookValuePerShareLike",
+    "unit_kind": "per_share",
+    "aliases": [
+      "tangible book value per share",
+      "tbv per share"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "company_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ]
+  },
+  {
+    "concept_id": "CreditAgreementAmountLike",
+    "unit_kind": "money",
+    "aliases": [
+      "credit agreement amount",
+      "credit facility amount",
+      "revolving credit agreement amount",
+      "unsecured five year revolving credit agreement"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "company_defined_debt_facility_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ]
+  },
+  {
+    "concept_id": "GuidancePercentLike",
+    "unit_kind": "percent",
+    "aliases": [
+      "eps growth guidance",
+      "core constant currency eps growth guidance",
+      "growth guidance",
+      "guidance percentage",
+      "percent incurred",
+      "percentage incurred",
+      "incurred percentage",
+      "percent has been incurred",
+      "percent already incurred"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "company_defined_guidance_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ]
+  },
+  {
+    "concept_id": "RetireeBenefitPaymentLike",
+    "unit_kind": "money",
+    "aliases": [
+      "pension benefits",
+      "health care life insurance",
+      "retiree benefit payments",
+      "expected retiree benefit payments"
+    ],
+    "xbrl_concepts": [],
+    "source_type": "company_defined_benefit_payment_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ]
+  },
+  {
+    "concept_id": "FinishedGoodsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "finished goods",
+      "inventory finished goods"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:InventoryFinishedGoodsNetOfReserves",
+      "us-gaap:InventoryFinishedGoods"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: teradyne-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/97210/000119312520058676/ter-20191231_lab.xml",
+        "concept": "us-gaap:InventoryFinishedGoodsNetOfReserves"
+      },
+      {
+        "title": "SEC filing label linkbase: roper-technologies_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/882835/000088283520000006/rop-20191231_lab.xml",
+        "concept": "us-gaap:InventoryFinishedGoods"
+      }
+    ]
+  },
+  {
+    "concept_id": "RawMaterialsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "raw materials",
+      "inventory raw materials"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:InventoryRawMaterialsNetOfReserves",
+      "us-gaap:InventoryRawMaterials"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: teradyne-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/97210/000119312520058676/ter-20191231_lab.xml",
+        "concept": "us-gaap:InventoryRawMaterialsNetOfReserves"
+      },
+      {
+        "title": "SEC filing label linkbase: hc2-holdings-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1006837/000100683720000044/hchc-20191231_lab.xml",
+        "concept": "us-gaap:InventoryRawMaterials"
+      }
+    ]
+  },
+  {
+    "concept_id": "WorkInProcessLike",
+    "unit_kind": "money",
+    "aliases": [
+      "work in progress",
+      "work in process",
+      "inventories of work in progress"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:InventoryWorkInProcessNetOfReserves",
+      "us-gaap:InventoryWorkInProcess"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: teradyne-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/97210/000119312520058676/ter-20191231_lab.xml",
+        "concept": "us-gaap:InventoryWorkInProcessNetOfReserves"
+      },
+      {
+        "title": "SEC filing label linkbase: roper-technologies_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/882835/000088283520000006/rop-20191231_lab.xml",
+        "concept": "us-gaap:InventoryWorkInProcess"
+      }
+    ]
+  },
+  {
+    "concept_id": "DeferredTaxAssetsGrossLike",
+    "unit_kind": "money",
+    "aliases": [
+      "gross deferred income tax assets",
+      "gross deferred tax assets"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DeferredTaxAssetsGross"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: autodesk-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939719000016/adsk-20190131_lab.xml",
+        "concept": "us-gaap:DeferredTaxAssetsGross"
+      }
+    ]
+  },
+  {
+    "concept_id": "DeferredTaxAssetsNetLike",
+    "unit_kind": "money",
+    "aliases": [
+      "net deferred tax assets",
+      "deferred tax assets net"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DeferredTaxAssetsNet"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:DeferredTaxAssetsNet"
+      }
+    ]
+  },
+  {
+    "concept_id": "DeferredTaxAssetsNoncurrentLike",
+    "unit_kind": "money",
+    "aliases": [
+      "noncurrent deferred tax assets",
+      "non current deferred tax assets"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DeferredTaxAssetsNetNoncurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: teradyne-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/97210/000119312520058676/ter-20191231_lab.xml",
+        "concept": "us-gaap:DeferredTaxAssetsNetNoncurrent"
+      }
+    ]
+  },
+  {
+    "concept_id": "TaxValuationAllowanceLike",
+    "unit_kind": "money",
+    "aliases": [
+      "valuation allowance",
+      "deferred tax valuation allowance"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DeferredTaxAssetsValuationAllowance"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:DeferredTaxAssetsValuationAllowance"
+      }
+    ]
+  },
+  {
+    "concept_id": "UnrecognizedTaxBenefitsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "unrecognized tax benefits",
+      "beginning balance of unrecognized tax benefits",
+      "ending balance of unrecognized tax benefits"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:UnrecognizedTaxBenefits"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:UnrecognizedTaxBenefits"
+      }
+    ]
+  },
+  {
+    "concept_id": "TaxCreditCarryforwardLike",
+    "unit_kind": "money",
+    "aliases": [
+      "tax credits",
+      "tax credit carryforwards"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DeferredTaxAssetsTaxCreditCarryforwards"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: teradyne-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/97210/000119312520058676/ter-20191231_lab.xml",
+        "concept": "us-gaap:DeferredTaxAssetsTaxCreditCarryforwards"
+      }
+    ]
+  },
+  {
+    "concept_id": "NetOperatingLossCarryforwardLike",
+    "unit_kind": "money",
+    "aliases": [
+      "net operating loss carry forward",
+      "net operating loss carryforwards",
+      "operating loss carryforwards"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DeferredTaxAssetsOperatingLossCarryforwards"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: autodesk-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939719000016/adsk-20190131_lab.xml",
+        "concept": "us-gaap:DeferredTaxAssetsOperatingLossCarryforwards"
+      }
+    ]
+  },
+  {
+    "concept_id": "PrepaidTaxesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "prepaid taxes",
+      "prepaid income taxes"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:PrepaidTaxes"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: teradyne-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/97210/000119312520058676/ter-20191231_lab.xml",
+        "concept": "us-gaap:PrepaidTaxes"
+      }
+    ]
+  },
+  {
+    "concept_id": "AccruedIncomeTaxesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "accrued taxes",
+      "accrued income taxes"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AccruedIncomeTaxes"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: hc2-holdings-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1006837/000100683720000044/hchc-20191231_lab.xml",
+        "concept": "us-gaap:AccruedIncomeTaxes"
+      }
+    ]
+  },
+  {
+    "concept_id": "CurrentIncomeTaxExpenseLike",
+    "unit_kind": "money",
+    "aliases": [
+      "total current provision for income tax",
+      "current provision for income tax",
+      "current income tax expense"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:CurrentIncomeTaxExpenseBenefit"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:CurrentIncomeTaxExpenseBenefit"
+      }
+    ]
+  },
+  {
+    "concept_id": "ForeignPretaxIncomeLike",
+    "unit_kind": "money",
+    "aliases": [
+      "foreign pretax income",
+      "income from foreign countries",
+      "foreign income before taxes"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesForeign"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesForeign"
+      }
+    ]
+  },
+  {
+    "concept_id": "DomesticPretaxIncomeLike",
+    "unit_kind": "money",
+    "aliases": [
+      "domestic pretax income",
+      "domestic income before taxes"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic"
+      }
+    ]
+  },
+  {
+    "concept_id": "ShareBasedCompensationExpenseLike",
+    "unit_kind": "money",
+    "aliases": [
+      "stock based compensation",
+      "stock based compensation expense",
+      "share based compensation expense",
+      "total stock based compensation expense",
+      "total share based compensation expense"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ShareBasedCompensation"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:ShareBasedCompensation"
+      }
+    ]
+  },
+  {
+    "concept_id": "UnrecognizedStockCompensationLike",
+    "unit_kind": "money",
+    "aliases": [
+      "unrecognized stock based compensation expense",
+      "unrecognized compensation cost"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:EmployeeServiceShareBasedCompensationNonvestedAwardsTotalCompensationCostNotYetRecognized"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:EmployeeServiceShareBasedCompensationNonvestedAwardsTotalCompensationCostNotYetRecognized"
+      }
+    ]
+  },
+  {
+    "concept_id": "StockOptionsOutstandingLike",
+    "unit_kind": "shares",
+    "aliases": [
+      "stock options",
+      "stock options outstanding",
+      "outstanding stock options",
+      "amount of stock options"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsOutstandingNumber"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: autodesk-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939719000016/adsk-20190131_lab.xml",
+        "concept": "us-gaap:ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsOutstandingNumber"
+      }
+    ]
+  },
+  {
+    "concept_id": "RestrictedStockAwardsLike",
+    "unit_kind": "shares",
+    "aliases": [
+      "restricted stock units",
+      "restricted share awards",
+      "rsus",
+      "rsas",
+      "restricted stock outstanding",
+      "nonvested stock units",
+      "nonvested common stock"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ShareBasedCompensationArrangementByShareBasedPaymentAwardEquityInstrumentsOtherThanOptionsNonvestedNumber"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:ShareBasedCompensationArrangementByShareBasedPaymentAwardEquityInstrumentsOtherThanOptionsNonvestedNumber"
+      }
+    ]
+  },
+  {
+    "concept_id": "VestedStockFairValueLike",
+    "unit_kind": "money",
+    "aliases": [
+      "fair value of common stock vested",
+      "fair value of restricted stock units vested"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ShareBasedCompensationArrangementByShareBasedPaymentAwardEquityInstrumentsOtherThanOptionsVestedInPeriodTotalFairValue"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:ShareBasedCompensationArrangementByShareBasedPaymentAwardEquityInstrumentsOtherThanOptionsVestedInPeriodTotalFairValue"
+      }
+    ]
+  },
+  {
+    "concept_id": "StockOptionsExercisePriceLike",
+    "unit_kind": "per_share",
+    "aliases": [
+      "weighted average exercise price of outstanding options",
+      "exercise price",
+      "applicable price"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsOutstandingWeightedAverageExercisePrice"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: autodesk-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939719000016/adsk-20190131_lab.xml",
+        "concept": "us-gaap:ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsOutstandingWeightedAverageExercisePrice"
+      }
+    ]
+  },
+  {
+    "concept_id": "PensionBenefitObligationLike",
+    "unit_kind": "money",
+    "aliases": [
+      "projected benefit obligation",
+      "pension benefit obligation",
+      "benefit obligation"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DefinedBenefitPlanBenefitObligation"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:DefinedBenefitPlanBenefitObligation"
+      }
+    ]
+  },
+  {
+    "concept_id": "AccumulatedBenefitObligationLike",
+    "unit_kind": "money",
+    "aliases": [
+      "accumulated benefit obligation"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DefinedBenefitPlanAccumulatedBenefitObligation"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: autodesk-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939719000016/adsk-20190131_lab.xml",
+        "concept": "us-gaap:DefinedBenefitPlanAccumulatedBenefitObligation"
+      }
+    ]
+  },
+  {
+    "concept_id": "PensionPlanAssetsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "fair value of plan assets",
+      "pension plan assets"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DefinedBenefitPlanFairValueOfPlanAssets"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: autodesk-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939719000016/adsk-20190131_lab.xml",
+        "concept": "us-gaap:DefinedBenefitPlanFairValueOfPlanAssets"
+      }
+    ]
+  },
+  {
+    "concept_id": "BenefitObligationDiscountRateLike",
+    "unit_kind": "percent",
+    "aliases": [
+      "projected benefit obligation discount rate",
+      "benefit obligation discount rate"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DefinedBenefitPlanAssumptionsUsedCalculatingBenefitObligationDiscountRate"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:DefinedBenefitPlanAssumptionsUsedCalculatingBenefitObligationDiscountRate"
+      }
+    ]
+  },
+  {
+    "concept_id": "BenefitCostDiscountRateLike",
+    "unit_kind": "percent",
+    "aliases": [
+      "net periodic benefit cost discount rate"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DefinedBenefitPlanAssumptionsUsedCalculatingNetPeriodicBenefitCostDiscountRate"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: autodesk-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939719000016/adsk-20190131_lab.xml",
+        "concept": "us-gaap:DefinedBenefitPlanAssumptionsUsedCalculatingNetPeriodicBenefitCostDiscountRate"
+      }
+    ]
+  },
+  {
+    "concept_id": "RestrictedCashLike",
+    "unit_kind": "money",
+    "aliases": [
+      "restricted cash"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:RestrictedCash"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: nanthealth-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1566469/000156646920000015/nh-20191231_lab.xml",
+        "concept": "us-gaap:RestrictedCash"
+      }
+    ]
+  },
+  {
+    "concept_id": "CashIncludingRestrictedCashLike",
+    "unit_kind": "money",
+    "aliases": [
+      "total cash cash equivalents and restricted cash",
+      "cash cash equivalents and restricted cash"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+      }
+    ]
+  },
+  {
+    "concept_id": "NetChangeInCashLike",
+    "unit_kind": "money",
+    "aliases": [
+      "net increase in cash and cash equivalents",
+      "net decrease in cash and cash equivalents",
+      "net increase decrease in cash and cash equivalents",
+      "net decrease increase in cash and cash equivalents"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:CashAndCashEquivalentsPeriodIncreaseDecrease"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: autodesk-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939719000016/adsk-20190131_lab.xml",
+        "concept": "us-gaap:CashAndCashEquivalentsPeriodIncreaseDecrease"
+      }
+    ]
+  },
+  {
+    "concept_id": "NetChangeInCashIncludingRestrictedLike",
+    "unit_kind": "money",
+    "aliases": [
+      "net increase in cash cash equivalents and restricted cash"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect"
+      }
+    ]
+  },
+  {
+    "concept_id": "CashForeignExchangeEffectLike",
+    "unit_kind": "money",
+    "aliases": [
+      "effect of exchange rate changes on cash and cash equivalents"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:EffectOfExchangeRateOnCashAndCashEquivalents"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: autodesk-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939719000016/adsk-20190131_lab.xml",
+        "concept": "us-gaap:EffectOfExchangeRateOnCashAndCashEquivalents"
+      }
+    ]
+  },
+  {
+    "concept_id": "CashPaidForInterestLike",
+    "unit_kind": "money",
+    "aliases": [
+      "cash paid for interest",
+      "interest paid"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:InterestPaid"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: microsoft-corporation_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000156459019027952/msft-20190630_lab.xml",
+        "concept": "us-gaap:InterestPaid"
+      }
+    ]
+  },
+  {
+    "concept_id": "PpeGrossLike",
+    "unit_kind": "money",
+    "aliases": [
+      "property and equipment gross",
+      "property plant and equipment gross",
+      "total property and equipment",
+      "total property equipment before depreciation amortization and fixed assets not in service"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:PropertyPlantAndEquipmentGross"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:PropertyPlantAndEquipmentGross"
+      }
+    ]
+  },
+  {
+    "concept_id": "PpeAccumulatedDepreciationLike",
+    "unit_kind": "money",
+    "aliases": [
+      "accumulated depreciation and amortization",
+      "accumulated depreciation",
+      "accumulated depreciation property plant and equipment"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AccumulatedDepreciationDepletionAndAmortizationPropertyPlantAndEquipment"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:AccumulatedDepreciationDepletionAndAmortizationPropertyPlantAndEquipment"
+      }
+    ]
+  },
+  {
+    "concept_id": "LeaseholdImprovementsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "leasehold improvements"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:LeaseholdImprovementsGross"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: teradyne-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/97210/000119312520058676/ter-20191231_lab.xml",
+        "concept": "us-gaap:LeaseholdImprovementsGross"
+      }
+    ]
+  },
+  {
+    "concept_id": "BuildingsImprovementsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "buildings and improvements"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:BuildingsAndImprovementsGross"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: teradyne-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/97210/000119312520058676/ter-20191231_lab.xml",
+        "concept": "us-gaap:BuildingsAndImprovementsGross"
+      }
+    ]
+  },
+  {
+    "concept_id": "LandImprovementsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "land and improvements",
+      "land and land improvements"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:LandAndLandImprovements"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sealed-air-corporation_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1012100/000162828020002658/see-20191231_lab.xml",
+        "concept": "us-gaap:LandAndLandImprovements"
+      }
+    ]
+  },
+  {
+    "concept_id": "FurnitureFixturesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "furniture and fixtures",
+      "furniture and equipment"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:FurnitureAndFixturesGross"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: autodesk-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939719000016/adsk-20190131_lab.xml",
+        "concept": "us-gaap:FurnitureAndFixturesGross"
+      }
+    ]
+  },
+  {
+    "concept_id": "ConstructionInProgressLike",
+    "unit_kind": "money",
+    "aliases": [
+      "construction in progress",
+      "fixed assets not yet in service",
+      "fixed assets not in service"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ConstructionInProgressGross"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: teradyne-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/97210/000119312520058676/ter-20191231_lab.xml",
+        "concept": "us-gaap:ConstructionInProgressGross"
+      }
+    ]
+  },
+  {
+    "concept_id": "AmortizationOfIntangiblesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "amortization expense",
+      "amortization of intangibles",
+      "amortization of intangible assets"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AmortizationOfIntangibleAssets"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:AmortizationOfIntangibleAssets"
+      }
+    ]
+  },
+  {
+    "concept_id": "IntangibleAssetsGrossLike",
+    "unit_kind": "money",
+    "aliases": [
+      "gross carrying value of other intangible assets",
+      "intangible assets gross carrying value",
+      "gross carrying value of intangible assets"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:FiniteLivedIntangibleAssetsGross"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:FiniteLivedIntangibleAssetsGross"
+      }
+    ]
+  },
+  {
+    "concept_id": "IntangibleAccumulatedAmortizationLike",
+    "unit_kind": "money",
+    "aliases": [
+      "accumulated amortization of intangible assets",
+      "intangible accumulated amortization"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:FiniteLivedIntangibleAssetsAccumulatedAmortization"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:FiniteLivedIntangibleAssetsAccumulatedAmortization"
+      }
+    ]
+  },
+  {
+    "concept_id": "GrossReceivablesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "gross accounts receivables",
+      "gross accounts receivable"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AccountsReceivableGross"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: autodesk-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939719000016/adsk-20190131_lab.xml",
+        "concept": "us-gaap:AccountsReceivableGross"
+      }
+    ]
+  },
+  {
+    "concept_id": "NoncurrentReceivablesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "trade accounts receivable net noncurrent",
+      "noncurrent accounts receivable"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AccountsReceivableNetNoncurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:AccountsReceivableNetNoncurrent"
+      }
+    ]
+  },
+  {
+    "concept_id": "NotesReceivableLike",
+    "unit_kind": "money",
+    "aliases": [
+      "note receivable",
+      "notes receivable",
+      "note receivable remaining outstanding balance"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:NotesReceivableNet"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: calamp-corp_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/730255/000156459019014471/camp-20190228_lab.xml",
+        "concept": "us-gaap:NotesReceivableNet"
+      }
+    ]
+  },
+  {
+    "concept_id": "PurchaseObligationsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "purchase obligations",
+      "purchasing obligations"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:UnrecordedUnconditionalPurchaseObligationBalanceSheetAmount"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:UnrecordedUnconditionalPurchaseObligationBalanceSheetAmount"
+      }
+    ]
+  },
+  {
+    "concept_id": "OperatingLeaseLiabilityLike",
+    "unit_kind": "money",
+    "aliases": [
+      "operating lease liability"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:OperatingLeaseLiability"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:OperatingLeaseLiability"
+      }
+    ]
+  },
+  {
+    "concept_id": "OperatingLeaseObligationsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "operating lease obligations",
+      "operating leases obligations"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:OperatingLeasesFutureMinimumPaymentsDue"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:OperatingLeasesFutureMinimumPaymentsDue"
+      }
+    ]
+  },
+  {
+    "concept_id": "LongTermDebtNoncurrentLike",
+    "unit_kind": "money",
+    "aliases": [
+      "long term debt less current maturities",
+      "long term debt noncurrent"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:LongTermDebtNoncurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:LongTermDebtNoncurrent"
+      }
+    ]
+  },
+  {
+    "concept_id": "ConvertibleDebtLike",
+    "unit_kind": "money",
+    "aliases": [
+      "convertible notes",
+      "convertible debt noncurrent"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ConvertibleDebtNoncurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: teradyne-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/97210/000119312520058676/ter-20191231_lab.xml",
+        "concept": "us-gaap:ConvertibleDebtNoncurrent"
+      }
+    ]
+  },
+  {
+    "concept_id": "DebtCarryingAmountLike",
+    "unit_kind": "money",
+    "aliases": [
+      "total debt carrying value",
+      "debt carrying value"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:DebtInstrumentCarryingAmount"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: acura-pharmaceuticals-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/786947/000110465920040632/acur-20191231_lab.xml",
+        "concept": "us-gaap:DebtInstrumentCarryingAmount"
+      }
+    ]
+  },
+  {
+    "concept_id": "DebtFairValueLike",
+    "unit_kind": "money",
+    "aliases": [
+      "fair value of notes payable",
+      "fair value of long term debt"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:LongTermDebtFairValue"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: nielsen-nv_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1492633/000156459020007004/nlsnnv-20191231_lab.xml",
+        "concept": "us-gaap:LongTermDebtFairValue"
+      }
+    ]
+  },
+  {
+    "concept_id": "WarrantyReserveLike",
+    "unit_kind": "money",
+    "aliases": [
+      "warranty reserve",
+      "product warranty accrual"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:StandardProductWarrantyAccrual"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: westell-technologies-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1002135/000100213519000017/wstl-20190331_lab.xml",
+        "concept": "us-gaap:StandardProductWarrantyAccrual"
+      }
+    ]
+  },
+  {
+    "concept_id": "WarrantyProvisionsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "provisions made to warranty reserve",
+      "warranty reserve provisions"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:StandardProductWarrantyAccrualWarrantiesIssued"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: acacia-communications-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1651235/000165123520000022/acia-20191231_lab.xml",
+        "concept": "us-gaap:StandardProductWarrantyAccrualWarrantiesIssued"
+      }
+    ]
+  },
+  {
+    "concept_id": "OtherLiabilitiesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "other liabilities"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:OtherLiabilities"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: greensky-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1712923/000171292320000010/gsky-20191231_lab.xml",
+        "concept": "us-gaap:OtherLiabilities"
+      }
+    ]
+  },
+  {
+    "concept_id": "OtherCurrentLiabilitiesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "other current liabilities"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:OtherLiabilitiesCurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:OtherLiabilitiesCurrent"
+      }
+    ]
+  },
+  {
+    "concept_id": "OtherNoncurrentLiabilitiesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "other noncurrent liabilities"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:OtherLiabilitiesNoncurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:OtherLiabilitiesNoncurrent"
+      }
+    ]
+  },
+  {
+    "concept_id": "OtherNoncurrentAssetsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "other non current assets",
+      "other noncurrent assets"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:OtherAssetsNoncurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:OtherAssetsNoncurrent"
+      }
+    ]
+  },
+  {
+    "concept_id": "OtherCurrentAssetsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "other current assets"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:OtherAssetsCurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:OtherAssetsCurrent"
+      }
+    ]
+  },
+  {
+    "concept_id": "PrepaidExpensesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "prepaid expenses",
+      "prepaid services"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:PrepaidExpenseCurrent"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:PrepaidExpenseCurrent"
+      }
+    ]
+  },
+  {
+    "concept_id": "UnrealizedGrossGainsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "unrealized gains",
+      "gross unrealized gains",
+      "gross gains"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AvailableForSaleSecuritiesAccumulatedGrossUnrealizedGainBeforeTax"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: teradyne-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/97210/000119312520058676/ter-20191231_lab.xml",
+        "concept": "us-gaap:AvailableForSaleSecuritiesAccumulatedGrossUnrealizedGainBeforeTax"
+      }
+    ]
+  },
+  {
+    "concept_id": "UnrealizedGrossLossesLike",
+    "unit_kind": "money",
+    "aliases": [
+      "unrealized losses",
+      "gross unrealized losses",
+      "gross loss magnitude"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AvailableForSaleSecuritiesAccumulatedGrossUnrealizedLossBeforeTax"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: teradyne-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/97210/000119312520058676/ter-20191231_lab.xml",
+        "concept": "us-gaap:AvailableForSaleSecuritiesAccumulatedGrossUnrealizedLossBeforeTax"
+      }
+    ]
+  },
+  {
+    "concept_id": "WeightedAverageDilutedSharesLike",
+    "unit_kind": "shares",
+    "aliases": [
+      "weighted average diluted shares outstanding",
+      "diluted weighted average shares outstanding",
+      "weighted average number of shares outstanding incl dilutive effect of share options",
+      "weighted average diluted common shares"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: sykes-enterprises-incorporated_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1010612/000156459020007363/syke-20191231_lab.xml",
+        "concept": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding"
+      }
+    ]
+  },
+  {
+    "concept_id": "StockIssuanceProceedsLike",
+    "unit_kind": "money",
+    "aliases": [
+      "proceeds from issuance of shares",
+      "proceeds from issuance of common stock"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:ProceedsFromIssuanceOfCommonStock"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: autodesk-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939719000016/adsk-20190131_lab.xml",
+        "concept": "us-gaap:ProceedsFromIssuanceOfCommonStock"
+      }
+    ]
+  },
+  {
+    "concept_id": "DebtSecuritiesAmortizedCostLike",
+    "unit_kind": "money",
+    "aliases": [
+      "amortized cost",
+      "amortized costs",
+      "amortized cost basis"
+    ],
+    "xbrl_concepts": [
+      "us-gaap:AvailableForSaleDebtSecuritiesAmortizedCostBasis"
+    ],
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "SEC filing label linkbase: square-inc_2019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828020002303/sq-20191231_lab.xml",
+        "concept": "us-gaap:AvailableForSaleDebtSecuritiesAmortizedCostBasis"
+      }
+    ]
+  }
+]

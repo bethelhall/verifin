@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "rows": 600,
+  "unique_ids": 600,
+  "unique_questions": 600,
+  "companies": 28,
+  "filings": 86,
+  "target_concepts": 15,
+  "statement_family_counts": {
+    "Balance sheet": 279,
+    "Cash flow": 95,
+    "Income statement": 226
+  },
+  "fiscal_year_min": 2021,
+  "fiscal_year_max": 2026,
+  "operands": 2490,
+  "missing_required_fields": 0,
+  "duplicate_ids": 0,
+  "unmatched_filing_links": 0,
+  "one_target_redaction_per_question": true,
+  "original_questions_answers_evidence_and_operands_preserved": true,
+  "stored_calculations": {
+    "nonzero_residual_rows": 29,
+    "max_absolute_residual_usd_millions": 2.0,
+    "source_tolerance": "max(1 USD million, 0.5% of absolute answer value)",
+    "all_within_source_tolerance": true
+  },
+  "anonymization": {
+    "scope": "Author/lab identifiers and local paths; public issuer identities retained",
+    "explicit_field_selection": true,
+    "private_marker_scan": "PASS",
+    "source_values_rewritten": false
+  }
+}

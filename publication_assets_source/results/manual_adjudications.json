@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "dataset": "financebench-67",
+  "comparison": "magnitude",
+  "default_tolerance": "max(1.0, 0.01 * abs(target))",
+  "records": [
+    {
+      "id": "financebench_id_04672",
+      "allowed_targets": [
+        {"value": 8700.0, "unit": "USD millions"}
+      ],
+      "reason": "The gold value is stated as USD 8.70 billion while result artifacts normalize currency claims to USD millions."
+    },
+    {
+      "id": "financebench_id_04980",
+      "allowed_targets": [
+        {"value": 4600.0, "unit": "USD millions"}
+      ],
+      "reason": "The gold value is stated as USD 4.60 billion while result artifacts normalize currency claims to USD millions."
+    },
+    {
+      "id": "financebench_id_00882",
+      "allowed_targets": [
+        {"value": 8400.0, "unit": "USD millions"}
+      ],
+      "reason": "The gold text states USD 8,400,000,000; the normalized target is 8,400 USD millions. Values such as 4,200 are not accepted merely because the question ID is adjudicated."
+    },
+    {
+      "id": "financebench_id_02024",
+      "allowed_targets": [
+        {"value": 1959.0, "unit": "USD millions"}
+      ],
+      "reason": "The requested total is the sum of the two amounts in the gold answer: 1,097 plus 862 USD millions. A single component is not accepted."
+    },
+    {
+      "id": "financebench_id_01930",
+      "allowed_targets": [
+        {"value": 0.0, "unit": "percent"}
+      ],
+      "reason": "The prose gold answer says growth was flat, which is normalized to zero percent."
+    },
+    {
+      "id": "financebench_id_01936",
+      "allowed_targets": [
+        {"value": 87.0, "unit": "percent"},
+        {"value": 93.0, "unit": "USD millions"}
+      ],
+      "reason": "The source gold describes employee liabilities as 87 percent of the total. The paper's numeric-verification normalization also admits the grounded total liability, 81 + 2 + 10 = 93 USD millions.",
+      "caveat": "The question asks for nature and purpose, so admitting the total-dollar target is a task-normalization judgment. Report a sensitivity check that excludes this question or scores only the literal 87 percent target."
+    }
+  ]
+}

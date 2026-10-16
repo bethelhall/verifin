@@ -1,0 +1,24 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/fixed-charge-coverage-ratio/
+Authority: CFA Institute, Fixed Income curriculum
+Metric: Fixed Charge Coverage Ratio (FCCR)
+
+PRIMARY FORMULA:
+FCCR = (EBIT + Fixed Charges Before Tax) / (Fixed Charges Before Tax + Interest)
+
+COMMON SIMPLIFIED FORMULA:
+FCCR = EBITDA / (Interest Expense + Lease Payments + Debt Principal)
+
+VARIABLE DEFINITIONS:
+- EBIT: Earnings Before Interest and Taxes
+- EBITDA: Earnings Before Interest, Taxes, Depreciation, and Amortization
+- Fixed Charges: Long-term debt repayments, interest expenses, lease payments
+- Interest Expense: Interest payments on debt obligations
+
+VERBATIM FORMULA STATEMENTS:
+"There is no 'standard' formula — lenders and borrowers negotiate specific adjustments within credit agreements."
+"EBITDA is used as the numerator as a proxy for operating cash flow."
+
+KEY NOTES:
+The definition of fixed charges varies by credit agreement. The most common components are interest expense and lease/rental payments.
+A ratio above 1.5x is generally considered adequate; below 1.0x indicates inability to cover fixed charges.

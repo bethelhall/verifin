@@ -1,0 +1,19 @@
+Source: CFA Institute, Financial Reporting and Analysis curriculum
+Authority: CFA Institute Program Curriculum, Level 1, Cash Flow Statement Analysis
+Metric: Operating Cash Flow Margin
+
+PRIMARY FORMULA:
+Operating Cash Flow Margin = Operating Cash Flow / Net Revenue
+
+VARIABLE DEFINITIONS:
+- Operating Cash Flow (CFO): Cash generated from operating activities, from the cash flow statement
+- Net Revenue: Total revenue (net sales) from the income statement
+- Result: Expressed as a percentage; indicates cents of operating cash flow per dollar of revenue
+
+VERBATIM FORMULA STATEMENTS:
+"Operating Cash Flow Margin = Cash Flow from Operations / Net Revenue"
+"measures the cash generated from operations as a proportion of revenue, reflecting actual cash profitability rather than accounting profit."
+
+KEY NOTES:
+Differs from operating profit margin in that it uses actual cash flow (before non-cash adjustments) rather than EBIT.
+A higher ratio relative to net profit margin suggests high-quality earnings with strong cash conversion.

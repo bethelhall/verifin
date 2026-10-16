@@ -1,0 +1,134 @@
+{
+  "input_mode": "latest",
+  "result_replacements": {
+    "Claude Haiku 4.5": {
+      "path": "results/new_submissions/tatdqa_haiku_4_5/result_replacements.json",
+      "sha256": "e3b9e20649b006c2f09a9c3a5d61a9827116a67af8375ba4f1a1acb87ff7dd0e",
+      "scope": "One targeted post-fix rerun replaces one record; the other 402 records are unchanged.",
+      "question_id": "tatdqa_29fbc5bd0bb36d93e810ecb557ca38b8",
+      "after_results_sha256": "3ba6d520bdfc0dc8b0c70a3fa75ee7d18ef914c6eb867abcb4b6773250e056c3"
+    },
+    "Fin-o1 8B": {
+      "path": "results/new_submissions/tatdqa_fin_o1_8b/result_replacements.json",
+      "sha256": "a1cc87d488aac1063230b30a66e586c2d1e9eaa5855a33760ee998bbd79fcd86",
+      "scope": "One user-requested, post hoc single-question rerun replaces the original false accept; the other 402 records are byte-identical. This combined result log is not a fresh 403-question run.",
+      "question_id": "tatdqa_db13c923de59ca7f6a80f93f38f3ef17",
+      "after_results_sha256": "5754368a89dae3d69c97cbfa873d4683eaa1d32f7f436d40b39d844cf71373d9"
+    }
+  },
+  "run_states": {
+    "Claude Haiku 4.5": {
+      "state": "Complete",
+      "progress": "403/403",
+      "results_sha256": "3ba6d520bdfc0dc8b0c70a3fa75ee7d18ef914c6eb867abcb4b6773250e056c3"
+    },
+    "Qwen2.5 7B": {
+      "state": "Complete",
+      "progress": "403/403",
+      "results_sha256": "a66192171f08aedc29e139246eeb374bc9aafbd95db25b374220610362e3e540"
+    },
+    "Qwen3 30B": {
+      "state": "Complete",
+      "progress": "403/403",
+      "results_sha256": "81ca5d47f1a94b5ccdfae2745a285e9dba6ec8100d500052d6f1e78bc2215edd"
+    },
+    "Llama 3.1 8B": {
+      "state": "Complete",
+      "progress": "403/403",
+      "results_sha256": "3a33e0144a8b566a8fff5222ec8f0191d301e410610cb0a3e186808212fa9a42"
+    },
+    "GPT-5.5": {
+      "state": "Complete",
+      "progress": "403/403",
+      "results_sha256": "539eb92d704e94baaae51f445bfa1aaa61f7afc30c3e8578418c6be0a7bea56d"
+    },
+    "Fin-o1 8B": {
+      "state": "Complete",
+      "progress": "403/403",
+      "results_sha256": "5754368a89dae3d69c97cbfa873d4683eaa1d32f7f436d40b39d844cf71373d9"
+    }
+  },
+  "primary_scoring_view": "source_reviewed",
+  "confidence_level": 0.95,
+  "bootstrap_package": "scipy 1.17.1",
+  "bootstrap_method": "percentile",
+  "bootstrap_unit": "doc_name filing",
+  "n_resamples": 10000,
+  "seed": 20261014,
+  "fa_rate_denominator": "TA + FA + TR + FR",
+  "filings": 76,
+  "source_hashes": {
+    "Claude Haiku 4.5": {
+      "dataset": "b731b6af537ff0bf0d5730390f720afb5b8255d53efb963abf06ee60c20bfb64",
+      "gold": "f6e2054256b55f407c63c219e86799db94e73697d79ee901c905f4af26a3327d",
+      "policy": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81",
+      "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
+      "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
+      "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
+      "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+      "results": "3ba6d520bdfc0dc8b0c70a3fa75ee7d18ef914c6eb867abcb4b6773250e056c3",
+      "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+      "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
+    },
+    "Qwen2.5 7B": {
+      "dataset": "b731b6af537ff0bf0d5730390f720afb5b8255d53efb963abf06ee60c20bfb64",
+      "gold": "f6e2054256b55f407c63c219e86799db94e73697d79ee901c905f4af26a3327d",
+      "policy": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81",
+      "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
+      "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
+      "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
+      "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+      "results": "a66192171f08aedc29e139246eeb374bc9aafbd95db25b374220610362e3e540",
+      "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+      "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
+    },
+    "Qwen3 30B": {
+      "dataset": "b731b6af537ff0bf0d5730390f720afb5b8255d53efb963abf06ee60c20bfb64",
+      "gold": "f6e2054256b55f407c63c219e86799db94e73697d79ee901c905f4af26a3327d",
+      "policy": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81",
+      "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
+      "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
+      "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
+      "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+      "results": "81ca5d47f1a94b5ccdfae2745a285e9dba6ec8100d500052d6f1e78bc2215edd",
+      "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+      "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
+    },
+    "Llama 3.1 8B": {
+      "dataset": "b731b6af537ff0bf0d5730390f720afb5b8255d53efb963abf06ee60c20bfb64",
+      "gold": "f6e2054256b55f407c63c219e86799db94e73697d79ee901c905f4af26a3327d",
+      "policy": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81",
+      "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
+      "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
+      "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
+      "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+      "results": "3a33e0144a8b566a8fff5222ec8f0191d301e410610cb0a3e186808212fa9a42",
+      "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+      "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
+    },
+    "GPT-5.5": {
+      "dataset": "b731b6af537ff0bf0d5730390f720afb5b8255d53efb963abf06ee60c20bfb64",
+      "gold": "f6e2054256b55f407c63c219e86799db94e73697d79ee901c905f4af26a3327d",
+      "policy": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81",
+      "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
+      "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
+      "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
+      "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+      "results": "539eb92d704e94baaae51f445bfa1aaa61f7afc30c3e8578418c6be0a7bea56d",
+      "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+      "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
+    },
+    "Fin-o1 8B": {
+      "dataset": "b731b6af537ff0bf0d5730390f720afb5b8255d53efb963abf06ee60c20bfb64",
+      "gold": "f6e2054256b55f407c63c219e86799db94e73697d79ee901c905f4af26a3327d",
+      "policy": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81",
+      "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
+      "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
+      "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
+      "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+      "results": "5754368a89dae3d69c97cbfa873d4683eaa1d32f7f436d40b39d844cf71373d9",
+      "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+      "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
+    }
+  }
+}

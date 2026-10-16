@@ -1,0 +1,23 @@
+Source: CFA Institute, Equity Investments curriculum
+Authority: CFA Institute Program Curriculum, Level 1 & 2, Equity Valuation
+Metric: EV/Revenue (Enterprise Value to Revenue)
+
+PRIMARY FORMULA:
+EV/Revenue = Enterprise Value / Total Revenue
+
+COMPONENT FORMULA:
+Enterprise Value = Market Capitalization + Total Debt - Cash and Cash Equivalents
+
+VARIABLE DEFINITIONS:
+- Enterprise Value: Total value of the business to all capital providers (debt and equity holders)
+- Total Revenue: Annual net revenue (net sales) from the income statement
+- Result: A multiple indicating how many times revenue the market values the business at
+
+VERBATIM FORMULA STATEMENTS:
+"EV/Revenue = Enterprise Value / Revenue"
+"EV/Revenue is a valuation multiple that compares the total value of a company to its annual revenue."
+
+KEY NOTES:
+Used when EBITDA or earnings are negative (e.g., early-stage companies).
+Lower multiples suggest cheaper valuation relative to revenue.
+Also called EV/Sales or Price-to-Sales on an enterprise basis.

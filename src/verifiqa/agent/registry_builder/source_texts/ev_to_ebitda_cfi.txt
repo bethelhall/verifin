@@ -1,0 +1,19 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/valuation/ev-ebitda/
+Authority: CFA Institute, Financial Reporting and Analysis; Damodaran, Investment Valuation
+Metric: EV/EBITDA (Enterprise Value to EBITDA)
+
+PRIMARY FORMULA:
+EV/EBITDA = Enterprise Value / EBITDA
+
+COMPONENT FORMULA:
+Enterprise Value (EV) = Market Capitalization + Total Debt - Cash and Cash Equivalents
+EBITDA = Operating Income (EBIT) + Depreciation + Amortization
+
+VARIABLE DEFINITIONS:
+- Enterprise Value: "A firm's EV is equal to its equity value (or market capitalization) plus its debt (or financial commitments) less any cash."
+- EBITDA: "Earnings Before Interest Taxes Depreciation and Amortization. It is often used in valuation as a proxy for cash flow."
+
+VERBATIM FORMULA STATEMENTS:
+"by taking the EV column and dividing it by the EBITDA column, one arrives at the EV/EBITDA column."
+"The ratio of EV/EBITDA is used to compare the entire value of a business with the amount of EBITDA it earns on an annual basis."

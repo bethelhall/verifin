@@ -1,0 +1,17 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/days-sales-outstanding/
+Authority: CFA Institute, Financial Reporting and Analysis
+Metric: Days Sales Outstanding (DSO)
+
+PRIMARY FORMULA:
+DSO = (Accounts Receivable / Net Credit Sales) × Number of Days
+
+VARIABLE DEFINITIONS:
+- Accounts Receivable: Balance of money owed by customers for credit purchases during the period
+- Net Credit Sales: Revenue generated exclusively through credit transactions (excludes cash sales)
+- Number of Days: The timeframe measured (365 for annual, 90 for quarterly, etc.)
+
+VERBATIM FORMULA STATEMENTS:
+"DSO = Accounts Receivables / Net Credit Sales X Number of Days"
+"Days Sales Outstanding (DSO) represents the average number of days it takes credit sales to be converted into cash or how long it takes a company to collect its account receivables."
+"cash sales are not included in the computation because they are considered a zero DSO"

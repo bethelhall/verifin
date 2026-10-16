@@ -1,0 +1,21 @@
+Source: CFA Institute, Financial Reporting and Analysis curriculum
+Authority: CFA Institute Program Curriculum, Level 1
+Metric: Dividends Per Share (DPS)
+
+PRIMARY FORMULA:
+DPS = Total Dividends Paid to Common Shareholders / Weighted Average Common Shares Outstanding
+
+ALTERNATIVE FORMULA:
+DPS = Annual Dividend Per Share (as declared by the board)
+
+VARIABLE DEFINITIONS:
+- Total Dividends Paid to Common Shareholders: Total cash dividends paid during the period (excludes preferred dividends)
+- Weighted Average Common Shares Outstanding: Average shares outstanding during the period weighted by time
+
+VERBATIM FORMULA STATEMENTS:
+"Dividends Per Share = Total Dividends Paid / Shares Outstanding"
+"the sum of declared dividends issued by a company for every ordinary share outstanding."
+
+KEY NOTES:
+DPS represents the actual cash returned to common shareholders per share.
+Trailing DPS uses actual dividends paid; forward DPS uses declared or expected dividends.

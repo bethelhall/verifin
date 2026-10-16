@@ -1,0 +1,2391 @@
+[
+  {
+    "policy_id": "direct_operating_income",
+    "metric": "operating_income",
+    "metric_aliases": [
+      "operating_income",
+      "total_operating_income",
+      "operating_profit",
+      "income_from_operations",
+      "operating_earnings"
+    ],
+    "formula_templates": [
+      "operating_income"
+    ],
+    "roles": {
+      "operating_income": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ],
+        "extraction_note": "Use the CONSOLIDATED total operating income for the entire company, not a segment or division subtotal. Look for the row labelled 'total operating income' or 'income from operations' at the company level."
+      }
+    },
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy - OperatingIncomeLoss",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct operating income lookup \u2014 consolidated total, not a segment subtotal."
+    }
+  },
+  {
+    "policy_id": "standard_roa_assets",
+    "metric": "return_on_assets",
+    "metric_aliases": [
+      "roa",
+      "return_on_assets",
+      "return_on_assets_fy"
+    ],
+    "formula_templates": [
+      "net_income / assets",
+      "net_income / average_assets",
+      "net_income / ((assets_start + assets_end) / 2)"
+    ],
+    "roles": {
+      "net_income": {
+        "concept_ids": [
+          "NetIncomeLike"
+        ]
+      },
+      "assets": {
+        "concept_ids": [
+          "TotalAssetsLike"
+        ]
+      },
+      "assets_start": {
+        "concept_ids": [
+          "TotalAssetsLike"
+        ]
+      },
+      "assets_end": {
+        "concept_ids": [
+          "TotalAssetsLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Return on Assets",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "ROA = Net Income / Average Total Assets. Average assets = (beginning + ending) / 2 when period-start and period-end values are both provided."
+    }
+  },
+  {
+    "policy_id": "standard_fixed_asset_turnover",
+    "metric": "fixed_asset_turnover_ratio",
+    "metric_aliases": [
+      "fixed_asset_turnover",
+      "fixed_asset_turnover_ratio"
+    ],
+    "formula_templates": [
+      "revenue / average_ppe",
+      "revenue / ((ppe_start + ppe_end) / 2)"
+    ],
+    "roles": {
+      "revenue": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "ppe": {
+        "concept_ids": [
+          "PpeLike"
+        ]
+      },
+      "ppe_start": {
+        "concept_ids": [
+          "PpeLike"
+        ]
+      },
+      "ppe_end": {
+        "concept_ids": [
+          "PpeLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Activity Ratios",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Fixed Asset Turnover = Revenue / Average Net PP&E"
+    }
+  },
+  {
+    "policy_id": "standard_capex_as_percent_of_revenue_average",
+    "metric": "capex_as_percent_of_revenue_3yr_avg",
+    "metric_aliases": [
+      "capex_as_percent_of_revenue_3yr_avg",
+      "capex_as_percent_of_revenue_3yr_average",
+      "capex_as_percent_of_revenue_3_year_average"
+    ],
+    "formula_templates": [
+      "((capex_y1 / revenue_y1) + (capex_y2 / revenue_y2) + (capex_y3 / revenue_y3)) / 3 * 100"
+    ],
+    "roles": {
+      "capex": {
+        "concept_ids": [
+          "CapitalExpendituresLike"
+        ]
+      },
+      "revenue": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "capex_y1": {
+        "concept_ids": [
+          "CapitalExpendituresLike"
+        ]
+      },
+      "capex_y2": {
+        "concept_ids": [
+          "CapitalExpendituresLike"
+        ]
+      },
+      "capex_y3": {
+        "concept_ids": [
+          "CapitalExpendituresLike"
+        ]
+      },
+      "revenue_y1": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "revenue_y2": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "revenue_y3": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "3-year average of annual CapEx / Revenue ratios, expressed as percent"
+    }
+  },
+  {
+    "policy_id": "standard_capex_as_percent_of_revenue",
+    "metric": "capex_as_percent_of_revenue",
+    "metric_aliases": [
+      "capex_as_percent_of_revenue",
+      "capex intensity",
+      "capital expenditure as percent of revenue",
+      "capex to revenue ratio",
+      "capex as a percent of revenue",
+      "capex / revenue",
+      "capital intensity ratio"
+    ],
+    "formula_templates": [
+      "capex / revenue * 100"
+    ],
+    "roles": {
+      "capex": {
+        "concept_ids": [
+          "CapitalExpendituresLike"
+        ]
+      },
+      "revenue": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention",
+    "source_refs": [
+      {
+        "title": "CFA Institute, Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Capital expenditures as a percentage of revenue \u2014 standard capital intensity measure"
+    }
+  },
+  {
+    "policy_id": "standard_quick_ratio",
+    "metric": "quick_ratio",
+    "metric_aliases": [
+      "quick_ratio",
+      "acid_test_ratio"
+    ],
+    "formula_templates": [
+      "(cash + short_term_investments + receivables) / current_liabilities",
+      "(cash + receivables) / current_liabilities"
+    ],
+    "roles": {
+      "cash": {
+        "concept_ids": [
+          "CashLike"
+        ]
+      },
+      "short_term_investments": {
+        "concept_ids": [
+          "ShortTermInvestmentsLike"
+        ]
+      },
+      "receivables": {
+        "concept_ids": [
+          "ReceivablesLike"
+        ]
+      },
+      "current_liabilities": {
+        "concept_ids": [
+          "CurrentLiabilitiesLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Liquidity Ratios",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Quick Ratio = (Cash + Short-term Investments + Receivables) / Current Liabilities"
+    }
+  },
+  {
+    "policy_id": "standard_ebitda_margin",
+    "metric": "ebitda_margin_percent",
+    "metric_aliases": [
+      "ebitda_margin",
+      "ebitda_margin_percent",
+      "ebitda_margin_ratio"
+    ],
+    "formula_templates": [
+      "(operating_income + depreciation_amortization) / revenue * 100"
+    ],
+    "roles": {
+      "operating_income": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "depreciation_amortization": {
+        "concept_ids": [
+          "DepreciationAmortizationLike"
+        ]
+      },
+      "revenue": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Profitability Ratios",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "EBITDA margin = (Operating Income + Depreciation & Amortization of fixed/intangible assets) / Revenue * 100. Content/inventory amortization that is a cost of revenue is NOT added back."
+    }
+  },
+  {
+    "policy_id": "direct_net_ppne",
+    "metric": "net_ppne",
+    "metric_aliases": [
+      "net_ppne",
+      "net_ppe",
+      "property_plant_equipment_net",
+      "net_property_plant_equipment",
+      "property_plant_equipment_net_fy"
+    ],
+    "formula_templates": [
+      "ppe",
+      "ppe / 1000"
+    ],
+    "roles": {
+      "ppe": {
+        "concept_ids": [
+          "PpeLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy - PropertyPlantAndEquipmentNet",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct PP&E lookup, with optional unit scaling (millions to billions)"
+    }
+  },
+  {
+    "policy_id": "financebench_effective_tax_rate_change",
+    "metric": "effective_tax_rate_change",
+    "metric_aliases": [
+      "effective_tax_rate_change",
+      "change_in_effective_tax_rate",
+      "effective_tax_rate_delta",
+      "tax_rate_change"
+    ],
+    "formula_templates": [
+      "(effective_tax_rate_2022 - effective_tax_rate_2021) * 100",
+      "effective_tax_rate_2022 - effective_tax_rate_2021"
+    ],
+    "roles": {
+      "effective_tax_rate_2021": {
+        "concept_ids": [
+          "EffectiveTaxRateLike"
+        ],
+        "unit_kind": "percent"
+      },
+      "effective_tax_rate_2022": {
+        "concept_ids": [
+          "EffectiveTaxRateLike"
+        ],
+        "unit_kind": "percent"
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      },
+      {
+        "title": "SEC structured-data taxonomy resources",
+        "url": "https://www.sec.gov/structureddata/osdstaxonomies"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Change in effective tax rate = current-period effective tax rate minus prior-period effective tax rate. If source rates are XBRL ratios, multiply by 100 to express percentage-point change."
+    }
+  },
+  {
+    "policy_id": "financebench_cash_dividends_paid",
+    "metric": "cash_dividends_paid",
+    "metric_aliases": [
+      "cash_dividends_paid",
+      "cash_dividends",
+      "dividends_paid",
+      "total_cash_dividends_paid"
+    ],
+    "formula_templates": [
+      "dividends_paid / 1000",
+      "(-dividends_paid) / 1000",
+      "dividends_paid",
+      "-dividends_paid"
+    ],
+    "roles": {
+      "dividends_paid": {
+        "concept_ids": [
+          "DividendsPaidLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy - PaymentsOfDividends",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Cash dividends paid is reported as a cash outflow but the requested amount is a positive amount paid; scale millions to billions when requested.",
+      "nonnegative_output": true
+    }
+  },
+  {
+    "policy_id": "financebench_interest_coverage_ratio",
+    "metric": "interest_coverage_ratio",
+    "metric_aliases": [
+      "interest_coverage",
+      "interest_coverage_ratio",
+      "adjusted_ebit_to_interest_expense"
+    ],
+    "formula_templates": [
+      "coverage_ratio(adjusted_ebit, interest_expense)",
+      "coverage_ratio(adjusted_ebitdar - depreciation_and_amortization - lease_rent_expense, interest_expense)"
+    ],
+    "roles": {
+      "adjusted_ebit": {
+        "concept_ids": [
+          "AdjustedEbitLike"
+        ],
+        "unit_kind": "money",
+        "required_source_text_any": [
+          "adjusted ebit",
+          "ebit",
+          "earnings before interest and taxes",
+          "earnings before interest and tax"
+        ],
+        "forbidden_substitute_variables_any": [
+          "operating_income",
+          "depreciation_and_amortization",
+          "depreciation_amortization"
+        ]
+      },
+      "interest_expense": {
+        "concept_ids": [
+          "InterestExpenseLike"
+        ],
+        "unit_kind": "money"
+      },
+      "adjusted_ebitdar": {
+        "concept_ids": [
+          "AdjustedEbitdarLike"
+        ],
+        "unit_kind": "money",
+        "required_source_text_any": [
+          "adjusted ebitdar"
+        ]
+      },
+      "depreciation_and_amortization": {
+        "concept_ids": [
+          "DepreciationAmortizationLike"
+        ],
+        "unit_kind": "money",
+        "required_source_text_any": [
+          "depreciation and amortization",
+          "depreciation amortization",
+          "d&a"
+        ]
+      },
+      "lease_rent_expense": {
+        "concept_ids": [
+          "LeaseRentExpenseLike"
+        ],
+        "unit_kind": "money",
+        "required_source_text_any": [
+          "lease",
+          "rent"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "FinanceBench interest coverage question uses Adjusted EBIT divided by interest expense; if Adjusted EBIT is non-positive, coverage is zero. Operating income plus depreciation and amortization is not an approved substitute unless the source defines it as Adjusted EBIT. When the filing reports Adjusted EBITDAR but not standalone Adjusted EBIT, derive Adjusted EBIT as Adjusted EBITDAR minus depreciation and amortization minus lease/rent expense."
+    }
+  },
+  {
+    "policy_id": "financebench_restructuring_costs_income_statement",
+    "metric": "restructuring_costs_income_statement",
+    "metric_aliases": [
+      "restructuring_costs",
+      "restructuring_charges",
+      "restructuring_costs_income_statement"
+    ],
+    "formula_templates": [
+      "restructuring_costs"
+    ],
+    "roles": {
+      "restructuring_costs": {
+        "concept_ids": [
+          "RestructuringLike"
+        ],
+        "unit_kind": "money"
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy - RestructuringCharges",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct lookup for restructuring costs/charges in the requested statement and period.",
+      "source_priority": "document"
+    }
+  },
+  {
+    "policy_id": "financebench_consumer_health_separation_gain",
+    "metric": "consumer_health_separation_gain",
+    "metric_aliases": [
+      "consumer_health_separation_gain",
+      "gain_from_consumer_health_separation"
+    ],
+    "formula_templates": [
+      "separation_gain / 1000"
+    ],
+    "roles": {
+      "separation_gain": {
+        "concept_ids": [
+          "SeparationGainLike"
+        ],
+        "unit_kind": "money",
+        "required_source_text_any": [
+          "gain",
+          "separation"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Consumer Health separation gain is extracted in USD millions and reported in USD billions.",
+      "claim_unit": "USD billions",
+      "computed_unit": "USD billions",
+      "source_priority": "document"
+    }
+  },
+  {
+    "policy_id": "financebench_kenvue_separation_cash_proceeds",
+    "metric": "kenvue_separation_cash_proceeds",
+    "metric_aliases": [
+      "kenvue_separation_cash_proceeds",
+      "cash_proceeds_from_kenvue_separation"
+    ],
+    "formula_templates": [
+      "cash_proceeds / 1000"
+    ],
+    "roles": {
+      "cash_proceeds": {
+        "concept_ids": [
+          "SeparationProceedsLike"
+        ],
+        "unit_kind": "money",
+        "required_source_text_any": [
+          "cash proceeds"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Kenvue separation cash proceeds are extracted in USD millions and reported in USD billions.",
+      "claim_unit": "USD billions",
+      "computed_unit": "USD billions",
+      "source_priority": "document"
+    }
+  },
+  {
+    "policy_id": "standard_balance_sheet_residual",
+    "metric": "balance_sheet_residual",
+    "metric_aliases": [
+      "balance_sheet_residual",
+      "balance_sheet_identity",
+      "accounting_equation_residual"
+    ],
+    "formula_templates": [
+      "assets - liabilities - equity"
+    ],
+    "roles": {
+      "assets": {
+        "concept_ids": [
+          "TotalAssetsLike"
+        ]
+      },
+      "liabilities": {
+        "concept_ids": [
+          "TotalLiabilitiesLike"
+        ]
+      },
+      "equity": {
+        "concept_ids": [
+          "ShareholdersEquityLike"
+        ]
+      }
+    },
+    "source_type": "accounting_identity_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Balance sheet identity residual = assets - liabilities - shareholders equity."
+    }
+  },
+  {
+    "policy_id": "standard_gross_margin",
+    "metric": "gross_margin",
+    "metric_aliases": [
+      "gross_margin",
+      "gross_margin_ratio",
+      "gross_profit_margin"
+    ],
+    "formula_templates": [
+      "gross_profit / revenue",
+      "gross_profit / revenue * 100"
+    ],
+    "roles": {
+      "gross_profit": {
+        "concept_ids": [
+          "GrossProfitLike"
+        ]
+      },
+      "revenue": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Profitability Ratios",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Gross margin = gross profit / revenue; multiply by 100 only when the answer is expressed as percent."
+    }
+  },
+  {
+    "policy_id": "standard_free_cash_flow",
+    "metric": "free_cash_flow",
+    "metric_aliases": [
+      "free_cash_flow",
+      "fcf",
+      "free_cash_flow_fy"
+    ],
+    "formula_templates": [
+      "operating_cash_flow - capex"
+    ],
+    "roles": {
+      "operating_cash_flow": {
+        "concept_ids": [
+          "OperatingCashFlowLike"
+        ]
+      },
+      "capex": {
+        "concept_ids": [
+          "CapitalExpendituresLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Cash Flow Analysis",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Free cash flow = operating cash flow minus capital expenditures."
+    }
+  },
+  {
+    "policy_id": "direct_revenue",
+    "metric": "revenue",
+    "metric_aliases": [
+      "revenue",
+      "revenues",
+      "sales",
+      "net_sales",
+      "total_revenue"
+    ],
+    "formula_templates": [
+      "revenue"
+    ],
+    "roles": {
+      "revenue": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "xbrl_taxonomy_mapping",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy - Revenues",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy 2025 - Revenue",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct revenue lookup from the requested statement/period."
+    }
+  },
+  {
+    "policy_id": "direct_capital_expenditure",
+    "metric": "capital_expenditure",
+    "metric_aliases": [
+      "capital_expenditure",
+      "capital_expenditure_amount"
+    ],
+    "formula_templates": [
+      "capex",
+      "capex / 1000"
+    ],
+    "roles": {
+      "capex": {
+        "concept_ids": [
+          "CapitalExpendituresLike"
+        ]
+      }
+    },
+    "source_type": "xbrl_taxonomy_or_question_defined_direct_lookup",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy 2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      },
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct capital expenditure lookup; optional millions-to-billions scaling."
+    }
+  },
+  {
+    "policy_id": "direct_accounts_payable",
+    "metric": "accounts_payable",
+    "metric_aliases": [
+      "accounts_payable"
+    ],
+    "formula_templates": [
+      "accounts_payable"
+    ],
+    "roles": {
+      "accounts_payable": {
+        "concept_ids": [
+          "AccountsPayableLike"
+        ]
+      }
+    },
+    "source_type": "xbrl_taxonomy_or_question_defined_direct_lookup",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy 2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      },
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct accounts payable lookup."
+    }
+  },
+  {
+    "policy_id": "direct_total_assets",
+    "metric": "total_assets",
+    "metric_aliases": [
+      "total_assets"
+    ],
+    "formula_templates": [
+      "assets"
+    ],
+    "roles": {
+      "assets": {
+        "concept_ids": [
+          "TotalAssetsLike"
+        ]
+      }
+    },
+    "source_type": "xbrl_taxonomy_or_question_defined_direct_lookup",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy 2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      },
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct total assets lookup."
+    }
+  },
+  {
+    "policy_id": "direct_total_current_assets",
+    "metric": "total_current_assets",
+    "metric_aliases": [
+      "current_assets",
+      "total_current_assets"
+    ],
+    "formula_templates": [
+      "current_assets"
+    ],
+    "roles": {
+      "current_assets": {
+        "concept_ids": [
+          "CurrentAssetsLike"
+        ]
+      }
+    },
+    "source_type": "xbrl_taxonomy_or_question_defined_direct_lookup",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy 2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      },
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct total current assets lookup."
+    }
+  },
+  {
+    "policy_id": "direct_total_current_liabilities",
+    "metric": "total_current_liabilities",
+    "metric_aliases": [
+      "current_liabilities",
+      "total_current_liabilities"
+    ],
+    "formula_templates": [
+      "current_liabilities"
+    ],
+    "roles": {
+      "current_liabilities": {
+        "concept_ids": [
+          "CurrentLiabilitiesLike"
+        ]
+      }
+    },
+    "source_type": "xbrl_taxonomy_or_question_defined_direct_lookup",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy 2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      },
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct total current liabilities lookup."
+    }
+  },
+  {
+    "policy_id": "direct_inventory",
+    "metric": "inventory",
+    "metric_aliases": [
+      "inventory",
+      "inventories",
+      "merchandise_inventories"
+    ],
+    "formula_templates": [
+      "inventory"
+    ],
+    "roles": {
+      "inventory": {
+        "concept_ids": [
+          "InventoryLike"
+        ]
+      }
+    },
+    "source_type": "xbrl_taxonomy_or_question_defined_direct_lookup",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy 2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      },
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct inventory lookup."
+    }
+  },
+  {
+    "policy_id": "direct_net_accounts_receivable",
+    "metric": "net_accounts_receivable",
+    "metric_aliases": [
+      "net_accounts_receivable",
+      "net_ar",
+      "accounts_receivable_net"
+    ],
+    "formula_templates": [
+      "receivables"
+    ],
+    "roles": {
+      "receivables": {
+        "concept_ids": [
+          "ReceivablesLike"
+        ]
+      }
+    },
+    "source_type": "xbrl_taxonomy_or_question_defined_direct_lookup",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy 2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      },
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct net accounts receivable lookup."
+    }
+  },
+  {
+    "policy_id": "direct_operating_cash_flow",
+    "metric": "operating_cash_flow",
+    "metric_aliases": [
+      "operating_cash_flow",
+      "cash_flow_from_operating_activities"
+    ],
+    "formula_templates": [
+      "operating_cash_flow"
+    ],
+    "roles": {
+      "operating_cash_flow": {
+        "concept_ids": [
+          "OperatingCashFlowLike"
+        ]
+      }
+    },
+    "source_type": "xbrl_taxonomy_or_question_defined_direct_lookup",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy 2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      },
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct operating cash flow lookup."
+    }
+  },
+  {
+    "policy_id": "direct_net_income_attributable_to_shareholders",
+    "metric": "net_income_attributable_to_shareholders",
+    "metric_aliases": [
+      "net_income_attributable_to_shareholders",
+      "net_income_attributable_to_shareowners"
+    ],
+    "formula_templates": [
+      "net_income"
+    ],
+    "roles": {
+      "net_income": {
+        "concept_ids": [
+          "NetIncomeLike"
+        ]
+      }
+    },
+    "source_type": "xbrl_taxonomy_or_question_defined_direct_lookup",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy 2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      },
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct net income attributable to shareholders lookup."
+    }
+  },
+  {
+    "policy_id": "direct_adjusted_non_gaap_ebitda",
+    "metric": "adjusted_non_gaap_ebitda",
+    "metric_aliases": [
+      "adjusted_non_gaap_ebitda",
+      "adjusted_ebitda"
+    ],
+    "formula_templates": [
+      "adjusted_ebitda"
+    ],
+    "roles": {
+      "adjusted_ebitda": {
+        "concept_ids": [
+          "AdjustedEbitdaLike"
+        ]
+      }
+    },
+    "source_type": "xbrl_taxonomy_or_question_defined_direct_lookup",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy 2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      },
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct company-defined adjusted EBITDA lookup."
+    }
+  },
+  {
+    "policy_id": "direct_tangible_book_value_per_share",
+    "metric": "tangible_book_value_per_share",
+    "metric_aliases": [
+      "tangible_book_value_per_share"
+    ],
+    "formula_templates": [
+      "tangible_book_value_per_share"
+    ],
+    "roles": {
+      "tangible_book_value_per_share": {
+        "concept_ids": [
+          "TangibleBookValuePerShareLike"
+        ]
+      }
+    },
+    "source_type": "xbrl_taxonomy_or_question_defined_direct_lookup",
+    "source_refs": [
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      },
+      {
+        "title": "IFRS Accounting Taxonomy 2025",
+        "url": "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/"
+      },
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Direct tangible book value per share lookup."
+    }
+  },
+  {
+    "policy_id": "standard_current_ratio",
+    "metric": "working_capital_ratio",
+    "metric_aliases": [
+      "working_capital_ratio",
+      "current_ratio"
+    ],
+    "formula_templates": [
+      "current_assets / current_liabilities"
+    ],
+    "roles": {
+      "current_assets": {
+        "concept_ids": [
+          "CurrentAssetsLike"
+        ]
+      },
+      "current_liabilities": {
+        "concept_ids": [
+          "CurrentLiabilitiesLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Current/working capital ratio = current assets / current liabilities."
+    }
+  },
+  {
+    "policy_id": "standard_operating_cash_flow_ratio",
+    "metric": "operating_cash_flow_ratio",
+    "metric_aliases": [
+      "operating_cash_flow_ratio"
+    ],
+    "formula_templates": [
+      "operating_cash_flow / current_liabilities"
+    ],
+    "roles": {
+      "operating_cash_flow": {
+        "concept_ids": [
+          "OperatingCashFlowLike"
+        ]
+      },
+      "current_liabilities": {
+        "concept_ids": [
+          "CurrentLiabilitiesLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Operating cash flow ratio = cash flow from operations / current liabilities."
+    }
+  },
+  {
+    "policy_id": "standard_operating_income_yoy_change_percent",
+    "metric": "operating_income_yoy_change_percent",
+    "metric_aliases": [
+      "operating_income_yoy_change_percent",
+      "operating_income_change_percent"
+    ],
+    "formula_templates": [
+      "(operating_income_end - operating_income_start) / operating_income_start * 100"
+    ],
+    "roles": {
+      "operating_income_start": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "operating_income_end": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Year-over-year percent change = (current period - prior period) / prior period * 100."
+    }
+  },
+  {
+    "policy_id": "standard_revenue_growth_percent",
+    "metric": "revenue_yoy_change_percent",
+    "metric_aliases": [
+      "revenue_yoy_change_percent",
+      "total_revenue_growth_rate",
+      "revenue_growth_rate",
+      "total_revenue_growth_rate_fy2019_fy2020"
+    ],
+    "formula_templates": [
+      "(revenue_end - revenue_start) / revenue_start * 100"
+    ],
+    "roles": {
+      "revenue_start": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "revenue_end": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Revenue growth percent = (ending revenue - beginning revenue) / beginning revenue * 100."
+    }
+  },
+  {
+    "policy_id": "standard_depreciation_amortization_margin",
+    "metric": "depreciation_and_amortization_margin",
+    "metric_aliases": [
+      "depreciation_and_amortization_margin",
+      "depreciation_amortization_margin"
+    ],
+    "formula_templates": [
+      "depreciation_amortization / revenue * 100"
+    ],
+    "roles": {
+      "depreciation_amortization": {
+        "concept_ids": [
+          "DepreciationAmortizationLike"
+        ]
+      },
+      "revenue": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "D&A margin = depreciation and amortization / revenue * 100."
+    }
+  },
+  {
+    "policy_id": "standard_cogs_margin",
+    "metric": "cogs_percent_margin",
+    "metric_aliases": [
+      "cogs_percent_margin",
+      "cost_of_goods_sold_margin",
+      "cost_of_revenue_margin"
+    ],
+    "formula_templates": [
+      "cost_of_revenue / revenue * 100"
+    ],
+    "roles": {
+      "cost_of_revenue": {
+        "concept_ids": [
+          "CostOfRevenueLike"
+        ]
+      },
+      "revenue": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "COGS/cost of revenue margin = cost of revenue / revenue * 100."
+    }
+  },
+  {
+    "policy_id": "standard_net_working_capital",
+    "metric": "net_working_capital",
+    "metric_aliases": [
+      "net_working_capital"
+    ],
+    "formula_templates": [
+      "current_assets - current_liabilities"
+    ],
+    "roles": {
+      "current_assets": {
+        "concept_ids": [
+          "CurrentAssetsLike"
+        ]
+      },
+      "current_liabilities": {
+        "concept_ids": [
+          "CurrentLiabilitiesLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Net working capital = current assets - current liabilities."
+    }
+  },
+  {
+    "policy_id": "standard_dividend_payout_ratio",
+    "metric": "dividend_payout_ratio",
+    "metric_aliases": [
+      "dividend_payout_ratio"
+    ],
+    "formula_templates": [
+      "dividends_paid / net_income",
+      "(-dividends_paid) / net_income"
+    ],
+    "roles": {
+      "dividends_paid": {
+        "concept_ids": [
+          "DividendsPaidLike"
+        ]
+      },
+      "net_income": {
+        "concept_ids": [
+          "NetIncomeLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Dividend payout ratio = dividends paid / net income; cash outflow signs may be reported negative.",
+      "nonnegative_output": true
+    }
+  },
+  {
+    "policy_id": "standard_retention_ratio",
+    "metric": "retention_ratio",
+    "metric_aliases": [
+      "retention_ratio"
+    ],
+    "formula_templates": [
+      "(net_income - dividends_paid) / net_income",
+      "(net_income + dividends_paid) / net_income"
+    ],
+    "roles": {
+      "net_income": {
+        "concept_ids": [
+          "NetIncomeLike"
+        ]
+      },
+      "dividends_paid": {
+        "concept_ids": [
+          "DividendsPaidLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Retention ratio = (net income - dividends paid) / net income; signed cash outflows may require adding the negative reported outflow."
+    }
+  },
+  {
+    "policy_id": "standard_inventory_turnover_ratio",
+    "metric": "inventory_turnover_ratio",
+    "metric_aliases": [
+      "inventory_turnover_ratio"
+    ],
+    "formula_templates": [
+      "cost_of_revenue / ((inventory_start + inventory_end) / 2)"
+    ],
+    "roles": {
+      "cost_of_revenue": {
+        "concept_ids": [
+          "CostOfRevenueLike"
+        ]
+      },
+      "inventory_start": {
+        "concept_ids": [
+          "InventoryLike"
+        ]
+      },
+      "inventory_end": {
+        "concept_ids": [
+          "InventoryLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Inventory turnover = COGS / average inventory."
+    }
+  },
+  {
+    "policy_id": "standard_days_payable_outstanding",
+    "metric": "days_payable_outstanding",
+    "metric_aliases": [
+      "days_payable_outstanding",
+      "days_payable_outstanding_fy2017",
+      "days_payable_outstanding_fy2018",
+      "dpo"
+    ],
+    "formula_templates": [
+      "365 * ((accounts_payable_start + accounts_payable_end) / 2) / (cost_of_revenue + (inventory_end - inventory_start))"
+    ],
+    "roles": {
+      "accounts_payable_start": {
+        "concept_ids": [
+          "AccountsPayableLike"
+        ]
+      },
+      "accounts_payable_end": {
+        "concept_ids": [
+          "AccountsPayableLike"
+        ]
+      },
+      "inventory_start": {
+        "concept_ids": [
+          "InventoryLike"
+        ]
+      },
+      "inventory_end": {
+        "concept_ids": [
+          "InventoryLike"
+        ]
+      },
+      "cost_of_revenue": {
+        "concept_ids": [
+          "CostOfRevenueLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "FinanceBench DPO definition = 365 * average AP / (COGS + change in inventory)."
+    }
+  },
+  {
+    "policy_id": "standard_revenue_cagr_2year",
+    "metric": "revenue_cagr_2year",
+    "metric_aliases": [
+      "revenue_cagr_2year",
+      "total_revenue_cagr_2year"
+    ],
+    "formula_templates": [
+      "cagr_percent(revenue_end, revenue_start, 2)"
+    ],
+    "roles": {
+      "revenue_start": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "revenue_end": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Two-year revenue CAGR = ((ending revenue / beginning revenue)^(1/2) - 1) * 100."
+    }
+  },
+  {
+    "policy_id": "standard_net_profit_margin_3yr_average",
+    "metric": "net_profit_margin_3_year_average",
+    "metric_aliases": [
+      "net_profit_margin_3_year_average",
+      "net_profit_margin_3yr_average"
+    ],
+    "formula_templates": [
+      "((net_income_y1 / revenue_y1) + (net_income_y2 / revenue_y2) + (net_income_y3 / revenue_y3)) / 3 * 100"
+    ],
+    "roles": {
+      "net_income_y1": {
+        "concept_ids": [
+          "NetIncomeLike"
+        ]
+      },
+      "net_income_y2": {
+        "concept_ids": [
+          "NetIncomeLike"
+        ]
+      },
+      "net_income_y3": {
+        "concept_ids": [
+          "NetIncomeLike"
+        ]
+      },
+      "revenue_y1": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "revenue_y2": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "revenue_y3": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "3-year average net profit margin = average of annual net income / revenue ratios, expressed as percent."
+    }
+  },
+  {
+    "policy_id": "standard_operating_income_margin_3yr_average",
+    "metric": "operating_income_margin_percent_3yr_average",
+    "metric_aliases": [
+      "operating_income_margin_percent_3yr_average",
+      "operating_income_margin_3_year_average",
+      "unadjusted_operating_income_percent_margin_3yr_average"
+    ],
+    "formula_templates": [
+      "((operating_income_y1 / revenue_y1) + (operating_income_y2 / revenue_y2) + (operating_income_y3 / revenue_y3)) / 3 * 100"
+    ],
+    "roles": {
+      "operating_income_y1": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "operating_income_y2": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "operating_income_y3": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "revenue_y1": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "revenue_y2": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "revenue_y3": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "3-year average unadjusted operating income margin = average of annual operating income / revenue ratios, expressed as percent."
+    }
+  },
+  {
+    "policy_id": "standard_operating_income_margin_change",
+    "metric": "operating_income_margin_change",
+    "metric_aliases": [
+      "operating_income_margin_change",
+      "operating_income_margin_change_fy2018_to_fy2019"
+    ],
+    "formula_templates": [
+      "(operating_income_end / revenue_end * 100) - (operating_income_start / revenue_start * 100)"
+    ],
+    "roles": {
+      "operating_income_start": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "operating_income_end": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "revenue_start": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "revenue_end": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Change in operating income margin = current margin minus prior margin, in percentage points."
+    }
+  },
+  {
+    "policy_id": "financebench_unadjusted_ebitda",
+    "metric": "unadjusted_ebitda",
+    "metric_aliases": [
+      "unadjusted_ebitda",
+      "fy2021_unadjusted_ebitda"
+    ],
+    "formula_templates": [
+      "operating_income + depreciation_amortization"
+    ],
+    "roles": {
+      "operating_income": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "depreciation_amortization": {
+        "concept_ids": [
+          "DepreciationAmortizationLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "FinanceBench unadjusted EBITDA definition = unadjusted operating income + D&A from cash flow statement."
+    }
+  },
+  {
+    "policy_id": "financebench_unadjusted_ebitda_margin",
+    "metric": "unadjusted_ebitda_margin_percent",
+    "metric_aliases": [
+      "unadjusted_ebitda_margin_percent",
+      "unadjusted_ebitda_percent_margin_fy2015"
+    ],
+    "formula_templates": [
+      "(operating_income + depreciation_amortization) / revenue * 100",
+      "(operating_income + depreciation_amortization + dvd_content_amortization + streaming_content_amortization) / revenue * 100"
+    ],
+    "roles": {
+      "operating_income": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "depreciation_amortization": {
+        "concept_ids": [
+          "DepreciationAmortizationLike"
+        ]
+      },
+      "dvd_content_amortization": {
+        "concept_ids": [
+          "ContentAmortizationLike"
+        ]
+      },
+      "streaming_content_amortization": {
+        "concept_ids": [
+          "ContentAmortizationLike"
+        ]
+      },
+      "revenue": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "FinanceBench unadjusted EBITDA margin uses question-defined add-backs divided by revenue."
+    }
+  },
+  {
+    "policy_id": "financebench_unadjusted_ebitda_less_capex",
+    "metric": "unadjusted_ebitda_less_capex",
+    "metric_aliases": [
+      "unadjusted_ebitda_less_capex",
+      "fy2022_unadjusted_ebitda_less_capex"
+    ],
+    "formula_templates": [
+      "operating_income + depreciation_amortization - capex"
+    ],
+    "roles": {
+      "operating_income": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "depreciation_amortization": {
+        "concept_ids": [
+          "DepreciationAmortizationLike"
+        ]
+      },
+      "capex": {
+        "concept_ids": [
+          "CapitalExpendituresLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "FinanceBench EBITDA less capex = unadjusted operating income + D&A - capital expenditure."
+    }
+  },
+  {
+    "policy_id": "financebench_three_year_unadjusted_ebitda_margin",
+    "metric": "three_year_average_unadjusted_ebitda_margin",
+    "metric_aliases": [
+      "three_year_average_unadjusted_ebitda_margin",
+      "three_year_average_unadjusted_ebitda_percent_margin"
+    ],
+    "formula_templates": [
+      "((operating_income_y1 + depreciation_amortization_y1) / revenue_y1 + (operating_income_y2 + depreciation_amortization_y2) / revenue_y2 + (operating_income_y3 + depreciation_amortization_y3) / revenue_y3) / 3 * 100"
+    ],
+    "roles": {
+      "operating_income_y1": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "operating_income_y2": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "operating_income_y3": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "depreciation_amortization_y1": {
+        "concept_ids": [
+          "DepreciationAmortizationLike"
+        ]
+      },
+      "depreciation_amortization_y2": {
+        "concept_ids": [
+          "DepreciationAmortizationLike"
+        ]
+      },
+      "depreciation_amortization_y3": {
+        "concept_ids": [
+          "DepreciationAmortizationLike"
+        ]
+      },
+      "revenue_y1": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "revenue_y2": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      },
+      "revenue_y3": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      },
+      {
+        "title": "FASB US GAAP Financial Reporting Taxonomy",
+        "url": "https://xbrl.fasb.org/us-gaap/2025/"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "3-year average unadjusted EBITDA margin = average of annual (operating income + D&A) / revenue, expressed as percent."
+    }
+  },
+  {
+    "policy_id": "financebench_restructuring_and_impairment_charges",
+    "metric": "restructuring_and_impairment_charges",
+    "metric_aliases": [
+      "restructuring_and_impairment_charges"
+    ],
+    "formula_templates": [
+      "cost_of_sales_restructuring + sga_restructuring + pension_retiree_restructuring"
+    ],
+    "roles": {
+      "cost_of_sales_restructuring": {
+        "concept_ids": [
+          "RestructuringLike"
+        ]
+      },
+      "sga_restructuring": {
+        "concept_ids": [
+          "RestructuringLike"
+        ]
+      },
+      "pension_retiree_restructuring": {
+        "concept_ids": [
+          "RestructuringLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Question asks for restructuring costs directly outlined in the income statement; sum the disclosed restructuring components.",
+      "source_priority": "document"
+    }
+  },
+  {
+    "policy_id": "financebench_credit_agreement_increase",
+    "metric": "unsecured_five_year_revolving_credit_agreement_increase",
+    "metric_aliases": [
+      "unsecured_five_year_revolving_credit_agreement_increase",
+      "credit_agreement_increase"
+    ],
+    "formula_templates": [
+      "new_credit_agreement_amount - prior_credit_agreement_amount",
+      "(new_credit_agreement_amount - prior_credit_agreement_amount) * 1000000"
+    ],
+    "roles": {
+      "new_credit_agreement_amount": {
+        "concept_ids": [
+          "CreditAgreementAmountLike"
+        ]
+      },
+      "prior_credit_agreement_amount": {
+        "concept_ids": [
+          "CreditAgreementAmountLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Increase in credit agreement = new agreement amount minus prior agreement amount; scale millions to dollars if requested."
+    }
+  },
+  {
+    "policy_id": "financebench_guidance_increase_percentage_points",
+    "metric": "core_constant_currency_eps_growth_guidance_increase",
+    "metric_aliases": [
+      "core_constant_currency_eps_growth_guidance_increase",
+      "eps_growth_guidance_increase"
+    ],
+    "formula_templates": [
+      "new_guidance - previous_guidance"
+    ],
+    "roles": {
+      "new_guidance": {
+        "concept_ids": [
+          "GuidancePercentLike"
+        ]
+      },
+      "previous_guidance": {
+        "concept_ids": [
+          "GuidancePercentLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Guidance increase in percentage points = new guidance minus previous guidance."
+    }
+  },
+  {
+    "policy_id": "financebench_expected_future_separation_costs",
+    "metric": "expected_future_separation_costs",
+    "metric_aliases": [
+      "expected_future_separation_costs"
+    ],
+    "formula_templates": [
+      "total_expected_separation_costs - incurred_separation_costs"
+    ],
+    "roles": {
+      "total_expected_separation_costs": {
+        "concept_ids": [
+          "SeparationCostsLike"
+        ]
+      },
+      "incurred_separation_costs": {
+        "concept_ids": [
+          "SeparationCostsLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Future expected separation costs = total expected costs minus costs already incurred."
+    }
+  },
+  {
+    "policy_id": "financebench_upjohn_spinoff_future_costs",
+    "metric": "upjohn_spinoff_future_costs",
+    "metric_aliases": [
+      "upjohn_spinoff_future_costs",
+      "expected_future_upjohn_separation_costs",
+      "expected_future_upjohn_spinoff_costs"
+    ],
+    "formula_templates": [
+      "separation_costs * (100 - percent_incurred) / percent_incurred"
+    ],
+    "roles": {
+      "separation_costs": {
+        "concept_ids": [
+          "SeparationCostsLike"
+        ],
+        "unit_kind": "money"
+      },
+      "percent_incurred": {
+        "concept_ids": [
+          "GuidancePercentLike"
+        ],
+        "unit_kind": "percent"
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "FinanceBench expected future Upjohn spin-off costs infer the remaining amount from incurred-to-date costs and percent incurred: incurred * (100 - percent) / percent.",
+      "claim_unit": "USD millions",
+      "computed_unit": "USD millions",
+      "source_priority": "document"
+    }
+  },
+  {
+    "policy_id": "financebench_expected_retiree_benefit_payments",
+    "metric": "expected_retiree_benefit_payments",
+    "metric_aliases": [
+      "expected_retiree_benefit_payments"
+    ],
+    "formula_templates": [
+      "pension_benefits + health_care_life_insurance"
+    ],
+    "roles": {
+      "pension_benefits": {
+        "concept_ids": [
+          "RetireeBenefitPaymentLike"
+        ]
+      },
+      "health_care_life_insurance": {
+        "concept_ids": [
+          "RetireeBenefitPaymentLike"
+        ]
+      }
+    },
+    "source_type": "financebench_question_defined_metric",
+    "source_refs": [
+      {
+        "title": "FinanceBench dataset metric definition",
+        "url": "https://github.com/patronus-ai/financebench"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Expected retiree benefit payments for the requested year = pension benefits plus health care and life insurance payments."
+    }
+  },
+  {
+    "policy_id": "standard_depreciation_amortization_margin",
+    "metric": "da_margin",
+    "metric_aliases": [
+      "da_margin",
+      "depreciation_and_amortization_margin",
+      "depreciation_amortization_margin",
+      "da_margin_percent",
+      "depreciation_and_amortization_margin_percent"
+    ],
+    "formula_templates": [
+      "depreciation_and_amortization / net_revenue * 100"
+    ],
+    "roles": {
+      "depreciation_and_amortization": {
+        "concept_ids": [
+          "DepreciationAmortizationLike"
+        ]
+      },
+      "net_revenue": {
+        "concept_ids": [
+          "RevenueLike"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Profitability Ratios",
+        "url": "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/financial-analysis-techniques"
+      }
+    ],
+    "metadata": {
+      "nonnegative_output": true,
+      "formula_source_note": "Depreciation & amortization margin = Depreciation & amortization / Revenue * 100."
+    }
+  },
+  {
+    "policy_id": "standard_cet1_ratio",
+    "metric": "cet1_ratio",
+    "metric_aliases": [
+      "cet1_ratio",
+      "common equity tier 1 ratio",
+      "common equity tier 1 capital ratio",
+      "cet1 capital ratio",
+      "cet1 ratio",
+      "tier 1 common equity ratio",
+      "tier 1 common capital ratio"
+    ],
+    "formula_templates": [
+      "common_equity_tier_1_capital / risk_weighted_assets * 100"
+    ],
+    "roles": {
+      "common_equity_tier_1_capital": {
+        "aliases": [
+          "common equity tier 1 capital",
+          "cet1 capital",
+          "tier 1 common equity",
+          "tier 1 common capital",
+          "common equity tier 1"
+        ]
+      },
+      "risk_weighted_assets": {
+        "aliases": [
+          "risk-weighted assets",
+          "risk weighted assets",
+          "rwa",
+          "total risk-weighted assets"
+        ]
+      }
+    },
+    "source_type": "regulatory_standard",
+    "source_refs": [
+      {
+        "title": "Basel III: CET1 ratio = Common Equity Tier 1 Capital / Risk-Weighted Assets"
+      }
+    ],
+    "metadata": {
+      "nonnegative_output": true,
+      "formula_source_note": "CET1 ratio = CET1 capital / risk-weighted assets * 100. Basel III regulatory capital metric."
+    }
+  },
+  {
+    "policy_id": "standard_free_cash_flow_ratio",
+    "metric": "free_cash_flow_ratio",
+    "metric_aliases": [
+      "free_cash_flow_ratio",
+      "ratio of free cash flow to operating cash flow",
+      "fcf to operating cash flow ratio",
+      "free cash flow to operating activities ratio",
+      "free cash flow to cash provided by operating activities"
+    ],
+    "formula_templates": [
+      "free_cash_flow / operating_cash_flow",
+      "(operating_cash_flow - capex) / operating_cash_flow"
+    ],
+    "roles": {
+      "free_cash_flow": {
+        "aliases": [
+          "free cash flow",
+          "fcf"
+        ]
+      },
+      "operating_cash_flow": {
+        "aliases": [
+          "cash provided by operating activities",
+          "net cash from operating activities",
+          "operating cash flow"
+        ]
+      },
+      "capex": {
+        "aliases": [
+          "capital expenditures",
+          "purchases of property plant and equipment",
+          "capex"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Cash Flow Analysis"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Free cash flow ratio = FCF / operating cash flow."
+    }
+  },
+  {
+    "policy_id": "standard_market_capitalization",
+    "metric": "market_capitalization",
+    "metric_aliases": [
+      "market_capitalization",
+      "market cap",
+      "market capitalization",
+      "market value of equity"
+    ],
+    "formula_templates": [
+      "share_price * shares_outstanding"
+    ],
+    "roles": {
+      "share_price": {
+        "aliases": [
+          "share price",
+          "stock price",
+          "price per share",
+          "closing price"
+        ]
+      },
+      "shares_outstanding": {
+        "aliases": [
+          "shares outstanding",
+          "common shares outstanding",
+          "shares of common stock outstanding"
+        ]
+      }
+    },
+    "source_type": "metric_convention_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "CFA Institute - Financial Analysis Techniques"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Market capitalization = share price * shares outstanding."
+    }
+  },
+  {
+    "policy_id": "standard_total_operating_expenses",
+    "metric": "total_operating_expenses",
+    "metric_aliases": [
+      "operating_expenses",
+      "total_operating_expenses"
+    ],
+    "formula_templates": [
+      "gross_profit - operating_income",
+      "operating_expenses"
+    ],
+    "roles": {
+      "gross_profit": {
+        "concept_ids": [
+          "GrossProfitLike"
+        ]
+      },
+      "operating_income": {
+        "concept_ids": [
+          "OperatingIncomeLike"
+        ]
+      },
+      "operating_expenses": {
+        "concept_ids": [
+          "OperatingExpensesLike"
+        ]
+      }
+    },
+    "source_type": "accounting_identity_with_taxonomy_semantics",
+    "source_refs": [
+      {
+        "title": "SEC filing calculation linkbase: Micron 2019 operating-income reconciliation",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312519000094/mu-20190829_cal.xml"
+      }
+    ],
+    "metadata": {
+      "formula_source_note": "Net operating expenses = gross profit minus operating income; a reported operating-expense total can also be used."
+    }
+  }
+]

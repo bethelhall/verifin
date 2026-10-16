@@ -1,0 +1,9 @@
+Candidate model,Dataset,Judge model,State,Progress
+qwen2.5-7b,financebench,qwen2.5-7b-tatdqa:latest,Complete,67/67
+qwen2.5-7b,xbrlfiling,qwen2.5-7b-tatdqa:latest,Complete,600/600
+qwen3-30b,financebench,qwen3-30b-tatdqa:latest,Complete,67/67
+qwen3-30b,xbrlfiling,qwen3-30b-tatdqa:latest,Complete,600/600
+llama-3.1-8b,financebench,llama3.1-8b-tatdqa:latest,Complete,67/67
+llama-3.1-8b,xbrlfiling,llama3.1-8b-tatdqa:latest,Complete,600/600
+gpt-5.5,financebench,gpt-5.5,Complete,67/67
+gpt-5.5,xbrlfiling,gpt-5.5,Complete,600/600

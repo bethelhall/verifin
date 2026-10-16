@@ -1,0 +1,98 @@
+{
+  "n": 403,
+  "TA": 282,
+  "FA": 0,
+  "TR": 13,
+  "FR": 28,
+  "AB": 80,
+  "precision": 1.0,
+  "decision_accuracy": 0.913312693498452,
+  "coverage": 0.8014888337468983,
+  "rejection_precision": 0.3170731707317073,
+  "abstention_rate": 0.19851116625310175,
+  "views": {
+    "literal_benchmark": {
+      "n": 403,
+      "TA": 170,
+      "FA": 112,
+      "TR": 17,
+      "FR": 24,
+      "AB": 80,
+      "precision": 0.6028368794326241,
+      "decision_accuracy": 0.5789473684210527,
+      "coverage": 0.8014888337468983,
+      "rejection_precision": 0.4146341463414634,
+      "abstention_rate": 0.19851116625310175
+    },
+    "benchmark": {
+      "n": 403,
+      "TA": 271,
+      "FA": 11,
+      "TR": 14,
+      "FR": 27,
+      "AB": 80,
+      "precision": 0.9609929078014184,
+      "decision_accuracy": 0.8823529411764706,
+      "coverage": 0.8014888337468983,
+      "rejection_precision": 0.34146341463414637,
+      "abstention_rate": 0.19851116625310175
+    },
+    "source_reviewed": {
+      "n": 403,
+      "TA": 282,
+      "FA": 0,
+      "TR": 13,
+      "FR": 28,
+      "AB": 80,
+      "precision": 1.0,
+      "decision_accuracy": 0.913312693498452,
+      "coverage": 0.8014888337468983,
+      "rejection_precision": 0.3170731707317073,
+      "abstention_rate": 0.19851116625310175
+    }
+  },
+  "primary_view": "source_reviewed",
+  "input_profile": {
+    "Questions": 403,
+    "Physical log rows": 403,
+    "Unique scored rows": 403,
+    "Repeated rows removed": 0
+  },
+  "abstention_reasons": {
+    "unverified_formula": 34,
+    "ambiguous_answer_unit": 9,
+    "no_numeric_answer": 10,
+    "ambiguous_source_row": 2,
+    "ambiguous_xbrl_measure": 10,
+    "inconsistent_evidence": 3,
+    "source_selection_binding_mismatch": 1,
+    "unsupported_currency_unit": 2,
+    "ambiguous_operation": 2,
+    "source_row_concept_conflict": 5,
+    "source_row_concept_ambiguous": 2
+  },
+  "provenance": {
+    "scorer": "verifiqa.eval.tatdqa_scoring",
+    "comparison": "abs(abs(claimed_value) - abs(gold_value)) <= max(1.0, 0.01 * abs(gold_value))",
+    "manual_correctness_overrides": false,
+    "annotation_rule": "Match source-defined numeric targets in compatible units; never force correctness by question ID.",
+    "reviewed_tolerance_rule": "An explicit reviewed absolute tolerance is expressed in its independently documented source unit and converted with the target; unrelated records retain the published numeric-unit policy.",
+    "primary_view": "source_reviewed",
+    "source_reviewed_is_post_hoc": true,
+    "review_scope": "Flagged benchmark mismatches; other accepted claims have not all been independently source-audited.",
+    "sha256": {
+      "dataset": "b731b6af537ff0bf0d5730390f720afb5b8255d53efb963abf06ee60c20bfb64",
+      "gold": "f6e2054256b55f407c63c219e86799db94e73697d79ee901c905f4af26a3327d",
+      "policy": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81",
+      "unit_conversions": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
+      "source_adjudications": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
+      "quantity_normalization": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7",
+      "tatdqa_scoring_core": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d",
+      "results": "539eb92d704e94baaae51f445bfa1aaa61f7afc30c3e8578418c6be0a7bea56d",
+      "published_scorer": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687",
+      "tatdqa_scorer": "3f62dd4294e70d37dcd021836fb7916c7ee079e239e8c0065c035ca01aab2228"
+    },
+    "published_scorer": "scripts/paper_scoring.py",
+    "normalizer": "verifiqa.eval.tatdqa_scoring"
+  }
+}

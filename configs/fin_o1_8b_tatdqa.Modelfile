@@ -1,0 +1,4 @@
+# Fin-o1-8B (Qwen3-based), public Q4_K_M conversion, 32K TADQA context.
+# setup_fin_o1_8b.py verifies the GGUF checksum before using this alias.
+FROM hf.co/mradermacher/Fin-o1-8B-GGUF:Q4_K_M
+PARAMETER num_ctx 32768

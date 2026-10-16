@@ -1,0 +1,19 @@
+Source: CFA Institute, Financial Institutions analysis
+Authority: CFA Institute Program Curriculum, Level 1 & 2, Financial Institutions
+Metric: Loan-to-Deposit Ratio (LDR)
+
+PRIMARY FORMULA:
+LDR = Total Loans / Total Deposits
+
+VARIABLE DEFINITIONS:
+- Total Loans: Total outstanding loan balances extended by the bank to borrowers
+- Total Deposits: Total customer deposits held by the bank (demand deposits, savings, time deposits)
+- Result: Expressed as a ratio or percentage; higher values indicate greater use of deposits for lending
+
+VERBATIM FORMULA STATEMENTS:
+"Loan-to-Deposit Ratio = Total Loans / Total Deposits"
+"measures a bank's liquidity by comparing total loans to total deposits. A higher ratio indicates the bank is lending out more of its deposits."
+
+KEY NOTES:
+Regulators monitor LDR as a liquidity risk indicator.
+Too high (above ~100%) signals potential liquidity stress; too low signals under-deployment of capital.

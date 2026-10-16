@@ -1,0 +1,22 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/days-payable-outstanding/
+Authority: CFA Institute, Financial Reporting and Analysis
+Metric: Days Payable Outstanding (DPO)
+
+PRIMARY FORMULA:
+DPO = (Average Accounts Payable / Cost of Goods Sold) × Number of Days
+
+ALTERNATIVE FORMULA:
+DPO = Average Accounts Payable / (Cost of Sales / Number of Days)
+
+COMPONENT FORMULA:
+Cost of Sales = Beginning Inventory + Purchases - Ending Inventory
+
+VARIABLE DEFINITIONS:
+- Average Accounts Payable: Average of beginning and ending accounts payable balances
+- Cost of Goods Sold (COGS): Direct cost of goods sold during the period
+- Number of Days: 365 for annual, 90 for quarterly
+
+VERBATIM FORMULA STATEMENTS:
+"Days Payable Outstanding = (Average Accounts Payable / Cost of Goods Sold) x Number of Days"
+"the average number of days it takes a company to pay back its accounts payable"

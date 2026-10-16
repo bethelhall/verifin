@@ -1,0 +1,528 @@
+{
+  "review_date": "2026-10-16",
+  "review_group": "qwen3_30b_false_accept_review_2026_10_16",
+  "scope": "Four previously source-reviewed false accepts in the completed 403-question Qwen3 30B run; this is not an independent audit of all accepted claims.",
+  "method": "Inspect original PDF text and rendered source tables, corroborate units where available with full report and XBRL, independently calculate source differences, update shared evaluator-only metadata, and regrade every completed selected model. Raw predictions, statuses and original benchmark gold remain unchanged.",
+  "findings": [
+    {
+      "id": "tatdqa_29fbc5bd0bb36d93e810ecb557ca38b8",
+      "classification": "missing_source_unit",
+      "question": "What is the average total fair value of long-lived assets held for sale for 2018 and 2019?",
+      "saved_answer": "1300 USD thousands",
+      "saved_claimed_value": 1.3,
+      "saved_claimed_value_unit": "USD millions",
+      "independent_source_calculation": "1300",
+      "before_source_reviewed_outcome": "FA",
+      "after_source_reviewed_outcome": "TA",
+      "reviewed_targets_in_saved_claim_units": [
+        1.3
+      ],
+      "reason": "Both non-recurring Total Fair Value entries are 1300 in the notes' USD-thousands presentation. The independent USD-unit XBRL facts are each 1300000. The unscaled benchmark answer therefore denotes 1300 USD thousands, not 1300 of whichever unit a candidate uses. Convert the target and existing one-source-unit absolute floor into each saved candidate unit; preserve the candidate and shared relative tolerance. The separate total carrying amount of assets held for sale is not the requested fair-value measurement.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/8669cb17eb8f2ee871126d8ce760482b.pdf",
+          "locator": "Excerpt page 2 (printed page 47), Non-Recurring Fair Value Measurements; long-lived assets held for sale, Total Fair Value, June 30, 2019 and 2018",
+          "observations": {
+            "2019_USD_thousands": 1300,
+            "2018_USD_thousands": 1300
+          },
+          "sha256": "90dc7a23db40bc236e1c2e3cdbe8ba1fe6a35109f9a6106cc6fceaa5590cedf7"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0000779152-19-000048/JHA_2019_AnnualReport.pdf",
+          "locator": "PDF page 40 (printed 38), Notes to Consolidated Financial Statements header: In Thousands, Except Per Share Amounts; PDF page 49 (printed 47), fair-value table",
+          "observations": {
+            "notes_unit": "USD thousands"
+          },
+          "sha256": "43b74f74e5044ce664eb0593d41f85f9f9104a3622ca5b2b21b5078086c08b91"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0000779152-19-000048/jkhy-20190630.xml",
+          "locator": "us-gaap:AssetsHeldForSaleLongLivedFairValueDisclosure, total non-recurring contexts for 2018-06-30 and 2019-06-30; lines 3167 and 3171; unitRef usd = iso4217:USD",
+          "observations": {
+            "2019_USD": 1300000,
+            "2018_USD": 1300000
+          },
+          "sha256": "793abd09e04df5b7b6b845aaeda4023530301a41efee60ab6641b89e49e78db9"
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_75b650843c8490b8e97800106458054e",
+      "classification": "missing_source_unit",
+      "question": "In the first quarter of 2018, what was the difference between the high and low price per share?",
+      "saved_answer": "45.24 - 37.43 = 7.81 USD",
+      "saved_claimed_value": 7.81e-06,
+      "saved_claimed_value_unit": "USD millions",
+      "independent_source_calculation": "7.81",
+      "before_source_reviewed_outcome": "FA",
+      "after_source_reviewed_outcome": "TA",
+      "reviewed_targets_in_saved_claim_units": [
+        7.81e-06
+      ],
+      "reason": "The source explicitly reports common-stock prices per share in USD. Fiscal 2018 first-quarter high 45.24 less low 37.43 is 7.81 USD per share. Legacy claims normalized into USD millions can omit the per-share denominator. Repair only that missing denominator and convert target and existing one-dollar-per-share absolute floor consistently; do not change saved amounts, scales, currencies or the shared relative policy.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/9082b05b2e0e2600d7f405f82795f041.pdf",
+          "locator": "Excerpt page 1 (printed page 26), Item 5, Price Range of Common Stock; First Quarter, Fiscal 2018 High and Low columns",
+          "observations": {
+            "2018_Q1_high_USD_per_share": 45.24,
+            "2018_Q1_low_USD_per_share": 37.43
+          },
+          "sha256": "9e99dd2617e00cf999f378e5f9caf9e65a51b65f7e9f8f64be60c632faa8dc8a"
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_e54325bdf2794366d8cb0a710033de38",
+      "classification": "gold_row_error",
+      "question": "What was the change in Net income per weighted-average share attributable to VMware, Inc. common stockholders, diluted for Classes A and B between Q2 and Q3 2020?",
+      "saved_answer": "0.96 - 12.47 = -11.51 USD per share",
+      "saved_claimed_value": -1.151e-05,
+      "saved_claimed_value_unit": "USD millions",
+      "independent_source_calculation": "-11.51",
+      "before_source_reviewed_outcome": "FA",
+      "after_source_reviewed_outcome": "TA",
+      "reviewed_targets_in_saved_claim_units": [
+        -1.151e-05
+      ],
+      "reason": "The question explicitly requests diluted EPS. Its Q2 and Q3 FY2020 values are 12.47 and 0.96 USD per share, giving -11.51. The benchmark -11.74 instead equals 0.98 - 12.72 from the basic EPS row immediately above. The caption excludes per-share amounts from the table's millions scale. Repair the missing per-share denominator in legacy currency labels without changing the saved numeric amount. Two independently cents-rounded operands give an absolute source-precision floor of 0.01 USD per share; the existing max(absolute floor, 1% of target) policy is unchanged. The incorrect basic-row result is outside that tolerance.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/24e23b5428ac97c8ae3cca76f5382437.pdf",
+          "locator": "Excerpt page 1 (printed page 112), Note S, Selected Quarterly Financial Data, Fiscal 2020, Q2 and Q3; diluted for Classes A and B row and basic row directly above; caption except per share amounts",
+          "observations": {
+            "Q2_diluted_USD_per_share": 12.47,
+            "Q3_diluted_USD_per_share": 0.96,
+            "Q2_basic_USD_per_share": 12.72,
+            "Q3_basic_USD_per_share": 0.98
+          },
+          "sha256": "f2251c0d21d5238347e0c49b1134b62361e6a4f0cd1544cbb2ab155a334ccd8b"
+        }
+      ]
+    },
+    {
+      "id": "tatdqa_bdf2411e367d4b93fb0247c42751491f",
+      "classification": "benchmark_ambiguity",
+      "question": "What is the change in the % of revenue?",
+      "saved_answer": "2 percentage points",
+      "saved_claimed_value": 2.0,
+      "saved_claimed_value_unit": "percent",
+      "independent_source_calculation": [
+        2,
+        7,
+        -1
+      ],
+      "before_source_reviewed_outcome": "FA",
+      "after_source_reviewed_outcome": "TA",
+      "reviewed_targets_in_saved_claim_units": [
+        2.0,
+        7.0,
+        -1.0
+      ],
+      "reason": "The page contains three identically named % of revenue rows, and the standalone question does not name a department. Sales and marketing changes from 45% to 47% (+2 percentage points), research and development from 21% to 28% (+7 points), and general and administrative from 22% to 21% (-1 point). The inference input supplies the whole page without question history or a selected-table annotation. Gold 7 implicitly selects R&D, while its thousand scale is invalid for this percentage difference. Each department supplies a separate source-supported target; this is an ambiguity adjudication, not proof that the dataset intended sales and marketing. Explicit percentage-point units and the legacy percent representation of a difference in revenue shares are both recorded. These are absolute changes in shares, not relative percentage growth rates. A one-point absolute floor follows the whole-percent displayed operands; retain the shared relative and sign policies and do not override candidate correctness unconditionally.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/f5850c2764209f26fccf7923dd714ea4.pdf",
+          "locator": "Excerpt page 1 (printed page 59), Operating Expenses; Sales and Marketing, Research and Development, and General and Administrative tables; % of revenue rows, 2018 and 2017",
+          "observations": {
+            "sales_and_marketing_2018_percent": 47,
+            "sales_and_marketing_2017_percent": 45,
+            "research_and_development_2018_percent": 28,
+            "research_and_development_2017_percent": 21,
+            "general_and_administrative_2018_percent": 21,
+            "general_and_administrative_2017_percent": 22
+          },
+          "sha256": "445402ea5438ddd0e0aa2a418852b8660cba0e8f14d9635433d089d46b191350"
+        }
+      ]
+    }
+  ],
+  "models": {
+    "Claude Haiku 4.5": {
+      "run": "results/second_submission/tatdqa_haiku_4_5_fixed",
+      "raw_results_sha256_before_and_after": "3ba6d520bdfc0dc8b0c70a3fa75ee7d18ef914c6eb867abcb4b6773250e056c3",
+      "before": {
+        "literal_benchmark": {
+          "n": 403,
+          "TA": 140,
+          "FA": 104,
+          "TR": 41,
+          "FR": 38,
+          "AB": 80,
+          "precision": 0.5737704918032787,
+          "decision_accuracy": 0.5603715170278638,
+          "coverage": 0.8014888337468983,
+          "rejection_precision": 0.5189873417721519,
+          "abstention_rate": 0.19851116625310175
+        },
+        "benchmark": {
+          "n": 403,
+          "TA": 236,
+          "FA": 8,
+          "TR": 28,
+          "FR": 51,
+          "AB": 80,
+          "precision": 0.9672131147540983,
+          "decision_accuracy": 0.8173374613003096,
+          "coverage": 0.8014888337468983,
+          "rejection_precision": 0.35443037974683544,
+          "abstention_rate": 0.19851116625310175
+        },
+        "source_reviewed": {
+          "n": 403,
+          "TA": 244,
+          "FA": 0,
+          "TR": 24,
+          "FR": 55,
+          "AB": 80,
+          "precision": 1.0,
+          "decision_accuracy": 0.8297213622291022,
+          "coverage": 0.8014888337468983,
+          "rejection_precision": 0.3037974683544304,
+          "abstention_rate": 0.19851116625310175
+        }
+      },
+      "after": {
+        "literal_benchmark": {
+          "n": 403,
+          "TA": 140,
+          "FA": 104,
+          "TR": 41,
+          "FR": 38,
+          "AB": 80,
+          "precision": 0.5737704918032787,
+          "decision_accuracy": 0.5603715170278638,
+          "coverage": 0.8014888337468983,
+          "rejection_precision": 0.5189873417721519,
+          "abstention_rate": 0.19851116625310175
+        },
+        "benchmark": {
+          "n": 403,
+          "TA": 236,
+          "FA": 8,
+          "TR": 28,
+          "FR": 51,
+          "AB": 80,
+          "precision": 0.9672131147540983,
+          "decision_accuracy": 0.8173374613003096,
+          "coverage": 0.8014888337468983,
+          "rejection_precision": 0.35443037974683544,
+          "abstention_rate": 0.19851116625310175
+        },
+        "source_reviewed": {
+          "n": 403,
+          "TA": 244,
+          "FA": 0,
+          "TR": 24,
+          "FR": 55,
+          "AB": 80,
+          "precision": 1.0,
+          "decision_accuracy": 0.8297213622291022,
+          "coverage": 0.8014888337468983,
+          "rejection_precision": 0.3037974683544304,
+          "abstention_rate": 0.19851116625310175
+        }
+      },
+      "changed_source_reviewed_rows": []
+    },
+    "GPT-6.1 Sol": {
+      "run": "results/second_submission/tatdqa_gpt6.1_sol_codex_fixed",
+      "raw_results_sha256_before_and_after": "d2ae91891bde011e4670e21563abb3012a79eaaaf68ecbe1c22066668895b416",
+      "before": {
+        "literal_benchmark": {
+          "n": 403,
+          "TA": 170,
+          "FA": 108,
+          "TR": 18,
+          "FR": 26,
+          "AB": 81,
+          "precision": 0.6115107913669064,
+          "decision_accuracy": 0.5838509316770186,
+          "coverage": 0.7990074441687345,
+          "rejection_precision": 0.4090909090909091,
+          "abstention_rate": 0.20099255583126552
+        },
+        "benchmark": {
+          "n": 403,
+          "TA": 268,
+          "FA": 10,
+          "TR": 16,
+          "FR": 28,
+          "AB": 81,
+          "precision": 0.9640287769784173,
+          "decision_accuracy": 0.8819875776397516,
+          "coverage": 0.7990074441687345,
+          "rejection_precision": 0.36363636363636365,
+          "abstention_rate": 0.20099255583126552
+        },
+        "source_reviewed": {
+          "n": 403,
+          "TA": 278,
+          "FA": 0,
+          "TR": 15,
+          "FR": 29,
+          "AB": 81,
+          "precision": 1.0,
+          "decision_accuracy": 0.9099378881987578,
+          "coverage": 0.7990074441687345,
+          "rejection_precision": 0.3409090909090909,
+          "abstention_rate": 0.20099255583126552
+        }
+      },
+      "after": {
+        "literal_benchmark": {
+          "n": 403,
+          "TA": 170,
+          "FA": 108,
+          "TR": 18,
+          "FR": 26,
+          "AB": 81,
+          "precision": 0.6115107913669064,
+          "decision_accuracy": 0.5838509316770186,
+          "coverage": 0.7990074441687345,
+          "rejection_precision": 0.4090909090909091,
+          "abstention_rate": 0.20099255583126552
+        },
+        "benchmark": {
+          "n": 403,
+          "TA": 268,
+          "FA": 10,
+          "TR": 16,
+          "FR": 28,
+          "AB": 81,
+          "precision": 0.9640287769784173,
+          "decision_accuracy": 0.8819875776397516,
+          "coverage": 0.7990074441687345,
+          "rejection_precision": 0.36363636363636365,
+          "abstention_rate": 0.20099255583126552
+        },
+        "source_reviewed": {
+          "n": 403,
+          "TA": 278,
+          "FA": 0,
+          "TR": 15,
+          "FR": 29,
+          "AB": 81,
+          "precision": 1.0,
+          "decision_accuracy": 0.9099378881987578,
+          "coverage": 0.7990074441687345,
+          "rejection_precision": 0.3409090909090909,
+          "abstention_rate": 0.20099255583126552
+        }
+      },
+      "changed_source_reviewed_rows": []
+    },
+    "Qwen3 30B": {
+      "run": "results/new_submission/tatdqa_qwen3_30b",
+      "raw_results_sha256_before_and_after": "81ca5d47f1a94b5ccdfae2745a285e9dba6ec8100d500052d6f1e78bc2215edd",
+      "before": {
+        "literal_benchmark": {
+          "n": 403,
+          "TA": 108,
+          "FA": 88,
+          "TR": 69,
+          "FR": 56,
+          "AB": 82,
+          "precision": 0.5510204081632653,
+          "decision_accuracy": 0.5514018691588785,
+          "coverage": 0.7965260545905707,
+          "rejection_precision": 0.552,
+          "abstention_rate": 0.20347394540942929
+        },
+        "benchmark": {
+          "n": 403,
+          "TA": 187,
+          "FA": 9,
+          "TR": 53,
+          "FR": 72,
+          "AB": 82,
+          "precision": 0.9540816326530612,
+          "decision_accuracy": 0.7476635514018691,
+          "coverage": 0.7965260545905707,
+          "rejection_precision": 0.424,
+          "abstention_rate": 0.20347394540942929
+        },
+        "source_reviewed": {
+          "n": 403,
+          "TA": 192,
+          "FA": 4,
+          "TR": 52,
+          "FR": 73,
+          "AB": 82,
+          "precision": 0.9795918367346939,
+          "decision_accuracy": 0.7601246105919003,
+          "coverage": 0.7965260545905707,
+          "rejection_precision": 0.416,
+          "abstention_rate": 0.20347394540942929
+        }
+      },
+      "after": {
+        "literal_benchmark": {
+          "n": 403,
+          "TA": 108,
+          "FA": 88,
+          "TR": 69,
+          "FR": 56,
+          "AB": 82,
+          "precision": 0.5510204081632653,
+          "decision_accuracy": 0.5514018691588785,
+          "coverage": 0.7965260545905707,
+          "rejection_precision": 0.552,
+          "abstention_rate": 0.20347394540942929
+        },
+        "benchmark": {
+          "n": 403,
+          "TA": 189,
+          "FA": 7,
+          "TR": 53,
+          "FR": 72,
+          "AB": 82,
+          "precision": 0.9642857142857143,
+          "decision_accuracy": 0.7538940809968847,
+          "coverage": 0.7965260545905707,
+          "rejection_precision": 0.424,
+          "abstention_rate": 0.20347394540942929
+        },
+        "source_reviewed": {
+          "n": 403,
+          "TA": 196,
+          "FA": 0,
+          "TR": 52,
+          "FR": 73,
+          "AB": 82,
+          "precision": 1.0,
+          "decision_accuracy": 0.7725856697819314,
+          "coverage": 0.7965260545905707,
+          "rejection_precision": 0.416,
+          "abstention_rate": 0.20347394540942929
+        }
+      },
+      "changed_source_reviewed_rows": [
+        {
+          "id": "tatdqa_29fbc5bd0bb36d93e810ecb557ca38b8",
+          "before": "FA",
+          "after": "TA"
+        },
+        {
+          "id": "tatdqa_75b650843c8490b8e97800106458054e",
+          "before": "FA",
+          "after": "TA"
+        },
+        {
+          "id": "tatdqa_bdf2411e367d4b93fb0247c42751491f",
+          "before": "FA",
+          "after": "TA"
+        },
+        {
+          "id": "tatdqa_e54325bdf2794366d8cb0a710033de38",
+          "before": "FA",
+          "after": "TA"
+        }
+      ]
+    },
+    "Llama 3.1 8B": {
+      "run": "results/new_submission/tatdqa_llama3.1_8b",
+      "raw_results_sha256_before_and_after": "3a33e0144a8b566a8fff5222ec8f0191d301e410610cb0a3e186808212fa9a42",
+      "before": {
+        "literal_benchmark": {
+          "n": 403,
+          "TA": 24,
+          "FA": 24,
+          "TR": 195,
+          "FR": 31,
+          "AB": 129,
+          "precision": 0.5,
+          "decision_accuracy": 0.7992700729927007,
+          "coverage": 0.6799007444168734,
+          "rejection_precision": 0.8628318584070797,
+          "abstention_rate": 0.3200992555831266
+        },
+        "benchmark": {
+          "n": 403,
+          "TA": 48,
+          "FA": 0,
+          "TR": 173,
+          "FR": 53,
+          "AB": 129,
+          "precision": 1.0,
+          "decision_accuracy": 0.8065693430656934,
+          "coverage": 0.6799007444168734,
+          "rejection_precision": 0.7654867256637168,
+          "abstention_rate": 0.3200992555831266
+        },
+        "source_reviewed": {
+          "n": 403,
+          "TA": 48,
+          "FA": 0,
+          "TR": 173,
+          "FR": 53,
+          "AB": 129,
+          "precision": 1.0,
+          "decision_accuracy": 0.8065693430656934,
+          "coverage": 0.6799007444168734,
+          "rejection_precision": 0.7654867256637168,
+          "abstention_rate": 0.3200992555831266
+        }
+      },
+      "after": {
+        "literal_benchmark": {
+          "n": 403,
+          "TA": 24,
+          "FA": 24,
+          "TR": 195,
+          "FR": 31,
+          "AB": 129,
+          "precision": 0.5,
+          "decision_accuracy": 0.7992700729927007,
+          "coverage": 0.6799007444168734,
+          "rejection_precision": 0.8628318584070797,
+          "abstention_rate": 0.3200992555831266
+        },
+        "benchmark": {
+          "n": 403,
+          "TA": 48,
+          "FA": 0,
+          "TR": 173,
+          "FR": 53,
+          "AB": 129,
+          "precision": 1.0,
+          "decision_accuracy": 0.8065693430656934,
+          "coverage": 0.6799007444168734,
+          "rejection_precision": 0.7654867256637168,
+          "abstention_rate": 0.3200992555831266
+        },
+        "source_reviewed": {
+          "n": 403,
+          "TA": 48,
+          "FA": 0,
+          "TR": 173,
+          "FR": 53,
+          "AB": 129,
+          "precision": 1.0,
+          "decision_accuracy": 0.8065693430656934,
+          "coverage": 0.6799007444168734,
+          "rejection_precision": 0.7654867256637168,
+          "abstention_rate": 0.3200992555831266
+        }
+      },
+      "changed_source_reviewed_rows": []
+    }
+  },
+  "inputs_before": {
+    "notebooks/tatdqa_scoring_normalizations.json": "2668bf50c6acf1204c004ee3c7c31c1a10d8e2639f918357a5537b9d93cece25",
+    "notebooks/tatdqa_scoring_adjudications.json": "f939c15104c3835f61ccf9672a68d429080e7e43f4b936682c409139788cdc9b",
+    "data/tatdqa_403_question_handoff_v1/evaluator_only/tatdqa_arithmetic_pilot_gold.jsonl": "f6e2054256b55f407c63c219e86799db94e73697d79ee901c905f4af26a3327d"
+  },
+  "inputs_after": {
+    "notebooks/tatdqa_scoring_normalizations.json": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54",
+    "notebooks/tatdqa_scoring_adjudications.json": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1",
+    "data/tatdqa_403_question_handoff_v1/evaluator_only/tatdqa_arithmetic_pilot_gold.jsonl": "f6e2054256b55f407c63c219e86799db94e73697d79ee901c905f4af26a3327d"
+  },
+  "limitations": [
+    "Everbridge is a scope ambiguity: the prompt does not identify which department. Its source-reviewed credit does not establish the original annotator intended sales and marketing.",
+    "Existing scorer compares magnitudes and retains max(source-specific absolute floor, 1% relative tolerance). This review does not validate or revise that policy.",
+    "Legacy percent labels for rate differences cannot independently distinguish a relative growth claim from a percentage-point claim; the recorded source targets describe absolute differences in revenue shares.",
+    "VMware bundled XBRL is for an older fiscal year and is not evidence for the FY2020 PDF table."
+  ]
+}

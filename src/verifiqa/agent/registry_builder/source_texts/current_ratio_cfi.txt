@@ -1,0 +1,17 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/current-ratio/
+Metric: Current Ratio
+
+PRIMARY FORMULA:
+Current Ratio = Current Assets / Current Liabilities
+
+VARIABLE DEFINITIONS:
+- Current Assets: The sum of all current assets (short-term assets convertible to cash within one year)
+- Current Liabilities: The sum of all current liabilities (short-term obligations due within one year)
+
+VERBATIM FORMULA STATEMENTS:
+"Current Ratio = Current Assets / Current Liabilities"
+"The current ratio is a key liquidity ratio that measures the ability of the company to cover its short-term liabilities."
+
+KEY NOTES:
+Used to assess operations and financial solidity relative to outstanding debt, valuable for creditors, investors, and suppliers.

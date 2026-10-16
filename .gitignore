@@ -1,0 +1,17 @@
+# Local configuration and caches
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+# Fresh generation is deliberately separate from frozen paper results.
+/results/reruns/
+/models/
+*.gguf
+*.safetensors

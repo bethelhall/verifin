@@ -1,0 +1,20 @@
+Source: CFA Institute, Financial Reporting and Analysis curriculum
+Authority: CFA Institute Program Curriculum, Level 1, Activity Ratios
+Metric: Working Capital Turnover Ratio
+
+PRIMARY FORMULA:
+Working Capital Turnover = Net Revenue / Average Working Capital
+
+COMPONENT FORMULA:
+Working Capital = Current Assets - Current Liabilities
+Average Working Capital = (Beginning Working Capital + Ending Working Capital) / 2
+
+VARIABLE DEFINITIONS:
+- Net Revenue: Net sales for the period
+- Working Capital: Current assets minus current liabilities
+- Average Working Capital: Average of beginning and ending working capital balances
+
+VERBATIM FORMULA STATEMENTS:
+"Working Capital Turnover = Net Revenue / Working Capital"
+"measures how efficiently a company uses its working capital to generate revenue."
+"A higher ratio indicates more efficient use of working capital."

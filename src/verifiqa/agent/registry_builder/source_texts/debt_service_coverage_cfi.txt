@@ -1,0 +1,17 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/debt-service-coverage-ratio/
+Authority: CFA Institute, Fixed Income curriculum
+Metric: Debt Service Coverage Ratio (DSCR)
+
+PRIMARY FORMULA:
+DSCR = EBITDA / (Principal + Interest + Cash Taxes)
+
+VARIABLE DEFINITIONS:
+- EBITDA: Earnings Before Interest, Tax, Depreciation, and Amortization
+- Principal: The total amount of loan principal due within the measurement period (current portion of long-term debt)
+- Interest: Total aggregate interest due within the measurement period on both current and non-current portions of long-term debt
+- Cash Taxes: The proportion of total income tax due in cash during the current measurement period
+
+VERBATIM FORMULA STATEMENTS:
+"DSCR = EBITDA / (Principal + Interest + Cash Taxes)"
+"Debt Service Coverage is usually calculated using EBITDA as a proxy for cash flow."

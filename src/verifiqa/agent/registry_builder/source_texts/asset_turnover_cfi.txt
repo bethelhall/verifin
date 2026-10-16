@@ -1,0 +1,19 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/asset-turnover-ratio/
+Metric: Asset Turnover Ratio
+
+PRIMARY FORMULA:
+Asset Turnover Ratio = Net Sales / Average Total Assets
+
+VARIABLE DEFINITIONS:
+- Net Sales: "the amount of revenue generated after deducting sales returns, sales discounts, and sales allowances."
+- Average Total Assets: "the average of total assets at year-end of the current and preceding fiscal year." Calculated as (Beginning Total Assets + Ending Total Assets) / 2.
+
+ALTERNATIVE APPROACH:
+Some analysts use end-of-period assets instead of average assets.
+An operating asset turnover ratio variation uses only operating assets (assets essential to daily business operations), excluding non-operating items.
+
+VERBATIM FORMULA STATEMENTS:
+"Asset turnover ratio formula is equal to net sales divided by the total or average assets of a company."
+"Asset Turnover Ratio = Net Sales / Average Total Assets"
+"A company with a high asset turnover ratio operates more efficiently as compared to competitors with a lower ratio."

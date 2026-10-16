@@ -1,0 +1,3 @@
+# Use Qwen 2.5 7B Instruct with a 32K context for the structured-output pipeline.
+FROM qwen2.5:7b
+PARAMETER num_ctx 32768

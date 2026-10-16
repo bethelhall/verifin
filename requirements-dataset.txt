@@ -1,0 +1,4 @@
+# Versions used to validate the XBRLFiling Hugging Face release on Python 3.12.
+huggingface_hub==1.17.0
+datasets==4.8.5
+pyarrow==24.0.0

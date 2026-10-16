@@ -1,0 +1,23 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/interest-coverage-ratio/
+Metric: Interest Coverage Ratio / Times Interest Earned
+
+PRIMARY FORMULA:
+Interest Coverage Ratio = EBIT / Interest Expense
+
+ALTERNATIVE FORMULA:
+Interest Coverage Ratio = EBITDA / Interest Expense
+
+VARIABLE DEFINITIONS:
+- EBIT: Earnings Before Interest and Taxes — the company's operating profit
+- EBITDA: Earnings Before Interest, Taxes, Depreciation and Amortization
+- Interest Expense: The interest payable on any borrowings such as bonds, loans, lines of credit, etc.
+
+COMPONENT FORMULA:
+EBIT = Revenue - COGS - Operating Expenses
+
+VERBATIM FORMULA STATEMENTS:
+"Interest Coverage Ratio = EBIT / Interest Expense"
+"Interest Coverage Ratio = EBITDA / Interest Expense"
+"the company's operating profit (Earnings Before Interest and Taxes)"
+"the interest payable on any borrowings such as bonds, loans, lines of credit, etc."

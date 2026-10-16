@@ -1,0 +1,307 @@
+{
+  "schema_version": "1.0",
+  "policy_id": "verifin-paper-scoring-v1",
+  "status": "publication-template",
+  "datasets": {
+    "xbrlfiling": {
+      "display_name": "XBRLFiling",
+      "source_path": "data/multicompany_provable/data/provable_calcrequired.jsonl",
+      "id_field": "financebench_id",
+      "denominator": 600,
+      "excluded_ids": []
+    },
+    "financebench": {
+      "display_name": "FinanceBench",
+      "source_path": "data/numerical_questions.jsonl",
+      "id_field": "financebench_id",
+      "denominator": 67,
+      "excluded_ids": []
+    }
+  },
+  "candidate_correctness": {
+    "claimed_value_field": "claimed_value",
+    "gold_text_fields_in_priority_order": [
+      "gold_answer",
+      "answer"
+    ],
+    "numeric_token_pattern": "-?\\d[\\d,]*\\.?\\d*",
+    "compare_magnitudes": true,
+    "match_rule": "abs(abs(claimed_value) - abs(gold_value)) <= max(1.0, 0.01 * abs(gold_value))",
+    "match_any_gold_numeric_token": true,
+    "manual_adjudications": "manual_adjudications.json",
+    "manual_adjudication_rule": "For a listed question, compare the candidate only with that question's allowed_targets using the target's tolerance. Never classify an arbitrary candidate as correct solely because its ID is listed.",
+    "manual_adjudication_note": "These FinanceBench cases require explicit unit, composite-answer, or task-normalization handling. The audit file records the candidate-specific targets and caveats."
+  },
+  "outcome_mapping": {
+    "TA": "claimed_value is present, status is VERIFIED, and candidate is correct",
+    "FA": "claimed_value is present, status is VERIFIED, and candidate is incorrect",
+    "TR": "claimed_value is present, status is VIOLATED, and candidate is incorrect",
+    "FR": "claimed_value is present, status is VIOLATED, and candidate is correct",
+    "AB": "claimed_value is null or status is not VERIFIED or VIOLATED"
+  },
+  "metrics": {
+    "precision": "TA / (TA + FA)",
+    "decision_accuracy": "(TA + TR) / (TA + FA + TR + FR)",
+    "coverage": "(TA + FA + TR + FR) / dataset_denominator",
+    "abstention": "AB / dataset_denominator",
+    "false_accept_count": "FA"
+  },
+  "smt_selection": {
+    "relative_path_template": "smt/{id}_{status}.smt2",
+    "one_file_per_result_row": true,
+    "require_exists": true,
+    "require_nonempty": true,
+    "ignore_stale_status_named_files": true
+  },
+  "baseline_protocol": {
+    "name": "one-pool shared-answer evaluation",
+    "answer_generator_run_by_dataset": {
+      "xbrlfiling": "results/mc_calc_detsmt_v2_haiku/results.jsonl",
+      "financebench": "results/fb_detsmt_v2_haiku/results.jsonl"
+    },
+    "shared_field": "raw_answer",
+    "shared_field_matches_all_rows": true,
+    "claimed_value_note": "The baseline runner reparses the shared raw_answer text, so a baseline claimed_value can differ from the answers-from artifact even though the generated answer text is identical.",
+    "evaluator_model": "claude-haiku-4-5-20251001",
+    "result_root": "results/onepool"
+  },
+  "canonical_runs": {
+    "xbrlfiling": {
+      "answer_models": {
+        "gpt-5.5": {
+          "source_path": "results/latest/mc_calc_gpt5.5_codex_det_smt_Nrepair_run1",
+          "rows": 600,
+          "unique_ids": 600,
+          "missing_ids": 0,
+          "duplicate_ids": 0,
+          "source_smt_files": 600,
+          "selected_smt_files": 600,
+          "selected_bundle_bytes": 17327703,
+          "counts": {"TA": 560, "FA": 0, "TR": 3, "FR": 37, "AB": 0}
+        },
+        "claude-haiku-4.5": {
+          "source_path": "results/mc_calc_detsmt_v2_haiku",
+          "rows": 600,
+          "unique_ids": 600,
+          "missing_ids": 0,
+          "duplicate_ids": 0,
+          "source_smt_files": 600,
+          "selected_smt_files": 600,
+          "selected_bundle_bytes": 16741654,
+          "counts": {"TA": 455, "FA": 0, "TR": 92, "FR": 46, "AB": 7}
+        },
+        "fino1-identity-pending": {
+          "source_path": "results/latest/mc-fino-30b-latest",
+          "rows": 600,
+          "unique_ids": 600,
+          "missing_ids": 0,
+          "duplicate_ids": 0,
+          "source_smt_files": 600,
+          "selected_smt_files": 600,
+          "selected_bundle_bytes": 18951718,
+          "counts": {"TA": 436, "FA": 0, "TR": 107, "FR": 49, "AB": 8}
+        },
+        "qwen3-30b": {
+          "source_path": "results/latest/mc-qwen-30b-latest",
+          "rows": 600,
+          "unique_ids": 600,
+          "missing_ids": 0,
+          "duplicate_ids": 0,
+          "source_smt_files": 600,
+          "selected_smt_files": 600,
+          "selected_bundle_bytes": 21473677,
+          "counts": {"TA": 304, "FA": 0, "TR": 231, "FR": 63, "AB": 2}
+        },
+        "llama-3.1-8b": {
+          "source_path": "results/mc_calc_detsmt_v2_llama3.1-8b",
+          "rows": 600,
+          "unique_ids": 600,
+          "missing_ids": 0,
+          "duplicate_ids": 0,
+          "source_smt_files": 600,
+          "selected_smt_files": 600,
+          "selected_bundle_bytes": 17013696,
+          "counts": {"TA": 74, "FA": 0, "TR": 460, "FR": 50, "AB": 16}
+        },
+        "qwen2.5-7b": {
+          "source_path": "results/mc_calc_detsmt_v2_qwen2.5-7b",
+          "rows": 600,
+          "unique_ids": 600,
+          "missing_ids": 0,
+          "duplicate_ids": 0,
+          "source_smt_files": 600,
+          "selected_smt_files": 600,
+          "selected_bundle_bytes": 17398481,
+          "counts": {"TA": 35, "FA": 0, "TR": 482, "FR": 73, "AB": 10}
+        }
+      },
+      "baselines": {
+        "direct-llm": {
+          "source_path": "results/onepool/xbrl_none",
+          "rows": 600,
+          "unique_ids": 600,
+          "smt_files": 0,
+          "source_bytes": 193790,
+          "counts": {"TA": 508, "FA": 92, "TR": 0, "FR": 0, "AB": 0}
+        },
+        "llm-judge": {
+          "source_path": "results/onepool/xbrl_judge",
+          "rows": 600,
+          "unique_ids": 600,
+          "smt_files": 0,
+          "source_bytes": 207688,
+          "counts": {"TA": 195, "FA": 26, "TR": 66, "FR": 313, "AB": 0}
+        },
+        "judge-plus-formula": {
+          "source_path": "results/onepool/xbrl_judge_formula",
+          "rows": 600,
+          "unique_ids": 600,
+          "smt_files": 0,
+          "source_bytes": 207023,
+          "counts": {"TA": 480, "FA": 75, "TR": 17, "FR": 28, "AB": 0}
+        },
+        "program-of-thought": {
+          "source_path": "results/onepool/xbrl_pot",
+          "rows": 600,
+          "unique_ids": 600,
+          "smt_files": 0,
+          "source_bytes": 336879,
+          "counts": {"TA": 444, "FA": 6, "TR": 79, "FR": 49, "AB": 22}
+        }
+      }
+    },
+    "financebench": {
+      "answer_models": {
+        "gpt-5.5": {
+          "status": "missing",
+          "source_path": null,
+          "reason": "No FinanceBench GPT-5.5 result directory exists in the audited repository."
+        },
+        "claude-haiku-4.5": {
+          "source_path": "results/fb_detsmt_v2_haiku",
+          "rows": 67,
+          "unique_ids": 67,
+          "missing_ids": 0,
+          "duplicate_ids": 0,
+          "source_smt_files": 121,
+          "selected_smt_files": 67,
+          "stale_smt_files_ignored": 54,
+          "selected_bundle_bytes": 880907,
+          "counts": {"TA": 28, "FA": 0, "TR": 17, "FR": 9, "AB": 13}
+        },
+        "fino1-identity-pending": {
+          "source_path": "results/latest/finbench-fino-30b-latest",
+          "rows": 67,
+          "unique_ids": 67,
+          "missing_ids": 0,
+          "duplicate_ids": 0,
+          "source_smt_files": 67,
+          "selected_smt_files": 67,
+          "selected_bundle_bytes": 1010265,
+          "counts": {"TA": 32, "FA": 0, "TR": 14, "FR": 9, "AB": 12}
+        },
+        "qwen3-30b": {
+          "source_path": "results/latest/fb_qwen3-30b_updated2_det_smt_run3_new",
+          "rows": 67,
+          "unique_ids": 67,
+          "missing_ids": 0,
+          "duplicate_ids": 0,
+          "source_smt_files": 67,
+          "selected_smt_files": 67,
+          "selected_bundle_bytes": 853152,
+          "counts": {"TA": 24, "FA": 0, "TR": 20, "FR": 8, "AB": 15}
+        },
+        "llama-3.1-8b": {
+          "source_path": "results/fb_detsmt_v2_llama3.1-8b",
+          "rows": 67,
+          "unique_ids": 67,
+          "missing_ids": 0,
+          "duplicate_ids": 0,
+          "source_smt_files": 67,
+          "selected_smt_files": 67,
+          "selected_bundle_bytes": 802523,
+          "counts": {"TA": 10, "FA": 0, "TR": 17, "FR": 12, "AB": 28}
+        },
+        "qwen2.5-7b": {
+          "source_path": "results/fb_detsmt_qwen2.5-7b",
+          "rows": 67,
+          "unique_ids": 67,
+          "missing_ids": 0,
+          "duplicate_ids": 0,
+          "source_smt_files": 67,
+          "selected_smt_files": 67,
+          "selected_bundle_bytes": 795155,
+          "counts": {"TA": 10, "FA": 0, "TR": 16, "FR": 7, "AB": 34}
+        }
+      },
+      "baselines": {
+        "direct-llm": {
+          "source_path": "results/onepool/fb_none",
+          "rows": 67,
+          "unique_ids": 67,
+          "smt_files": 0,
+          "source_bytes": 32497,
+          "counts": {"TA": 46, "FA": 18, "TR": 0, "FR": 0, "AB": 3}
+        },
+        "llm-judge": {
+          "source_path": "results/onepool/fb_judge",
+          "rows": 67,
+          "unique_ids": 67,
+          "smt_files": 0,
+          "source_bytes": 34048,
+          "counts": {"TA": 22, "FA": 7, "TR": 11, "FR": 24, "AB": 3}
+        },
+        "judge-plus-formula": {
+          "source_path": "results/onepool/fb_judge_formula",
+          "rows": 67,
+          "unique_ids": 67,
+          "smt_files": 0,
+          "source_bytes": 34010,
+          "counts": {"TA": 34, "FA": 13, "TR": 5, "FR": 12, "AB": 3}
+        },
+        "program-of-thought": {
+          "source_path": "results/onepool/fb_pot",
+          "rows": 67,
+          "unique_ids": 67,
+          "smt_files": 0,
+          "source_bytes": 46700,
+          "counts": {"TA": 40, "FA": 4, "TR": 14, "FR": 6, "AB": 3}
+        }
+      },
+      "ablations": {
+        "haiku-retrieved-evidence": {
+          "source_path": "results/fb_detsmt_v2_haiku_agent_rag",
+          "rows": 67,
+          "unique_ids": 67,
+          "missing_ids": 0,
+          "duplicate_ids": 0,
+          "source_smt_files": 67,
+          "selected_smt_files": 67,
+          "selected_bundle_bytes": 2870435,
+          "counts": {"TA": 30, "FA": 0, "TR": 8, "FR": 7, "AB": 22}
+        }
+      }
+    }
+  },
+  "noncanonical_conflicts": {
+    "xbrlfiling_qwen3_older_table_run": {
+      "source_path": "results/mc_calc_qwen3-30b_updated_schema_det_smt_schema_fixed_run1",
+      "rows": 600,
+      "unique_ids": 600,
+      "smt_files": 600,
+      "source_bytes": 17326599,
+      "counts": {"TA": 245, "FA": 0, "TR": 286, "FR": 69, "AB": 0},
+      "reason_not_selected": "Final figure code uses the newer results/latest/mc-qwen-30b-latest run."
+    },
+    "financebench_qwen3_older_latest_alias": {
+      "source_path": "results/latest/finbench-qwen-30b-latest",
+      "rows": 67,
+      "unique_ids": 67,
+      "smt_files": 67,
+      "source_bytes": 1026346,
+      "counts": {"TA": 25, "FA": 0, "TR": 18, "FR": 9, "AB": 15},
+      "reason_not_selected": "The model table uses the newer run3_new artifact; the two result files are not identical."
+    }
+  },
+  "summary_file_warning": "Run summary.json files use internal expected-solver-status scoring and must not be treated as paper headline metrics. Regenerate paper_metrics from this policy."
+}

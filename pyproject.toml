@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "verifiqa"
+version = "0.1.0"
+description = "Grounded formal verification for numerical financial question answering"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "z3-solver>=4.12",
+  "sentence-transformers>=2.0",
+  "numpy>=1.21",
+  "PyMuPDF>=1.23",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.0",
+  "pytest>=7",
+]
+paper = [
+  "matplotlib>=3.7",
+  "nbformat>=5.9",
+  "nbclient>=0.8",
+  "nbconvert>=7.0",
+  "ipykernel>=6.0",
+  "pandas>=2.0",
+  "scikit-learn>=1.2",
+  "scipy>=1.10",
+  "statsmodels>=0.14,<0.15",
+]
+providers = [
+  "openai>=1.0",
+]
+
+[project.scripts]
+verifiqa = "verifiqa.cli:main"
+verifiqa-agent = "verifiqa.agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"verifiqa.demo" = ["static/*.html"]
+"verifiqa.policy" = ["data/*.json"]
+"verifiqa.agent.registry_builder" = [
+  "metric_sources.json",
+  "source_texts/*.txt",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

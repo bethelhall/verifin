@@ -1,0 +1,125 @@
+{
+  "schema_version": "2.0",
+  "policy_id": "verifin-paper-scoring-v2",
+  "status": "pending-candidate-and-gold-review",
+  "readiness_note": "This policy intentionally has no asserted counts. Fresh baseline verdicts, reviewed scalar gold quantities, and review of unresolved generated candidates are required before complete comparison metrics can be produced. Current canonical verifier paths remain historical and may fail strict candidate resolution. Do not overwrite original results; point to reviewed derived copies when needed.",
+  "datasets": {
+    "xbrlfiling": {
+      "display_name": "XBRLFiling",
+      "source_path": "data/multicompany_provable/data/provable_calcrequired.jsonl",
+      "id_field": "financebench_id",
+      "denominator": 600,
+      "excluded_ids": []
+    },
+    "financebench": {
+      "display_name": "FinanceBench",
+      "source_path": "data/numerical_questions.jsonl",
+      "id_field": "financebench_id",
+      "denominator": 67,
+      "excluded_ids": []
+    }
+  },
+  "candidate_correctness": {
+    "protocol": "strict_scalar_v2",
+    "claimed_value_field": "claimed_value",
+    "compare_magnitudes": false,
+    "match_any_gold_numeric_token": false,
+    "manual_adjudications": "manual_adjudications_v2.json",
+    "match_rule": "Compare signed quantities after explicit compatible unit conversion. Tolerance is half the requested rounding quantum, or zero if no rounding is requested, with a small floating-point representation guard.",
+    "unresolved_rule": "An unresolved candidate requires abstention or explicit review. A decided row with ambiguous gold or a non-scalar candidate blocks scoring; it is never silently labeled incorrect or excluded.",
+    "gold_unit_rule": "Use explicit gold-unit metadata or explicit requested units. Currency-only gold with omitted requested scale requires review. Never infer scale from candidate magnitude.",
+    "manual_adjudication_rule": "Each approved record requires scoring_protocol=strict_scalar_v2 and allowed_targets with numeric value and explicit unit. Legacy v1 adjudications are not approved under this policy."
+  },
+  "baseline_protocol": {
+    "name": "corrected shared-generated-candidate evaluation",
+    "candidate_protocol": "claim_input_answer_v2",
+    "shared_field": "claim_input_answer",
+    "answer_generator_run_by_dataset": {
+      "xbrlfiling": "results/mc_calc_detsmt_v2_haiku/results.jsonl",
+      "financebench": "results/fb_detsmt_v2_haiku/results.jsonl"
+    },
+    "result_root": "results/onepool_corrected",
+    "quantity_rule": "candidate_value/candidate_unit describe the scalar displayed answer; claimed_value/claimed_value_unit describe the equivalent stored representation. Unresolved narratives require review and are not first-number parsed."
+  },
+  "canonical_runs": {
+    "xbrlfiling": {
+      "answer_models": {
+        "gpt-5.5": {
+          "source_path": "results/latest/mc_calc_gpt5.5_codex_det_smt_Nrepair_run1"
+        },
+        "claude-haiku-4.5": {
+          "source_path": "results/mc_calc_detsmt_v2_haiku"
+        },
+        "fino1-identity-pending": {
+          "source_path": "results/latest/mc-fino-30b-latest"
+        },
+        "qwen3-30b": {
+          "source_path": "results/latest/mc-qwen-30b-latest"
+        },
+        "llama-3.1-8b": {
+          "source_path": "results/mc_calc_detsmt_v2_llama3.1-8b"
+        },
+        "qwen2.5-7b": {
+          "source_path": "results/mc_calc_detsmt_v2_qwen2.5-7b"
+        }
+      },
+      "baselines": {
+        "direct-llm": {
+          "source_path": "results/onepool_corrected/xbrl_none"
+        },
+        "llm-judge": {
+          "source_path": "results/onepool_corrected/xbrl_judge"
+        },
+        "judge-plus-formula": {
+          "source_path": "results/onepool_corrected/xbrl_judge_formula"
+        },
+        "program-of-thought": {
+          "source_path": "results/onepool_corrected/xbrl_pot"
+        }
+      }
+    },
+    "financebench": {
+      "answer_models": {
+        "gpt-5.5": {
+          "status": "missing",
+          "source_path": null,
+          "reason": "No FinanceBench GPT-5.5 result directory exists in the audited repository."
+        },
+        "claude-haiku-4.5": {
+          "source_path": "results/fb_detsmt_v2_haiku"
+        },
+        "fino1-identity-pending": {
+          "source_path": "results/latest/finbench-fino-30b-latest"
+        },
+        "qwen3-30b": {
+          "source_path": "results/latest/fb_qwen3-30b_updated2_det_smt_run3_new"
+        },
+        "llama-3.1-8b": {
+          "source_path": "results/fb_detsmt_v2_llama3.1-8b"
+        },
+        "qwen2.5-7b": {
+          "source_path": "results/fb_detsmt_qwen2.5-7b"
+        }
+      },
+      "baselines": {
+        "direct-llm": {
+          "source_path": "results/onepool_corrected/fb_none"
+        },
+        "llm-judge": {
+          "source_path": "results/onepool_corrected/fb_judge"
+        },
+        "judge-plus-formula": {
+          "source_path": "results/onepool_corrected/fb_judge_formula"
+        },
+        "program-of-thought": {
+          "source_path": "results/onepool_corrected/fb_pot"
+        }
+      },
+      "ablations": {
+        "haiku-retrieved-evidence": {
+          "source_path": "results/fb_detsmt_v2_haiku_agent_rag"
+        }
+      }
+    }
+  }
+}

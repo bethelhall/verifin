@@ -1,0 +1,32 @@
+[
+  {
+    "source_id": "us_gaap_2025",
+    "standard": "US GAAP Financial Reporting Taxonomy",
+    "publisher": "FASB",
+    "version": "2025",
+    "prefixes": ["us-gaap"],
+    "package_url": "https://xbrl.fasb.org/us-gaap/2025/us-gaap-2025.zip",
+    "entry_points": [
+      "https://xbrl.fasb.org/us-gaap/2025/elts/us-gaap-2025.xsd"
+    ],
+    "reference_urls": [
+      "https://xbrl.fasb.org/us-gaap/2025/",
+      "https://www.sec.gov/data-research/structured-data/taxonomies-schemas/standard-taxonomies/operating-companies"
+    ]
+  },
+  {
+    "source_id": "ifrs_2025",
+    "standard": "IFRS Accounting Taxonomy",
+    "publisher": "IFRS Foundation",
+    "version": "2025",
+    "prefixes": ["ifrs-full"],
+    "package_url": "https://www.ifrs.org/content/dam/ifrs/standards/taxonomy/ifrs-taxonomies/IFRSAT-2025.zip",
+    "entry_points": [
+      "https://xbrl.ifrs.org/taxonomy/2025-03-27/full_ifrs/full_ifrs-cor_2025-03-27.xsd"
+    ],
+    "reference_urls": [
+      "https://www.ifrs.org/issued-standards/ifrs-taxonomy/ifrs-accounting-taxonomy-2025/",
+      "https://www.sec.gov/data-research/structured-data/taxonomies-schemas/standard-taxonomies/operating-companies"
+    ]
+  }
+]

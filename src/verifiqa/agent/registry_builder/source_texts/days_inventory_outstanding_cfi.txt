@@ -1,0 +1,19 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/days-inventory-outstanding/
+Authority: CFA Institute, Financial Reporting and Analysis
+Metric: Days Inventory Outstanding (DIO)
+
+PRIMARY FORMULA:
+DIO = (Average Inventory / Cost of Sales) × Number of Days
+
+COMPONENT FORMULA:
+Average Inventory = (Beginning Inventory + Ending Inventory) / 2
+
+VARIABLE DEFINITIONS:
+- Average Inventory: Average of beginning and ending inventory balances
+- Cost of Sales: Also referred to as Cost of Goods Sold (COGS)
+- Number of Days: 365 for annual, 90 for quarterly
+
+VERBATIM FORMULA STATEMENTS:
+"Days Inventory Outstanding = (Average Inventory / Cost of Sales) x Number of Days in Period"
+"the average number of days that a company holds its inventory before selling it"

@@ -1,0 +1,21 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/debt-to-equity-ratio-formula/
+Metric: Debt to Equity Ratio
+
+PRIMARY FORMULA:
+Debt to Equity Ratio = Total Debt / Shareholders' Equity
+
+EXTENDED FORMULA:
+Debt to Equity Ratio = (Short Term Debt + Long Term Debt + Fixed Payment Obligations) / Shareholders' Equity
+
+VARIABLE DEFINITIONS:
+- Total Debt: The aggregate of short-term debt, long-term debt, and fixed payment obligations (including capital leases) incurred during normal business operations.
+- Shareholders' Equity: The total equity invested in the company by its owners.
+
+VERBATIM FORMULA STATEMENTS:
+"Debt to Equity Ratio = Total Debt / Shareholders' Equity"
+"Debt to Equity Ratio = (Short Term Debt + Long Term Debt + Fixed Payment Obligations) / Shareholders' Equity"
+"This means that for every dollar in equity, the firm has 42 cents in leverage"
+
+KEY NOTES:
+A ratio of 1.0 indicates equal creditor and investor claims on assets. Higher ratios suggest greater financial leverage. The appropriate ratio varies by industry.

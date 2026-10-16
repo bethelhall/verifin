@@ -1,0 +1,2109 @@
+{
+  "schema_version": "1.0",
+  "kind": "read_only_financebench_accepted_answer_source_audit",
+  "created_at_utc": "2026-10-16T12:08:13.830599+00:00",
+  "scope": {
+    "dataset": "FinanceBench",
+    "run_rows": 67,
+    "VERIFIED": 38,
+    "VIOLATED": 8,
+    "ABSTAIN": 21,
+    "accepted_answers_source_reviewed": 38,
+    "other_answer_statuses_source_audited": false
+  },
+  "input_files": {
+    "results": {
+      "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+      "sha256": "78b70f2ba09e49877cb7f359813c7567a36290a725a4e914e17f78945931e94d"
+    },
+    "dataset": {
+      "path": "data/numerical_questions.jsonl",
+      "sha256": "37639aefbd212518e601685a448463304b6e9f8818487f2d229b7460f55472c2"
+    },
+    "cli_scorer": {
+      "path": "src/verifiqa/agent/cli.py",
+      "sha256": "2a2bff41b6173729dee66389b226f9573aa2b45a752e4105390759fdd82ea8be"
+    },
+    "candidate_scorer": {
+      "path": "src/verifiqa/eval/candidate_scoring.py",
+      "sha256": "63d15d54c54b400116614a39f2800642a3fd1134aa6c4b18ce22ea527e0f20d7"
+    },
+    "money_units": {
+      "path": "src/verifiqa/verification/money_units.py",
+      "sha256": "6df0825c7f2360e5f92de45c519f873efb9d5a9830d6def9ab74db5a5a27b8ca"
+    },
+    "paper_scorer": {
+      "path": "scripts/paper_scoring.py",
+      "sha256": "01fbcabd0db2221f891d66a4460b349a18c58b6c8ecab1d3b7e44c45dbc37687"
+    },
+    "paper_policy": {
+      "path": "publication_assets_source/results/scoring_policy.json",
+      "sha256": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81"
+    },
+    "manual_adjudications": {
+      "path": "publication_assets_source/results/manual_adjudications.json",
+      "sha256": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300"
+    },
+    "pepsico_2022_instance": {
+      "path": "data/multicompany_provable/xbrl_artifacts/PEP_2022_10K/pep-20221231_htm.xml",
+      "sha256": "f80840e5d4e378ef00e594bb07ae8a960d324dcc01f8fe9d589fa813bb25e9d9"
+    }
+  },
+  "calculated_scoring": {
+    "current_CLI": {
+      "counts": {
+        "TA": 21,
+        "FA": 17,
+        "TR": 7,
+        "FR": 1,
+        "AB": 21
+      },
+      "precision": 0.5526315789473685,
+      "decision_accuracy": 0.6086956521739131,
+      "coverage": 0.6865671641791045,
+      "recalculation": "Deep copy each raw result and call verifiqa.agent.cli._annotate_verified_correctness, then _summarize_rows; cached grading flags and summary.json do not supply correctness."
+    },
+    "existing_FinanceBench_notebook_policy": {
+      "counts": {
+        "TA": 36,
+        "FA": 2,
+        "TR": 7,
+        "FR": 1,
+        "AB": 21
+      },
+      "precision": 0.9473684210526315,
+      "decision_accuracy": 0.9347826086956522,
+      "coverage": 0.6865671641791045,
+      "recalculation": "scripts.paper_scoring.score_rows on raw results with existing scoring_policy.json and manual_adjudications.json."
+    },
+    "policy_metrics_are_not_source_audit_truth": true
+  },
+  "false_accept_label_sets": {
+    "current_CLI_FA_ids": [
+      "financebench_id_03029",
+      "financebench_id_04672",
+      "financebench_id_08286",
+      "financebench_id_03882",
+      "financebench_id_04417",
+      "financebench_id_07661",
+      "financebench_id_10285",
+      "financebench_id_04209",
+      "financebench_id_04854",
+      "financebench_id_03031",
+      "financebench_id_04171",
+      "financebench_id_03282",
+      "financebench_id_03531",
+      "financebench_id_04980",
+      "financebench_id_01328",
+      "financebench_id_03620",
+      "financebench_id_02024"
+    ],
+    "existing_notebook_policy_FA_ids": [
+      "financebench_id_01328",
+      "financebench_id_00705"
+    ],
+    "intersection": [
+      "financebench_id_01328"
+    ],
+    "CLI_only_FA_ids": [
+      "financebench_id_03029",
+      "financebench_id_04672",
+      "financebench_id_08286",
+      "financebench_id_03882",
+      "financebench_id_04417",
+      "financebench_id_07661",
+      "financebench_id_10285",
+      "financebench_id_04209",
+      "financebench_id_04854",
+      "financebench_id_03031",
+      "financebench_id_04171",
+      "financebench_id_03282",
+      "financebench_id_03531",
+      "financebench_id_04980",
+      "financebench_id_03620",
+      "financebench_id_02024"
+    ],
+    "notebook_only_FA_ids": [
+      "financebench_id_00705"
+    ],
+    "CLI_FA_classification_counts": {
+      "reference_unit_normalization_error": 15,
+      "question_reference_scope_dispute_with_wrong_subset_binding": 1,
+      "composite_reference_target_representation_error": 1
+    },
+    "CLI_FA_classifications": [
+      {
+        "id": "financebench_id_03029",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_04672",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_08286",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_03882",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_04417",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_07661",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_10285",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_04209",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_04854",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_03031",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_04171",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_03282",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_03531",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_04980",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_01328",
+        "classification": "question_reference_scope_dispute_with_wrong_subset_binding",
+        "numeric_answer_outcome": "scope_disputed",
+        "authority_finding": "confirmed_wrong_subset_binding"
+      },
+      {
+        "id": "financebench_id_03620",
+        "classification": "reference_unit_normalization_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      },
+      {
+        "id": "financebench_id_02024",
+        "classification": "composite_reference_target_representation_error",
+        "numeric_answer_outcome": "source_consistent",
+        "authority_finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review"
+      }
+    ]
+  },
+  "review_summary": {
+    "source_consistent_answers": 37,
+    "question_reference_scope_disputed_answers": 1,
+    "unambiguously_wrong_accepted_numeric_answers_established_by_this_review": 0,
+    "confirmed_wrong_subset_authority_failures": 1,
+    "wrong_subset_authority_failure_ids": [
+      "financebench_id_01328"
+    ],
+    "CLI_only_FA_labels_explained_by_source_backed_scoring_errors": 16,
+    "paper_only_FA_label_explained_by_unit_conversion_error": "financebench_id_00705",
+    "source_review_precision": null,
+    "why_no_source_precision": "01328 remains a question/reference interpretation dispute. No zero-FA or 100%-precision claim is made, and no source-reviewed labels replace the existing policy grades."
+  },
+  "method": {
+    "reviewed_basis": "Exact current generated answer, question, physical/display units, source table row/column/year, and independently computed arithmetic in canonical evidence; the 01328 scope finding additionally inspects the actual local XBRL instance table context.",
+    "independent_second_review_ids": [
+      "financebench_id_02987",
+      "financebench_id_07966",
+      "financebench_id_10130",
+      "financebench_id_02981",
+      "financebench_id_05915",
+      "financebench_id_10499",
+      "financebench_id_03849",
+      "financebench_id_04458",
+      "financebench_id_04080",
+      "financebench_id_04481",
+      "financebench_id_04784",
+      "financebench_id_01328"
+    ],
+    "saved_facts_and_policy_labels_not_used_as_source_authority": true,
+    "gold_or_policy_overrides_added": false,
+    "model_or_network_calls": 0,
+    "raw_result_dataset_policy_scorer_or_notebook_changes": false,
+    "only_written_artifact": "artifacts/financebench_abstention_audit/latest_codex_source_audit.json"
+  },
+  "accepted_answer_reviews": [
+    {
+      "id": "financebench_id_03029",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 1
+      },
+      "question": "What is the FY2018 capital expenditure amount (in USD millions) for 3M? Give a response to the question by relying on the details shown in the cash flow statement.",
+      "generated_answer": "3M’s FY2018 capital expenditure was 1,577 USD millions, reported as a cash outflow for purchases of property, plant and equipment.",
+      "stored_candidate": {
+        "value": 1577.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "capex",
+      "raw_benchmark_reference": "$1577.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "FY2018 Purchases of property, plant and equipment (PP&E): (1,577), statement scale millions. Answer correctly gives expenditure magnitude and explicitly calls it a cash outflow.",
+        "source_arithmetic": "1577",
+        "unrounded_source_value": 1577,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 1,
+          "record_id": "financebench_id_03029",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "3M_2018_10K",
+          "evidence_page_num": 59,
+          "evidence_text_sha256": "35d1f339701cb984ae7443a4048c47b8fad425cbac755c67f10c81e559f12439"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_04672",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 2
+      },
+      "question": "Assume that you are a public equities analyst. Answer the following question by primarily using information that is shown in the balance sheet: what is the year end FY2018 net PPNE for 3M? Answer in USD billions.",
+      "generated_answer": "3M’s year-end FY2018 net PP&E was 8.738 USD billions (8,738 USD millions ÷ 1,000).",
+      "stored_candidate": {
+        "value": 8738.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "ppe",
+      "raw_benchmark_reference": "$8.70",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "December 31, 2018 Property, plant and equipment net: 8,738, statement dollars in millions; answer explicitly converts to USD billions.",
+        "source_arithmetic": "8738 / 1000",
+        "unrounded_source_value": 8.738,
+        "source_result_unit": "USD billions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 2,
+          "record_id": "financebench_id_04672",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "3M_2018_10K",
+          "evidence_page_num": 57,
+          "evidence_text_sha256": "718beead33e7e621ef7a74910b77d12c7a0b2ef608b053aa64c56ee0890a4d87"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_02987",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 3
+      },
+      "question": "What is the FY2019 fixed asset turnover ratio for Activision Blizzard? Fixed asset turnover ratio is defined as: FY2019 revenue / (average PP&E between FY2018 and FY2019). Round your answer to two decimal places. Base your judgments on the information provided primarily in the statement of income and the statement of financial position.",
+      "generated_answer": "FY2019 fixed asset turnover = 6,489 / ((282 + 253) / 2) = 24.26 times.",
+      "stored_candidate": {
+        "value": 24.26,
+        "unit": "ratio"
+      },
+      "stored_formula": "revenue_2019 / ((ppe_2018 + ppe_2019) / 2)",
+      "raw_benchmark_reference": "24.26",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "FY2019 Total net revenues 6,489; net PP&E 282 at FY2018 and 253 at FY2019. Uses the exact revenue / average PP&E definition in the question.",
+        "source_arithmetic": "6489 / ((282 + 253) / 2)",
+        "unrounded_source_value": 24.257943925233644,
+        "source_result_unit": "ratio",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 3,
+          "record_id": "financebench_id_02987",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "ACTIVISIONBLIZZARD_2019_10K",
+          "evidence_page_num": 68,
+          "evidence_text_sha256": "56377b0710cf01c8d0230f0624e68f99eb11471cb553848a717bdddb68837a1e"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 3,
+          "record_id": "financebench_id_02987",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "ACTIVISIONBLIZZARD_2019_10K",
+          "evidence_page_num": 69,
+          "evidence_text_sha256": "3963dc3c29f4965752d8168da21bb79352603a53849f016d02e9178b72c0a6a8"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_07966",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 4
+      },
+      "question": "What is the FY2017 - FY2019 3 year average of capex as a % of revenue for Activision Blizzard? Answer in units of percents and round to one decimal place. Calculate (or extract) the answer from the statement of income and the cash flow statement.",
+      "generated_answer": "FY2017–FY2019 average capex as a percentage of revenue = [(155/7,017 + 131/7,500 + 116/6,489) × 100] / 3 = 1.9%.",
+      "stored_candidate": {
+        "value": 1.9,
+        "unit": "percent"
+      },
+      "stored_formula": "((capex_y1 / revenue_y1) + (capex_y2 / revenue_y2) + (capex_y3 / revenue_y3)) / 3 * 100",
+      "raw_benchmark_reference": "1.9%",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "FY2017/2018/2019 annual capex magnitudes 155/131/116 and revenues 7,017/7,500/6,489, all USD millions. Question requests the arithmetic mean of annual percentages.",
+        "source_arithmetic": "(155/7017 + 131/7500 + 116/6489) / 3 * 100",
+        "unrounded_source_value": 1.9144094935503595,
+        "source_result_unit": "percent",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 4,
+          "record_id": "financebench_id_07966",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "ACTIVISIONBLIZZARD_2019_10K",
+          "evidence_page_num": 69,
+          "evidence_text_sha256": "3963dc3c29f4965752d8168da21bb79352603a53849f016d02e9178b72c0a6a8"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 4,
+          "record_id": "financebench_id_07966",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "ACTIVISIONBLIZZARD_2019_10K",
+          "evidence_page_num": 72,
+          "evidence_text_sha256": "8d68f8a4fec65adb40d8bf6facde3eb948831d8afd5a90463e00e0a0d787b851"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_04735",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 5
+      },
+      "question": "You are an investment banker and your only resource(s) to answer the following question is (are): the statement of financial position and the cash flow statement. Here's the question: what is the FY2015 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places.",
+      "generated_answer": "FY2015 operating cash flow ratio = 1,469,502 / 2,213,556 = 0.66 times (dimensionless).",
+      "stored_candidate": {
+        "value": 0.66,
+        "unit": "ratio"
+      },
+      "stored_formula": "operating_cash_flow / current_liabilities",
+      "raw_benchmark_reference": "0.66",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "FY2015 operating cash flow 1,469,502 and current liabilities 2,213,556, both statement USD thousands.",
+        "source_arithmetic": "1469502 / 2213556",
+        "unrounded_source_value": 0.6638648401034354,
+        "source_result_unit": "ratio",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 5,
+          "record_id": "financebench_id_04735",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "ADOBE_2015_10K",
+          "evidence_page_num": 58,
+          "evidence_text_sha256": "bd5ed915981226824448dea5325b0dfc2fec509a701fbda6449c4cba817effa6"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 5,
+          "record_id": "financebench_id_04735",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "ADOBE_2015_10K",
+          "evidence_page_num": 62,
+          "evidence_text_sha256": "02d724d2a06d6202117ac715cc8e67c479cd689b55129d20d37b5903a0728bf3"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_07507",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 6
+      },
+      "question": "What is Adobe's year-over-year change in unadjusted operating income from FY2015 to FY2016 (in units of percents and round to one decimal place)? Give a solution to the question by using the income statement.",
+      "generated_answer": "Adobe's unadjusted operating income increased by (1,493,602 − 903,095) / 903,095 × 100 = 65.4% from FY2015 to FY2016.",
+      "stored_candidate": {
+        "value": 65.4,
+        "unit": "percent"
+      },
+      "stored_formula": "(operating_income_end - operating_income_start) / operating_income_start * 100",
+      "raw_benchmark_reference": "65.4%",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "FY2016/FY2015 operating income 1,493,602/903,095, statement USD thousands. Correct chronological percent change.",
+        "source_arithmetic": "(1493602 - 903095) / 903095 * 100",
+        "unrounded_source_value": 65.38703015740315,
+        "source_result_unit": "percent",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 6,
+          "record_id": "financebench_id_07507",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "ADOBE_2016_10K",
+          "evidence_page_num": 61,
+          "evidence_text_sha256": "1478917f74e934635e32cc6339a904067259ddd587841ed88c2d64edeee8a0a9"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_03856",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 7
+      },
+      "question": "What is the FY2017 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places. Please utilize information provided primarily within the balance sheet and the cash flow statement.",
+      "generated_answer": "FY2017 operating cash flow ratio = 2,912,853 USD thousands / 3,527,457 USD thousands = 0.83 (dimensionless).",
+      "stored_candidate": {
+        "value": 0.83,
+        "unit": "ratio"
+      },
+      "stored_formula": "operating_cash_flow / current_liabilities",
+      "raw_benchmark_reference": "0.83",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "FY2017 operating cash flow 2,912,853 and current liabilities 3,527,457, both statement USD thousands.",
+        "source_arithmetic": "2912853 / 3527457",
+        "unrounded_source_value": 0.8257657003331295,
+        "source_result_unit": "ratio",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 7,
+          "record_id": "financebench_id_03856",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "ADOBE_2017_10K",
+          "evidence_page_num": 56,
+          "evidence_text_sha256": "b4d3380da5c698f7dd85d00121da9cd9d37f6ee1a0de789efa6cdfdd5909bf93"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 7,
+          "record_id": "financebench_id_03856",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "ADOBE_2017_10K",
+          "evidence_page_num": 60,
+          "evidence_text_sha256": "7ccbd2e72aa84e3da413ae727e6f67dc8161dc33998ebedc69d9af237efa793d"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_08135",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 11
+      },
+      "question": "What is Amazon's year-over-year change in revenue from FY2016 to FY2017 (in units of percents and round to one decimal place)? Calculate what was asked by utilizing the line items clearly shown in the statement of income.",
+      "generated_answer": "Amazon's revenue increased by (177,866 - 135,987) / 135,987 × 100 = 30.8% from FY2016 to FY2017.",
+      "stored_candidate": {
+        "value": 30.8,
+        "unit": "percent"
+      },
+      "stored_formula": "(revenue_end - revenue_start) / revenue_start * 100",
+      "raw_benchmark_reference": "30.8%",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Total net sales FY2017 177,866 versus FY2016 135,987, statement USD millions.",
+        "source_arithmetic": "(177866 - 135987) / 135987 * 100",
+        "unrounded_source_value": 30.796326119408473,
+        "source_result_unit": "percent",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 11,
+          "record_id": "financebench_id_08135",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "AMAZON_2017_10K",
+          "evidence_page_num": 37,
+          "evidence_text_sha256": "da646042af071b7a18b2f7962e54c3471de5bc378bc0bd88e4e632e02a395bf9"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_08286",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 12
+      },
+      "question": "By drawing conclusions from the information stated only in the income statement, what is Amazon's FY2019 net income attributable to shareholders (in USD millions)?",
+      "generated_answer": "Amazon's FY2019 net income attributable to shareholders was 11,588 USD millions.",
+      "stored_candidate": {
+        "value": 11588.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "net_income",
+      "raw_benchmark_reference": "$11588.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Amazon FY2019 Net income: 11,588 in the 2019 column of the consolidated statement of operations, in millions.",
+        "source_arithmetic": "11588",
+        "unrounded_source_value": 11588,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 12,
+          "record_id": "financebench_id_08286",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "AMAZON_2019_10K",
+          "evidence_page_num": 37,
+          "evidence_text_sha256": "d971cd996a8234a6ea2c1301f87cee0d34c47c2bc8695413f723831218722e05"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_03882",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 13
+      },
+      "question": "What is Amcor's year end FY2020 net AR (in USD millions)? Address the question by adopting the perspective of a financial analyst who can only use the details shown within the balance sheet.",
+      "generated_answer": "Amcor's year-end FY2020 net accounts receivable was 1,615.9 USD millions, reported as trade receivables, net.",
+      "stored_candidate": {
+        "value": 1615.9,
+        "unit": "USD millions"
+      },
+      "stored_formula": "receivables",
+      "raw_benchmark_reference": "$1616.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Amcor June 30, 2020 Trade receivables, net: 1,615.9, balance sheet in millions.",
+        "source_arithmetic": "1615.9",
+        "unrounded_source_value": 1615.9,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 13,
+          "record_id": "financebench_id_03882",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "AMCOR_2020_10K",
+          "evidence_page_num": 49,
+          "evidence_text_sha256": "122cb7ce97ecf59c1e099af7c724e2be1103c879db1eccec55a3f45f3c6d0198"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_01928",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 16
+      },
+      "question": "What Was AMCOR's Adjusted Non GAAP EBITDA for FY 2023",
+      "generated_answer": "AMCOR's adjusted non-GAAP EBITDA for FY 2023 was 2,018 million USD.",
+      "stored_candidate": {
+        "value": 2018.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "adjusted_ebitda",
+      "raw_benchmark_reference": "AMCOR's Adj. EBITDA was $2,018mn in FY 2023",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Adjusted EBITDA, EBIT, Net income and EPS row: FY2022 group starts 2,117; FY2023 group starts 2,018. The source caption and selected FY2023 EBITDA column establish 2,018 million USD; this is not matching a year token.",
+        "source_arithmetic": "2018",
+        "unrounded_source_value": 2018,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 16,
+          "record_id": "financebench_id_01928",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "AMCOR_2023Q4_EARNINGS",
+          "evidence_page_num": 11,
+          "evidence_text_sha256": "8bbc3eaa88418267cb7ee7fc373fb93a66821d708afcccbf2f4b185c925579db"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_04417",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 23
+      },
+      "question": "What is the year end FY2019 total amount of inventories for Best Buy? Answer in USD millions. Base your judgments on the information provided primarily in the balance sheet.",
+      "generated_answer": "Best Buy’s year-end FY2019 total inventories were 5,409 USD millions.",
+      "stored_candidate": {
+        "value": 5409.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "inventory",
+      "raw_benchmark_reference": "$5409.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Best Buy February 2, 2019 Merchandise inventories: 5,409, balance sheet USD millions.",
+        "source_arithmetic": "5409",
+        "unrounded_source_value": 5409,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 23,
+          "record_id": "financebench_id_04417",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "BESTBUY_2019_10K",
+          "evidence_page_num": 51,
+          "evidence_text_sha256": "0f2a4d4825a0fb57d0b106aec71e8f1c547cf9d9b0a9f9781fb571b8776f7347"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_04660",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 24
+      },
+      "question": "Considering the data in the balance sheet, what is Block's (formerly known as Square) FY2016 working capital ratio? Define working capital ratio as total current assets divided by total current liabilities. Round your answer to two decimal places.",
+      "generated_answer": "FY2016 working capital ratio = 1,001,425 / 577,464 = 1.73 times (dimensionless).",
+      "stored_candidate": {
+        "value": 1.73,
+        "unit": "ratio"
+      },
+      "stored_formula": "current_assets / current_liabilities",
+      "raw_benchmark_reference": "1.73",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Block December 31, 2016 Total current assets 1,001,425 / Total current liabilities 577,464; both USD thousands.",
+        "source_arithmetic": "1001425 / 577464",
+        "unrounded_source_value": 1.7341773686325035,
+        "source_result_unit": "ratio",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 24,
+          "record_id": "financebench_id_04660",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "BLOCK_2016_10K",
+          "evidence_page_num": 67,
+          "evidence_text_sha256": "194047e1a6b9e0bc6445a9f5a1e0b3b09c561e8799b376b72804adebf3667f81"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_03838",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 25
+      },
+      "question": "What is the FY2019 - FY2020 total revenue growth rate for Block (formerly known as Square)? Answer in units of percents and round to one decimal place. Approach the question asked by assuming the standpoint of an investment banking analyst who only has access to the statement of income.",
+      "generated_answer": "FY2019–FY2020 total revenue growth = (9,497,578 / 4,713,500 − 1) × 100 = 101.5%.",
+      "stored_candidate": {
+        "value": 101.5,
+        "unit": "percent"
+      },
+      "stored_formula": "(revenue_end - revenue_start) / revenue_start * 100",
+      "raw_benchmark_reference": "101.5%",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Block Total net revenue FY2020 9,497,578 versus FY2019 4,713,500, USD thousands.",
+        "source_arithmetic": "(9497578 - 4713500) / 4713500 * 100",
+        "unrounded_source_value": 101.4973586506842,
+        "source_result_unit": "percent",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 25,
+          "record_id": "financebench_id_03838",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "BLOCK_2020_10K",
+          "evidence_page_num": 85,
+          "evidence_text_sha256": "06e8d2eef600a6ee2279319337df517715f3f863c4abd93ca55c2d0bf6db877d"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_07661",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 26
+      },
+      "question": "Using the cash flow statement, answer the following question to the best of your abilities: how much did Block (formerly known as Square) generate in cash flow from operating activities in FY2020? Answer in USD millions.",
+      "generated_answer": "Block generated 381.603 USD millions in operating cash flow in FY2020 (381,603 USD thousands ÷ 1,000).",
+      "stored_candidate": {
+        "value": 381.603,
+        "unit": "USD millions"
+      },
+      "stored_formula": "operating_cash_flow",
+      "raw_benchmark_reference": "$382.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Block FY2020 Net cash provided by operating activities: 381,603, statement in thousands; candidate explicitly converts to millions.",
+        "source_arithmetic": "381603 / 1000",
+        "unrounded_source_value": 381.603,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 26,
+          "record_id": "financebench_id_07661",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "BLOCK_2020_10K",
+          "evidence_page_num": 89,
+          "evidence_text_sha256": "33c0b6d8e011131c2624405b36c809e75b1e50728a346cc8a87573dbb7a5dc10"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_10285",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 27
+      },
+      "question": "We need to calculate a financial metric by using information only provided within the balance sheet. Please answer the following question: what is Boeing's year end FY2018 net property, plant, and equipment (in USD millions)?",
+      "generated_answer": "Boeing's year-end FY2018 net property, plant, and equipment was 12,645 USD millions.",
+      "stored_candidate": {
+        "value": 12645.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "ppe",
+      "raw_benchmark_reference": "$12645.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Boeing December 31, 2018 Property, plant and equipment, net: 12,645, statement dollars in millions.",
+        "source_arithmetic": "12645",
+        "unrounded_source_value": 12645,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 27,
+          "record_id": "financebench_id_10285",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "BOEING_2018_10K",
+          "evidence_page_num": 51,
+          "evidence_text_sha256": "671fcabcb9f0b6038ee8c0951f50e466b86654fc9c2a4988c18f4e2f41e0858b"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_09724",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 29
+      },
+      "question": "What is Coca Cola's FY2021 COGS % margin? Calculate what was asked by utilizing the line items clearly shown in the income statement.",
+      "generated_answer": "FY2021 COGS margin = 15,357 / 38,655 × 100 = 39.73%.",
+      "stored_candidate": {
+        "value": 39.73,
+        "unit": "percent"
+      },
+      "stored_formula": "cost_of_revenue / revenue * 100",
+      "raw_benchmark_reference": "39.7%",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Coca-Cola FY2021 Cost of goods sold 15,357 / Net operating revenues 38,655, statement millions.",
+        "source_arithmetic": "15357 / 38655 * 100",
+        "unrounded_source_value": 39.72836631742336,
+        "source_result_unit": "percent",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 29,
+          "record_id": "financebench_id_09724",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "COCACOLA_2021_10K",
+          "evidence_page_num": 61,
+          "evidence_text_sha256": "cfc73449fc461e551662f85dc663fd3e7103b01f34304b0c7f3fa65ad25b5106"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_10130",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 31
+      },
+      "question": "Based on the information provided primarily in the balance sheet and the statement of income, what is FY2020 days payable outstanding (DPO) for Corning? DPO is defined as: 365 * (average accounts payable between FY2019 and FY2020) / (FY2020 COGS + change in inventory between FY2019 and FY2020). Round your answer to two decimal places.",
+      "generated_answer": "FY2020 DPO = 365 × ((1,174 + 1,587) / 2) / (7,772 + 2,438 − 2,320) = 63.86 days.",
+      "stored_candidate": {
+        "value": 63.86,
+        "unit": "days"
+      },
+      "stored_formula": "365 * ((accounts_payable_start + accounts_payable_end) / 2) / (cost_of_revenue + (inventory_end - inventory_start))",
+      "raw_benchmark_reference": "63.86",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Corning AP FY2019/FY2020 1,587/1,174, inventory 2,320/2,438 and FY2020 COGS 7,772, all USD millions. Exact question-defined DPO uses average AP and COGS plus inventory change.",
+        "source_arithmetic": "365 * ((1587 + 1174) / 2) / (7772 + 2438 - 2320)",
+        "unrounded_source_value": 63.86343472750317,
+        "source_result_unit": "days",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 31,
+          "record_id": "financebench_id_10130",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "CORNING_2020_10K",
+          "evidence_page_num": 69,
+          "evidence_text_sha256": "39f2d8be6e7e7e28370b97a70e62fe261fae1ef5434a711d26606c257e8e165b"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 31,
+          "record_id": "financebench_id_10130",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "CORNING_2020_10K",
+          "evidence_page_num": 71,
+          "evidence_text_sha256": "da19515bd4f0c2a94adb1f580e16f04e241700b776f242ffbb173c0ad4e7ad13"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_02981",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 32
+      },
+      "question": "Taking into account the information outlined in the income statement, what is the FY2019 - FY2021 3 year average unadjusted operating income % margin for Corning? Answer in units of percents and round to one decimal place.",
+      "generated_answer": "FY2019–FY2021 average unadjusted operating income margin = [(1,306/11,503 + 509/11,303 + 2,112/14,082) / 3] × 100 = 10.3%.",
+      "stored_candidate": {
+        "value": 10.3,
+        "unit": "percent"
+      },
+      "stored_formula": "((operating_income_2019 / revenue_2019) + (operating_income_2020 / revenue_2020) + (operating_income_2021 / revenue_2021)) / 3 * 100",
+      "raw_benchmark_reference": "10.3%",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Corning FY2019/2020/2021 operating income 1,306/509/2,112 and revenue 11,503/11,303/14,082. Arithmetic mean of annual unadjusted operating margins.",
+        "source_arithmetic": "(1306/11503 + 509/11303 + 2112/14082) / 3 * 100",
+        "unrounded_source_value": 10.284886264285015,
+        "source_result_unit": "percent",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 32,
+          "record_id": "financebench_id_02981",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "CORNING_2021_10K",
+          "evidence_page_num": 64,
+          "evidence_text_sha256": "7a3a46a5ce9508b8d8f2ec9ab77d67166835c0b2367d2ac4562c57e3f8c4b19a"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_04209",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 34
+      },
+      "question": "Using only the information within the balance sheet, how much total assets did Costco have at the end of FY2021? Answer in USD millions.",
+      "generated_answer": "Costco had total assets of 59,268 USD millions at the end of FY2021.",
+      "stored_candidate": {
+        "value": 59268.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "assets",
+      "raw_benchmark_reference": "$59268.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Costco August 29, 2021 TOTAL ASSETS: 59,268, balance sheet amounts in millions.",
+        "source_arithmetic": "59268",
+        "unrounded_source_value": 59268,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 34,
+          "record_id": "financebench_id_04209",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "COSTCO_2021_10K",
+          "evidence_page_num": 37,
+          "evidence_text_sha256": "efbf62510c5d6a41be36d5b54b3d7f2a6c0bd8716fada3d1cebbfe741d323515"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_05915",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 35
+      },
+      "question": "What is the FY2018 fixed asset turnover ratio for CVS Health? Fixed asset turnover ratio is defined as: FY2018 revenue / (average PP&E between FY2017 and FY2018). Round your answer to two decimal places. Calculate what was asked by utilizing the line items clearly shown in the P&L statement and the balance sheet.",
+      "generated_answer": "FY2018 fixed asset turnover = 194,579 / [(10,292 + 11,349) / 2] = 17.98 times (dimensionless).",
+      "stored_candidate": {
+        "value": 17.98,
+        "unit": "ratio"
+      },
+      "stored_formula": "revenue / ((ppe_2017 + ppe_2018) / 2)",
+      "raw_benchmark_reference": "17.98",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "CVS FY2018 Total revenues 194,579 / average net PP&E FY2017 10,292 and FY2018 11,349, USD millions.",
+        "source_arithmetic": "194579 / ((10292 + 11349) / 2)",
+        "unrounded_source_value": 17.982440737489025,
+        "source_result_unit": "ratio",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 35,
+          "record_id": "financebench_id_05915",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "CVSHEALTH_2018_10K",
+          "evidence_page_num": 301,
+          "evidence_text_sha256": "8c1eba411ac5d8b1df1f5ede121d2edfecc6077f12e3f766ee9a932204550247"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 35,
+          "record_id": "financebench_id_05915",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "CVSHEALTH_2018_10K",
+          "evidence_page_num": 303,
+          "evidence_text_sha256": "2e1f978ef611ef16961b449e4a5d2bd1c0811ec193f4646b97fbb26ef695d4de"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_04854",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 38
+      },
+      "question": "According to the information provided in the statement of cash flows, what is the FY2020 free cash flow (FCF) for General Mills? FCF here is defined as: (cash from operations - capex). Answer in USD millions.",
+      "generated_answer": "FY2020 FCF = 3,676.2 - 460.8 = 3,215.4 USD millions.",
+      "stored_candidate": {
+        "value": 3215.4,
+        "unit": "USD millions"
+      },
+      "stored_formula": "operating_cash_flow - capex",
+      "raw_benchmark_reference": "$3215.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "General Mills FY2020 operating cash flow 3,676.2 less capex magnitude 460.8, cash flow statement in millions.",
+        "source_arithmetic": "3676.2 - 460.8",
+        "unrounded_source_value": 3215.3999999999996,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 38,
+          "record_id": "financebench_id_04854",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "GENERALMILLS_2020_10K",
+          "evidence_page_num": 51,
+          "evidence_text_sha256": "9ddcca97aed7f3e80e19ac27661411e1f9405a17031f26607653bc05e28a3085"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_10499",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 44
+      },
+      "question": "What is Kraft Heinz's FY2019 inventory turnover ratio? Inventory turnover ratio is defined as: (FY2019 COGS) / (average inventory between FY2018 and FY2019). Round your answer to two decimal places. Please base your judgments on the information provided primarily in the balance sheet and the P&L statement.",
+      "generated_answer": "FY2019 inventory turnover = 16,830 / ((2,667 + 2,721) / 2) = 6.25 times.",
+      "stored_candidate": {
+        "value": 6.25,
+        "unit": "ratio"
+      },
+      "stored_formula": "cost_of_revenue / ((inventory_start + inventory_end) / 2)",
+      "raw_benchmark_reference": "6.25",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Kraft Heinz FY2019 Cost of products sold 16,830 / mean inventory FY2018 2,667 and FY2019 2,721, USD millions.",
+        "source_arithmetic": "16830 / ((2667 + 2721) / 2)",
+        "unrounded_source_value": 6.247216035634744,
+        "source_result_unit": "ratio",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 44,
+          "record_id": "financebench_id_10499",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "KRAFTHEINZ_2019_10K",
+          "evidence_page_num": 49,
+          "evidence_text_sha256": "aa3443343a92a3d5d98bbb3d798f1ef01e248f58eda433c076c70804b7aed483"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 44,
+          "record_id": "financebench_id_10499",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "KRAFTHEINZ_2019_10K",
+          "evidence_page_num": 51,
+          "evidence_text_sha256": "49495bb3ea2042ce39bf2008a9d6a05c6373119090d8d4c3992dd7ecbbe69eb6"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_03031",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 45
+      },
+      "question": "What is Lockheed Martin's FY2021 net working capital? Define net working capital as total current assets less total current liabilities. Answer in USD millions. Respond to the question by assuming the perspective of an investment analyst who can only use the details shown within the balance sheet.",
+      "generated_answer": "FY2021 net working capital = 19,815 - 13,997 = 5,818 USD millions.",
+      "stored_candidate": {
+        "value": 5818.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "current_assets - current_liabilities",
+      "raw_benchmark_reference": "$5818.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Lockheed December 31, 2021 Total current assets 19,815 less Total current liabilities 13,997, USD millions.",
+        "source_arithmetic": "19815 - 13997",
+        "unrounded_source_value": 5818,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 45,
+          "record_id": "financebench_id_03031",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "LOCKHEEDMARTIN_2021_10K",
+          "evidence_page_num": 67,
+          "evidence_text_sha256": "12eda31598b3bacbe9f9452a6c8d74c5e00c9d8b2ef4a40e12a2c1b9f1aa276f"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_03718",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 46
+      },
+      "question": "What is Lockheed Martin's 2 year total revenue CAGR from FY2020 to FY2022 (in units of percents and round to one decimal place)? Provide a response to the question by primarily using the statement of income.",
+      "generated_answer": "Total revenue CAGR = [(65,984 / 65,398)^(1/2) - 1] × 100 = 0.4%.",
+      "stored_candidate": {
+        "value": 0.4,
+        "unit": "percent"
+      },
+      "stored_formula": "cagr_percent(revenue_end, revenue_start, 2)",
+      "raw_benchmark_reference": "0.4%",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Lockheed total net sales FY2020 65,398 and FY2022 65,984, USD millions. Two annual compounding intervals as requested.",
+        "source_arithmetic": "((65984 / 65398) ** 0.5 - 1) * 100",
+        "unrounded_source_value": 0.4470267688544194,
+        "source_result_unit": "percent",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 46,
+          "record_id": "financebench_id_03718",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "LOCKHEEDMARTIN_2022_10K",
+          "evidence_page_num": 62,
+          "evidence_text_sha256": "d5f6e92fd8429805f0e69929cd3b7eb7f0861e09165530432394a586565494ca"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_04171",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 47
+      },
+      "question": "Basing your judgments off of the balance sheet, what is the year end FY2018 amount of accounts payable for MGM Resorts? Answer in USD millions.",
+      "generated_answer": "FY2018 accounts payable = 302,578 USD thousands ÷ 1,000 = 302.578 USD millions.",
+      "stored_candidate": {
+        "value": 302.578,
+        "unit": "USD millions"
+      },
+      "stored_formula": "accounts_payable",
+      "raw_benchmark_reference": "$303.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "MGM December 31, 2018 Accounts payable 302,578, balance sheet in thousands; candidate explicitly divides by 1,000.",
+        "source_arithmetic": "302578 / 1000",
+        "unrounded_source_value": 302.578,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 47,
+          "record_id": "financebench_id_04171",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "MGMRESORTS_2018_10K",
+          "evidence_page_num": 56,
+          "evidence_text_sha256": "d40123144abd66f5a7adce966af77fee2a41b9c813af517ee9aaf8c73c08c82c"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_03849",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 48
+      },
+      "question": "What is the FY2018 - FY2020 3 year average of capex as a % of revenue for MGM Resorts? Answer in units of percents and round to one decimal place. Please utilize information provided primarily within the statement of cash flows and the statement of income.",
+      "generated_answer": "FY2018–FY2020 average capex as a percentage of revenue = [(1,486,843/11,763,096) + (739,006/12,899,672) + (270,579/5,162,082)] × 100/3 = 7.9%.",
+      "stored_candidate": {
+        "value": 7.9,
+        "unit": "percent"
+      },
+      "stored_formula": "((capex_2018 / revenue_2018) + (capex_2019 / revenue_2019) + (capex_2020 / revenue_2020)) / 3 * 100",
+      "raw_benchmark_reference": "7.9%",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "MGM FY2018/2019/2020 capex magnitudes 1,486,843/739,006/270,579 and total revenues 11,763,096/12,899,672/5,162,082, USD thousands. Revenue subtotal independently equals the five reported revenue components. Uses mean of three annual percentages.",
+        "source_arithmetic": "(1486843/11763096 + 739006/12899672 + 270579/5162082) / 3 * 100",
+        "unrounded_source_value": 7.870144536356281,
+        "source_result_unit": "percent",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 48,
+          "record_id": "financebench_id_03849",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "MGMRESORTS_2020_10K",
+          "evidence_page_num": 64,
+          "evidence_text_sha256": "f0b8f0ffae0949764c237d51b5c1375c22e766e3c37c33e70176f55904d4d058"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 48,
+          "record_id": "financebench_id_03849",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "MGMRESORTS_2020_10K",
+          "evidence_page_num": 66,
+          "evidence_text_sha256": "f7db52d8bae9e6f369e4c07a02b93cdc89dbbf5676b50b095ecb13ccb11755fe"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_04458",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 50
+      },
+      "question": "We want to calculate a financial metric. Please help us compute it by basing your answers off of the statement of income and the statement of cash flows. Here's the question: what is the FY2015 unadjusted EBITDA % margin for Netflix? Calculate unadjusted EBITDA using unadjusted operating income and D&A (from cash flow statement).",
+      "generated_answer": "FY2015 unadjusted EBITDA margin = (305,826 + 62,283) / 6,779,511 × 100 = 5.43%, using amounts in USD thousands.",
+      "stored_candidate": {
+        "value": 5.43,
+        "unit": "percent"
+      },
+      "stored_formula": "(operating_income + depreciation_amortization) / revenue * 100",
+      "raw_benchmark_reference": "5.4%",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Netflix FY2015 Operating income 305,826 plus cash-flow line Depreciation and amortization of property, equipment and intangibles 62,283, divided by revenue 6,779,511, all USD thousands. Matches the question definition using this reported D&A line.",
+        "source_arithmetic": "(305826 + 62283) / 6779511 * 100",
+        "unrounded_source_value": 5.429727896304025,
+        "source_result_unit": "percent",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 50,
+          "record_id": "financebench_id_04458",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "NETFLIX_2015_10K",
+          "evidence_page_num": 39,
+          "evidence_text_sha256": "6cd453ba6465dafccfde9de6e5de983ed1ebcb3e824b15ade482f5639c5e553d"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 50,
+          "record_id": "financebench_id_04458",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "NETFLIX_2015_10K",
+          "evidence_page_num": 41,
+          "evidence_text_sha256": "6215465850142d1805b103493f5ae25ec7e4138dc4cd42ea4c27df9c2d595184"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_03282",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 51
+      },
+      "question": "What is Netflix's year end FY2017 total current liabilities (in USD millions)? Base your judgments on the information provided primarily in the balance sheet.",
+      "generated_answer": "Netflix's FY2017 year-end total current liabilities were 5,466.312 USD millions (5,466,312 USD thousands ÷ 1,000).",
+      "stored_candidate": {
+        "value": 5466.312,
+        "unit": "USD millions"
+      },
+      "stored_formula": "current_liabilities",
+      "raw_benchmark_reference": "$5466.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Netflix December 31, 2017 Total current liabilities: 5,466,312, balance sheet in thousands; candidate explicitly converts to millions.",
+        "source_arithmetic": "5466312 / 1000",
+        "unrounded_source_value": 5466.312,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 51,
+          "record_id": "financebench_id_03282",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "NETFLIX_2017_10K",
+          "evidence_page_num": 44,
+          "evidence_text_sha256": "b9486efb4e4b207f9fcdb8726863d2ef1c503583e01dc4f47178f5fb32c6a8a5"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_03531",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 52
+      },
+      "question": "According to the details clearly outlined within the balance sheet, how much total current assets did Nike have at the end of FY2019? Answer in USD millions.",
+      "generated_answer": "Nike had total current assets of 16,525 USD millions at the end of FY2019.",
+      "stored_candidate": {
+        "value": 16525.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "current_assets",
+      "raw_benchmark_reference": "$16525.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Nike May 31, 2019 Total current assets: 16,525, balance sheet dollars in millions.",
+        "source_arithmetic": "16525",
+        "unrounded_source_value": 16525,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 52,
+          "record_id": "financebench_id_03531",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "NIKE_2019_10K",
+          "evidence_page_num": 53,
+          "evidence_text_sha256": "384bdbf78e3f6fbc2f03438a432406de5aaf0b7fdab39ee157970af4a9aea72f"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_04080",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 53
+      },
+      "question": "When primarily referencing the income statement and the statement of financial position, what is the FY2021 inventory turnover ratio for Nike? Inventory turnover ratio is defined as: (FY2021 COGS) / (average inventory between FY2020 and FY2021). Round your answer to two decimal places.",
+      "generated_answer": "FY2021 inventory turnover = 24,576 / ((7,367 + 6,854) / 2) = 3.46 times.",
+      "stored_candidate": {
+        "value": 3.46,
+        "unit": "ratio"
+      },
+      "stored_formula": "cost_of_revenue / ((inventory_start + inventory_end) / 2)",
+      "raw_benchmark_reference": "3.46",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Nike FY2021 Cost of sales 24,576 / mean May 31 inventory FY2020 7,367 and FY2021 6,854, USD millions.",
+        "source_arithmetic": "24576 / ((7367 + 6854) / 2)",
+        "unrounded_source_value": 3.456297025525631,
+        "source_result_unit": "ratio",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 53,
+          "record_id": "financebench_id_04080",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "NIKE_2021_10K",
+          "evidence_page_num": 58,
+          "evidence_text_sha256": "869f6bc5b708e34af7e28f5fbf98030b5404248eed5b6bea02a39e3484f94ca0"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 53,
+          "record_id": "financebench_id_04080",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "NIKE_2021_10K",
+          "evidence_page_num": 60,
+          "evidence_text_sha256": "45bb1e69155b8207b828dc6962e36fbd056ab154c97eeb8649a5a3138c73b24e"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_04980",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 54
+      },
+      "question": "What is the FY2021 capital expenditure amount (in USD billions) for PepsiCo? Respond to the question by assuming the perspective of an investment analyst who can only use the details shown within the statement of cash flows.",
+      "generated_answer": "FY2021 capital expenditures were 4,625 USD millions ÷ 1,000 = 4.625 USD billions (cash outflow).",
+      "stored_candidate": {
+        "value": 4625.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "capex",
+      "raw_benchmark_reference": "$4.60",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Pepsi FY2021 Capital spending: (4,625), cash flow statement in millions; candidate gives capex magnitude, explicitly calls it an outflow and converts to 4.625 billion.",
+        "source_arithmetic": "4625 / 1000",
+        "unrounded_source_value": 4.625,
+        "source_result_unit": "USD billions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 54,
+          "record_id": "financebench_id_04980",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "PEPSICO_2021_10K",
+          "evidence_page_num": 62,
+          "evidence_text_sha256": "735ff5fde61a673a041b21d8a807ad0716ca4f0cfc03c58804a1a8784bf97d49"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_01328",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 55
+      },
+      "question": "What is the quantity of restructuring costs directly outlined in Pepsico's income statements for FY2022? If restructuring costs are not explicitly outlined then state 0.",
+      "generated_answer": "0 restructuring costs explicitly outlined in PepsiCo's FY2022 income statements.",
+      "stored_candidate": {
+        "value": 0.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "restructuring_costs",
+      "raw_benchmark_reference": "Pepsico's restructuring costs in FY2022 amounted to $411 million .",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "FA"
+      },
+      "numeric_answer_review": {
+        "outcome": "scope_disputed",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Question explicitly limits the target to costs directly outlined in the income statement and instructs zero if absent. The actual income statement has no separate restructuring line; Note 3 instead discloses 411 million = 33 cost of sales + 347 SG&A + 31 other pension expense. Candidate zero explicitly qualifies the presentation basis. Neither scorer resolves this question/reference scope conflict.",
+        "source_arithmetic": null,
+        "unrounded_source_value": null,
+        "source_result_unit": null,
+        "rounding_note": null
+      },
+      "score_label_classification": "question_reference_scope_dispute_with_wrong_subset_binding",
+      "verifier_authority_review": {
+        "finding": "confirmed_wrong_subset_binding",
+        "severity": "genuine_verifier_authority_failure_independent_of_disputed_final_answer_correctness",
+        "bound_concept": "us-gaap:RestructuringCharges",
+        "bound_value": 0.0,
+        "unit": "USD millions",
+        "context_id": "ib611c9571a8d4a6c8462ae660c7ad4c6_D20211226-20221231",
+        "actual_source_table": "ScheduleOfCompensationCostForShareBasedPaymentArrangementsAllocationOfShareBasedCompensationCostsByPlanTableTextBlock",
+        "actual_scope": "Restructuring charges within the share-based compensation expense allocation table; not total economic restructuring charges and not a proof of income-statement presentation absence.",
+        "independently_inspected_instance_path": "data/multicompany_provable/xbrl_artifacts/PEP_2022_10K/pep-20221231_htm.xml",
+        "instance_exact_fact_value_USD": "0",
+        "overall_restructuring_and_asset_impairment_concept": "us-gaap:RestructuringCostsAndAssetImpairmentCharges",
+        "overall_restructuring_and_asset_impairment_value_USD": "411000000",
+        "nearby_SBC_evidence": "Allocated share-based compensation 343 million, liability awards 30 million, total share-based compensation expense 376 million; confirms subset table identity.",
+        "conclusion": "The numeric zero witness cannot authorize the requested source-presentation/absence assertion. This remains an authority defect even though the literal question can support a zero answer."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 55,
+          "record_id": "financebench_id_01328",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "PEPSICO_2022_10K",
+          "evidence_page_num": 77,
+          "evidence_text_sha256": "a076c176774fe2cf5aefe6ecbb33f8a76482656767e1ed3fbaf25d4112500fed"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 57,
+          "record_id": "financebench_id_04481",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "PEPSICO_2022_10K",
+          "evidence_page_num": 61,
+          "evidence_text_sha256": "77b6a3c7cc49a831fee74736f8630640caa8d0ecca1b239f80a06482904370cb"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 57,
+          "record_id": "financebench_id_04481",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "PEPSICO_2022_10K",
+          "evidence_page_num": 63,
+          "evidence_text_sha256": "0b11ab80a8e7d5f7cf5d16e05928c63f9a5927682265a12f47dac462880456f6"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_03620",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 56
+      },
+      "question": "What is the FY2022 unadjusted EBITDA less capex for PepsiCo? Define unadjusted EBITDA as unadjusted operating income + depreciation and amortization [from cash flow statement]. Answer in USD millions. Respond to the question by assuming the perspective of an investment analyst who can only use the details shown within the statement of cash flows and the income statement.",
+      "generated_answer": "FY2022 unadjusted EBITDA less capex = 11,512 + 2,763 - 5,207 = 9,068 USD millions.",
+      "stored_candidate": {
+        "value": 9068.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "operating_income + depreciation_amortization - capex",
+      "raw_benchmark_reference": "$9068.00",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Pepsi FY2022 Operating profit 11,512 + cash-flow D&A 2,763 - capex magnitude 5,207, all USD millions.",
+        "source_arithmetic": "11512 + 2763 - 5207",
+        "unrounded_source_value": 9068,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 56,
+          "record_id": "financebench_id_03620",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "PEPSICO_2022_10K",
+          "evidence_page_num": 61,
+          "evidence_text_sha256": "77b6a3c7cc49a831fee74736f8630640caa8d0ecca1b239f80a06482904370cb"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 56,
+          "record_id": "financebench_id_03620",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "PEPSICO_2022_10K",
+          "evidence_page_num": 63,
+          "evidence_text_sha256": "0b11ab80a8e7d5f7cf5d16e05928c63f9a5927682265a12f47dac462880456f6"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_04481",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 57
+      },
+      "question": "What is the FY2022 unadjusted EBITDA % margin for PepsiCo? Calculate unadjusted EBITDA using unadjusted operating income and D&A (from cash flow statement). Give a response to the question by relying on the details shown in the statement of cash flows and the P&L statement.",
+      "generated_answer": "FY2022 unadjusted EBITDA margin = (11,512 + 2,763) / 86,392 × 100 = 16.52%, using amounts in USD millions.",
+      "stored_candidate": {
+        "value": 16.52,
+        "unit": "percent"
+      },
+      "stored_formula": "(operating_income + depreciation_amortization) / revenue * 100",
+      "raw_benchmark_reference": "16.5%",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Pepsi FY2022 Operating profit 11,512 + cash-flow D&A 2,763, divided by net revenue 86,392, all USD millions.",
+        "source_arithmetic": "(11512 + 2763) / 86392 * 100",
+        "unrounded_source_value": 16.523520696360773,
+        "source_result_unit": "percent",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 57,
+          "record_id": "financebench_id_04481",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "PEPSICO_2022_10K",
+          "evidence_page_num": 61,
+          "evidence_text_sha256": "77b6a3c7cc49a831fee74736f8630640caa8d0ecca1b239f80a06482904370cb"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 57,
+          "record_id": "financebench_id_04481",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "PEPSICO_2022_10K",
+          "evidence_page_num": 63,
+          "evidence_text_sha256": "0b11ab80a8e7d5f7cf5d16e05928c63f9a5927682265a12f47dac462880456f6"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_00705",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 59
+      },
+      "question": "By how much did Pepsico increase its unsecured five year revolving credit agreement on May 26, 2023?",
+      "generated_answer": "PepsiCo increased the agreement by 400 million USD, calculated as 4,200 million USD minus 3,800 million USD.",
+      "stored_candidate": {
+        "value": 400.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "new_credit_agreement_amount - prior_credit_agreement_amount",
+      "raw_benchmark_reference": "$400,000,000 increase.",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "FA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "May 26, 2023 new five-year unsecured revolver 4,200,000,000 USD replaced the 3,800,000,000 USD prior five-year revolver. Correct increase 400,000,000 USD = 400 million USD; no confusion with optional future commitment increase.",
+        "source_arithmetic": "(4200000000 - 3800000000) / 1000000",
+        "unrounded_source_value": 400.0,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "paper_reference_unit_normalization_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 59,
+          "record_id": "financebench_id_00705",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "PEPSICO_2023_8K_dated-2023-05-30",
+          "evidence_page_num": 1,
+          "evidence_text_sha256": "435c040d13c759f700f05a4bc05f92b2ec78b628c8d0a692ae1e0d6e4845ab9e"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_02024",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 64
+      },
+      "question": "As of FY 2021, how much did Verizon expect to pay for its retirees in 2024?",
+      "generated_answer": "Verizon expected to pay retirees 1,097 + 862 = 1,959 USD million in 2024, comprising pension benefits and health care and life insurance benefits.",
+      "stored_candidate": {
+        "value": 1959.0,
+        "unit": "USD millions"
+      },
+      "stored_formula": "pension_benefits + health_care_life_insurance",
+      "raw_benchmark_reference": "The estimated pension benefits were $1097 million, and the estimated health care and life insurance benefits were $862 million.",
+      "policy_outcomes": {
+        "current_CLI": "FA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Verizon as-of-FY2021 Estimated Future Benefit Payments table, dollars in millions: 2024 pension benefits 1,097 and health care/life 862. Candidate provides both components and their total.",
+        "source_arithmetic": "1097 + 862",
+        "unrounded_source_value": 1959,
+        "source_result_unit": "USD millions",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "composite_reference_target_representation_error",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 64,
+          "record_id": "financebench_id_02024",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "VERIZON_2021_10K",
+          "evidence_page_num": 62,
+          "evidence_text_sha256": "76299382a0b2bbe1fbe99573560fa81477bc9b114230d4124b1d297dc57108e5"
+        },
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 64,
+          "record_id": "financebench_id_02024",
+          "field": "evidence[1].evidence_text",
+          "doc_name": "VERIZON_2021_10K",
+          "evidence_page_num": 93,
+          "evidence_text_sha256": "56bf63347bb93188b5f6d23aa7a2c30cae47b706df23104d5cba7f8b212de5ad"
+        }
+      ]
+    },
+    {
+      "id": "financebench_id_04784",
+      "result_ref": {
+        "path": "results/fb_gpt6.1_sol_codex/results.jsonl",
+        "line": 66
+      },
+      "question": "Based on the information provided primarily in the statement of income, what is the FY2018 - FY2019 change in unadjusted operating income % margin for Walmart? Answer in units of percents and round to one decimal place.",
+      "generated_answer": "The operating income margin increased by 0.2 percentage points: (21,957 / 514,405 − 20,437 / 500,343) × 100 = 0.2 percentage points, rounded to one decimal place.",
+      "stored_candidate": {
+        "value": 0.2,
+        "unit": "percent"
+      },
+      "stored_formula": "(operating_income_end / revenue_end * 100) - (operating_income_start / revenue_start * 100)",
+      "raw_benchmark_reference": "0.2%",
+      "policy_outcomes": {
+        "current_CLI": "TA",
+        "existing_notebook_policy": "TA"
+      },
+      "numeric_answer_review": {
+        "outcome": "source_consistent",
+        "proven_wrong_numeric_candidate": false,
+        "finding": "Walmart FY2019 operating income 21,957 / revenue 514,405 less FY2018 operating income 20,437 / revenue 500,343. Candidate explicitly calls the result percentage points, consistent with change in margin rather than relative growth.",
+        "source_arithmetic": "(21957/514405 - 20437/500343) * 100",
+        "unrounded_source_value": 0.183828663028128,
+        "source_result_unit": "percentage points",
+        "rounding_note": "Final candidate agrees with source arithmetic and any requested rounding; the displayed monetary quantity was checked separately from its stored normalized representation."
+      },
+      "score_label_classification": "both_policies_accept_source_consistent_answer",
+      "verifier_authority_review": {
+        "finding": "no_specific_operand_or_formula_scope_mismatch_identified_in_this_review",
+        "limit": "Source consistency of the final answer was checked; this is not a proof that every verifier path or every counterfactual candidate is sound."
+      },
+      "source_evidence_refs": [
+        {
+          "path": "data/numerical_questions.jsonl",
+          "line": 66,
+          "record_id": "financebench_id_04784",
+          "field": "evidence[0].evidence_text",
+          "doc_name": "WALMART_2019_10K",
+          "evidence_page_num": 47,
+          "evidence_text_sha256": "1b7effe2b63f3de550d3ba2228796f9dda4c3b6ef07c2a7df1f1ff95f0af877a"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "This is a post hoc audit of the 38 accepted answers in one 67-question run, not a new benchmark protocol or a population-level guarantee.",
+    "Source consistency of an answer and adequacy of its verifier witness are distinct; 01328 demonstrates this explicitly.",
+    "The absence of an unambiguously wrong numerical candidate in this audit does not establish zero false accepts or justify replacing the existing reported scores.",
+    "The existing notebook policy uses legacy magnitude/any-reference-token comparison plus candidate-specific manual targets, so its metrics are policy outputs rather than automatic ground truth.",
+    "Evidence page numbers reproduce canonical evidence_page_num metadata; they are not silently converted to printed page numbers."
+  ],
+  "validation": {
+    "all_38_VERIFIED_ids_reviewed_once": true,
+    "exact_17_CLI_FA_ids_classified_once": true,
+    "exact_2_notebook_FA_ids_reviewed": true,
+    "01328_actual_XML_subset_context_checked": true,
+    "input_bytes_unchanged_during_artifact_build": true
+  }
+}

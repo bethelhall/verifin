@@ -1,0 +1,15 @@
+Source: CFA Institute, Financial Institutions analysis
+Authority: CFA Institute Program Curriculum, Level 1 & 2, Insurance Companies
+Metric: Loss Ratio (Insurance)
+
+PRIMARY FORMULA:
+Loss Ratio = (Losses Incurred + Loss Adjustment Expenses) / Earned Premiums
+
+VARIABLE DEFINITIONS:
+- Losses Incurred: Total claims paid or payable to policyholders during the period
+- Loss Adjustment Expenses (LAE): Expenses to investigate, manage, and settle insurance claims
+- Earned Premiums: The portion of written premiums recognized as revenue during the period
+
+VERBATIM FORMULA STATEMENTS:
+"Loss Ratio = (Losses Incurred + LAE) / Earned Premiums"
+"measures the percentage of earned premiums paid out as claims. A lower ratio indicates better underwriting performance."

@@ -1,0 +1,179 @@
+{
+  "dataset": "XBRLFiling",
+  "questions_per_model": 600,
+  "run_catalog": "scripts/submission_runs.py",
+  "notebook": "results/new_submissions/six_model_accuracy_heatmap.ipynb",
+  "inputs": [
+    {
+      "path": "results/new_submissions/xbrlfiling_gpt5.5/results.jsonl",
+      "sha256": "d1e53bde72f226c98bdd67984b28e6b365783a04cc3e38dc252684fb68324e89"
+    },
+    {
+      "path": "results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl",
+      "sha256": "7f6f745f1d7c16a5041119273997b2066e25e55b3c3bdd873d7d907f5879ce98"
+    },
+    {
+      "path": "results/new_submissions/xbrlfiling_fin_o1/results.jsonl",
+      "sha256": "0d08700f10fe54c17733c9393eacb6d6aa1cd2253b56fb164d3d3e0799e37820"
+    },
+    {
+      "path": "results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl",
+      "sha256": "e5c0be0689d64fba410fadedf9a06d193ee2a73c3113efd1a4fdd509430e36e0"
+    },
+    {
+      "path": "results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl",
+      "sha256": "3c600ecbaade6548738acd7e8e25b4b107fb0931e7367dbe41b270aacc7caeca"
+    },
+    {
+      "path": "results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl",
+      "sha256": "532a8f6e129da26d542422e5406b2ac900e430392eaf134ab09dbfeb6387eba8"
+    },
+    {
+      "path": "publication_assets_source/results/scoring_policy.json",
+      "sha256": "00d3f5a685394812c89bfa421ca6137ea6af2815df90817e61227f118fa7bb81"
+    },
+    {
+      "path": "publication_assets_source/results/manual_adjudications.json",
+      "sha256": "0aa6a97fd38a5b7c621456a0fc85c013e68381ce03b9ffbd9804018fa7563300"
+    },
+    {
+      "path": "data/multicompany_provable/data/provable_calcrequired.jsonl",
+      "sha256": "a63655a04251bce99cc44a77af5c4abf42fb4a4f1b3e098ce03e3668f8a385ce"
+    },
+    {
+      "path": "scripts/submission_runs.py",
+      "sha256": "e63a73d627cfe21dd54e7cf6ed7610fe496711012775f753237ed2396c84fa74"
+    }
+  ],
+  "models": [
+    {
+      "model": "GPT-5.5",
+      "results": "results/new_submissions/xbrlfiling_gpt5.5/results.jsonl"
+    },
+    {
+      "model": "Claude Haiku 4.5",
+      "results": "results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl"
+    },
+    {
+      "model": "Fin-o1",
+      "results": "results/new_submissions/xbrlfiling_fin_o1/results.jsonl"
+    },
+    {
+      "model": "Qwen3-30B",
+      "results": "results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl"
+    },
+    {
+      "model": "Llama-3.1-8B",
+      "results": "results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl"
+    },
+    {
+      "model": "Qwen2.5-7B",
+      "results": "results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl"
+    }
+  ],
+  "family_denominators": {
+    "Income statement": 226,
+    "Balance sheet": 279,
+    "Cash flow": 95
+  },
+  "bar_measure": "100*TR/all questions in the statement family; not verifier recall",
+  "heatmap_measure": "100*correct numerical candidates/all questions in the metric; missing candidates are incorrect",
+  "scoring": "Historical magnitude rule and original manual adjudications, matching the six-model table.",
+  "outcome_counts": {
+    "GPT-5.5": {
+      "TA": 560,
+      "FA": 0,
+      "TR": 3,
+      "FR": 37,
+      "AB": 0
+    },
+    "Claude Haiku 4.5": {
+      "TA": 455,
+      "FA": 0,
+      "TR": 92,
+      "FR": 46,
+      "AB": 7
+    },
+    "Fin-o1": {
+      "TA": 436,
+      "FA": 0,
+      "TR": 107,
+      "FR": 49,
+      "AB": 8
+    },
+    "Qwen3-30B": {
+      "TA": 304,
+      "FA": 0,
+      "TR": 231,
+      "FR": 63,
+      "AB": 2
+    },
+    "Llama-3.1-8B": {
+      "TA": 74,
+      "FA": 0,
+      "TR": 460,
+      "FR": 50,
+      "AB": 16
+    },
+    "Qwen2.5-7B": {
+      "TA": 35,
+      "FA": 0,
+      "TR": 482,
+      "FR": 73,
+      "AB": 10
+    }
+  },
+  "fin_o1_checkpoint_identity": "unconfirmed for historical XBRLFiling run",
+  "bar_restored_from": {
+    "notebook": "to_be_deleted/archive/repository_cleanup_20261014/notebooks/agent_financebench_result_metrics.ipynb",
+    "cell_id": "c0911c9c",
+    "changes": "Current shared run paths; actual abstentions reported; editable plotting code."
+  },
+  "model_inference_performed": false,
+  "exports": [
+    {
+      "path": "results/new_submissions/figures/category_model_performance_1col_compact.pdf",
+      "sha256": "8cefc9145c665ed2760fa6e5f1cf1ea9e767cd0db42294b6f4b94e8964199bfa"
+    },
+    {
+      "path": "results/new_submissions/figures/category_model_performance_1col_compact.png",
+      "sha256": "2904f30c20e5039c21874314521be6cdd01ddf7ac76b481b7473564908f33edb"
+    },
+    {
+      "path": "results/new_submissions/figures/category_model_performance_1col_compact.svg",
+      "sha256": "8ff86721aa6c5b850adf3fa2b120e8a5bf25c1bed5918a8a50a64a9d3ec6717d"
+    },
+    {
+      "path": "results/new_submissions/figures/category_model_performance_1col_compact_data.csv",
+      "sha256": "50d1d01a5445f94f83e300e446cfa771e4bcfe1d1a4903a3bff8f3c0cc9ef1c5"
+    },
+    {
+      "path": "results/new_submissions/figures/category_model_performance_1col_compact_provenance.json",
+      "sha256": "df15c004b855c3da32fcea4414700438c6648501540255429bb6bf715e68792b"
+    },
+    {
+      "path": "results/new_submissions/figures/xbrl_error_profile_by_statement_family.pdf",
+      "sha256": "6ca67a64d51e1f078fe840c967488d2f5fe2d2b37dee392d9dc76de3a6149ec0"
+    },
+    {
+      "path": "results/new_submissions/figures/xbrl_error_profile_by_statement_family.png",
+      "sha256": "d9989c7503ba156d64700081296047a154b9e0302b40bec1719df7f6ec422ad2"
+    },
+    {
+      "path": "results/new_submissions/figures/xbrl_error_profile_by_statement_family.svg",
+      "sha256": "ebe93a1f69d2022490ae3d1c525fcbe41e0ff83e94fa491adacef65ab3e15d95"
+    },
+    {
+      "path": "results/new_submissions/figures/xbrl_error_profile_by_statement_family_data.csv",
+      "sha256": "1dd1fe812df04c58cb6a1284e2f68e854565ff3c1da57aa717e7c29a9a66924b"
+    },
+    {
+      "path": "results/new_submissions/figures/xbrl_plot_question_outcomes.csv",
+      "sha256": "7ddbefb88e5f1f192cf97efa46fd9655aead6e91d34aa2d7e454a02fad41eecc"
+    },
+    {
+      "path": "results/new_submissions/figures/xbrl_verifier_outcomes.csv",
+      "sha256": "940fe00e816aa87c3ecf7ba26b25982cf637861e794ec2d6da3371e427065553"
+    }
+  ]
+}

@@ -1,0 +1,429 @@
+{
+  "kind": "synthetic_notebook_scoring_fixture",
+  "description": "Controlled offline scoring records preserving statuses and normalized candidate quantities from the 67-question run identified below. Display answers are synthesized from those quantities; this fixture does not preserve or reconstruct original model answer prose.",
+  "provenance": {
+    "result_file": "results/fb_gpt6.1_sol_codex/results.jsonl",
+    "result_sha256": "78b70f2ba09e49877cb7f359813c7567a36290a725a4e914e17f78945931e94d",
+    "canonical_dataset": "data/numerical_questions.jsonl",
+    "canonical_dataset_sha256": "37639aefbd212518e601685a448463304b6e9f8818487f2d229b7460f55472c2",
+    "explicit_display_unit_review": {
+      "source_snapshot": "artifacts/financebench_abstention_audit/snapshots/78b70f2ba09e/results.jsonl",
+      "source_sha256": "78b70f2ba09e49877cb7f359813c7567a36290a725a4e914e17f78945931e94d",
+      "ids": [
+        "financebench_id_01346",
+        "financebench_id_01351",
+        "financebench_id_01476",
+        "financebench_id_04784"
+      ],
+      "rule": "These four archived answers explicitly state percentage points. The fixture preserves the stored percent unit and numeric value; display_unit constructs synthetic answer prose only and is not an evaluator override."
+    }
+  },
+  "cases": [
+    {
+      "id": "financebench_id_03029",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 1577.0
+    },
+    {
+      "id": "financebench_id_04672",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 8738.0
+    },
+    {
+      "id": "financebench_id_02987",
+      "status": "VERIFIED",
+      "claimed_value_unit": "ratio",
+      "claimed_value": 24.26
+    },
+    {
+      "id": "financebench_id_07966",
+      "status": "VERIFIED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 1.9
+    },
+    {
+      "id": "financebench_id_04735",
+      "status": "VERIFIED",
+      "claimed_value_unit": "ratio",
+      "claimed_value": 0.66
+    },
+    {
+      "id": "financebench_id_07507",
+      "status": "VERIFIED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 65.4
+    },
+    {
+      "id": "financebench_id_03856",
+      "status": "VERIFIED",
+      "claimed_value_unit": "ratio",
+      "claimed_value": 0.83
+    },
+    {
+      "id": "financebench_id_01319",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 0.0
+    },
+    {
+      "id": "financebench_id_10420",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "ratio",
+      "claimed_value": -1.42
+    },
+    {
+      "id": "financebench_id_06655",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "days",
+      "claimed_value": 93.86
+    },
+    {
+      "id": "financebench_id_08135",
+      "status": "VERIFIED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 30.8
+    },
+    {
+      "id": "financebench_id_08286",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 11588.0
+    },
+    {
+      "id": "financebench_id_03882",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 1615.9
+    },
+    {
+      "id": "financebench_id_01935",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "",
+      "claimed_value": null
+    },
+    {
+      "id": "financebench_id_01936",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "",
+      "claimed_value": null
+    },
+    {
+      "id": "financebench_id_01928",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 2018.0
+    },
+    {
+      "id": "financebench_id_01930",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "percent",
+      "claimed_value": 0.0
+    },
+    {
+      "id": "financebench_id_03069",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "percent",
+      "claimed_value": 4.18
+    },
+    {
+      "id": "financebench_id_01351",
+      "status": "VIOLATED",
+      "claimed_value_unit": "percent",
+      "claimed_value": -3.0,
+      "display_unit": "percentage points"
+    },
+    {
+      "id": "financebench_id_05718",
+      "status": "VIOLATED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 389.0
+    },
+    {
+      "id": "financebench_id_04254",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 1832.0
+    },
+    {
+      "id": "financebench_id_02608",
+      "status": "VIOLATED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 2.8
+    },
+    {
+      "id": "financebench_id_04417",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 5409.0
+    },
+    {
+      "id": "financebench_id_04660",
+      "status": "VERIFIED",
+      "claimed_value_unit": "ratio",
+      "claimed_value": 1.73
+    },
+    {
+      "id": "financebench_id_03838",
+      "status": "VERIFIED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 101.5
+    },
+    {
+      "id": "financebench_id_07661",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 381.603
+    },
+    {
+      "id": "financebench_id_10285",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 12645.0
+    },
+    {
+      "id": "financebench_id_03473",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "ratio",
+      "claimed_value": 1.46
+    },
+    {
+      "id": "financebench_id_09724",
+      "status": "VERIFIED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 39.73
+    },
+    {
+      "id": "financebench_id_06272",
+      "status": "VIOLATED",
+      "claimed_value_unit": "ratio",
+      "claimed_value": 79.82
+    },
+    {
+      "id": "financebench_id_10130",
+      "status": "VERIFIED",
+      "claimed_value_unit": "days",
+      "claimed_value": 63.86
+    },
+    {
+      "id": "financebench_id_02981",
+      "status": "VERIFIED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 10.3
+    },
+    {
+      "id": "financebench_id_01346",
+      "status": "VIOLATED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 3.0,
+      "display_unit": "percentage points"
+    },
+    {
+      "id": "financebench_id_04209",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 59268.0
+    },
+    {
+      "id": "financebench_id_05915",
+      "status": "VERIFIED",
+      "claimed_value_unit": "ratio",
+      "claimed_value": 17.98
+    },
+    {
+      "id": "financebench_id_04103",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "days",
+      "claimed_value": -3.7
+    },
+    {
+      "id": "financebench_id_03471",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "ratio",
+      "claimed_value": 0.68
+    },
+    {
+      "id": "financebench_id_04854",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 3215.4
+    },
+    {
+      "id": "financebench_id_10136",
+      "status": "VIOLATED",
+      "claimed_value_unit": "ratio",
+      "claimed_value": 54.03
+    },
+    {
+      "id": "financebench_id_01490",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 20000.0
+    },
+    {
+      "id": "financebench_id_01491",
+      "status": "VIOLATED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 13200.0
+    },
+    {
+      "id": "financebench_id_02119",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "other",
+      "claimed_value": 66.56
+    },
+    {
+      "id": "financebench_id_00394",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "",
+      "claimed_value": null
+    },
+    {
+      "id": "financebench_id_10499",
+      "status": "VERIFIED",
+      "claimed_value_unit": "ratio",
+      "claimed_value": 6.25
+    },
+    {
+      "id": "financebench_id_03031",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 5818.0
+    },
+    {
+      "id": "financebench_id_03718",
+      "status": "VERIFIED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 0.4
+    },
+    {
+      "id": "financebench_id_04171",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 302.578
+    },
+    {
+      "id": "financebench_id_03849",
+      "status": "VERIFIED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 7.9
+    },
+    {
+      "id": "financebench_id_01911",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "ratio",
+      "claimed_value": -3.25
+    },
+    {
+      "id": "financebench_id_04458",
+      "status": "VERIFIED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 5.43
+    },
+    {
+      "id": "financebench_id_03282",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 5466.312
+    },
+    {
+      "id": "financebench_id_03531",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 16525.0
+    },
+    {
+      "id": "financebench_id_04080",
+      "status": "VERIFIED",
+      "claimed_value_unit": "ratio",
+      "claimed_value": 3.46
+    },
+    {
+      "id": "financebench_id_04980",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 4625.0
+    },
+    {
+      "id": "financebench_id_01328",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 0.0
+    },
+    {
+      "id": "financebench_id_03620",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 9068.0
+    },
+    {
+      "id": "financebench_id_04481",
+      "status": "VERIFIED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 16.52
+    },
+    {
+      "id": "financebench_id_01482",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "",
+      "claimed_value": null
+    },
+    {
+      "id": "financebench_id_00705",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 400.0
+    },
+    {
+      "id": "financebench_id_00882",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 8400.0
+    },
+    {
+      "id": "financebench_id_01476",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "percent",
+      "claimed_value": 1.0,
+      "display_unit": "percentage points"
+    },
+    {
+      "id": "financebench_id_00283",
+      "status": "VIOLATED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 70.0
+    },
+    {
+      "id": "financebench_id_00724",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "",
+      "claimed_value": null
+    },
+    {
+      "id": "financebench_id_02024",
+      "status": "VERIFIED",
+      "claimed_value_unit": "USD millions",
+      "claimed_value": 1959.0
+    },
+    {
+      "id": "financebench_id_06247",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "days",
+      "claimed_value": 42.69
+    },
+    {
+      "id": "financebench_id_04784",
+      "status": "VERIFIED",
+      "claimed_value_unit": "percent",
+      "claimed_value": 0.2,
+      "display_unit": "percentage points"
+    },
+    {
+      "id": "financebench_id_06741",
+      "status": "ABSTAIN",
+      "claimed_value_unit": "percent",
+      "claimed_value": 6.2
+    }
+  ]
+}

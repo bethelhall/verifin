@@ -1,0 +1,97 @@
+family,metric,model,correct,n,accuracy_pct,result_path
+Overall,Overall,GPT-5.5,597,600,99.500000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Income statement,Gross profit,GPT-5.5,35,35,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Income statement,Operating income,GPT-5.5,54,54,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Income statement,Operating expenses,GPT-5.5,10,10,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Income statement,Income before taxes,GPT-5.5,60,60,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Income statement,Net income,GPT-5.5,66,67,98.507463,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Balance sheet,Current assets,GPT-5.5,64,64,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Balance sheet,Non-current assets,GPT-5.5,4,4,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Balance sheet,Current liabilities,GPT-5.5,60,60,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Balance sheet,Non-current liabilities,GPT-5.5,4,4,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Balance sheet,Total liabilities,GPT-5.5,43,43,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Balance sheet,Shareholders' equity,GPT-5.5,60,60,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Balance sheet,Net PP&E,GPT-5.5,44,44,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Cash flow,Cash from operations,GPT-5.5,26,28,92.857143,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Cash flow,Cash from investing,GPT-5.5,24,24,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Cash flow,Cash from financing,GPT-5.5,43,43,100.000000,results/new_submissions/xbrlfiling_gpt5.5/results.jsonl
+Overall,Overall,Claude Haiku 4.5,501,600,83.500000,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Income statement,Gross profit,Claude Haiku 4.5,35,35,100.000000,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Income statement,Operating income,Claude Haiku 4.5,51,54,94.444444,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Income statement,Operating expenses,Claude Haiku 4.5,10,10,100.000000,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Income statement,Income before taxes,Claude Haiku 4.5,54,60,90.000000,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Income statement,Net income,Claude Haiku 4.5,62,67,92.537313,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Balance sheet,Current assets,Claude Haiku 4.5,60,64,93.750000,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Balance sheet,Non-current assets,Claude Haiku 4.5,4,4,100.000000,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Balance sheet,Current liabilities,Claude Haiku 4.5,54,60,90.000000,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Balance sheet,Non-current liabilities,Claude Haiku 4.5,4,4,100.000000,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Balance sheet,Total liabilities,Claude Haiku 4.5,39,43,90.697674,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Balance sheet,Shareholders' equity,Claude Haiku 4.5,45,60,75.000000,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Balance sheet,Net PP&E,Claude Haiku 4.5,44,44,100.000000,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Cash flow,Cash from operations,Claude Haiku 4.5,6,28,21.428571,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Cash flow,Cash from investing,Claude Haiku 4.5,13,24,54.166667,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Cash flow,Cash from financing,Claude Haiku 4.5,20,43,46.511628,results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl
+Overall,Overall,Fin-o1,485,600,80.833333,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Income statement,Gross profit,Fin-o1,35,35,100.000000,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Income statement,Operating income,Fin-o1,51,54,94.444444,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Income statement,Operating expenses,Fin-o1,10,10,100.000000,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Income statement,Income before taxes,Fin-o1,52,60,86.666667,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Income statement,Net income,Fin-o1,57,67,85.074627,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Balance sheet,Current assets,Fin-o1,58,64,90.625000,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Balance sheet,Non-current assets,Fin-o1,4,4,100.000000,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Balance sheet,Current liabilities,Fin-o1,54,60,90.000000,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Balance sheet,Non-current liabilities,Fin-o1,4,4,100.000000,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Balance sheet,Total liabilities,Fin-o1,40,43,93.023256,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Balance sheet,Shareholders' equity,Fin-o1,45,60,75.000000,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Balance sheet,Net PP&E,Fin-o1,44,44,100.000000,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Cash flow,Cash from operations,Fin-o1,2,28,7.142857,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Cash flow,Cash from investing,Fin-o1,12,24,50.000000,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Cash flow,Cash from financing,Fin-o1,17,43,39.534884,results/new_submissions/xbrlfiling_fin_o1/results.jsonl
+Overall,Overall,Qwen3-30B,367,600,61.166667,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Income statement,Gross profit,Qwen3-30B,35,35,100.000000,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Income statement,Operating income,Qwen3-30B,49,54,90.740741,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Income statement,Operating expenses,Qwen3-30B,10,10,100.000000,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Income statement,Income before taxes,Qwen3-30B,49,60,81.666667,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Income statement,Net income,Qwen3-30B,59,67,88.059701,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Balance sheet,Current assets,Qwen3-30B,25,64,39.062500,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Balance sheet,Non-current assets,Qwen3-30B,3,4,75.000000,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Balance sheet,Current liabilities,Qwen3-30B,27,60,45.000000,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Balance sheet,Non-current liabilities,Qwen3-30B,2,4,50.000000,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Balance sheet,Total liabilities,Qwen3-30B,23,43,53.488372,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Balance sheet,Shareholders' equity,Qwen3-30B,29,60,48.333333,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Balance sheet,Net PP&E,Qwen3-30B,44,44,100.000000,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Cash flow,Cash from operations,Qwen3-30B,1,28,3.571429,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Cash flow,Cash from investing,Qwen3-30B,6,24,25.000000,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Cash flow,Cash from financing,Qwen3-30B,5,43,11.627907,results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl
+Overall,Overall,Llama-3.1-8B,124,600,20.666667,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Income statement,Gross profit,Llama-3.1-8B,17,35,48.571429,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Income statement,Operating income,Llama-3.1-8B,12,54,22.222222,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Income statement,Operating expenses,Llama-3.1-8B,2,10,20.000000,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Income statement,Income before taxes,Llama-3.1-8B,10,60,16.666667,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Income statement,Net income,Llama-3.1-8B,32,67,47.761194,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Balance sheet,Current assets,Llama-3.1-8B,2,64,3.125000,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Balance sheet,Non-current assets,Llama-3.1-8B,2,4,50.000000,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Balance sheet,Current liabilities,Llama-3.1-8B,2,60,3.333333,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Balance sheet,Non-current liabilities,Llama-3.1-8B,0,4,0.000000,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Balance sheet,Total liabilities,Llama-3.1-8B,3,43,6.976744,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Balance sheet,Shareholders' equity,Llama-3.1-8B,18,60,30.000000,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Balance sheet,Net PP&E,Llama-3.1-8B,20,44,45.454545,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Cash flow,Cash from operations,Llama-3.1-8B,2,28,7.142857,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Cash flow,Cash from investing,Llama-3.1-8B,2,24,8.333333,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Cash flow,Cash from financing,Llama-3.1-8B,0,43,0.000000,results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl
+Overall,Overall,Qwen2.5-7B,108,600,18.000000,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Income statement,Gross profit,Qwen2.5-7B,12,35,34.285714,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Income statement,Operating income,Qwen2.5-7B,2,54,3.703704,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Income statement,Operating expenses,Qwen2.5-7B,4,10,40.000000,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Income statement,Income before taxes,Qwen2.5-7B,7,60,11.666667,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Income statement,Net income,Qwen2.5-7B,28,67,41.791045,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Balance sheet,Current assets,Qwen2.5-7B,2,64,3.125000,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Balance sheet,Non-current assets,Qwen2.5-7B,1,4,25.000000,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Balance sheet,Current liabilities,Qwen2.5-7B,2,60,3.333333,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Balance sheet,Non-current liabilities,Qwen2.5-7B,1,4,25.000000,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Balance sheet,Total liabilities,Qwen2.5-7B,5,43,11.627907,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Balance sheet,Shareholders' equity,Qwen2.5-7B,15,60,25.000000,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Balance sheet,Net PP&E,Qwen2.5-7B,27,44,61.363636,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Cash flow,Cash from operations,Qwen2.5-7B,1,28,3.571429,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Cash flow,Cash from investing,Qwen2.5-7B,1,24,4.166667,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl
+Cash flow,Cash from financing,Qwen2.5-7B,0,43,0.000000,results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl

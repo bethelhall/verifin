@@ -1,0 +1,9 @@
+Candidate model,Dataset,Records,CORRECT,INCORRECT,ABSTAIN,Malformed replies,Retried rows,Provider errors,Missing candidates
+qwen2.5-7b,financebench,67,41,24,2,0,0,0,2
+qwen2.5-7b,xbrlfiling,600,207,384,9,0,0,0,9
+qwen3-30b,financebench,67,54,13,0,0,0,0,0
+qwen3-30b,xbrlfiling,600,253,346,1,0,0,0,1
+llama-3.1-8b,financebench,67,65,2,0,0,0,0,0
+llama-3.1-8b,xbrlfiling,600,580,19,1,0,0,0,1
+gpt-5.5,financebench,67,66,1,0,0,0,0,0
+gpt-5.5,xbrlfiling,600,555,45,0,0,0,0,0

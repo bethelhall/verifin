@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-16",
+  "question_id": "tatdqa_db13c923de59ca7f6a80f93f38f3ef17",
+  "question": "What was the percentage change in the segment operating income (loss) between 2017 and 2018?",
+  "finding": "genuine_false_accept_wrong_segment",
+  "scorer_correction_required": false,
+  "source_reviewed_outcome": "FA",
+  "saved_status": "VERIFIED",
+  "saved_claim": {
+    "answer": "58.77%",
+    "value": 58.77,
+    "unit": "percent"
+  },
+  "intended_scope": {
+    "segment": "Film and Electrolytic",
+    "earlier_2017_USD_thousands": -9028,
+    "later_2018_USD_thousands": 3622,
+    "calculation": "(3622 - (-9028)) / (-9028) * 100",
+    "percentage_change": -140.11962782454586,
+    "rounded_percent": -140.12
+  },
+  "candidate_scope": {
+    "segment": "Solid Capacitors",
+    "earlier_2017_USD_millions": 147.7,
+    "later_2018_USD_millions": 234.5,
+    "calculation": "(234.5 - 147.7) / 147.7 * 100",
+    "percentage_change": 58.76777251184834,
+    "rounded_percent": 58.77
+  },
+  "reason": "The question asks for segment operating income (loss), matching the Film and Electrolytic table row and section heading. The original question annotation selects that exact row. Fin-o1 correctly computes the percentage change of Solid Capacitors using a different paragraph; accepting this answer fails the question-to-segment binding. The reference has no demonstrated arithmetic or unit error.",
+  "wording_limitation": "The standalone question omits the segment name and inference receives the whole page, so some referential ambiguity is possible. Unlike identically named competing rows, the parenthetical (loss) and the exact annotated row support the intended Film and Electrolytic scope. Expanding the target set here would be a post hoc interpretation choice rather than repairing a demonstrated scorer defect.",
+  "official_annotation": {
+    "repository": "next-tat/TAT-DQA",
+    "revision": "bc46208b22f0bfe47152c98fd0938d238ce868c2",
+    "url": "https://huggingface.co/datasets/next-tat/TAT-DQA/blob/bc46208b22f0bfe47152c98fd0938d238ce868c2/tatdqa_dataset_test_gold.json",
+    "file_sha256": "e6758315b839203a72e05f8849ce4d56fc8d6d7c34dc0240352769014807f5da",
+    "question_uid": "db13c923de59ca7f6a80f93f38f3ef17",
+    "derivation": "(3,622-(-9,028))/-9,028",
+    "facts": [
+      "3,622",
+      "9,028"
+    ],
+    "block_uuid": "0d3fffda-c388-4d73-a73d-b6563d3cbf87",
+    "fact_spans": [
+      [
+        36,
+        41
+      ],
+      [
+        48,
+        53
+      ]
+    ],
+    "block_text": "Segment operating income (loss) (1) 3,622 1.8% (9,028) (5.0)%",
+    "block_bbox": [
+      100,
+      952,
+      1146,
+      978
+    ]
+  },
+  "inputs": {
+    "results": {
+      "path": "results/new_submission/tatdqa_fin_o1_8b/results.jsonl",
+      "sha256": "60779202db02f07aad13ceb11e0daaa72e7dedbfa866585e49db68e25ec729e4"
+    },
+    "source_pdf": {
+      "path": "data/tatdqa_403_question_handoff_v1/documents/23b98a2dfcb8b787448e527f00cffa9b.pdf",
+      "sha256": "d8971c55d3d78a798bfe80773cb89bfeffdda1465db843b387f1f9a3604e9e9a"
+    },
+    "source_ocr": {
+      "path": "data/tatdqa_403_question_handoff_v1/documents/23b98a2dfcb8b787448e527f00cffa9b.json",
+      "sha256": "c6d4b8bab173616109a0782cd2b1b76ebcfddc0d150c1f3608c746fe6ea4b487"
+    },
+    "dataset": {
+      "path": "data/tatdqa_403_question_handoff_v1/dataset/financebench_xbrl_augmented.jsonl",
+      "sha256": "b731b6af537ff0bf0d5730390f720afb5b8255d53efb963abf06ee60c20bfb64"
+    },
+    "gold": {
+      "path": "data/tatdqa_403_question_handoff_v1/evaluator_only/tatdqa_arithmetic_pilot_gold.jsonl",
+      "sha256": "f6e2054256b55f407c63c219e86799db94e73697d79ee901c905f4af26a3327d"
+    },
+    "adjudications": {
+      "path": "notebooks/tatdqa_scoring_adjudications.json",
+      "sha256": "403ab49ad013ba226cb495b0e6d0f5149624f27f0fb158758356077f9c36e3d1"
+    },
+    "normalizations": {
+      "path": "notebooks/tatdqa_scoring_normalizations.json",
+      "sha256": "65b618d429d90d5383f0a90d762ccc98fbe47ea351c93860d412637dde72ae54"
+    },
+    "scorer": {
+      "path": "src/verifiqa/eval/tatdqa_scoring.py",
+      "sha256": "8f5226c484aa3da315c8f3ec8b1adb37c4743da09cddcab7dbc858be7762a41d"
+    }
+  },
+  "metrics": {
+    "n": 403,
+    "TA": 191,
+    "FA": 1,
+    "TR": 48,
+    "FR": 61,
+    "AB": 102,
+    "precision": 0.9947916666666666,
+    "decision_accuracy": 0.7940199335548173,
+    "coverage": 0.7468982630272953,
+    "rejection_precision": 0.44036697247706424,
+    "abstention_rate": 0.2531017369727047
+  },
+  "action": "Retain FA. No source predictions, scorer code, reference targets, or scoring policies changed.",
+  "audit_scope": "This one flagged Fin-o1 acceptance; not an independent audit of all accepted answers."
+}

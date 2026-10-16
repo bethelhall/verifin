@@ -1,0 +1,19 @@
+Source: Wikipedia
+URL: https://en.wikipedia.org/wiki/Debt_ratio
+Metric: Debt Ratio
+
+PRIMARY FORMULA:
+Debt Ratio = Total Debts / Total Assets = Total Liabilities / Total Assets
+
+VARIABLE DEFINITIONS:
+- Total Debts (or Total Liabilities): The complete financial obligations a company owes to creditors
+- Total Assets: All resources and property owned by the company
+
+ALTERNATIVE EXPRESSION:
+The formula can be stated equivalently as the ratio of total liabilities to total assets, as both represent the company's debt obligations.
+
+VERBATIM FORMULA STATEMENTS:
+"Debt ratio = Total Debts / Total Assets = Total Liabilities / Total Assets"
+
+KEY NOTES:
+This metric indicates what percentage of a company's asset base is financed through borrowed money rather than equity. Higher ratios suggest greater financial leverage and increased risk, while lower ratios indicate reduced leverage and better resilience to economic stress.

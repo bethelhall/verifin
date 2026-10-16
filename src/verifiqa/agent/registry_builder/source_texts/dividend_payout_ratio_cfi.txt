@@ -1,0 +1,24 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/dividend-payout-ratio/
+Metric: Dividend Payout Ratio
+
+PRIMARY FORMULA:
+DPR = Total Dividends / Net Income
+
+ALTERNATIVE FORMULAS:
+DPR = 1 - Retention Ratio
+DPR = Dividends Per Share / Earnings Per Share
+
+VARIABLE DEFINITIONS:
+- DPR: Dividend Payout Ratio
+- Total Dividends: Dividends paid to shareholders
+- Net Income: Company's total earnings
+- Retention Ratio: Percentage of net income retained as earnings rather than distributed
+- Dividends Per Share: Dividend paid per individual share
+- Earnings Per Share: Net income per individual share
+
+VERBATIM FORMULA STATEMENTS:
+"DPR = Total Dividends / Net Income"
+"DPR = 1 - Retention Ratio"
+"DPR = Dividends Per Share / Earnings Per Share"
+"The Dividend Payout Ratio (DPR) is the amount of dividends paid to shareholders in relation to the total amount of net income the company generates."

@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "mode": "openai",
+    "model": "gpt-5.5",
+    "reasoning_effort": "low",
+    "max_output_tokens": 8192,
+    "claim_source": "generated_answer",
+    "deterministic_smt": true,
+    "workers": 1
+  },
+  "llm_run": {
+    "mode": "openai",
+    "transport": "openai_responses",
+    "authentication": "api_key",
+    "model": "gpt-5.5",
+    "reasoning_effort": "low",
+    "max_output_tokens": 8192,
+    "temperature": null,
+    "tools_enabled": false
+  }
+}

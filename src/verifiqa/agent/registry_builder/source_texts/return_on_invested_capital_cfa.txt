@@ -1,0 +1,27 @@
+Source: CFA Institute, Financial Reporting and Analysis curriculum
+Authority: CFA Institute Program Curriculum, Level 1 & 2; Damodaran, Investment Valuation
+Metric: Return on Invested Capital (ROIC)
+
+PRIMARY FORMULA:
+ROIC = NOPAT / Invested Capital
+
+COMPONENT FORMULAS:
+NOPAT = EBIT × (1 - Tax Rate)
+Invested Capital = Total Equity + Total Debt - Cash and Cash Equivalents
+
+ALTERNATIVE FORMULA:
+ROIC = EBIT(1 - t) / (Book Value of Debt + Book Value of Equity - Cash)
+
+VARIABLE DEFINITIONS:
+- NOPAT: Net Operating Profit After Tax — operating profit adjusted for taxes, representing returns to all capital providers
+- EBIT: Earnings Before Interest and Taxes (Operating Income)
+- Tax Rate: Effective tax rate
+- Invested Capital: Total capital employed by debt and equity holders, net of excess cash
+- Total Equity: Book value of shareholders' equity
+- Total Debt: Short-term and long-term interest-bearing debt
+
+VERBATIM FORMULA STATEMENTS:
+"ROIC = NOPAT / Invested Capital"
+"ROIC = EBIT(1-t) / (Book Value of Debt + Book Value of Equity - Cash)"
+"If the ROIC is greater than the WACC, then value is being created."
+"Return on Invested Capital (ROIC) is a profitability or performance measure of the return earned by those who provide capital, namely the firm's bondholders and stockholders."

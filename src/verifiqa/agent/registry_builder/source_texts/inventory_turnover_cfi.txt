@@ -1,0 +1,17 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/inventory-turnover/
+Metric: Inventory Turnover Ratio
+
+PRIMARY FORMULA:
+Inventory Turnover Ratio = Cost of Goods Sold / Average Inventory
+
+VARIABLE DEFINITIONS:
+- Cost of Goods Sold (COGS): The expense incurred from directly creating a product, including raw materials and labor costs. For merchandising businesses, the actual amount paid for finished products.
+- Average Inventory: The average cost of goods during the period, calculated as (Beginning Inventory + Ending Inventory) / 2.
+
+VERBATIM FORMULA STATEMENTS:
+"Inventory Turnover Ratio = (Cost of Goods Sold) / (Average Inventory)"
+"the number of times a business sells and replaces its stock of goods during a given period."
+
+RELATED FORMULA:
+Inventory Turnover Days = (Average Inventory / COGS) x 365

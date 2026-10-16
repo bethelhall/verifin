@@ -1,0 +1,19 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/equity-multiplier/
+Authority: CFA Institute, Financial Reporting and Analysis (DuPont decomposition)
+Metric: Equity Multiplier
+
+PRIMARY FORMULA:
+Equity Multiplier = Total Assets / Total Shareholders' Equity
+
+VARIABLE DEFINITIONS:
+- Total Assets: The company's complete asset holdings, from the balance sheet
+- Total Shareholders' Equity: The owner's stake in the company, from the balance sheet
+
+VERBATIM FORMULA STATEMENTS:
+"Equity Multiplier = Total Assets / Total Shareholder's Equity"
+"a leverage ratio that measures the portion of the company's assets that are financed by shareholder's equity"
+
+KEY NOTES:
+Component of the DuPont decomposition: ROE = Net Profit Margin × Asset Turnover × Equity Multiplier
+A higher multiplier indicates greater financial leverage (more debt financing relative to equity).

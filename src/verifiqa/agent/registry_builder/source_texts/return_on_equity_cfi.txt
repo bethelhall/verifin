@@ -1,0 +1,20 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/return-on-equity/
+Metric: Return on Equity (ROE)
+
+PRIMARY FORMULA:
+ROE = Net Income / Shareholder's Equity
+
+VARIABLE DEFINITIONS:
+- Net Income: A company's annual profit or earnings
+- Shareholder's Equity: The total value of shareholders' equity (also called stockholders' equity)
+
+ALTERNATIVE FORMULA:
+ROE can also be derived by dividing the firm's dividend growth rate by its earnings retention rate (or, 1 - dividend payout ratio).
+
+VERBATIM FORMULA STATEMENTS:
+"ROE is a measure of a company's annual return (net income) divided by the value of its total shareholders' equity (i.e. 12%)."
+"ROE = Net Income / Shareholder's Equity"
+
+KEY NOTES:
+ROE measures the total return on equity capital and shows the firm's ability to turn equity into profits, or the profits made for each dollar from shareholders' equity.

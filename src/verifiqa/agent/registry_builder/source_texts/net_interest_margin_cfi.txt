@@ -1,0 +1,17 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/career/net-interest-margin/
+Authority: CFA Institute, Financial Institutions analysis
+Metric: Net Interest Margin (NIM)
+
+PRIMARY FORMULA:
+Net Interest Margin = (Interest Revenue - Interest Expense) / Average Earning Assets
+
+VARIABLE DEFINITIONS:
+- Interest Revenue: "Interest revenue is generated through interest payments the bank receives on outstanding loans. It is made up of credit lines and loans on the financial institution's balance sheet."
+- Interest Expense: "The price the lender charges the borrower in a financing transaction. It is the cost of borrowing money. It is the interest that accumulates on outstanding liabilities."
+- Average Earning Assets: Average of beginning and ending earning asset balances for the period
+
+VERBATIM FORMULA STATEMENTS:
+"Net Interest Margin = (Interest Revenue - Interest Expense) / Average Earning Assets"
+"Net interest margin is the difference between the interest income generated and the amount of interest paid out to lenders."
+"an industry-specific profitability ratio for banks and other financial institutions that lend out interest-earning assets"

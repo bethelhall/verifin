@@ -1,0 +1,22 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/cash-conversion-cycle/
+Authority: CFA Institute, Financial Reporting and Analysis
+Metric: Cash Conversion Cycle (CCC)
+
+PRIMARY FORMULA:
+CCC = DIO + DSO - DPO
+
+COMPONENT FORMULAS:
+DIO = (Average Inventory / Cost of Sales) × Days
+DSO = (Accounts Receivable / Net Credit Sales) × Days
+DPO = (Average Accounts Payable / Cost of Goods Sold) × Days
+
+VARIABLE DEFINITIONS:
+- DIO (Days Inventory Outstanding): "the number of days, on average, it takes a company to turn its inventory into sales"
+- DSO (Days Sales Outstanding): "the number of days, on average, it takes a company to collect its receivables"
+- DPO (Days Payable Outstanding): "the number of days, on average, it takes a company to pay back its payables"
+
+VERBATIM FORMULA STATEMENTS:
+"Cash Conversion Cycle = DIO + DSO – DPO"
+"The Cash Conversion Cycle (CCC) is a metric that shows the amount of time it takes a company to convert its investments in inventory to cash"
+"CCC = 18.25 + 15.20 – 13.69 = 19.76"

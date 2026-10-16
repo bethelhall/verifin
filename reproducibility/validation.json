@@ -1,0 +1,203 @@
+{
+  "status": "PASS",
+  "validated_at_utc": "2026-10-16T18:13:42.278117+00:00",
+  "scope": "Self-contained offline scoring and visual reproduction of 18 selected saved runs, plus included source-code packaging.",
+  "command": "python scripts/reproduce_submission.py",
+  "notebooks_executed": 3,
+  "notebook_errors": 0,
+  "raw_runs_verified": 18,
+  "raw_records_verified": 6420,
+  "raw_hashes_unchanged": true,
+  "csv_comparisons": {
+    "models_three_datasets.csv": 18,
+    "category_model_performance_1col_compact_data.csv": 96,
+    "xbrl_error_profile_by_statement_family_data.csv": 18
+  },
+  "all_csv_values_match_audited_snapshots": true,
+  "visual_artifacts_byte_identical_to_inspected_originals": [
+    "results/new_submissions/figures/category_model_performance_1col_compact.png",
+    "results/new_submissions/figures/xbrl_error_profile_by_statement_family.png",
+    "paper/figures/tatdqa.png"
+  ],
+  "regression_tests": {
+    "command": "PYTHONPATH=src:. python -m pytest -q -p no:cacheprovider",
+    "passed": 289,
+    "failed": 0
+  },
+  "launcher_syntax_and_help_checks": 6,
+  "alternate_heatmap_script": "Passed isolated temporary-root execution; raw result hashes unchanged.",
+  "credential_pattern_matches": 0,
+  "machine_specific_paths_in_executable_code": 0,
+  "model_inference_performed": false,
+  "limits": [
+    "Fresh model inference was not rerun. Full generation corpora and external model access are required.",
+    "Historical generation commits/configurations are not fully recorded; the included code is a current working-tree snapshot.",
+    "Existing scoring, model identity, ungraded-result and targeted-rerun qualifications remain documented.",
+    "Source checkout has an explicit pending XBRLFiling dataset license and no top-level software license; package does not assign licenses."
+  ],
+  "subsequent_updates": [
+    {
+      "description": "Renamed package to verifin; added anonymous-author XBRLFiling Hugging Face release; selected CC BY-NC 4.0 for dataset contributions.",
+      "dataset_release": "datasets/xbrlfiling",
+      "dataset_license": "cc-by-nc-4.0",
+      "offline_huggingface_load": {
+        "split": "test",
+        "rows": 600,
+        "columns": 19
+      },
+      "uploaded": false,
+      "note": "The original validation record above describes the earlier package state; the dataset license is no longer pending."
+    },
+    {
+      "description": "Replaced the dataset-card namespace placeholder with the anonymous Parquet loading example.",
+      "anonymous_link": "https://anonymous-hf.com/a/dc78cftylin7/",
+      "loading_verified": {
+        "rows": 600,
+        "unique_ids": 600,
+        "authentication_required": false
+      },
+      "published_files": [
+        "README.md",
+        "metadata/manifest.json"
+      ],
+      "uploaded": true,
+      "data_payload_hashes_unchanged": true
+    },
+    {
+      "description": "Packaged and independently reproduced four completed baseline judge comparisons.",
+      "validated_at_utc": "2026-10-16T19:30:21.759362+00:00",
+      "notebook": "notebooks/baseline_results.ipynb",
+      "notebook_executed": true,
+      "notebook_errors": 0,
+      "baseline_runs_verified": 8,
+      "baseline_records_verified": 2668,
+      "exact_one_word_replies": 2655,
+      "empty_candidate_abstentions": 13,
+      "malformed_replies": 0,
+      "provider_errors": 0,
+      "retries": 0,
+      "unscored_judge_decisions": 44,
+      "comparison_rows": 16,
+      "affected_precision_and_accuracy_rows_withheld": 5,
+      "reference_binding": "67 GPT-5.5 FinanceBench raw_answer fields validated against the canonical references and bound to gold_answer in memory only.",
+      "raw_result_files_unchanged_during_package_execution": 32,
+      "main_runs_rechecked": 18,
+      "main_records_rechecked": 6420,
+      "root_regression_tests": {
+        "command": "python -m pytest -q tests/test_reviewer_baselines.py tests/test_reviewer_baseline_models.py tests/test_baseline_notebooks.py",
+        "passed": 61
+      },
+      "package_regression_tests": {
+        "command": "PYTHONPATH=src:. python -m pytest -q -p no:cacheprovider tests/test_reviewer_baseline_models.py",
+        "passed": 36
+      },
+      "csv_values_match_root": true,
+      "new_figure_png_matches_visually_inspected_root": true,
+      "visual_inspection": "Rendered new notebook tables and comparison figure inspected; labels readable, missing metrics explicitly Ungraded, and no clipping.",
+      "scoring_view": "original",
+      "model_inference_performed": false,
+      "new_significance_tests_performed": false,
+      "limitations": [
+        "44 judged candidate answers need correctness grading; affected precision and decision accuracy are withheld.",
+        "The baseline original-paper scoring view differs from the source-reviewed GPT-5.5 FinanceBench main-table view.",
+        "The historical Haiku scalar-parser run and significance family remain distinct from the new full-answer judge protocol."
+      ]
+    },
+    {
+      "description": "Completed the 44 previously ungraded baseline decisions with source-bound full-answer correctness reviews; supersedes the earlier ungraded-baseline count.",
+      "validated_at_utc": "2026-10-16T19:57:26.038042+00:00",
+      "review_protocol": "full_answer_correctness_review_v1",
+      "review_document": "notebooks/baseline_full_answer_reviews.json",
+      "review_type": "Post hoc AI-assisted review; not independent human annotations",
+      "reviewed_candidates": 44,
+      "correct_candidates": 25,
+      "incorrect_candidates": 19,
+      "new_judge_outcomes": {
+        "TA": 18,
+        "FA": 18,
+        "TR": 1,
+        "FR": 7
+      },
+      "unscored_before": 44,
+      "unscored_after": 0,
+      "notebooks_executed": [
+        "notebooks/baseline_results.ipynb",
+        "verifin/notebooks/baseline_results.ipynb"
+      ],
+      "notebook_errors": 0,
+      "comparison_rows": 16,
+      "all_metrics_available": true,
+      "all_saved_decisions_and_abstentions_unchanged": true,
+      "verifin_comparison_metrics_unchanged": true,
+      "root_raw_results_and_manifests_rechecked": 34,
+      "package_result_files_unchanged_during_execution": 32,
+      "main_runs_rechecked": 18,
+      "main_records_rechecked": 6420,
+      "root_scorer_tests": {
+        "distinct_tests_passed": 90,
+        "note": "89 combined tests plus the added missing-unit-zero regression; final dedicated suite34/34 passed."
+      },
+      "notebook_regression_tests_passed": 5,
+      "package_regression_tests": {
+        "command": "PYTHONPATH=src:. python -m pytest -q -p no:cacheprovider tests/test_baseline_full_answer_review.py tests/test_reviewer_baseline_models.py",
+        "passed": 70
+      },
+      "root_package_csv_and_provenance_match": true,
+      "root_package_figure_png_match": true,
+      "rendered_table_and_figure_inspected": true,
+      "model_inference_performed": false,
+      "new_significance_tests_performed": false,
+      "limitations": [
+        "Reviews extend the original numeric scoring only for the previously unscored full-answer candidates; they do not constitute a fresh review of every already-scored answer.",
+        "Canonical benchmark targets and original adjudications are retained; reference/question conflicts and hypothetical assumptions are documented in review rationales.",
+        "This is a post hoc AI-assisted review, not independent human annotation; historical Haiku tests and the reviewed main-model scoring view remain separate."
+      ]
+    },
+    {
+      "description": "Prepared and validated the standalone anonymous review copy, embedded figures in saved notebooks, and added a source-checked main prompt overview to the README.",
+      "validated_at_utc": "2026-10-16T20:16:36.566621+00:00",
+      "status": "PASS",
+      "notebooks_executed": [
+        "notebooks/tatdqa_results.ipynb",
+        "notebooks/tatdqa_result_metrics.ipynb",
+        "results/new_submissions/six_model_accuracy_heatmap.ipynb",
+        "notebooks/baseline_results.ipynb"
+      ],
+      "notebook_errors": 0,
+      "regression_tests": {
+        "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python -m pytest -q -p no:cacheprovider",
+        "passed": 379,
+        "failed": 0
+      },
+      "main_and_baseline_csv_values_match_source": true,
+      "main_csv_comparisons": {
+        "models_three_datasets.csv": 18,
+        "category_model_performance_1col_compact_data.csv": 96,
+        "xbrl_error_profile_by_statement_family_data.csv": 18
+      },
+      "raw_jsonl_files_byte_identical": 44,
+      "raw_runs_verified": 18,
+      "raw_records_verified": 6420,
+      "embedded_png_previews": 5,
+      "embedded_png_bytes_match_saved_figures": true,
+      "xbrlfiling_release_check": {
+        "status": "PASS",
+        "questions": 600,
+        "companies": 28,
+        "filings": 86
+      },
+      "prompt_figure": {
+        "path": "docs/figures/prompt_overview.png",
+        "vector_path": "docs/figures/prompt_overview.svg",
+        "main_prompts": 3,
+        "source_checked_excerpts": 6,
+        "visually_inspected": true
+      },
+      "readme_relative_links_verified": 50,
+      "anonymous_audit": "reproducibility/anonymization.json",
+      "model_inference_performed": false,
+      "uploaded": false,
+      "original_source_package_unchanged": true
+    }
+  ]
+}

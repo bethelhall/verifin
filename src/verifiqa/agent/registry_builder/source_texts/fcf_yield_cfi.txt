@@ -1,0 +1,18 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/valuation/free-cash-flow-yield/
+Authority: CFA Institute, Equity Investments curriculum
+Metric: Free Cash Flow Yield
+
+PRIMARY FORMULA:
+FCF Yield = Free Cash Flow / Market Capitalization
+
+COMPONENT FORMULA:
+Free Cash Flow = Operating Cash Flow - Capital Expenditures
+
+VARIABLE DEFINITIONS:
+- Free Cash Flow: Operating cash flow minus capital expenditures
+- Market Capitalization: Share price multiplied by shares outstanding
+
+VERBATIM FORMULA STATEMENTS:
+"free cash flow yield is determined, first, by using a company's cash flow statement, subtracting capital expenditures from all cash flow operations. Then, the free cash flow value is divided by the company's value or market cap."
+"Free cash flow yield is important for any business, large or small, because it acts as a good metric for cash flow in comparison to the company's size."

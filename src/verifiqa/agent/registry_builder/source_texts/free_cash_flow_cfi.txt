@@ -1,0 +1,21 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/what-is-free-cash-flow-fcf/
+Metric: Free Cash Flow (FCF)
+
+PRIMARY FORMULA:
+Free Cash Flow = Cash from Operations - CapEx
+
+VARIABLE DEFINITIONS:
+- Cash from Operations (CFO): Cash generated from a company's normal business operations
+- CapEx (Capital Expenditures): Purchases of assets such as property, equipment, and other major investments
+
+EXPANDED COMPONENT FORMULAS:
+CFO = Net Income + Non-Cash Expenses - Increase in Non-Cash Net Working Capital
+Non-Cash Adjustments = Depreciation + Amortization + Stock-Based Compensation + Impairment Charges +/- Losses/Gains on Investments
+CapEx = Year 2 PP&E - Year 1 PP&E + Depreciation
+Changes in Working Capital = (Year 2 AR - Year 1 AR) + (Year 2 Inventory - Year 1 Inventory) - (Year 2 AP - Year 1 AP)
+Where: AR = Accounts Receivable, AP = Accounts Payable, PP&E = Property, Plant & Equipment
+
+VERBATIM FORMULA STATEMENTS:
+"Free Cash Flow = Cash from Operations - CapEx"
+"FCF = Net Income + [Depreciation + Amortization + Stock-Based Compensation + Impairment Charges +/- Losses/Gains on Investments] - [(Year 2 AR - Year 1 AR) + (Year 2 Inventory - Year 1 Inventory) - (Year 2 AP - Year 1 AP)] - [Year 2 PP&E - Year 1 PP&E + Depreciation]"

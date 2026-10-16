@@ -1,0 +1,17 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/accounts-receivable-turnover-ratio/
+Metric: Accounts Receivable Turnover Ratio / Receivables Turnover
+
+PRIMARY FORMULA:
+Accounts Receivable Turnover Ratio = Net Credit Sales / Average Accounts Receivable
+
+VARIABLE DEFINITIONS:
+- Net Credit Sales: Sales on credit - Sales returns - Sales allowances
+- Average Accounts Receivable: (Opening Accounts Receivable + Closing Accounts Receivable) / 2
+
+ALTERNATIVE FORMULA:
+Receivable Turnover in Days = 365 / Receivable Turnover Ratio
+
+VERBATIM FORMULA STATEMENTS:
+"Accounts Receivable Turnover Ratio = Net Credit Sales / Average Accounts Receivable"
+"measures the number of times over a given period that a company collects its average accounts receivable."

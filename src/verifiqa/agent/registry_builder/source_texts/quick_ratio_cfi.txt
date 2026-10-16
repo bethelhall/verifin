@@ -1,0 +1,22 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/quick-ratio/
+Metric: Quick Ratio / Acid Test Ratio
+
+PRIMARY FORMULA:
+Quick Ratio = [Cash & Equivalents + Marketable Securities + Accounts Receivable] / Current Liabilities
+
+ALTERNATIVE FORMULA:
+Quick Ratio = [Current Assets - Inventory - Prepaid Expenses] / Current Liabilities
+
+VARIABLE DEFINITIONS:
+- Cash and Cash Equivalents: Most liquid assets
+- Marketable Securities: Short-term investments readily convertible to cash
+- Accounts Receivable: Amounts owed by customers
+- Inventory: Excluded — takes too long to convert to cash
+- Prepaid Expenses: Excluded — cannot be used to pay liabilities
+- Current Liabilities: Short-term obligations due within one year
+
+VERBATIM FORMULA STATEMENTS:
+"Quick Ratio = [Cash & Equivalents + Marketable Securities + Accounts Receivable] / Current Liabilities"
+"Quick Ratio = [Current Assets - Inventory - Prepaid expenses] / Current Liabilities"
+"measures a business's ability to pay its short-term liabilities by using assets that are readily convertible into cash."

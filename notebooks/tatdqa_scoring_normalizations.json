@@ -1,0 +1,872 @@
+{
+  "dataset": "tatdqa",
+  "purpose": "Source-reviewed quantity metadata and evaluator target conversions. Targets and explicit absolute tolerances convert into each saved claim unit; amounts, currencies and quantity types remain candidate-specific. These records never assign correctness by ID.",
+  "records": [
+    {
+      "id": "tatdqa_0d4eeda9b398c1aa8fd598019e3867c4",
+      "raw_answer": "325265",
+      "question": "What is the average ending carrying amount of goodwill under the payment segment for 2018 and 2019?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "The notes header specifies amounts in thousands, except per share amounts. The Payments ending goodwill balances are 325326 and 325204 USD thousands. Preserve the existing physical target and express its one-source-unit absolute tolerance in USD thousands for all candidate scales.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/f24fa8c4247731d58c943302291b95c4.pdf",
+          "locator": "Excerpt page 1 (printed page 48), Note 4 Goodwill; Payments ending balances, June 30, 2019 and 2018",
+          "observations": {
+            "2019_Payments_Goodwill_USD_thousands": 325326,
+            "2018_Payments_Goodwill_USD_thousands": 325204
+          },
+          "sha256": "01467b9443511b8c8080c70316dff209118496348baa8648f035b832b5777e3a"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0000779152-19-000048/JHA_2019_AnnualReport.pdf",
+          "locator": "PDF page 40 (printed 38), Notes header: In Thousands, Except Per Share Amounts; PDF page 50 (printed 48), Payments ending goodwill",
+          "observations": {
+            "2019_Payments_Goodwill_USD_thousands": 325326,
+            "2018_Payments_Goodwill_USD_thousands": 325204
+          },
+          "sha256": "43b74f74e5044ce664eb0593d41f85f9f9104a3622ca5b2b21b5078086c08b91"
+        }
+      ],
+      "source_calculation": "(325326 + 325204) / 2 = 325265 USD thousands",
+      "review_group": "source_table_currency_units_2026_10_15"
+    },
+    {
+      "id": "tatdqa_128c698b8fad151bf8516c2d51f1760b",
+      "raw_answer": "17",
+      "factor": 0.001,
+      "comparison_unit": "USD millions",
+      "reason": "The unscaled PDF values 62 and 45 correspond to 62000 and 45000 USD in the instance. The gold difference is 0.017 USD millions.",
+      "source": "data/tatdqa_403_question_handoff_v1/xbrl/0001140361-20-005863/vhc-20191231.xml (DeferredTaxAssetsTaxDeferredExpenseReservesAndAccruals, c20191231 and c20181231)"
+    },
+    {
+      "id": "tatdqa_23fe1be9117b398035a9ead824b331a8",
+      "raw_answer": "263349.5",
+      "factor": 0.001,
+      "comparison_unit": "USD millions",
+      "reason": "The franchise operations table explicitly states dollars in thousands. The gold average is 263.3495 USD millions.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/d014d1498874d83a9cadf694184173d5.pdf (page labeled 31, Total franchise costs)"
+    },
+    {
+      "id": "tatdqa_4bd3de92c09f035ff563aa9f62ea2a6f",
+      "raw_answer": "-19042",
+      "question": "What is the change in Add: Voyage expenses from Years Ended December 31, 2018 to 2019?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "Replace the existing unit conversion with the same source-derived target expressed in its original USD-thousands display unit and an explicit one-thousand-dollar absolute tolerance. The source table and USD-unit instance both identify the voyage-expense role and periods.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/b04b711c2c88effff02bc8a9aeb01c61.pdf (Excerpt page 1 (printed page 34), Results from Vessel Operations: TCE-to-shipping-revenues reconciliation, 2019 and 2018; table explicitly reconciles to shipping revenues as reported in consolidated statements of operations); data/tatdqa_403_question_handoff_v1/xbrl/0001493152-20-003938/osg-20191231.xml (us-gaap:OrganizationConsolidationAndPresentationOfFinancialStatementsDisclosureTextBlock, context From2019-01-01to2019-12-31, reporting unit; us-gaap:Revenues and OSG:VoyageExpenses, contexts From2019-01-01to2019-12-31 and From2018-01-01to2018-12-31, unitRef USD)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/b04b711c2c88effff02bc8a9aeb01c61.pdf",
+          "locator": "Excerpt page 1 (printed page 34), Results from Vessel Operations: TCE-to-shipping-revenues reconciliation, 2019 and 2018; table explicitly reconciles to shipping revenues as reported in consolidated statements of operations",
+          "sha256": "a2a89253d33b3b7e3419e91e5553f6bb92760e5f4ab8a4d77d9a383ac63b0dcc",
+          "observations": {
+            "TCE_revenues_2019_USD_thousands": 335133,
+            "TCE_revenues_2018_USD_thousands": 326707,
+            "shipping_revenues_2019_USD_thousands": 355547,
+            "shipping_revenues_2018_USD_thousands": 366163,
+            "voyage_expenses_2019_USD_thousands": 20414,
+            "voyage_expenses_2018_USD_thousands": 39456
+          }
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0001493152-20-003938/osg-20191231.xml",
+          "locator": "us-gaap:OrganizationConsolidationAndPresentationOfFinancialStatementsDisclosureTextBlock, context From2019-01-01to2019-12-31, reporting unit; us-gaap:Revenues and OSG:VoyageExpenses, contexts From2019-01-01to2019-12-31 and From2018-01-01to2018-12-31, unitRef USD",
+          "sha256": "71a2df24024dd1e3e5eb7818f21e199c62d3a17b6200a1e009df44860ef0f085",
+          "observations": {
+            "shipping_revenues_2019_USD": 355547000,
+            "shipping_revenues_2018_USD": 366163000,
+            "voyage_expenses_2019_USD": 20414000,
+            "voyage_expenses_2018_USD": 39456000
+          },
+          "quote": "Dollar amounts, except per share amounts, are in thousands."
+        }
+      ],
+      "source_calculation": "(20414 - 39456) = -19042 USD thousands; independently, (20414000 - 39456000) / 1000 = -19042 USD thousands",
+      "review_group": "gold_units_same_source_pages_20261015",
+      "annotation_action": "replace_existing"
+    },
+    {
+      "id": "tatdqa_34a544721ab7683ac3a3eb9109456529",
+      "raw_answer": "0.65",
+      "factor": 100.0,
+      "comparison_unit": "percent",
+      "reason": "The gold is a dimensionless inventory proportion; the stored claim is in percent. Convert 0.65 to 65 percent, without changing the underlying ratio or accepting an arbitrary candidate.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/6998ff3a821511af8a6c3d9b8c855502.pdf (page labeled 37: Finished goods 6356 / Total inventories 9801)"
+    },
+    {
+      "id": "tatdqa_0e740b6e068f8796e830afbf53d713ae",
+      "raw_answer": "-273",
+      "factor": 1000.0,
+      "comparison_unit": "count",
+      "reason": "Weighted average number of shares\u2014basic is reported as 47,880 thousand for 2018 and 48,153 thousand for 2017. The instance uses individual shares, so the gold difference -273 thousand equals -273000 shares.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/5eddb047f49ae0865aebe818c1837158.pdf (Excerpt page 1 (printed page 81), Note 17: table caption In thousands, except for per share amounts; weighted average number of shares\u2014basic, 2018/2017); data/tatdqa_403_question_handoff_v1/xbrl/0001564590-20-006425/adtn-10k_20191231_htm.xml (us-gaap:WeightedAverageNumberOfSharesOutstandingBasic; contexts C_0000926282_20180101_20181231 and C_0000926282_20170101_20171231; unit U_xbrlishares)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/5eddb047f49ae0865aebe818c1837158.pdf",
+          "locator": "Excerpt page 1 (printed page 81), Note 17: table caption In thousands, except for per share amounts; weighted average number of shares\u2014basic, 2018/2017",
+          "observations": {
+            "2018_thousand_shares": 47880,
+            "2017_thousand_shares": 48153
+          },
+          "sha256": "eb380c0fa92ceb3c2b70c553066d4f534df37e63f71a29b2c8cc8166599d78ed"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0001564590-20-006425/adtn-10k_20191231_htm.xml",
+          "locator": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic; contexts C_0000926282_20180101_20181231 and C_0000926282_20170101_20171231; unit U_xbrlishares",
+          "observations": {
+            "2018_shares": 47880000,
+            "2017_shares": 48153000
+          },
+          "sha256": "d64b2f16610453d24c3d80117fdc95498aa71a5788483c0ca600e78cb65c4882"
+        }
+      ],
+      "source_calculation": "(47880 - 48153) * 1000 = -273000 shares"
+    },
+    {
+      "id": "tatdqa_96d748677b3a2c0fd1d1633a6e07c931",
+      "raw_answer": "182",
+      "factor": 1000.0,
+      "comparison_unit": "count",
+      "reason": "The PDF table shows basic weighted average shares of 16,223 and 16,041. Despite the caption except share and per share data, the independent instance confirms these displayed figures represent thousands of shares (16223000 and 16041000 individual shares); the gold difference 182 therefore equals 182000 shares.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/13d7e83488f2ab1456d31bb9ac247990.pdf (Excerpt page 2 (printed page 40), loss-per-share reconciliation; Weighted average common shares, basic, 2019/2018); data/tatdqa_403_question_handoff_v1/xbrl/0000708821-20-000018/par-20191231.xml (us-gaap:WeightedAverageNumberOfSharesOutstandingBasic; contexts FD2019Q4YTD and FD2018Q4YTD; unit shares)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/13d7e83488f2ab1456d31bb9ac247990.pdf",
+          "locator": "Excerpt page 2 (printed page 40), loss-per-share reconciliation; Weighted average common shares, basic, 2019/2018",
+          "observations": {
+            "2019_displayed": 16223,
+            "2018_displayed": 16041
+          },
+          "sha256": "7e5ebc54761e3e0fe8749eada53af7a095872843966588e0d69ff1654512f824"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0000708821-20-000018/par-20191231.xml",
+          "locator": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic; contexts FD2019Q4YTD and FD2018Q4YTD; unit shares",
+          "observations": {
+            "2019_shares": 16223000,
+            "2018_shares": 16041000
+          },
+          "sha256": "d81f9dd086d2e70b4f94229574c1e6c0ec59d5356767c4b55a1d6cafc1f00960"
+        }
+      ],
+      "source_calculation": "(16223 - 16041) * 1000 = 182000 shares"
+    },
+    {
+      "id": "tatdqa_ded47d610b8f3b512bbab0f4871e77b8",
+      "raw_answer": "69747.5",
+      "factor": 1000.0,
+      "comparison_unit": "count",
+      "reason": "The denominator table is in thousands and the gold average 69747.5 is in thousands of shares. The instance independently gives 71005000 and 68490000 individual shares, whose mean is 69747500 shares.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/4bf6297fe4aaf51d58b160a778fadc6f.pdf (Excerpt page 2 (printed page 83), computation of basic and diluted earnings per share; caption in thousands, except per share amounts; basic denominator, 2019/2018); data/tatdqa_403_question_handoff_v1/xbrl/0001288469-20-000013/a12311910-k_htm.xml (us-gaap:WeightedAverageNumberOfSharesOutstandingBasic; contexts FD2019Q4YTD and FD2018Q4YTD; unit shares)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/4bf6297fe4aaf51d58b160a778fadc6f.pdf",
+          "locator": "Excerpt page 2 (printed page 83), computation of basic and diluted earnings per share; caption in thousands, except per share amounts; basic denominator, 2019/2018",
+          "observations": {
+            "2019_thousand_shares": 71005,
+            "2018_thousand_shares": 68490
+          },
+          "sha256": "89005e93118aa53e417278cefe39dd72a805486c003a1c4e799e7b75178d4eb4"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0001288469-20-000013/a12311910-k_htm.xml",
+          "locator": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic; contexts FD2019Q4YTD and FD2018Q4YTD; unit shares",
+          "observations": {
+            "2019_shares": 71005000,
+            "2018_shares": 68490000
+          },
+          "sha256": "b5b27e3ed48674edcc9f84b98e97f2af0830b44a26d77017ec2198551f851d00"
+        }
+      ],
+      "source_calculation": "((71005 + 68490) / 2) * 1000 = 69747500 shares"
+    },
+    {
+      "id": "tatdqa_76fcf6b0bf227d2e506aee1910f497cf",
+      "raw_answer": "191668",
+      "factor": 0.001,
+      "comparison_unit": "USD millions",
+      "reason": "The franchise table explicitly reports dollars in thousands. Total franchise revenues are 613300 and 421632, so the unscaled gold difference 191668 means 191.668 USD millions.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/d014d1498874d83a9cadf694184173d5.pdf (Excerpt page 1 (printed page 31), Franchise Operations; caption dollars in thousands; Total franchise revenues, 2019/2018)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/d014d1498874d83a9cadf694184173d5.pdf",
+          "locator": "Excerpt page 1 (printed page 31), Franchise Operations; caption dollars in thousands; Total franchise revenues, 2019/2018",
+          "observations": {
+            "2019_USD_thousands": 613300,
+            "2018_USD_thousands": 421632
+          },
+          "sha256": "235616f60f6da1bb2b89786b1c1bedc1b98c10158d73861c8c61161d40c3c6bb"
+        }
+      ],
+      "source_calculation": "(613300 - 421632) / 1000 = 191.668 USD millions"
+    },
+    {
+      "id": "tatdqa_613cbb913bda42a98738d603175e36da",
+      "raw_answer": "192584",
+      "question": "What is the average FY19 individual payout amount?",
+      "factor": 1.0,
+      "comparison_unit": "USD",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD",
+      "reason": "The source column contains individual US dollars, not millions. Interpret the raw gold in source USD and convert both target and the $1 absolute tolerance into the current candidate's saved unit; the 1% relative rule is unchanged.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/dbab56c6c9ced463d8eb498d67c8bc9c.pdf (printed page 45, FY19 EAIP NEO Payout Amounts, Individual Payout Amount ($))",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/dbab56c6c9ced463d8eb498d67c8bc9c.pdf",
+          "locator": "Excerpt page 1; printed page 45; FY19 EAIP NEO Payout Amounts; Individual Payout Amount ($); complete five-NEO population",
+          "observations": {
+            "Gregory S. Clark": 0,
+            "Nicholas R. Noviello": 487500,
+            "Amy L. Cappellanti-Wolf": 109648,
+            "Samir Kapuria": 152172,
+            "Scott C. Taylor": 213600
+          },
+          "sha256": "9529d3cedcd916ae5c6b212368bc7311e5c5b014e85a717f89dcc2b295d671ea"
+        }
+      ],
+      "source_calculation": "(0 + 487500 + 109648 + 152172 + 213600) / 5 = 192584.0 USD",
+      "review_group": "latest_258_verified_source_audit"
+    },
+    {
+      "id": "tatdqa_62afbd1d4e987a0cb3193b11523d0dfd",
+      "raw_answer": "3140000",
+      "question": "What is the NEOs' total salary?",
+      "factor": 1.0,
+      "comparison_unit": "USD",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD",
+      "reason": "The source column contains individual US dollars, not millions. Interpret the raw gold in source USD and convert both target and the $1 absolute tolerance into the current candidate's saved unit; the 1% relative rule is unchanged.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/dbab56c6c9ced463d8eb498d67c8bc9c.pdf (printed page 45, FY19 EAIP NEO Payout Amounts, Base Salary)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/dbab56c6c9ced463d8eb498d67c8bc9c.pdf",
+          "locator": "Excerpt page 1; printed page 45; FY19 EAIP NEO Payout Amounts; Base Salary; complete five-NEO population",
+          "observations": {
+            "Gregory S. Clark": 1000000,
+            "Nicholas R. Noviello": 650000,
+            "Amy L. Cappellanti-Wolf": 440000,
+            "Samir Kapuria": 450000,
+            "Scott C. Taylor": 600000
+          },
+          "sha256": "9529d3cedcd916ae5c6b212368bc7311e5c5b014e85a717f89dcc2b295d671ea"
+        }
+      ],
+      "source_calculation": "(1000000 + 650000 + 440000 + 450000 + 600000) = 3140000 USD",
+      "review_group": "latest_258_verified_source_audit"
+    },
+    {
+      "id": "tatdqa_804b0e7ebbb7a8c33148970bfdebdc15",
+      "raw_answer": "3140000",
+      "question": "What is the total FY19 NEOs' annual salary?",
+      "factor": 1.0,
+      "comparison_unit": "USD",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD",
+      "reason": "The source column contains individual US dollars, not millions. Interpret the raw gold in source USD and convert both target and the $1 absolute tolerance into the current candidate's saved unit; the 1% relative rule is unchanged.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/0460e7ea49622c1702dc26530eda21b8.pdf (printed page 42, The following table presents each NEO\u2019s base salary for FY19., FY19 Annual Salary)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/0460e7ea49622c1702dc26530eda21b8.pdf",
+          "locator": "Excerpt page 1; printed page 42; The following table presents each NEO\u2019s base salary for FY19.; FY19 Annual Salary; complete five-NEO population",
+          "observations": {
+            "Gregory S. Clark": 1000000,
+            "Nicholas R. Noviello": 650000,
+            "Amy L. Cappellanti-Wolf": 440000,
+            "Samir Kapuria": 450000,
+            "Scott C. Taylor": 600000
+          },
+          "sha256": "c64fceacfab6b4f346d3626e1f90c54f7af848228f4ce995f8dd1a9fd496c109"
+        }
+      ],
+      "source_calculation": "(1000000 + 650000 + 440000 + 450000 + 600000) = 3140000 USD",
+      "review_group": "latest_258_verified_source_audit"
+    },
+    {
+      "id": "tatdqa_b21db3872baeeac8703f161fb0d3de22",
+      "raw_answer": "628000",
+      "question": "What is the average FY19 NEO annual salary?",
+      "factor": 1.0,
+      "comparison_unit": "USD",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD",
+      "reason": "The source column contains individual US dollars, not millions. Interpret the raw gold in source USD and convert both target and the $1 absolute tolerance into the current candidate's saved unit; the 1% relative rule is unchanged.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/0460e7ea49622c1702dc26530eda21b8.pdf (printed page 42, The following table presents each NEO\u2019s base salary for FY19., FY19 Annual Salary)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/0460e7ea49622c1702dc26530eda21b8.pdf",
+          "locator": "Excerpt page 1; printed page 42; The following table presents each NEO\u2019s base salary for FY19.; FY19 Annual Salary; complete five-NEO population",
+          "observations": {
+            "Gregory S. Clark": 1000000,
+            "Nicholas R. Noviello": 650000,
+            "Amy L. Cappellanti-Wolf": 440000,
+            "Samir Kapuria": 450000,
+            "Scott C. Taylor": 600000
+          },
+          "sha256": "c64fceacfab6b4f346d3626e1f90c54f7af848228f4ce995f8dd1a9fd496c109"
+        }
+      ],
+      "source_calculation": "(1000000 + 650000 + 440000 + 450000 + 600000) / 5 = 628000.0 USD",
+      "review_group": "latest_258_verified_source_audit"
+    },
+    {
+      "id": "tatdqa_dda4bb48c5396171a69ab924da0c7af8",
+      "raw_answer": "628000",
+      "question": "What is the NEOs' average salary?",
+      "factor": 1.0,
+      "comparison_unit": "USD",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD",
+      "reason": "The source column contains individual US dollars, not millions. Interpret the raw gold in source USD and convert both target and the $1 absolute tolerance into the current candidate's saved unit; the 1% relative rule is unchanged.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/dbab56c6c9ced463d8eb498d67c8bc9c.pdf (printed page 45, FY19 EAIP NEO Payout Amounts, Base Salary)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/dbab56c6c9ced463d8eb498d67c8bc9c.pdf",
+          "locator": "Excerpt page 1; printed page 45; FY19 EAIP NEO Payout Amounts; Base Salary; complete five-NEO population",
+          "observations": {
+            "Gregory S. Clark": 1000000,
+            "Nicholas R. Noviello": 650000,
+            "Amy L. Cappellanti-Wolf": 440000,
+            "Samir Kapuria": 450000,
+            "Scott C. Taylor": 600000
+          },
+          "sha256": "9529d3cedcd916ae5c6b212368bc7311e5c5b014e85a717f89dcc2b295d671ea"
+        }
+      ],
+      "source_calculation": "(1000000 + 650000 + 440000 + 450000 + 600000) / 5 = 628000.0 USD",
+      "review_group": "latest_258_verified_source_audit"
+    },
+    {
+      "id": "tatdqa_7e30e6244fab8ce36d11e7aa0d47f58f",
+      "raw_answer": "-5.45",
+      "question": "What is the change in Second Quarter: High price from Fiscal Year Ended April 28, 2018 to Fiscal Year Ended April 27, 2019?",
+      "factor": 1.0,
+      "comparison_unit": "USD per share",
+      "claim_unit_qualifier": "per share",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD per share",
+      "reason": "The High market-price column is US dollars per share. Raw gold -5.45 means -5.45 USD per share. The legacy verifier stored physically scaled USD millions but omitted the per-share denominator; this source-defined qualifier repairs only that missing denominator, preserving each candidate amount, scale and currency. The $1/share absolute floor converts with the target.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/ef37215f6a63e5f06c6b32f7c3db7aad.pdf",
+          "locator": "Excerpt page 1; fiscal-year market-price sections; Second Quarter row, High column, fiscal years ended April 27, 2019 and April 28, 2018",
+          "observations": {
+            "FY2019_high_USD_per_share": 41.3,
+            "FY2018_high_USD_per_share": 46.75
+          },
+          "sha256": "39c05a186b450a5b13e9c5739d4d26489d56551f39487e5241b7eaf9da6437bf"
+        }
+      ],
+      "source_calculation": "41.30 - 46.75 = -5.45 USD per share",
+      "review_group": "latest_258_verified_source_audit"
+    },
+    {
+      "id": "tatdqa_b610b2e2b8975ae32ecd9774c45d7979",
+      "raw_answer": "0.02",
+      "question": "What is the proportion of investor relations and consultants over the total operating expense in 2019?",
+      "factor": 1.0,
+      "comparison_unit": "ratio",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "percent",
+      "reason": "Raw gold 0.02 is the source proportion rounded to two decimal places, not 0.02 percent. This declares the ratio unit independently of candidate display. The source-reviewed view separately uses the unrounded source calculation; the absolute floor is one percentage point in ratio/percent representations.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/2eb70b081b9d6349d0c5a5c667689fbd.pdf",
+          "locator": "Excerpt page 1; Operating expenses table, 2019 column; Investor Relations, Consultants and Total Operating Expense including stock compensation",
+          "observations": {
+            "investor_relations_USD": 105639,
+            "consultants_USD": 245386,
+            "total_operating_expense_USD": 19133139
+          },
+          "sha256": "93a05e5ec099b82e7df39c215dcdae38e81d8145221b85b245e334befe4f275d"
+        }
+      ],
+      "source_calculation": "(105639 + 245386) / 19133139 = 0.01834644069642728; rounded to two decimals = 0.02 ratio",
+      "review_group": "latest_258_verified_source_audit"
+    },
+    {
+      "id": "tatdqa_468c66eae0519507e989ecf48d8c818d",
+      "raw_answer": "6508",
+      "question": "What is the difference between the total charges for fiscal year 2019 to 2018?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "The notes-wide unit caption defines tabular amounts as thousands of U.S. dollars. The question takes a difference of total special charges; the benchmark omitted that scale.",
+      "source": "artifacts/tatdqa_gold_unit_review/sources/OpenText-2019-Annual-Report.pdf (PDF page 126 (printed page 118): notes-wide reporting unit; PDF page 163 (printed page 155), Note 17 Special Charges (Recoveries): 2019/2018/2017 table); data/tatdqa_403_question_handoff_v1/documents/bb3b12efd430ed81ccc8698c08ea8965.pdf (Excerpt page 1 (printed page 155), Note 17 Special Charges (Recoveries); exact target page matches full annual report PDF page 163 after whitespace normalization)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/evaluator_only/scoring_sources/OpenText-2019-Annual-Report.pdf",
+          "locator": "PDF page 126 (printed page 118): notes-wide reporting unit; PDF page 163 (printed page 155), Note 17 Special Charges (Recoveries): 2019/2018/2017 table",
+          "sha256": "95bf9b5c9052abfe8d656492ee1cac64542b4cfc380b651b947c3c766c954fc5",
+          "observations": {
+            "total_charges_2019_USD_thousands": 35719,
+            "total_charges_2018_USD_thousands": 29211,
+            "total_charges_2017_USD_thousands": 63618,
+            "acquisition_costs_2019_USD_thousands": 5625,
+            "acquisition_costs_2018_USD_thousands": 4805
+          },
+          "quote": "Tabular amounts in thousands of U.S. dollars, except share and per share data"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/bb3b12efd430ed81ccc8698c08ea8965.pdf",
+          "locator": "Excerpt page 1 (printed page 155), Note 17 Special Charges (Recoveries); exact target page matches full annual report PDF page 163 after whitespace normalization",
+          "sha256": "45ce695ddc357db483ddd0761f73928522a0f07d2537fcdc84f166e67f09bc89"
+        }
+      ],
+      "source_calculation": "(35719 - 29211) = 6508 USD thousands",
+      "review_group": "gold_units_same_source_pages_20261015",
+      "annotation_action": "new"
+    },
+    {
+      "id": "tatdqa_51bb4b74b6aaf4b922f04c3a180f3ef5",
+      "raw_answer": "42849.33",
+      "question": "What is the average annual total charges?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "The notes-wide unit caption defines tabular amounts as thousands of U.S. dollars. The average uses all three annual total-charge columns; retain the original rounded reference value and supply its omitted scale.",
+      "source": "artifacts/tatdqa_gold_unit_review/sources/OpenText-2019-Annual-Report.pdf (PDF page 126 (printed page 118): notes-wide reporting unit; PDF page 163 (printed page 155), Note 17 Special Charges (Recoveries): 2019/2018/2017 table); data/tatdqa_403_question_handoff_v1/documents/bb3b12efd430ed81ccc8698c08ea8965.pdf (Excerpt page 1 (printed page 155), Note 17 Special Charges (Recoveries); exact target page matches full annual report PDF page 163 after whitespace normalization)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/evaluator_only/scoring_sources/OpenText-2019-Annual-Report.pdf",
+          "locator": "PDF page 126 (printed page 118): notes-wide reporting unit; PDF page 163 (printed page 155), Note 17 Special Charges (Recoveries): 2019/2018/2017 table",
+          "sha256": "95bf9b5c9052abfe8d656492ee1cac64542b4cfc380b651b947c3c766c954fc5",
+          "observations": {
+            "total_charges_2019_USD_thousands": 35719,
+            "total_charges_2018_USD_thousands": 29211,
+            "total_charges_2017_USD_thousands": 63618,
+            "acquisition_costs_2019_USD_thousands": 5625,
+            "acquisition_costs_2018_USD_thousands": 4805
+          },
+          "quote": "Tabular amounts in thousands of U.S. dollars, except share and per share data"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/bb3b12efd430ed81ccc8698c08ea8965.pdf",
+          "locator": "Excerpt page 1 (printed page 155), Note 17 Special Charges (Recoveries); exact target page matches full annual report PDF page 163 after whitespace normalization",
+          "sha256": "45ce695ddc357db483ddd0761f73928522a0f07d2537fcdc84f166e67f09bc89"
+        }
+      ],
+      "source_calculation": "(35719 + 29211 + 63618) / 3 = 42849.3333333333 USD thousands; benchmark reference rounds to 42849.33",
+      "review_group": "gold_units_same_source_pages_20261015",
+      "annotation_action": "new"
+    },
+    {
+      "id": "tatdqa_a3a4c641f9bd9aa740e7346ae023830c",
+      "raw_answer": "820",
+      "question": "What is the difference between the Acquisition-related costs for fiscal year 2019 and 2018?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "The notes-wide unit caption defines tabular amounts as thousands of U.S. dollars. The question takes a difference of the Acquisition-related costs row; the benchmark omitted that scale.",
+      "source": "artifacts/tatdqa_gold_unit_review/sources/OpenText-2019-Annual-Report.pdf (PDF page 126 (printed page 118): notes-wide reporting unit; PDF page 163 (printed page 155), Note 17 Special Charges (Recoveries): 2019/2018/2017 table); data/tatdqa_403_question_handoff_v1/documents/bb3b12efd430ed81ccc8698c08ea8965.pdf (Excerpt page 1 (printed page 155), Note 17 Special Charges (Recoveries); exact target page matches full annual report PDF page 163 after whitespace normalization)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/evaluator_only/scoring_sources/OpenText-2019-Annual-Report.pdf",
+          "locator": "PDF page 126 (printed page 118): notes-wide reporting unit; PDF page 163 (printed page 155), Note 17 Special Charges (Recoveries): 2019/2018/2017 table",
+          "sha256": "95bf9b5c9052abfe8d656492ee1cac64542b4cfc380b651b947c3c766c954fc5",
+          "observations": {
+            "total_charges_2019_USD_thousands": 35719,
+            "total_charges_2018_USD_thousands": 29211,
+            "total_charges_2017_USD_thousands": 63618,
+            "acquisition_costs_2019_USD_thousands": 5625,
+            "acquisition_costs_2018_USD_thousands": 4805
+          },
+          "quote": "Tabular amounts in thousands of U.S. dollars, except share and per share data"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/bb3b12efd430ed81ccc8698c08ea8965.pdf",
+          "locator": "Excerpt page 1 (printed page 155), Note 17 Special Charges (Recoveries); exact target page matches full annual report PDF page 163 after whitespace normalization",
+          "sha256": "45ce695ddc357db483ddd0761f73928522a0f07d2537fcdc84f166e67f09bc89"
+        }
+      ],
+      "source_calculation": "(5625 - 4805) = 820 USD thousands",
+      "review_group": "gold_units_same_source_pages_20261015",
+      "annotation_action": "new"
+    },
+    {
+      "id": "tatdqa_647f4eb808ab688051661d653bb0eb8d",
+      "raw_answer": "8426",
+      "question": "What is the change in Time charter equivalent revenues from Years Ended December 31, 2018 to 2019?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "The source reconciliation reports TCE revenue as shipping revenue less voyage expenses. The filed unit caption states dollar amounts are in thousands, and the USD-unit instance provides the corresponding shipping-revenue and voyage-expense facts independently of any candidate.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/b04b711c2c88effff02bc8a9aeb01c61.pdf (Excerpt page 1 (printed page 34), Results from Vessel Operations: TCE-to-shipping-revenues reconciliation, 2019 and 2018; table explicitly reconciles to shipping revenues as reported in consolidated statements of operations); data/tatdqa_403_question_handoff_v1/xbrl/0001493152-20-003938/osg-20191231.xml (us-gaap:OrganizationConsolidationAndPresentationOfFinancialStatementsDisclosureTextBlock, context From2019-01-01to2019-12-31, reporting unit; us-gaap:Revenues and OSG:VoyageExpenses, contexts From2019-01-01to2019-12-31 and From2018-01-01to2018-12-31, unitRef USD)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/b04b711c2c88effff02bc8a9aeb01c61.pdf",
+          "locator": "Excerpt page 1 (printed page 34), Results from Vessel Operations: TCE-to-shipping-revenues reconciliation, 2019 and 2018; table explicitly reconciles to shipping revenues as reported in consolidated statements of operations",
+          "sha256": "a2a89253d33b3b7e3419e91e5553f6bb92760e5f4ab8a4d77d9a383ac63b0dcc",
+          "observations": {
+            "TCE_revenues_2019_USD_thousands": 335133,
+            "TCE_revenues_2018_USD_thousands": 326707,
+            "shipping_revenues_2019_USD_thousands": 355547,
+            "shipping_revenues_2018_USD_thousands": 366163,
+            "voyage_expenses_2019_USD_thousands": 20414,
+            "voyage_expenses_2018_USD_thousands": 39456
+          }
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0001493152-20-003938/osg-20191231.xml",
+          "locator": "us-gaap:OrganizationConsolidationAndPresentationOfFinancialStatementsDisclosureTextBlock, context From2019-01-01to2019-12-31, reporting unit; us-gaap:Revenues and OSG:VoyageExpenses, contexts From2019-01-01to2019-12-31 and From2018-01-01to2018-12-31, unitRef USD",
+          "sha256": "71a2df24024dd1e3e5eb7818f21e199c62d3a17b6200a1e009df44860ef0f085",
+          "observations": {
+            "shipping_revenues_2019_USD": 355547000,
+            "shipping_revenues_2018_USD": 366163000,
+            "voyage_expenses_2019_USD": 20414000,
+            "voyage_expenses_2018_USD": 39456000
+          },
+          "quote": "Dollar amounts, except per share amounts, are in thousands."
+        }
+      ],
+      "source_calculation": "(335133 - 326707) = 8426 USD thousands; independently, ((355547000 - 20414000) - (366163000 - 39456000)) / 1000 = 8426 USD thousands",
+      "review_group": "gold_units_same_source_pages_20261015",
+      "annotation_action": "new"
+    },
+    {
+      "id": "tatdqa_941e08f0c9de256e74de7472019108e7",
+      "raw_answer": "10394",
+      "question": "What is the total stock-based compensation expense and unrecognized stock-based compensation expense in 2019?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "The notes-wide unit caption applies to dollar compensation amounts. Sum recognized total compensation and the two separately disclosed unrecognized compensation expenses; the benchmark omitted the thousands scale.",
+      "source": "artifacts/tatdqa_gold_unit_review/sources/VirnetX-2019-Annual-Report.pdf (PDF page 50 (printed page 49): notes-wide reporting unit; PDF page 56 (printed page 55), Note 6 Stock-Based Compensation by Type of Award and following unrecognized-expense paragraph); data/tatdqa_403_question_handoff_v1/documents/36d1468e2be20ccc765f76c712ed5e1e.pdf (Excerpt page 1 (printed page 55), stock-based compensation expense table and following unrecognized-expense paragraph; exact target page matches full annual report PDF page 56 after whitespace normalization)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/evaluator_only/scoring_sources/VirnetX-2019-Annual-Report.pdf",
+          "locator": "PDF page 50 (printed page 49): notes-wide reporting unit; PDF page 56 (printed page 55), Note 6 Stock-Based Compensation by Type of Award and following unrecognized-expense paragraph",
+          "sha256": "572fca62fb5800d273a23d360105b6dcc59a529f249f3e12b847d219922951b0",
+          "observations": {
+            "total_compensation_2019_USD_thousands": 3711,
+            "unrecognized_options_2019_USD_thousands": 4801,
+            "unrecognized_RSUs_2019_USD_thousands": 1882,
+            "options_expense_2019_USD_thousands": 2756,
+            "options_expense_2018_USD_thousands": 2926
+          },
+          "quote": "in thousands except share, per share and per device amounts"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/36d1468e2be20ccc765f76c712ed5e1e.pdf",
+          "locator": "Excerpt page 1 (printed page 55), stock-based compensation expense table and following unrecognized-expense paragraph; exact target page matches full annual report PDF page 56 after whitespace normalization",
+          "sha256": "4b26f130e26e683b8d2205bac25668254540b26f63b7afd5134eff78fe637583"
+        }
+      ],
+      "source_calculation": "(3711 + 4801 + 1882) = 10394 USD thousands",
+      "review_group": "gold_units_same_source_pages_20261015",
+      "annotation_action": "new"
+    },
+    {
+      "id": "tatdqa_fb6d26cc34253714ca09a623b7cadaa7",
+      "raw_answer": "-10616",
+      "question": "What is the change in Shipping revenues from Years Ended December 31, 2018 to 2019?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "The same source table reports shipping revenues for 2019 and 2018, reconciled to the consolidated statements. The instance binds those revenues in USD and the filing states dollar amounts are in thousands. Supply the omitted scale without changing the sign or reference value.",
+      "source": "data/tatdqa_403_question_handoff_v1/documents/b04b711c2c88effff02bc8a9aeb01c61.pdf (Excerpt page 1 (printed page 34), Results from Vessel Operations: TCE-to-shipping-revenues reconciliation, 2019 and 2018; table explicitly reconciles to shipping revenues as reported in consolidated statements of operations); data/tatdqa_403_question_handoff_v1/xbrl/0001493152-20-003938/osg-20191231.xml (us-gaap:OrganizationConsolidationAndPresentationOfFinancialStatementsDisclosureTextBlock, context From2019-01-01to2019-12-31, reporting unit; us-gaap:Revenues and OSG:VoyageExpenses, contexts From2019-01-01to2019-12-31 and From2018-01-01to2018-12-31, unitRef USD)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/b04b711c2c88effff02bc8a9aeb01c61.pdf",
+          "locator": "Excerpt page 1 (printed page 34), Results from Vessel Operations: TCE-to-shipping-revenues reconciliation, 2019 and 2018; table explicitly reconciles to shipping revenues as reported in consolidated statements of operations",
+          "sha256": "a2a89253d33b3b7e3419e91e5553f6bb92760e5f4ab8a4d77d9a383ac63b0dcc",
+          "observations": {
+            "TCE_revenues_2019_USD_thousands": 335133,
+            "TCE_revenues_2018_USD_thousands": 326707,
+            "shipping_revenues_2019_USD_thousands": 355547,
+            "shipping_revenues_2018_USD_thousands": 366163,
+            "voyage_expenses_2019_USD_thousands": 20414,
+            "voyage_expenses_2018_USD_thousands": 39456
+          }
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0001493152-20-003938/osg-20191231.xml",
+          "locator": "us-gaap:OrganizationConsolidationAndPresentationOfFinancialStatementsDisclosureTextBlock, context From2019-01-01to2019-12-31, reporting unit; us-gaap:Revenues and OSG:VoyageExpenses, contexts From2019-01-01to2019-12-31 and From2018-01-01to2018-12-31, unitRef USD",
+          "sha256": "71a2df24024dd1e3e5eb7818f21e199c62d3a17b6200a1e009df44860ef0f085",
+          "observations": {
+            "shipping_revenues_2019_USD": 355547000,
+            "shipping_revenues_2018_USD": 366163000,
+            "voyage_expenses_2019_USD": 20414000,
+            "voyage_expenses_2018_USD": 39456000
+          },
+          "quote": "Dollar amounts, except per share amounts, are in thousands."
+        }
+      ],
+      "source_calculation": "(355547 - 366163) = -10616 USD thousands; independently, (355547000 - 366163000) / 1000 = -10616 USD thousands",
+      "review_group": "gold_units_same_source_pages_20261015",
+      "annotation_action": "new"
+    },
+    {
+      "id": "tatdqa_f3a7e8ba2038bf444258ef65e7c92d1f",
+      "raw_answer": "-170",
+      "question": "What was the change in the amount of stock options in 2019 from 2018?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "Within the supplied evidence, Stock options is a row under Stock-Based Compensation by Type of Award, introduced explicitly as compensation expense. These are dollar expenses, not option counts; the notes-wide unit caption puts them in thousands. Supply the omitted scale without changing the reference value.",
+      "source": "artifacts/tatdqa_gold_unit_review/sources/VirnetX-2019-Annual-Report.pdf (PDF page 50 (printed page 49): notes-wide reporting unit; PDF page 56 (printed page 55), Note 6 Stock-Based Compensation by Type of Award and following unrecognized-expense paragraph); data/tatdqa_403_question_handoff_v1/documents/36d1468e2be20ccc765f76c712ed5e1e.pdf (Excerpt page 1 (printed page 55), stock-based compensation expense table and following unrecognized-expense paragraph; exact target page matches full annual report PDF page 56 after whitespace normalization)",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/evaluator_only/scoring_sources/VirnetX-2019-Annual-Report.pdf",
+          "locator": "PDF page 50 (printed page 49): notes-wide reporting unit; PDF page 56 (printed page 55), Note 6 Stock-Based Compensation by Type of Award and following unrecognized-expense paragraph",
+          "sha256": "572fca62fb5800d273a23d360105b6dcc59a529f249f3e12b847d219922951b0",
+          "observations": {
+            "total_compensation_2019_USD_thousands": 3711,
+            "unrecognized_options_2019_USD_thousands": 4801,
+            "unrecognized_RSUs_2019_USD_thousands": 1882,
+            "options_expense_2019_USD_thousands": 2756,
+            "options_expense_2018_USD_thousands": 2926
+          },
+          "quote": "in thousands except share, per share and per device amounts"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/36d1468e2be20ccc765f76c712ed5e1e.pdf",
+          "locator": "Excerpt page 1 (printed page 55), stock-based compensation expense table and following unrecognized-expense paragraph; exact target page matches full annual report PDF page 56 after whitespace normalization",
+          "sha256": "4b26f130e26e683b8d2205bac25668254540b26f63b7afd5134eff78fe637583"
+        }
+      ],
+      "source_calculation": "(2756 - 2926) = -170 USD thousands",
+      "review_group": "gold_units_same_source_pages_20261015",
+      "annotation_action": "new"
+    },
+    {
+      "id": "tatdqa_65958d60296b1625b3351b6e788e7f5a",
+      "raw_answer": "-342",
+      "question": "What is the change in Property and equipment, net in South Africa from Year Ending March 31, 2018 to 2019?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "The source table's South Africa property and equipment figures are in thousands of USD: its displayed 6170 and 6512 correspond to 6170000 and 6512000 individual USD in the filed instance. The original unscaled gold therefore denotes USD thousands. Convert the target and the existing one-source-unit absolute tolerance into each candidate's saved unit; do not change the candidate value.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/270bd8844a1df7adb9e0877771195f85.pdf",
+          "locator": "Excerpt page 1 (printed page 93), Property and equipment, net by geographic location; South Africa, March 31, 2019 and 2018",
+          "observations": {
+            "2019_displayed": 6170,
+            "2018_displayed": 6512
+          },
+          "sha256": "f4b230202b608178759fe2d9f425aacfee2ae56b695b05e142fc3e8ddfbf89ca"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0001564590-19-020753/mime-20190331.xml",
+          "locator": "us-gaap:PropertyPlantAndEquipmentNet; contexts C_0001644675_srtStatementGeographicalAxis_countryZA_20190331 and C_0001644675_srtStatementGeographicalAxis_countryZA_20180331; unit U_iso4217USD",
+          "observations": {
+            "2019_USD": 6170000,
+            "2018_USD": 6512000
+          },
+          "sha256": "c0c6fbc8c345013a84fca436b88dc9bc24e52b49fa3618fb5e5cf4ce821d2518"
+        }
+      ],
+      "source_calculation": "6170 - 6512 = -342 USD thousands",
+      "review_group": "source_table_currency_units_2026_10_15"
+    },
+    {
+      "id": "tatdqa_8492e266df026d393f47f6e4a33642b9",
+      "raw_answer": "391",
+      "question": "What is the change in Property and equipment, net in United States from Year Ending March 31, 2018 to 2019?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "The source table's United States property and equipment figures are in thousands of USD: its displayed 62455 and 62064 correspond to 62455000 and 62064000 individual USD in the filed instance. The original unscaled gold therefore denotes USD thousands. Convert the target and the existing one-source-unit absolute tolerance into each candidate's saved unit; do not change the candidate value.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/270bd8844a1df7adb9e0877771195f85.pdf",
+          "locator": "Excerpt page 1 (printed page 93), Property and equipment, net by geographic location; United States, March 31, 2019 and 2018",
+          "observations": {
+            "2019_displayed": 62455,
+            "2018_displayed": 62064
+          },
+          "sha256": "f4b230202b608178759fe2d9f425aacfee2ae56b695b05e142fc3e8ddfbf89ca"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0001564590-19-020753/mime-20190331.xml",
+          "locator": "us-gaap:PropertyPlantAndEquipmentNet; contexts C_0001644675_srtStatementGeographicalAxis_countryUS_20190331 and C_0001644675_srtStatementGeographicalAxis_countryUS_20180331; unit U_iso4217USD",
+          "observations": {
+            "2019_USD": 62455000,
+            "2018_USD": 62064000
+          },
+          "sha256": "c0c6fbc8c345013a84fca436b88dc9bc24e52b49fa3618fb5e5cf4ce821d2518"
+        }
+      ],
+      "source_calculation": "62455 - 62064 = 391 USD thousands",
+      "review_group": "source_table_currency_units_2026_10_15"
+    },
+    {
+      "id": "tatdqa_c49cc9d2c7881f4a0ccbb7ed05fe69e0",
+      "raw_answer": "-29262",
+      "question": "What is the change in Property and equipment, net in United Kingdom from Year Ending March 31, 2018 to 2019?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "The source table's United Kingdom property and equipment figures are in thousands of USD: its displayed 17402 and 46664 correspond to 17402000 and 46664000 individual USD in the filed instance. The original unscaled gold therefore denotes USD thousands. Convert the target and the existing one-source-unit absolute tolerance into each candidate's saved unit; do not change the candidate value.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/270bd8844a1df7adb9e0877771195f85.pdf",
+          "locator": "Excerpt page 1 (printed page 93), Property and equipment, net by geographic location; United Kingdom, March 31, 2019 and 2018",
+          "observations": {
+            "2019_displayed": 17402,
+            "2018_displayed": 46664
+          },
+          "sha256": "f4b230202b608178759fe2d9f425aacfee2ae56b695b05e142fc3e8ddfbf89ca"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0001564590-19-020753/mime-20190331.xml",
+          "locator": "us-gaap:PropertyPlantAndEquipmentNet; contexts C_0001644675_srtStatementGeographicalAxis_countryGB_20190331 and C_0001644675_srtStatementGeographicalAxis_countryGB_20180331; unit U_iso4217USD",
+          "observations": {
+            "2019_USD": 17402000,
+            "2018_USD": 46664000
+          },
+          "sha256": "c0c6fbc8c345013a84fca436b88dc9bc24e52b49fa3618fb5e5cf4ce821d2518"
+        }
+      ],
+      "source_calculation": "17402 - 46664 = -29262 USD thousands",
+      "review_group": "source_table_currency_units_2026_10_15"
+    },
+    {
+      "id": "tatdqa_fd2bb48443a69d7d9c20aa725996b61b",
+      "raw_answer": "4122",
+      "question": "How much goodwill was acquired during fiscal 2019, excluding the goodwill acquired from the purchase of BOLTS Technologies, Inc.?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "The annual report's notes header specifies amounts in thousands, except per share amounts. Note 4 gives goodwill acquired in fiscal 2019 as 17015 and goodwill from BOLTS as 12893; the unscaled gold difference 4122 therefore means USD thousands. Convert the target and the existing one-source-unit absolute tolerance to each candidate's saved unit.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/f24fa8c4247731d58c943302291b95c4.pdf",
+          "locator": "Excerpt page 1 (printed page 48), Note 4 Other Assets, Goodwill; paragraph below segment table",
+          "observations": {
+            "total_acquired_USD_thousands": 17015,
+            "BOLTS_USD_thousands": 12893
+          },
+          "sha256": "01467b9443511b8c8080c70316dff209118496348baa8648f035b832b5777e3a"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0000779152-19-000048/JHA_2019_AnnualReport.pdf",
+          "locator": "PDF page 40 (printed 38), Notes to Consolidated Financial Statements header: In Thousands, Except Per Share Amounts; PDF page 50 (printed 48), Note 4 Goodwill",
+          "observations": {
+            "notes_unit": "USD thousands",
+            "total_acquired": 17015,
+            "BOLTS": 12893
+          },
+          "sha256": "43b74f74e5044ce664eb0593d41f85f9f9104a3622ca5b2b21b5078086c08b91"
+        }
+      ],
+      "source_calculation": "17015 - 12893 = 4122 USD thousands",
+      "review_group": "source_table_currency_units_2026_10_15"
+    },
+    {
+      "id": "tatdqa_9c7fbeb8e5081bff7df6a932721dad68",
+      "raw_answer": "1886931",
+      "question": "What is the difference in the company's net owned property and equipment between 2018 and 2019?",
+      "factor": 1.0,
+      "comparison_unit": "USD",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD",
+      "reason": "The source's owned property and equipment balances are individual US dollars, independently confirmed by the USD-unit XBRL instance with decimals=0. The unscaled gold 1886931 therefore denotes USD. Convert this target and its one-dollar absolute tolerance into each saved candidate unit without changing any candidate amount; the existing relative scoring rule is unchanged.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/2145fa4a784df129c0fcf87f7542d442.pdf",
+          "locator": "Excerpt page 1 (printed page 45), Note 4 PROPERTY AND EQUIPMENT, NET; Owned property and equipment, September 2019 and September 2018",
+          "observations": {
+            "2019_owned_property_and_equipment_USD": 17655415,
+            "2018_owned_property_and_equipment_USD": 15768484
+          },
+          "sha256": "2b54e7ededecfe2594c622fac64b6ffc3559e16293e5db4a7bddbc728faffc13"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0001558370-19-010602/dit-20190930.xml",
+          "locator": "us-gaap:PropertyPlantAndEquipmentNet; contexts As_Of_9_30_2019 and As_Of_9_30_2018; unitRef Unit12 = iso4217:USD; decimals=0",
+          "observations": {
+            "2019_owned_property_and_equipment_USD": 17655415,
+            "2018_owned_property_and_equipment_USD": 15768484
+          },
+          "sha256": "06eae04837099bd1b250f639a0794199dc07ad760ba549c1181469bd6e2a4a91"
+        }
+      ],
+      "source_calculation": "17655415 - 15768484 = 1886931 USD",
+      "review_group": "gpt6_1_source_mismatches_2026_10_15"
+    },
+    {
+      "id": "tatdqa_29fbc5bd0bb36d93e810ecb557ca38b8",
+      "raw_answer": "1300",
+      "question": "What is the average total fair value of long-lived assets held for sale for 2018 and 2019?",
+      "factor": 1.0,
+      "comparison_unit": "USD thousands",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD thousands",
+      "reason": "Both non-recurring Total Fair Value entries are 1300 in the notes' USD-thousands presentation. The independent USD-unit XBRL facts are each 1300000. The unscaled benchmark answer therefore denotes 1300 USD thousands, not 1300 of whichever unit a candidate uses. Convert the target and existing one-source-unit absolute floor into each saved candidate unit; preserve the candidate and shared relative tolerance. The separate total carrying amount of assets held for sale is not the requested fair-value measurement.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/8669cb17eb8f2ee871126d8ce760482b.pdf",
+          "locator": "Excerpt page 2 (printed page 47), Non-Recurring Fair Value Measurements; long-lived assets held for sale, Total Fair Value, June 30, 2019 and 2018",
+          "observations": {
+            "2019_USD_thousands": 1300,
+            "2018_USD_thousands": 1300
+          },
+          "sha256": "90dc7a23db40bc236e1c2e3cdbe8ba1fe6a35109f9a6106cc6fceaa5590cedf7"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0000779152-19-000048/JHA_2019_AnnualReport.pdf",
+          "locator": "PDF page 40 (printed 38), Notes to Consolidated Financial Statements header: In Thousands, Except Per Share Amounts; PDF page 49 (printed 47), fair-value table",
+          "observations": {
+            "notes_unit": "USD thousands"
+          },
+          "sha256": "43b74f74e5044ce664eb0593d41f85f9f9104a3622ca5b2b21b5078086c08b91"
+        },
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/xbrl/0000779152-19-000048/jkhy-20190630.xml",
+          "locator": "us-gaap:AssetsHeldForSaleLongLivedFairValueDisclosure, total non-recurring contexts for 2018-06-30 and 2019-06-30; lines 3167 and 3171; unitRef usd = iso4217:USD",
+          "observations": {
+            "2019_USD": 1300000,
+            "2018_USD": 1300000
+          },
+          "sha256": "793abd09e04df5b7b6b845aaeda4023530301a41efee60ab6641b89e49e78db9"
+        }
+      ],
+      "source_calculation": "(1300 + 1300) / 2 = 1300 USD thousands = 1.3 USD millions",
+      "review_group": "qwen3_30b_false_accept_review_2026_10_16"
+    },
+    {
+      "id": "tatdqa_75b650843c8490b8e97800106458054e",
+      "raw_answer": "7.81",
+      "question": "In the first quarter of 2018, what was the difference between the high and low price per share?",
+      "factor": 1.0,
+      "comparison_unit": "USD per share",
+      "claim_unit_qualifier": "per share",
+      "absolute_tolerance": 1.0,
+      "tolerance_unit": "USD per share",
+      "reason": "The source explicitly reports common-stock prices per share in USD. Fiscal 2018 first-quarter high 45.24 less low 37.43 is 7.81 USD per share. Legacy claims normalized into USD millions can omit the per-share denominator. Repair only that missing denominator and convert target and existing one-dollar-per-share absolute floor consistently; do not change saved amounts, scales, currencies or the shared relative policy.",
+      "sources": [
+        {
+          "path": "data/tatdqa_403_question_handoff_v1/documents/9082b05b2e0e2600d7f405f82795f041.pdf",
+          "locator": "Excerpt page 1 (printed page 26), Item 5, Price Range of Common Stock; First Quarter, Fiscal 2018 High and Low columns",
+          "observations": {
+            "2018_Q1_high_USD_per_share": 45.24,
+            "2018_Q1_low_USD_per_share": 37.43
+          },
+          "sha256": "9e99dd2617e00cf999f378e5f9caf9e65a51b65f7e9f8f64be60c632faa8dc8a"
+        }
+      ],
+      "source_calculation": "45.24 - 37.43 = 7.81 USD per share",
+      "review_group": "qwen3_30b_false_accept_review_2026_10_16"
+    }
+  ],
+  "version": 6,
+  "review_scope": "Includes source-unit review of all 13 monetary questions on the five source excerpt pages associated with nine flagged Haiku results. Percentage questions retain their explicit percent scale. The metadata applies to all models and verdicts; this is not a complete audit of all 403 questions. A subsequent GPT-6.1 mismatch review establishes the AMCON net-owned-PPE difference as individual USD; this source metadata also applies to every model. The Qwen3 30B four-case review on 2026-10-16 adds source units for Jack Henry fair value and NetApp first-quarter share prices; these corrections apply to all models and verdicts."
+}

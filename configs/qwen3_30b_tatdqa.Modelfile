@@ -1,0 +1,3 @@
+# Pin the non-thinking Qwen3 30B checkpoint for the structured-output pipeline.
+FROM qwen3:30b-a3b-instruct-2507-q4_K_M
+PARAMETER num_ctx 32768

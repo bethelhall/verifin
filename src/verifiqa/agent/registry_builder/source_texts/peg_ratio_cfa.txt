@@ -1,0 +1,23 @@
+Source: CFA Institute, Equity Investments curriculum
+Authority: CFA Institute Program Curriculum, Level 1, Equity Valuation
+Metric: PEG Ratio (Price/Earnings to Growth)
+
+PRIMARY FORMULA:
+PEG = P/E Ratio / Earnings Growth Rate
+
+ALTERNATIVE FORMULA:
+PEG = (Price Per Share / Earnings Per Share) / Annual EPS Growth Rate
+
+VARIABLE DEFINITIONS:
+- P/E Ratio: Price per share divided by earnings per share
+- Earnings Growth Rate: Expected annual EPS growth rate, expressed as a percentage (not a decimal)
+- Result: A PEG below 1.0 may indicate undervaluation relative to growth; above 1.0 may indicate overvaluation
+
+VERBATIM FORMULA STATEMENTS:
+"PEG Ratio = P/E Ratio / Earnings Growth Rate"
+"The PEG ratio adjusts the P/E ratio by the company's expected earnings growth rate to account for the fact that high-growth companies deserve higher P/E multiples."
+"A PEG ratio of 1.0 is often considered fairly valued."
+
+KEY NOTES:
+Developed by Peter Lynch. Growth rate is typically the expected 5-year EPS CAGR.
+Sensitive to growth rate estimate — a small change in expected growth materially changes the PEG.

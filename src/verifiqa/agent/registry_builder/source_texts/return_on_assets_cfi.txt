@@ -1,0 +1,22 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/return-on-assets-roa-formula/
+Metric: Return on Assets (ROA)
+
+PRIMARY FORMULA:
+ROA = (Net Income / Average Total Assets) x 100
+
+ALTERNATIVE FORMULA:
+ROA = Net Income / Ending Total Assets
+
+VARIABLE DEFINITIONS:
+- Net Income: Net earnings for the period (typically annual), sourced from the income statement
+- Average Total Assets: Calculated as (Beginning Total Assets + Ending Total Assets) / 2, derived from the balance sheet
+- Ending Total Assets: Total assets at end of period (used when averaging is not performed)
+
+VERBATIM FORMULA STATEMENTS:
+"ROA = (Net Income / Average Total Assets) x 100"
+"ROA = Net Income / Ending Total Assets"
+
+KEY NOTES:
+"Using average assets provides a more accurate measure when asset levels change significantly during the period."
+A company generating $10 million in net income with $50 million in total assets would achieve a 20% ROA, indicating the business produces $0.20 in profit per dollar of assets owned.

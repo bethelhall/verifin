@@ -1,0 +1,20 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/operating-profit-margin/
+Metric: Operating Margin / Operating Profit Margin
+
+PRIMARY FORMULA:
+Operating Margin = Operating Profit / Total Revenue
+
+VARIABLE DEFINITIONS:
+- Operating Profit: Calculated by subtracting COGS, depreciation, amortization, and all operating expenses from total revenues. Also known as EBIT (Earnings Before Interest and Tax).
+- Total Revenue: The company's overall sales revenue
+- Operating Expenses: Costs beyond direct production, including salaries, benefits, rent, overhead, and R&D
+
+VERBATIM FORMULA STATEMENTS:
+"Operating profit divided by total revenue, expressed as a percentage"
+"The margin is also known as the EBIT (Earnings Before Interest and Tax) Margin."
+"A 15% operating profit margin is equal to $0.15 operating profit for every $1 of revenue."
+
+KEY NOTES:
+Operating profit margin differs from net profit margin because it excludes financing costs (interest payments) and taxes, focusing solely on operational performance.
+Operating Profit = Revenue - COGS - Operating Expenses - Depreciation - Amortization

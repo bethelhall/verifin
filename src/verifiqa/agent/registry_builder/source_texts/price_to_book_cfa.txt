@@ -1,0 +1,28 @@
+Source: CFA Institute, Equity Investments curriculum
+Authority: CFA Institute Program Curriculum, Level 1, Equity Valuation
+Metric: Price-to-Book Ratio (P/B)
+
+PRIMARY FORMULA:
+P/B = Market Price Per Share / Book Value Per Share
+
+ALTERNATIVE FORMULA:
+P/B = Market Capitalization / Total Book Value of Equity
+
+COMPONENT FORMULA:
+Book Value Per Share = (Total Shareholders' Equity - Preferred Stock) / Common Shares Outstanding
+
+VARIABLE DEFINITIONS:
+- Market Price Per Share: Current market price of one common share
+- Book Value Per Share: Net asset value per common share from the balance sheet
+- Market Capitalization: Total market value of all outstanding common shares
+- Total Book Value of Equity: Total shareholders' equity minus preferred stock, from the balance sheet
+
+VERBATIM FORMULA STATEMENTS:
+"P/B = Market Price Per Share / Book Value Per Share"
+"Market Cap / Total Book Value = P/B ratio"
+"A P/B ratio below 1.0 may indicate that shares are trading below the net asset value of the company."
+"A higher P/B ratio implies that investors expect management to create more value from a given set of assets."
+
+KEY NOTES:
+Also known as: market-to-book ratio, price-to-equity ratio.
+Inverse (B/P) is called the book-to-market ratio.

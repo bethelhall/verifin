@@ -1,0 +1,41 @@
+{
+  "dataset": "XBRLFiling",
+  "version": "1.0",
+  "license": "cc-by-nc-4.0",
+  "split": "test",
+  "rows": 600,
+  "source_checksums": {
+    "questions_jsonl": "a63655a04251bce99cc44a77af5c4abf42fb4a4f1b3e098ce03e3668f8a385ce",
+    "filing_links_jsonl": "6cd4594b2c1713b0e38678fff27b6c4e510708ae3724ab4cc57275ec64f8c6d9"
+  },
+  "files": {
+    "LICENSE.md": {
+      "sha256": "a7cffb26a7f006d9cb99e0bf1bd859116ebe75e5474c947c94a653afe6f7a643",
+      "bytes": 19729
+    },
+    "NOTICE.md": {
+      "sha256": "d47742734434f4b61ee6762ca0b613650f72ca135df660fbf9dbf21bf54e455f",
+      "bytes": 1523
+    },
+    "README.md": {
+      "sha256": "5b360fcbc55c23ce82f9e03c24885570ad3fb086a0f6c4b710302477abfef1d1",
+      "bytes": 7470
+    },
+    "data/test.jsonl": {
+      "sha256": "85a335ed8fd30af3b90de4d83c64a782e1b2dd4ff7c8c2c2c296fc4840ec84e7",
+      "bytes": 2226290
+    },
+    "data/test.parquet": {
+      "sha256": "189f6cd628f4e3b0f86ef1d29dfe36bd66e2ba3d369fcd800ad7cea95addcd32",
+      "bytes": 180436
+    },
+    "metadata/filings.jsonl": {
+      "sha256": "7bc5416ea227d60fbc581c151cc80ad2dc81b03262939506d83ddad4107652e2",
+      "bytes": 24422
+    },
+    "metadata/quality_report.json": {
+      "sha256": "36f36f878edb6cc4fc80793ec7a7c882441c26f65e341e99d4f41402bc230cc6",
+      "bytes": 987
+    }
+  }
+}

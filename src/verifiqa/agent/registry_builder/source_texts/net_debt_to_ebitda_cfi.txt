@@ -1,0 +1,20 @@
+Source: Corporate Finance Institute (CFI)
+URL: https://corporatefinanceinstitute.com/resources/accounting/net-debt-ebitda-ratio/
+Authority: CFA Institute, Financial Reporting and Analysis
+Metric: Net Debt to EBITDA Ratio
+
+PRIMARY FORMULA:
+Net Debt to EBITDA = Net Debt / EBITDA
+
+COMPONENT FORMULAS:
+Net Debt = Total Debt - Cash and Cash Equivalents
+Total Debt = Short-Term Debt + Long-Term Debt
+EBITDA = Operating Income + Depreciation + Amortization
+
+VARIABLE DEFINITIONS:
+- Net Debt: "Total debt minus cash and cash equivalents, thereby accounting for assets that are immediately available to repay senior creditors"
+- EBITDA: "The sum of the company's earnings before interest, taxes, depreciation and amortization expenses from its income statement." Functions as "a common proxy for operating cash flow"
+
+VERBATIM FORMULA STATEMENTS:
+"Net Debt-to-EBITDA Ratio = Net Debt / EBITDA"
+"a leverage ratio that compares a company's liabilities in the form of net debt to its 'cash flow,' in the form of EBITDA"

@@ -1,0 +1,63 @@
+{
+  "dataset": "XBRLFiling",
+  "questions_per_model": 600,
+  "measure": "generated_answer_accuracy_before_verification",
+  "scoring": "abs(abs(candidate)-abs(gold)) <= max(1, 0.01*abs(gold)); USD millions",
+  "restored_from": {
+    "notebook": "notebooks/agent_financebench_result_metrics.ipynb",
+    "sha256": "49adc508f76c99dc69239de28ac8e7afade4c5d44407e08cb62a7b2cedbde309",
+    "cell_id": "6067ea38",
+    "original_cell_sha256": "c5265db8ad97076b0b9e10cb6526f7bd8d76e0b544fae1152092002982d19845",
+    "changes": "Restored both plots under new_submissions; current shared run paths and hashes; Fin-o1 size unconfirmed."
+  },
+  "inputs": [
+    {
+      "model": "GPT-5.5",
+      "path": "results/new_submissions/xbrlfiling_gpt5.5/results.jsonl",
+      "sha256": "d1e53bde72f226c98bdd67984b28e6b365783a04cc3e38dc252684fb68324e89"
+    },
+    {
+      "model": "Claude Haiku 4.5",
+      "path": "results/new_submissions/xbrlfiling_haiku_4_5/results.jsonl",
+      "sha256": "7f6f745f1d7c16a5041119273997b2066e25e55b3c3bdd873d7d907f5879ce98"
+    },
+    {
+      "model": "Fin-o1",
+      "path": "results/new_submissions/xbrlfiling_fin_o1/results.jsonl",
+      "sha256": "0d08700f10fe54c17733c9393eacb6d6aa1cd2253b56fb164d3d3e0799e37820"
+    },
+    {
+      "model": "Qwen3-30B",
+      "path": "results/new_submissions/xbrlfiling_qwen3_30b/results.jsonl",
+      "sha256": "e5c0be0689d64fba410fadedf9a06d193ee2a73c3113efd1a4fdd509430e36e0"
+    },
+    {
+      "model": "Llama-3.1-8B",
+      "path": "results/new_submissions/xbrlfiling_llama3.1_8b/results.jsonl",
+      "sha256": "3c600ecbaade6548738acd7e8e25b4b107fb0931e7367dbe41b270aacc7caeca"
+    },
+    {
+      "model": "Qwen2.5-7B",
+      "path": "results/new_submissions/xbrlfiling_qwen2.5_7b/results.jsonl",
+      "sha256": "532a8f6e129da26d542422e5406b2ac900e430392eaf134ab09dbfeb6387eba8"
+    }
+  ],
+  "metric_denominators": {
+    "Gross profit": 35,
+    "Operating income": 54,
+    "Operating expenses": 10,
+    "Income before taxes": 60,
+    "Net income": 67,
+    "Current assets": 64,
+    "Non-current assets": 4,
+    "Current liabilities": 60,
+    "Non-current liabilities": 4,
+    "Total liabilities": 43,
+    "Shareholders' equity": 60,
+    "Net PP&E": 44,
+    "Cash from operations": 28,
+    "Cash from investing": 24,
+    "Cash from financing": 43
+  },
+  "fin_o1_checkpoint_identity": "unconfirmed"
+}

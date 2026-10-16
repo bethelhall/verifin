@@ -1,0 +1,19 @@
+Source: Wikipedia
+URL: https://en.wikipedia.org/wiki/Return_on_capital
+Metric: Return on Invested Capital (ROIC)
+
+PRIMARY FORMULA:
+ROIC = NOPAT / Average Invested Capital
+
+VARIABLE DEFINITIONS:
+- NOPAT: Net Operating Profit After Tax — after-tax operating income used instead of net income, because it must consider earnings to both stockholders and bondholders (interest).
+- Invested Capital (IC): Book value of debt and equity, with cash netted out. Uses book values rather than market values because market value incorporates expectations for the future.
+- Average Invested Capital: Typically calculated as (Beginning Invested Capital + Ending Invested Capital) / 2, accounting for timing differences since capital must be invested before generating earnings.
+
+ALTERNATIVE ADJUSTMENTS:
+Some practitioners add back depreciation, amortization, and depletion charges to NOPAT as non-cash expenses. However, this is debated as depreciation may represent actual cash outflow.
+
+VERBATIM FORMULA STATEMENTS:
+"ROIC = NOPAT / Average Invested Capital"
+"We use after-tax operating income (NOPAT) rather than net income because it must consider earnings to not only stockholders (net income), but also to bondholders (interest)."
+"We use the book value of debt and equity rather than the market value because market value incorporates expectations for the future."
